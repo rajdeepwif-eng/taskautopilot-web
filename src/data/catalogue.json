@@ -1848,6 +1848,45 @@
    "desc": "Automatic checks across the business every day — filing and licence dates, insurance and certificates, overdue tasks, missed checklists, finance mismatches, failed automations and SOPs due for review — and on the first of each month a one-page internal audit: a score per area, what slipped, who owns the fix and the trend since last month. Your accountant, solicitor or competent person still signs off their areas.",
    "apps": "Asana, Airtable or Google Sheets, Xero or QuickBooks, SafetyCulture, Companies House or state business records, Slack or Teams",
    "replaces": "Gives you an internal auditor's view every month without hiring one — problems found before customers, auditors or regulators do."
+  },
+  {
+   "id": 135,
+   "cat": "Operations",
+   "name": "Systemise any document — form, checklist or SOP",
+   "desc": "Send a paper form, spreadsheet, checklist or Word document. It comes back as a working digital form or checklist on phones, with answers saved to a sheet, the right person alerted, and an SOP task so it gets done on time.",
+   "apps": "Google Forms, Microsoft Forms, SafetyCulture, Google Sheets, Excel, Asana",
+   "price": 900,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$50–150/mo"
+  },
+  {
+   "id": 136,
+   "cat": "Operations",
+   "name": "Stock control, KPIs & cost per product",
+   "desc": "Stock counts and movements, variance against what should be there, waste and shrinkage, and a cost per product built from materials, labour and overheads — with weekly efficiency KPIs (yield, output per hour, cost per unit) and alerts when a cost jumps.",
+   "apps": "Xero, QuickBooks or your ERP, Excel or Google Sheets, your stock and production records",
+   "price": 3500,
+   "days": 15,
+   "ind": [
+    "all"
+   ],
+   "run": "$200–400/mo"
+  },
+  {
+   "id": 137,
+   "cat": "Finance",
+   "name": "Financial reporting & management dashboards",
+   "desc": "Your monthly management pack builds itself: profit and loss, cash, debtors, creditors, margin by product or service and budget against actual — plus a live dashboard of the numbers that matter, with plain-English notes on what changed. Your accountant still signs off statutory accounts.",
+   "apps": "Xero, QuickBooks, Sage or Zoho Books, Google Looker Studio or Power BI, Excel",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo"
   }
  ],
  "how": {
@@ -2360,6 +2399,21 @@
    "We agree the areas to check — legal dates, insurance, finance, safety, people, systems — and who owns each.",
    "Daily checks flag anything due, overdue or out of line to its owner.",
    "Each month you get a scored audit report with actions, owners and the trend since last month."
+  ],
+  "135": [
+   "Upload or photograph the document you use today.",
+   "We turn it into a digital form or checklist and an SOP task with owner and cadence.",
+   "Answers are saved, checked and routed automatically."
+  ],
+  "136": [
+   "Purchases, stock movements, production and hours are pulled together automatically.",
+   "Variance, waste and cost per product are calculated each week.",
+   "A KPI dashboard shows efficiency and flags any cost that jumps."
+  ],
+  "137": [
+   "Your accounting app and sales systems are connected.",
+   "Each month the pack and dashboard rebuild with notes on what changed.",
+   "You get it on the 3rd working day; questions go to the owner of each number."
   ]
  },
  "defaultHours": {
@@ -2495,7 +2549,10 @@
   "131": 3,
   "132": 3,
   "133": 3,
-  "134": 4
+  "134": 4,
+  "135": 4,
+  "136": 4,
+  "137": 4
  },
  "bundles": [
   {

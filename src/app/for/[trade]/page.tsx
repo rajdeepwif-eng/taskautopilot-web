@@ -58,6 +58,27 @@ export default async function TradePage({ params }: { params: Promise<{ trade: s
         </section>
       )}
 
+
+      {t.journey && (
+        <section className="wrap pb-12">
+          <h2 className="m-0 pb-1 font-display text-[30px]">Covered end to end</h2>
+          <p className="m-0 pb-5 text-ink-2">Every step from the first enquiry to the office work afterwards — tap a step to see the automation.</p>
+          <ol className="m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2 lg:grid-cols-3">
+            {t.journey.map(([stage, ids], i) => (
+              <li key={stage} className="flex gap-3 rounded-xl border border-line bg-white p-3.5">
+                <span className="font-mono text-sm text-clay">{String(i + 1).padStart(2, "0")}</span>
+                <span className="flex flex-col gap-1">
+                  <b className="text-[15px]">{stage}</b>
+                  <span className="flex flex-wrap gap-x-3 gap-y-1 text-[13px]">
+                    {ids.map((id) => <Link key={id} href={`/p/${id}/`}>{byId(id).name.split(" — ")[0]}</Link>)}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <p className="m-0 pt-3 text-sm text-muted">A step we haven&apos;t listed? <Link href="/ask/">Ask free</Link> — we can usually build it.</p>
+        </section>
+      )}
       <section className="wrap flex flex-col gap-4 pb-12">
         <h2 className="m-0 font-display text-[30px]">Or fix one thing first</h2>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4">

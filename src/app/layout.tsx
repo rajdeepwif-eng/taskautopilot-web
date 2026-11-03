@@ -35,13 +35,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/library/" className="btn btn-primary !min-h-[44px]">Browse &amp; buy</Link>
             </nav>
             <div className="flex items-center gap-2 lg:hidden">
-              <CurrencySwitch />
               <Link href="/library/" className="btn btn-primary !min-h-[40px] !px-4 whitespace-nowrap text-sm">Browse &amp; buy</Link>
               <details className="relative">
                 <summary aria-label="Menu" className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-line [&::-webkit-details-marker]:hidden">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
                 </summary>
                 <div className="absolute right-0 top-12 z-40 flex w-56 flex-col gap-1 rounded-xl border border-line bg-white p-3 text-[15px] shadow-lg [&>a]:py-2">
+                  <div className="pb-2"><CurrencySwitch /></div>
                   <Link href="/#trades" className="font-semibold text-ink">Shop by trade</Link>
               <Link href="/planner/" className="text-ink">Planner</Link>
               <Link href="/academy/" className="text-ink">Courses</Link>
