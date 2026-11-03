@@ -1,4 +1,5 @@
 import HeroSearch from "@/components/HeroSearch";
+import OwnAutomations, { LIVE_WORKFLOWS } from "@/components/OwnAutomations";
 import Link from "next/link";
 import Assessment from "@/components/Assessment";
 import AppChecker from "@/components/AppChecker";
@@ -75,7 +76,7 @@ export default function Home() {
         <div className="wrap flex flex-wrap justify-between gap-6 py-8">
           {[
             ["140,000+", "automation runs to date in our own businesses"],
-            ["44", "workflows live across the industries we run"],
+            [String(LIVE_WORKFLOWS), "workflows live in our own businesses today"],
             ["~200/day", "runs — 0 failures in the last 24 hours"],
             ["100%", "yours — documented handover, no lock-in"],
           ].map(([n, l]) => (
@@ -168,6 +169,8 @@ export default function Home() {
 
       {/* Assessment */}
       <section id="assess" className="wrap pt-16"><Assessment /></section>
+
+      <div className="pt-16"><OwnAutomations /></div>
 
       {/* Apps */}
       <section className="wrap flex flex-col gap-5 pt-16">
