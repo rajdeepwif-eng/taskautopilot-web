@@ -40,6 +40,7 @@ export const CATEGORIES = [
   "Industry",
   "Compliance",
   "Monitoring",
+  "Owner & management",
   "Solo (self-employed)",
 ];
 

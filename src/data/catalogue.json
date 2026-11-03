@@ -721,6 +721,89 @@
    ],
    "run": "$100–200/mo",
    "replaces": "Stops someone copying form answers into sheets, emails and task lists by hand."
+  },
+  {
+   "id": 49,
+   "cat": "Owner & management",
+   "name": "AI Chief of Staff — one daily brief",
+   "desc": "One short message every morning: at most 3 decisions with a recommendation, your task inbox cleared (only with your yes), and money, compliance and system problems flagged. Monday adds a scorecard.",
+   "apps": "Slack or Teams, Asana, ClickUp or Monday.com, Airtable, Gmail or Outlook",
+   "price": 3500,
+   "days": 15,
+   "ind": [
+    "all"
+   ],
+   "run": "$300–600/mo + AI usage",
+   "replaces": "Ends the morning hour spent opening every app to see what needs you."
+  },
+  {
+   "id": 50,
+   "cat": "Owner & management",
+   "name": "Assistant & team progress report",
+   "desc": "Each evening: real progress vs 'done' with no proof, what needs you with one-tap reply codes, and tomorrow's top 3 ranked by your weekly focus. Your replies update the tasks for you.",
+   "apps": "Slack or Teams, Asana, ClickUp or Monday.com, Airtable, Gmail or Outlook",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$200–400/mo + AI usage",
+   "replaces": "Stops you checking your assistant's or team's task board by hand."
+  },
+  {
+   "id": 51,
+   "cat": "Owner & management",
+   "name": "Research on any task",
+   "desc": "Ask for research from chat or a task comment. Twice a day it posts a cited answer on the task: options, a recommended pick, the next step and what to verify.",
+   "apps": "Asana, ClickUp, Slack, Teams, web search",
+   "price": 1500,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo + AI usage",
+   "replaces": "Replaces hours of searching before a decision — with sources you can check."
+  },
+  {
+   "id": 52,
+   "cat": "Owner & management",
+   "name": "Ops engineer — weekly improvement ideas",
+   "desc": "Every week it reviews your automations and SOPs, finds broken, duplicate or missing ones, researches fixes and proposes at most 3. Nothing changes without your yes.",
+   "apps": "n8n, Make or Zapier, Asana, Google Sheets, Slack",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$300–500/mo + AI usage",
+   "replaces": "Keeps your systems improving without hiring an operations manager."
+  },
+  {
+   "id": 53,
+   "cat": "Owner & management",
+   "name": "Strategy to action plan",
+   "desc": "Turns a goal (e.g. revenue by a date) into a checked one-page strategy and a ready task project: owners, hours, KPIs, monthly milestones and a review rhythm.",
+   "apps": "Asana, ClickUp, Monday.com, Google Docs",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "replaces": "Turns a goal into owned, dated work in days, not weeks of meetings."
+  },
+  {
+   "id": 54,
+   "cat": "Owner & management",
+   "name": "SOP writer — tasks your team can follow",
+   "desc": "Explain or record how a job is done; it becomes a short SOP task with an owner, cadence, steps, proof and a 'done when' — drafted for your approval first.",
+   "apps": "Asana, ClickUp, SweetProcess, Google Docs, Loom",
+   "price": 1500,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo",
+   "replaces": "Gets know-how out of your head and into tasks someone else can run."
   }
  ],
  "how": {
@@ -803,6 +886,36 @@
    "Someone submits your Google, Microsoft or Jotform form.",
    "Answers are checked, saved to the right sheet and turned into a PDF or record.",
    "The right person gets an approval or task, and the submitter gets a confirmation."
+  ],
+  "49": [
+   "Each morning it reads your tasks, inbox, finance checks, compliance dates and automation alerts.",
+   "It posts one message: at most 3 decisions with a recommendation, plus tasks it proposes to close.",
+   "You reply with a code (e.g. D1 yes); only then does it act, and it confirms what it did."
+  ],
+  "50": [
+   "It reads every task your assistant or team touched today, including comments and files.",
+   "It separates real progress from 'done' with no proof, and lists what needs you with reply codes.",
+   "Your coded replies update the tasks; tomorrow's top 3 follow your weekly focus."
+  ],
+  "51": [
+   "You ask for research in a chat message or task comment.",
+   "It reads the whole task, researches with sources and grades each key claim.",
+   "It posts the answer, options, a pick, the next step and what to verify on the task."
+  ],
+  "52": [
+   "Weekly, it reads your automations, SOPs and recent failures.",
+   "It researches fixes and proposes at most 3 changes in plain words.",
+   "It builds only what you approve, and logs every change."
+  ],
+  "53": [
+   "You give the goal, deadline, team and budget.",
+   "It drafts a checked strategy: diagnosis, 3–5 actions, KPIs, risks and tests.",
+   "On your yes it builds the task project with owners, dates and review rhythm."
+  ],
+  "54": [
+   "Explain, upload or record how the job is done.",
+   "It drafts a short SOP: owner, cadence, steps, proof and 'done when'.",
+   "On your approval it becomes a task in your system, ready to repeat."
   ]
  },
  "defaultHours": {
@@ -853,7 +966,13 @@
   "45": 10,
   "46": 20,
   "47": 4,
-  "48": 3
+  "48": 3,
+  "49": 5,
+  "50": 4,
+  "51": 3,
+  "52": 3,
+  "53": 6,
+  "54": 3
  },
  "bundles": [
   {
