@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: "Inter Variable", system-ui, sans-serif;
+  --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
+  --font-jetbrains: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-paper: #F4F3EE;
+  --color-paper-2: #ECEAE2;
+  --color-ink: #15171A;
+  --color-ink-2: #3A3D42;
+  --color-muted: #5B5F66;
+  --color-line: #D9D6CC;
+  --color-clay: #B23A0B;
+  --color-clay-soft: #FFF4EE;
+  --color-amber: #F2B36B;
+  --color-ok: #1A7F4E;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.kicker {
+  font-family: var(--font-jetbrains);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-primary { background: var(--color-clay); color: #fff; }
+.btn-primary:hover { background: #8f2e08; }
+.btn-dark { background: var(--color-ink); color: #fff; }
+.btn-outline { border: 1px solid var(--color-ink); color: var(--color-ink); background: transparent; }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+}
+
+input, select, textarea {
+  border: 1px solid #C9C5B9;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  background: #fff;
 }

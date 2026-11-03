@@ -1,0 +1,799 @@
+{
+ "industries": [
+  "Trades & home services",
+  "Construction & equipment hire",
+  "Restaurants & hospitality",
+  "Retail & e-commerce",
+  "Professional services",
+  "Clinics & healthcare",
+  "Real estate & property",
+  "Manufacturing & wholesale",
+  "Logistics & transport",
+  "Agencies & creative"
+ ],
+ "products": [
+  {
+   "id": 1,
+   "cat": "Get found (SEO)",
+   "name": "Local SEO Lite",
+   "desc": "Google Business Profile kept sharp, directory listings checked, review requests automated, monthly report.",
+   "apps": "Google Business Profile, directories",
+   "price": 450,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "monthly": true
+  },
+  {
+   "id": 2,
+   "cat": "Get found (SEO)",
+   "name": "Local SEO Growth",
+   "desc": "Everything in Lite plus technical fixes, new content and a dashboard tying searches to calls and bookings.",
+   "apps": "Google Search Console, GA4",
+   "price": 999,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "monthly": true
+  },
+  {
+   "id": 3,
+   "cat": "Get found (SEO)",
+   "name": "Location landing pages",
+   "desc": "A fast page for each town or area you serve, built to rank locally and convert.",
+   "apps": "Your website",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 4,
+   "cat": "Websites & portals",
+   "name": "Website that books & takes payment",
+   "desc": "A fast site where customers see prices, book a slot and pay online.",
+   "apps": "Stripe, Google Calendar, your domain",
+   "price": 4500,
+   "days": 15,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 5,
+   "cat": "Websites & portals",
+   "name": "Booking platform Pro",
+   "desc": "Live availability, deposits, ID checks, e-signed agreements and an out-of-hours AI assistant.",
+   "apps": "Stripe, DocuSign, WhatsApp",
+   "price": 9500,
+   "days": 30,
+   "ind": [
+    "Trades & home services",
+    "Construction & equipment hire",
+    "Clinics & healthcare",
+    "Real estate & property",
+    "Restaurants & hospitality"
+   ]
+  },
+  {
+   "id": 6,
+   "cat": "Websites & portals",
+   "name": "Customer & staff portal",
+   "desc": "Customers log in to see orders, bookings and invoices; your team works from one screen.",
+   "apps": "Your database, Slack/Teams",
+   "price": 6000,
+   "days": 20,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 7,
+   "cat": "AI agents",
+   "name": "AI phone receptionist",
+   "desc": "Answers every call 24/7, answers questions from your info, books appointments and passes tricky calls to you.",
+   "apps": "Your phone number, calendar, CRM",
+   "price": 3500,
+   "days": 15,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 8,
+   "cat": "AI agents",
+   "name": "AI website & WhatsApp assistant",
+   "desc": "Answers customers instantly, checks orders or bookings, and hands over to a person when needed.",
+   "apps": "Website, WhatsApp, your CRM",
+   "price": 6000,
+   "days": 20,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 9,
+   "cat": "AI agents",
+   "name": "Company knowledge assistant",
+   "desc": "Staff ask questions in plain words and get answers from your own manuals, policies and price lists — with the source.",
+   "apps": "Google Drive, SharePoint, Slack/Teams",
+   "price": 8000,
+   "days": 20,
+   "ind": [
+    "Professional services",
+    "Manufacturing & wholesale",
+    "Clinics & healthcare",
+    "Logistics & transport",
+    "Agencies & creative",
+    "Construction & equipment hire"
+   ]
+  },
+  {
+   "id": 10,
+   "cat": "Sales",
+   "name": "Instant lead reply & booking",
+   "desc": "Every web, WhatsApp and social enquiry gets a personal reply and booking link within a minute.",
+   "apps": "Website forms, WhatsApp, Meta, Gmail/Outlook",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 11,
+   "cat": "Sales",
+   "name": "Missed-call text-back",
+   "desc": "Any call you miss gets a text within a minute with a link to book or reply.",
+   "apps": "Your phone line, SMS, calendar",
+   "price": 1500,
+   "days": 5,
+   "ind": [
+    "Trades & home services",
+    "Construction & equipment hire",
+    "Clinics & healthcare",
+    "Restaurants & hospitality",
+    "Real estate & property"
+   ]
+  },
+  {
+   "id": 12,
+   "cat": "Sales",
+   "name": "AI outbound prospecting",
+   "desc": "Finds ideal prospects, researches them and drafts personal emails you approve before sending.",
+   "apps": "LinkedIn, CRM, Gmail/Outlook",
+   "price": 4000,
+   "days": 15,
+   "ind": [
+    "Professional services",
+    "Manufacturing & wholesale",
+    "Logistics & transport",
+    "Agencies & creative",
+    "Construction & equipment hire"
+   ]
+  },
+  {
+   "id": 13,
+   "cat": "Sales",
+   "name": "Quote follow-up chaser",
+   "desc": "Quotes that go quiet get timely, polite follow-ups until the customer decides.",
+   "apps": "CRM, Gmail/Outlook, SMS",
+   "price": 1500,
+   "days": 5,
+   "ind": [
+    "Trades & home services",
+    "Construction & equipment hire",
+    "Manufacturing & wholesale",
+    "Professional services",
+    "Agencies & creative"
+   ]
+  },
+  {
+   "id": 14,
+   "cat": "Sales",
+   "name": "Lead scoring & routing",
+   "desc": "Hot leads go to the right person straight away; cold ones get nurtured automatically.",
+   "apps": "HubSpot, Salesforce, Pipedrive",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "Real estate & property",
+    "Professional services",
+    "Agencies & creative",
+    "Retail & e-commerce"
+   ]
+  },
+  {
+   "id": 15,
+   "cat": "Marketing",
+   "name": "Review requests & replies",
+   "desc": "Happy customers are asked for a review; every new review gets a drafted reply you approve.",
+   "apps": "Google Business Profile, email, SMS",
+   "price": 900,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 16,
+   "cat": "Marketing",
+   "name": "Email follow-up & win-back",
+   "desc": "Past customers and quiet leads get timely, personal emails that bring them back.",
+   "apps": "Mailchimp, Klaviyo, CRM",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 17,
+   "cat": "Marketing",
+   "name": "Social media on autopilot",
+   "desc": "Your photos and news turned into posts, approved in one tap and published on schedule.",
+   "apps": "Facebook, Instagram, LinkedIn, TikTok",
+   "price": 600,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "monthly": true
+  },
+  {
+   "id": 18,
+   "cat": "Marketing",
+   "name": "Google & Meta ads management",
+   "desc": "Campaigns set up, watched and adjusted weekly, with every lead flowing straight into your follow-up.",
+   "apps": "Google Ads, Meta Ads, GA4",
+   "price": 750,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "monthly": true
+  },
+  {
+   "id": 19,
+   "cat": "Marketing",
+   "name": "Wasted ad spend audit",
+   "desc": "We find the keywords, ads and audiences spending money without bringing customers — and fix them.",
+   "apps": "Google Ads, Meta Ads, Microsoft Ads",
+   "price": 500,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 20,
+   "cat": "Marketing",
+   "name": "Abandoned cart & post-purchase flows",
+   "desc": "Shoppers who leave get reminded; buyers get thank-yous, cross-sells and review asks.",
+   "apps": "Shopify, WooCommerce, Klaviyo",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "Retail & e-commerce"
+   ]
+  },
+  {
+   "id": 21,
+   "cat": "Finance",
+   "name": "Supplier invoice reader",
+   "desc": "Bills arriving by email are read, checked and booked into your accounts with the PDF attached.",
+   "apps": "Xero, QuickBooks, Sage, Zoho Books",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 22,
+   "cat": "Finance",
+   "name": "Automated credit control",
+   "desc": "Polite reminders before and after due dates, pay-now links, statements and escalation.",
+   "apps": "Xero, QuickBooks, Sage, Stripe, GoCardless",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "Trades & home services",
+    "Construction & equipment hire",
+    "Professional services",
+    "Manufacturing & wholesale",
+    "Logistics & transport",
+    "Agencies & creative",
+    "Real estate & property"
+   ]
+  },
+  {
+   "id": 23,
+   "cat": "Finance",
+   "name": "Nightly bank reconciliation",
+   "desc": "Bank lines matched to invoices overnight, with a checker and a short list of anything left.",
+   "apps": "Xero, QuickBooks, Zoho, Stripe",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 24,
+   "cat": "Finance",
+   "name": "Receipts & expenses",
+   "desc": "Staff snap receipts; they are read, categorised and filed in your accounts.",
+   "apps": "Dext, Xero, QuickBooks",
+   "price": 1200,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 25,
+   "cat": "Finance",
+   "name": "Owner dashboard",
+   "desc": "Leads, sales, cash and overdue work on one screen, updated automatically.",
+   "apps": "Your accounts, CRM, spreadsheets",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 26,
+   "cat": "Operations",
+   "name": "Job scheduling & dispatch",
+   "desc": "Jobs become schedules and run sheets; staff get details and checklists on their phone.",
+   "apps": "Google Calendar, Jobber, Airtable",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "Trades & home services",
+    "Construction & equipment hire",
+    "Logistics & transport"
+   ]
+  },
+  {
+   "id": 27,
+   "cat": "Operations",
+   "name": "Stock & inventory tracking",
+   "desc": "Stock in and out logged by scan; low stock and reorders flagged automatically.",
+   "apps": "Airtable, Shopify, Odoo",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "Restaurants & hospitality",
+    "Retail & e-commerce",
+    "Manufacturing & wholesale",
+    "Construction & equipment hire"
+   ]
+  },
+  {
+   "id": 28,
+   "cat": "Operations",
+   "name": "Orders sync",
+   "desc": "Online and phone orders flow into your kitchen, warehouse and accounts without retyping.",
+   "apps": "Shopify, Square, Toast, Deliveroo, Xero",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "Restaurants & hospitality",
+    "Retail & e-commerce",
+    "Manufacturing & wholesale",
+    "Logistics & transport"
+   ]
+  },
+  {
+   "id": 29,
+   "cat": "Operations",
+   "name": "Proof of delivery & job sign-off",
+   "desc": "Photos and signatures captured on site, sent to the customer and filed against the job.",
+   "apps": "Mobile forms, CRM, accounts",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "Logistics & transport",
+    "Trades & home services",
+    "Construction & equipment hire"
+   ]
+  },
+  {
+   "id": 30,
+   "cat": "Operations",
+   "name": "Staff onboarding & rotas",
+   "desc": "New starters get documents, training and rota invites automatically.",
+   "apps": "Google Workspace, Microsoft 365, rota apps",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "Restaurants & hospitality",
+    "Retail & e-commerce",
+    "Clinics & healthcare",
+    "Logistics & transport",
+    "Manufacturing & wholesale"
+   ]
+  },
+  {
+   "id": 31,
+   "cat": "Operations",
+   "name": "CRM & accounts sync",
+   "desc": "Customers, jobs and invoices stay in step across your CRM, job system and accounts.",
+   "apps": "HubSpot, Salesforce, Xero, QuickBooks",
+   "price": 5000,
+   "days": 20,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 32,
+   "cat": "Industry",
+   "name": "Client intake & document collection",
+   "desc": "New clients complete onboarding forms and upload documents; reminders chase what is missing.",
+   "apps": "Forms, Google Drive, CRM",
+   "price": 3000,
+   "days": 10,
+   "ind": [
+    "Professional services",
+    "Real estate & property"
+   ]
+  },
+  {
+   "id": 33,
+   "cat": "Industry",
+   "name": "Patient booking, reminders & intake",
+   "desc": "Online booking, reminders that cut no-shows and digital intake forms — with health-data safeguards.",
+   "apps": "Practice software, SMS, email",
+   "price": 3500,
+   "days": 15,
+   "ind": [
+    "Clinics & healthcare"
+   ]
+  },
+  {
+   "id": 34,
+   "cat": "Industry",
+   "name": "Tenant & maintenance requests",
+   "desc": "Requests logged with photos, contractors assigned, tenants kept updated automatically.",
+   "apps": "Property software, email, SMS",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "Real estate & property"
+   ]
+  },
+  {
+   "id": 35,
+   "cat": "Industry",
+   "name": "Reservations & no-show reminders",
+   "desc": "Bookings confirmed instantly, reminders sent, and empty slots offered to the waitlist.",
+   "apps": "Reservation app, SMS, WhatsApp",
+   "price": 1500,
+   "days": 5,
+   "ind": [
+    "Restaurants & hospitality"
+   ]
+  },
+  {
+   "id": 36,
+   "cat": "Industry",
+   "name": "Documents to data",
+   "desc": "Purchase orders, delivery notes and forms read automatically and entered into your systems.",
+   "apps": "Email, Excel, ERP, accounts",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "Manufacturing & wholesale",
+    "Logistics & transport",
+    "Professional services",
+    "Construction & equipment hire"
+   ]
+  },
+  {
+   "id": 37,
+   "cat": "Compliance",
+   "name": "Inspections & defect follow-up",
+   "desc": "Inspection checklists on phones; every failed item becomes a task until it is fixed.",
+   "apps": "SafetyCulture, Asana, Teams",
+   "price": 1200,
+   "days": 5,
+   "ind": [
+    "Construction & equipment hire",
+    "Trades & home services",
+    "Logistics & transport",
+    "Manufacturing & wholesale",
+    "Restaurants & hospitality",
+    "Real estate & property"
+   ]
+  },
+  {
+   "id": 38,
+   "cat": "Compliance",
+   "name": "Expiry & renewal reminders",
+   "desc": "Insurance, certificates, licences and contracts flagged at 30, 14 and 0 days.",
+   "apps": "Airtable, email, Asana",
+   "price": 900,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 39,
+   "cat": "Monitoring",
+   "name": "Failure alerts & daily watchdog",
+   "desc": "Any failed or missed automation is reported with a link to fix it.",
+   "apps": "Slack/Teams, email",
+   "price": 800,
+   "days": 3,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 40,
+   "cat": "Solo (self-employed)",
+   "name": "Never miss a job — Solo",
+   "desc": "Every enquiry gets an instant reply and your booking link, even when you are busy working.",
+   "apps": "Website form, WhatsApp, calendar",
+   "price": 600,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 41,
+   "cat": "Solo (self-employed)",
+   "name": "Invoice & chase — Solo",
+   "desc": "Invoices go out when the work is done; polite reminders chase late payers.",
+   "apps": "Xero, QuickBooks, Zoho Invoice",
+   "price": 600,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 42,
+   "cat": "Solo (self-employed)",
+   "name": "Receipts to tidy books — Solo",
+   "desc": "Snap a receipt; it is read, categorised and filed ready for your accountant.",
+   "apps": "Dext, Xero, Sage",
+   "price": 500,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 43,
+   "cat": "Solo (self-employed)",
+   "name": "Reviews & repeat work — Solo",
+   "desc": "Happy customers are asked for a review and reminded when it is time to book again.",
+   "apps": "Google, email, SMS",
+   "price": 300,
+   "days": 3,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 44,
+   "cat": "Solo (self-employed)",
+   "name": "Solo Care",
+   "desc": "We keep your automations running and fix them when your apps change.",
+   "apps": "All of the above",
+   "price": 49,
+   "days": 1,
+   "ind": [
+    "all"
+   ],
+   "monthly": true
+  }
+ ],
+ "how": {
+  "1": [
+   "We tidy your Google Business Profile and key directories.",
+   "Every finished job triggers a review request.",
+   "A monthly report shows calls, clicks and reviews."
+  ],
+  "4": [
+   "Your services, prices and availability on a fast site.",
+   "Customers pick a slot and pay online.",
+   "Every booking lands in your calendar and accounts."
+  ],
+  "7": [
+   "A call comes in, day or night.",
+   "The AI answers, uses your info and books the appointment.",
+   "You get a summary; tricky calls are passed to you."
+  ],
+  "8": [
+   "A customer asks on your site or WhatsApp.",
+   "The assistant answers and checks their order or booking.",
+   "Anything it cannot handle goes to a person with the full chat."
+  ],
+  "9": [
+   "We load your manuals, policies and price lists.",
+   "Staff ask in Slack or Teams in plain words.",
+   "Answers come back with the document they came from."
+  ],
+  "10": [
+   "A lead arrives from your website, WhatsApp or social media.",
+   "Within a minute they get a personal reply and your booking link.",
+   "Your team gets an alert; the lead is logged."
+  ],
+  "11": [
+   "You miss a call.",
+   "Within a minute they get a text with a booking link.",
+   "The lead is logged and you are alerted."
+  ],
+  "21": [
+   "A bill arrives by email.",
+   "It is read, checked and coded.",
+   "It is booked in your accounts with the PDF attached."
+  ],
+  "22": [
+   "Reminders go out before and on the due date, with a pay-now link.",
+   "Overdue invoices get firmer follow-ups and a statement.",
+   "Promises to pay are logged; stubborn debts are flagged to you."
+  ],
+  "23": [
+   "Overnight, bank lines are pulled in.",
+   "Matches are reconciled and double-checked.",
+   "You get a short list of anything left."
+  ],
+  "28": [
+   "An order comes in online, by phone or by app.",
+   "It flows to the kitchen or warehouse automatically.",
+   "Sales land in your accounts at the end of the day."
+  ],
+  "33": [
+   "Patients book online at any hour.",
+   "Reminders go out; intake forms are completed before the visit.",
+   "Health data stays inside approved, secure systems."
+  ]
+ },
+ "defaultHours": {
+  "1": 3,
+  "2": 5,
+  "3": 2,
+  "4": 6,
+  "5": 10,
+  "6": 5,
+  "7": 10,
+  "8": 10,
+  "9": 6,
+  "10": 5,
+  "11": 3,
+  "12": 8,
+  "13": 3,
+  "14": 3,
+  "15": 2,
+  "16": 3,
+  "17": 4,
+  "18": 5,
+  "19": 2,
+  "20": 3,
+  "21": 5,
+  "22": 4,
+  "23": 6,
+  "24": 3,
+  "25": 3,
+  "26": 6,
+  "27": 5,
+  "28": 8,
+  "29": 4,
+  "30": 3,
+  "31": 5,
+  "32": 4,
+  "33": 8,
+  "34": 5,
+  "35": 3,
+  "36": 6,
+  "37": 3,
+  "38": 1,
+  "39": 2,
+  "40": 3,
+  "41": 2,
+  "42": 2,
+  "43": 1,
+  "44": 1
+ },
+ "bundles": [
+  {
+   "name": "Found → Booked → Paid",
+   "depts": "MARKETING → SALES → FINANCE",
+   "desc": "Get found locally, let customers book and pay online, answer every lead and match the money overnight.",
+   "ids": [
+    3,
+    4,
+    10,
+    23
+   ]
+  },
+  {
+   "name": "Never lose a lead",
+   "depts": "SALES → MARKETING",
+   "desc": "Every enquiry and missed call answered in a minute, quotes followed up, happy customers asked for reviews.",
+   "ids": [
+    10,
+    11,
+    13,
+    15
+   ]
+  },
+  {
+   "name": "Get paid faster",
+   "depts": "SALES → FINANCE",
+   "desc": "Bills booked automatically, late payers chased, payments matched in the bank overnight.",
+   "ids": [
+    21,
+    22,
+    23
+   ]
+  },
+  {
+   "name": "Job-to-invoice (field work)",
+   "depts": "SALES → OPERATIONS → FINANCE",
+   "desc": "A booking becomes a scheduled job, signed off on site, invoiced and chased automatically.",
+   "ids": [
+    10,
+    26,
+    29,
+    22
+   ]
+  },
+  {
+   "name": "Order-to-cash (shops & restaurants)",
+   "depts": "SALES → OPERATIONS → FINANCE",
+   "desc": "Orders flow to the kitchen or warehouse, stock updates itself and sales land in your accounts.",
+   "ids": [
+    28,
+    27,
+    23
+   ]
+  },
+  {
+   "name": "Solo starter (self-employed)",
+   "depts": "JUST YOU",
+   "desc": "Never miss a job, get paid faster, keep tidy books and win repeat work.",
+   "ids": [
+    40,
+    41,
+    42,
+    43
+   ]
+  },
+  {
+   "name": "New business starter kit",
+   "depts": "ALL — FROM DAY ONE",
+   "desc": "Opening a business or branch? Website, leads, invoicing, bank, renewals and monitoring running before your first customer.",
+   "ids": [
+    4,
+    10,
+    21,
+    23,
+    38,
+    39
+   ]
+  },
+  {
+   "name": "Stay compliant & running",
+   "depts": "COMPLIANCE → OPERATIONS",
+   "desc": "Renewals, inspections and failed automations surfaced before they cost you.",
+   "ids": [
+    38,
+    37,
+    39
+   ]
+  }
+ ]
+}
