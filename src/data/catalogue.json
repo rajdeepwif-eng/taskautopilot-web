@@ -804,7 +804,7 @@
    "id": 54,
    "cat": "Owner & management",
    "name": "SOP writer — tasks your team can follow",
-   "desc": "Explain or record how a job is done; it becomes a short SOP task with an owner, cadence, steps, proof and a 'done when' — drafted for your approval first.",
+   "desc": "Explain it, voice-note it or record a video of the job — it becomes a short SOP in your house style: owner, cadence, steps, proof and 'done when', drafted for your approval, with a review date so SOPs never go stale.",
    "apps": "Asana, ClickUp, SweetProcess, Google Docs, Loom",
    "price": 1500,
    "days": 7,
@@ -1355,6 +1355,45 @@
    ],
    "run": "$100–200/mo + AI usage",
    "replaces": "Gets you to inbox zero without reading every email — we run this on our own inboxes every minute."
+  },
+  {
+   "id": 97,
+   "cat": "Compliance",
+   "name": "Checklist control & defect close-out",
+   "desc": "Every daily and weekly checklist — opening, closing, vehicle, PPE, machine pre-use — scheduled by site and person. Missed checklists are flagged the same day, failed items become defects with an owner and photo proof, and repeat defects escalate to the manager.",
+   "apps": "Airtable or Google Sheets, SafetyCulture or phone forms, Asana, Slack or Teams",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$200–400/mo"
+  },
+  {
+   "id": 98,
+   "cat": "Operations",
+   "name": "Site & machine planned maintenance",
+   "desc": "A planned maintenance calendar for your buildings, machines and equipment — services, inspections and statutory tests on their due dates, contractor jobs booked and chased, and photos of every job. Your competent person or contractor still signs off.",
+   "apps": "Airtable or Google Sheets, SafetyCulture or phone forms, Asana, Slack or Teams",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$200–400/mo"
+  },
+  {
+   "id": 99,
+   "cat": "Operations",
+   "name": "Custom trackers — any process, one place",
+   "desc": "A tracker for whatever you chase by hand — jobs, projects, orders, quotes, staff training, KPIs, compliance — with a simple phone form, automatic reminders and a live dashboard.",
+   "apps": "Airtable or Google Sheets, SafetyCulture or phone forms, Asana, Slack or Teams",
+   "price": 1200,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$50–150/mo"
   }
  ],
  "how": {
@@ -1677,6 +1716,21 @@
    "A new email arrives in your Gmail or Outlook.",
    "AI sorts it, drafts a reply in your voice and routes leads, invoices and documents to the right app.",
    "You approve replies in one tap and get one digest of what truly needs you."
+  ],
+  "97": [
+   "Checklists are scheduled by site, shift and person on their phone.",
+   "A missed checklist or failed item alerts the right manager straight away.",
+   "Defects stay open until fixed with a photo; repeat defects escalate."
+  ],
+  "98": [
+   "We load every asset with its service and inspection dates.",
+   "Jobs fall due automatically to staff or contractors, with reminders and chasers.",
+   "Completed jobs need photos and sign-off; overdue items alert the manager."
+  ],
+  "99": [
+   "We agree what you track, the stages and who owns each.",
+   "Updates come in from a phone form, email or your existing apps.",
+   "Reminders chase anything stuck and a dashboard shows it all live."
   ]
  },
  "defaultHours": {
@@ -1775,7 +1829,10 @@
   "93": 4,
   "94": 4,
   "95": 4,
-  "96": 6
+  "96": 6,
+  "97": 4,
+  "98": 4,
+  "99": 4
  },
  "bundles": [
   {
