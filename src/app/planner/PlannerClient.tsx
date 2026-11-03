@@ -76,6 +76,7 @@ const TASKS: Task[] = [
   { id: "epr", label: "Preparing staff performance reviews", hours: 2, rate: 40, product: 107 },
   { id: "recruit", label: "Recruiting: reading CVs and booking interviews", hours: 4, rate: 30, product: 110 },
   { id: "ea", label: "Diary, meeting agendas, notes and prep", hours: 6, rate: 37, product: 111 },
+  { id: "payroll", label: "Preparing payroll: hours, overtime, leave", hours: 3, rate: 25, product: 112 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];

@@ -1552,6 +1552,20 @@
    "ind": [
     "all"
    ]
+  },
+  {
+   "id": 112,
+   "cat": "Finance",
+   "name": "Payroll prep — hours to payroll, checked",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo",
+   "desc": "Every pay period, hours from clock-in or timesheets, overtime, leave, sickness and expenses are gathered, checked against the rota and flagged where they don't match — then sent into your payroll software or to your accountant ready to approve. Your payroll provider runs the pay and the tax filings; we never move money.",
+   "apps": "Gusto, ADP, QuickBooks Payroll, Xero Payroll, Deputy, Homebase, Connecteam",
+   "replaces": "Ends the payday scramble of chasing timesheets and fixing hours by hand."
   }
  ],
  "how": {
@@ -1949,6 +1963,11 @@
    "Meeting requests are handled and your diary kept free for deep work.",
    "Before each meeting: an agenda from open tasks, plus a research brief for key calls.",
    "After: notes, decisions and actions go to the right people once you approve."
+  ],
+  "112": [
+   "At period end it gathers hours, overtime, leave and expenses from your systems.",
+   "Mismatches with the rota or approvals are flagged for the manager to fix.",
+   "Approved figures go into your payroll software or to your accountant; they run pay and filings."
   ]
  },
  "defaultHours": {
@@ -2062,7 +2081,8 @@
   "108": 8,
   "109": 8,
   "110": 5,
-  "111": 6
+  "111": 6,
+  "112": 3
  },
  "bundles": [
   {
