@@ -687,6 +687,40 @@
    "wage": 49230,
    "role": "claims clerk",
    "replaces": "Takes on the intake work of a claims clerk ($49,230/yr (US median, BLS May 2025)), so adjusters start on complete files."
+  },
+  {
+   "id": 47,
+   "cat": "Compliance",
+   "name": "SafetyCulture setup & automation",
+   "desc": "Your paper checklists and SOPs turned into SafetyCulture inspections, scheduled for the right people. Failed items become assigned actions, reports go to clients automatically, and results flow into your sheets or job system.",
+   "apps": "SafetyCulture (iAuditor) Premium, Google Sheets, Slack or Teams, Asana, your job system",
+   "price": 2500,
+   "days": 15,
+   "ind": [
+    "Construction & equipment hire",
+    "Trades & home services",
+    "Restaurants & hospitality",
+    "Manufacturing & wholesale",
+    "Logistics & transport",
+    "Real estate & property",
+    "Clinics & healthcare"
+   ],
+   "run": "$150–300/mo",
+   "replaces": "Ends retyping inspection results and chasing fixes. Your competent person still approves every template."
+  },
+  {
+   "id": 48,
+   "cat": "Operations",
+   "name": "Forms to workflow (Google Forms, Microsoft Forms, Jotform)",
+   "desc": "Every form submission is checked, saved to the right sheet, turned into a PDF if needed, sent for approval and assigned as a task — no copying and pasting.",
+   "apps": "Google Forms, Microsoft Forms, Jotform, Typeform, Google Sheets, Gmail, Outlook",
+   "price": 900,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo",
+   "replaces": "Stops someone copying form answers into sheets, emails and task lists by hand."
   }
  ],
  "how": {
@@ -759,6 +793,16 @@
    "A claim is reported by web form, phone or email and logged straight away.",
    "Photos, police reports and policy documents are read, checked and filed to the claim.",
    "Each claim is triaged by type and severity and sent to the right handler, with gaps chased automatically."
+  ],
+  "47": [
+   "We turn your current checklists and SOPs into SafetyCulture templates; your competent person approves them.",
+   "Inspections are scheduled to the right people; failed items raise an action with an owner and due date.",
+   "Completed reports go to clients and managers automatically, and results sync to your sheets or job system."
+  ],
+  "48": [
+   "Someone submits your Google, Microsoft or Jotform form.",
+   "Answers are checked, saved to the right sheet and turned into a PDF or record.",
+   "The right person gets an approval or task, and the submitter gets a confirmation."
   ]
  },
  "defaultHours": {
@@ -807,7 +851,9 @@
   "43": 1,
   "44": 1,
   "45": 10,
-  "46": 20
+  "46": 20,
+  "47": 4,
+  "48": 3
  },
  "bundles": [
   {

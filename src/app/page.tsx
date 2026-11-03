@@ -52,7 +52,7 @@ export default function Home() {
           <HeroSearch />
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/library/" className="btn btn-primary text-[17px]">Browse &amp; buy automations →</Link>
-            <Link href="#assess" className="font-semibold text-ink">Not sure? 3-question check</Link>
+            <Link href="/planner/" className="font-semibold text-ink">Not sure? Build my plan in 2 minutes →</Link>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
             <span>✓ Fixed price</span><span>✓ Pay online, no sales call</span><span>✓ You own everything</span>
@@ -156,7 +156,7 @@ export default function Home() {
               <ul className={`m-0 list-none p-0 text-[15px] leading-relaxed ${p.popular ? "text-[#C9C7C0]" : "text-ink-2"}`}>
                 {p.points.map((x) => <li key={x}>✓ {x}</li>)}
               </ul>
-              <Link href={`/checkout?plan=${p.id}`} className={`btn mt-auto ${p.id === 0 ? "btn-outline" : "btn-primary"}`}>{p.id === 0 ? "Buy the audit" : "Buy now — secure checkout"}</Link>
+              <Link href={`/checkout/?plan=${p.id === 21 ? "invoices" : p.id}`} className={`btn mt-auto ${p.id === 0 ? "btn-outline" : "btn-primary"}`}>{p.id === 0 ? "Buy the audit" : "Buy now — secure checkout"}</Link>
             </div>
           ))}
         </div>

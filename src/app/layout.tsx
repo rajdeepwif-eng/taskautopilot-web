@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
             <nav className="hidden items-center gap-6 text-[15px] lg:flex">
               <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
+              <Link href="/planner/" className="text-ink">Planner</Link>
               <Link href="/consulting/" className="text-ink">Consulting</Link>
               <Link href="/insurance/" className="text-ink">Insurance</Link>
               <Link href="/legal-firms/" className="text-ink">Law firms</Link>
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </summary>
                 <div className="absolute right-0 top-12 z-40 flex w-56 flex-col gap-1 rounded-xl border border-line bg-white p-3 text-[15px] shadow-lg [&>a]:py-2">
                   <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
+              <Link href="/planner/" className="text-ink">Planner</Link>
                   <Link href="/consulting/" className="text-ink">Consulting</Link>
                   <Link href="/insurance/" className="text-ink">Insurance</Link>
                   <Link href="/legal-firms/" className="text-ink">Law firms</Link>
