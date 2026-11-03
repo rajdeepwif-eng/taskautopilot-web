@@ -30,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav className="flex flex-wrap items-center gap-6 text-[15px]">
               <Link href="/library" className="font-semibold text-ink">Automation library</Link>
               <Link href="/#assess" className="text-ink">Free assessment</Link>
+              <Link href="/consulting/" className="text-ink">Consulting</Link>
               <Link href="/#security" className="text-ink">Security</Link>
               <Link href="/#packages" className="btn btn-primary !min-h-[44px]">See prices</Link>
             </nav>
