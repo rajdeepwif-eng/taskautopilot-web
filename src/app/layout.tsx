@@ -25,13 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="font-display text-xl font-bold">TaskAutopilot</span>
             </Link>
             <nav className="hidden items-center gap-6 text-[15px] lg:flex">
-              <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
+              <Link href="/#trades" className="font-semibold text-ink">Shop by trade</Link>
               <Link href="/planner/" className="text-ink">Planner</Link>
-              <Link href="/kits/" className="text-ink">Starter kits</Link>
               <Link href="/academy/" className="text-ink">Courses</Link>
-              <Link href="/demo/" className="text-ink">Try it live</Link>
               <Link href="/consulting/" className="text-ink">Consulting</Link>
-              
               <Link href="/library/" className="btn btn-primary !min-h-[44px]">Browse &amp; buy</Link>
             </nav>
             <div className="flex items-center gap-2 lg:hidden">
@@ -41,13 +38,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
                 </summary>
                 <div className="absolute right-0 top-12 z-40 flex w-56 flex-col gap-1 rounded-xl border border-line bg-white p-3 text-[15px] shadow-lg [&>a]:py-2">
-                  <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
+                  <Link href="/#trades" className="font-semibold text-ink">Shop by trade</Link>
               <Link href="/planner/" className="text-ink">Planner</Link>
-              <Link href="/kits/" className="text-ink">Starter kits</Link>
               <Link href="/academy/" className="text-ink">Courses</Link>
-              <Link href="/demo/" className="text-ink">Try it live</Link>
-                  <Link href="/consulting/" className="text-ink">Consulting</Link>
-                  <Link href="/insurance/" className="text-ink">Insurance</Link>
+              <Link href="/consulting/" className="text-ink">Consulting</Link>
+              <Link href="/insurance/" className="text-ink">Insurance</Link>
                   <Link href="/legal-firms/" className="text-ink">Law firms</Link>
                   <Link href="/#security" className="text-ink">Security</Link>
                 </div>
@@ -58,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <footer className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm text-muted">
           <span>© 2026 TaskAutopilot · Prices in US dollars</span>
-          <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/#security">Security</Link></span>
+          <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/kits/">Starter kits</Link><Link href="/demo/">Try it live</Link><Link href="/library/">All automations</Link><Link href="/#security">Security</Link></span>
           <span>
             <Link href="/legal/privacy">Privacy</Link> · <Link href="/legal/terms">Terms</Link>
           </span>

@@ -2059,6 +2059,53 @@
     95
    ],
    "kit": true
+  },
+  {
+   "name": "Property starter kit",
+   "depts": "REAL ESTATE & PROPERTY",
+   "desc": "Maintenance requests handled, enquiries answered fast and rent chased politely.",
+   "ids": [
+    34,
+    10,
+    22
+   ],
+   "kit": true
+  },
+  {
+   "name": "Shop starter kit",
+   "depts": "RETAIL & E-COMMERCE",
+   "desc": "Customer questions answered, abandoned carts recovered, orders synced and reviews collected.",
+   "ids": [
+    8,
+    20,
+    28,
+    15
+   ],
+   "kit": true
+  },
+  {
+   "name": "Transport starter kit",
+   "depts": "LOGISTICS & TRANSPORT",
+   "desc": "Jobs dispatched, proof of delivery captured, drivers clocked in and vehicles maintained.",
+   "ids": [
+    26,
+    29,
+    79,
+    91
+   ],
+   "kit": true
+  },
+  {
+   "name": "Factory starter kit",
+   "depts": "MANUFACTURING & WHOLESALE",
+   "desc": "Paperwork read into your systems, stock tracked, orders synced and checklists closed out.",
+   "ids": [
+    36,
+    27,
+    28,
+    97
+   ],
+   "kit": true
   }
  ]
 }

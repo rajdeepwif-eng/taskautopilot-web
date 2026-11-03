@@ -57,6 +57,8 @@ export default function MarketClient() {
     if (qq) { setQ(qq); setQuery(qq); }
     const ind = sp.get("industry");
     if (ind && INDUSTRIES.includes(ind)) setIndustry(ind);
+    const bd = sp.get("band");
+    if (bd && PRICE_BANDS.some((b) => b.id === bd)) setBand(bd);
     loaded.current = true;
   }, []);
   useEffect(() => { if (loaded.current) savePlan(plan); }, [plan]);

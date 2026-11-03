@@ -1,4 +1,5 @@
 import HeroSearch from "@/components/HeroSearch";
+import TradeGrid, { ThreeDoors } from "@/components/TradeGrid";
 import heroImg from "@/assets/hero.jpg";
 import OwnAutomations, { LIVE_WORKFLOWS } from "@/components/OwnAutomations";
 import Link from "next/link";
@@ -56,7 +57,7 @@ export default function Home() {
           </p>
           <HeroSearch />
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="/library/" className="btn btn-primary text-[17px]">Browse &amp; buy automations →</Link>
+            <Link href="#trades" className="btn btn-primary text-[17px]">Show me my trade →</Link>
             <Link href="/planner/" className="font-semibold text-ink">Not sure? Build my plan in 2 minutes →</Link>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
@@ -67,6 +68,10 @@ export default function Home() {
       </div>
       </section>
 
+      <TradeGrid />
+      <ThreeDoors />
+
+      <div className="pt-16" />
       {/* Proof strip — real figures from our own n8n account (refresh before launch) */}
       <section className="bg-ink text-paper">
         <div className="wrap flex flex-wrap justify-between gap-6 py-8">
