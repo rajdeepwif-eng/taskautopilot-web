@@ -728,13 +728,16 @@
    "name": "AI Chief of Staff — one daily brief",
    "desc": "One short message every morning: at most 3 decisions with a recommendation, your task inbox cleared (only with your yes), and money, compliance and system problems flagged. Monday adds a scorecard.",
    "apps": "Slack or Teams, Asana, ClickUp or Monday.com, Airtable, Gmail or Outlook",
-   "price": 3500,
+   "price": 4500,
    "days": 15,
    "ind": [
     "all"
    ],
-   "run": "$300–600/mo + AI usage",
-   "replaces": "Ends the morning hour spent opening every app to see what needs you."
+   "run": "$500–900/mo + AI usage",
+   "replaces": "Takes on the daily triage an executive assistant ($76,590/yr, US median, BLS May 2025) would do — you still decide.",
+   "grade": "Moderate",
+   "wage": 76590,
+   "role": "executive assistant"
   },
   {
    "id": 50,
@@ -748,7 +751,8 @@
     "all"
    ],
    "run": "$200–400/mo + AI usage",
-   "replaces": "Stops you checking your assistant's or team's task board by hand."
+   "replaces": "Stops you checking your assistant's or team's task board by hand.",
+   "grade": "Lead"
   },
   {
    "id": 51,
@@ -762,7 +766,8 @@
     "all"
    ],
    "run": "$150–300/mo + AI usage",
-   "replaces": "Replaces hours of searching before a decision — with sources you can check."
+   "replaces": "Replaces hours of searching before a decision — with sources you can check.",
+   "grade": "Lead"
   },
   {
    "id": 52,
@@ -770,13 +775,14 @@
    "name": "Ops engineer — weekly improvement ideas",
    "desc": "Every week it reviews your automations and SOPs, finds broken, duplicate or missing ones, researches fixes and proposes at most 3. Nothing changes without your yes.",
    "apps": "n8n, Make or Zapier, Asana, Google Sheets, Slack",
-   "price": 2000,
+   "price": 2500,
    "days": 10,
    "ind": [
     "all"
    ],
-   "run": "$300–500/mo + AI usage",
-   "replaces": "Keeps your systems improving without hiring an operations manager."
+   "run": "$500–1,000/mo + AI usage",
+   "replaces": "Keeps your systems improving without hiring an operations manager.",
+   "grade": "Lead"
   },
   {
    "id": 53,
@@ -789,7 +795,8 @@
    "ind": [
     "all"
    ],
-   "replaces": "Turns a goal into owned, dated work in days, not weeks of meetings."
+   "replaces": "Turns a goal into owned, dated work in days, not weeks of meetings.",
+   "grade": "Lead"
   },
   {
    "id": 54,
@@ -803,7 +810,8 @@
     "all"
    ],
    "run": "$100–200/mo",
-   "replaces": "Gets know-how out of your head and into tasks someone else can run."
+   "replaces": "Gets know-how out of your head and into tasks someone else can run.",
+   "grade": "Lead"
   }
  ],
  "how": {
@@ -975,6 +983,17 @@
   "54": 3
  },
  "bundles": [
+  {
+   "name": "The owner's office",
+   "depts": "OWNER → TEAM → OPERATIONS",
+   "desc": "A daily brief, your team's progress, research on demand and weekly system improvements — the work of a chief of staff, for a fraction of one.",
+   "ids": [
+    49,
+    50,
+    51,
+    52
+   ]
+  },
   {
    "name": "Found → Booked → Paid",
    "depts": "MARKETING → SALES → FINANCE",
