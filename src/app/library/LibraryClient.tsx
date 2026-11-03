@@ -14,6 +14,8 @@ import {
   fmt,
   howItWorks,
   priceLabel,
+  roleHourly,
+  exampleYearly,
 } from "@/lib/catalogue";
 
 function Chip({ active, onClick, children, tone = "dark" }: { active: boolean; onClick: () => void; children: React.ReactNode; tone?: "dark" | "clay" }) {
@@ -124,6 +126,12 @@ export default function LibraryClient() {
                   </div>
                   <h3 className="font-display m-0 text-[21px] font-bold leading-tight">{p.name}</h3>
                   <p className="m-0 text-[15px] leading-normal text-ink-2">{p.desc}</p>
+                  {p.replaces && <p className="m-0 border-l-2 border-clay pl-2.5 text-[14px] font-medium leading-snug">{p.replaces}</p>}
+                  {p.wage && (
+                    <p className="m-0 rounded-md bg-paper px-2.5 py-1.5 text-[13px] text-ink-2">
+                      Example: {defaultHours(p)} hrs/week of a {p.role}&apos;s time ≈ <b>{fmt(exampleYearly(p))}/yr</b>
+                    </p>
+                  )}
                   <p className="m-0 text-[13px] text-muted">Works with: {p.apps}</p>
                   <button type="button" onClick={() => setOpen(p)} className="min-h-[44px] cursor-pointer border-0 bg-transparent p-0 text-left text-sm font-semibold text-clay">
                     Value vs doing it by hand →
@@ -228,7 +236,7 @@ export default function LibraryClient() {
 
 function ProductDetail({ p, inPlan, onAdd, onClose }: { p: Product; inPlan: boolean; onAdd: () => void; onClose: () => void }) {
   const [hours, setHours] = useState(defaultHours(p));
-  const [rate, setRate] = useState(30);
+  const [rate, setRate] = useState(roleHourly(p));
   const weekly = (Number(hours) || 0) * (Number(rate) || 0);
   let payback = "—";
   if (weekly) {
@@ -280,7 +288,7 @@ function ProductDetail({ p, inPlan, onAdd, onClose }: { p: Product; inPlan: bool
               <div className="font-semibold text-ok">{payback}</div>
               <div className="text-[13px] leading-normal text-ink-2">
                 Also: works nights and weekends, replies in seconds not hours, never forgets a step, and frees your people for work that needs a human.{" "}
-                <span className="text-muted">Starting numbers are estimates — change them to yours.</span>
+                <span className="text-muted">{p.wage ? `Starting rate is the US median for a ${p.role} (BLS, May 2025) — change it to yours.` : "Starting numbers are estimates — change them to yours."}</span>
               </div>
             </div>
             <div className="text-sm text-muted">Works with: {p.apps}</div>
@@ -292,7 +300,9 @@ function ProductDetail({ p, inPlan, onAdd, onClose }: { p: Product; inPlan: bool
               <br />✓ Live in {p.days} working days
               <br />✓ You own it — documented handover
               <br />✓ Approve a test run before go-live
+              {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
             </div>
+            {p.grade && <div className="text-[12px] text-muted">Price checked against US market data, Nov 2026 · evidence: {p.grade}</div>}
             <Link href={`/checkout?plan=${p.id}`} className="btn btn-primary">Buy now — secure checkout</Link>
             <button type="button" onClick={onAdd} className="btn btn-outline">{inPlan ? "✓ In your plan" : "+ Add to plan and keep browsing"}</button>
             <button type="button" onClick={onClose} className="min-h-[44px] cursor-pointer border-0 bg-transparent text-muted underline">Close</button>

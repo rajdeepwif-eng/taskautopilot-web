@@ -5,6 +5,7 @@
   "Restaurants & hospitality",
   "Retail & e-commerce",
   "Professional services",
+  "Insurance agencies & claims",
   "Clinics & healthcare",
   "Real estate & property",
   "Manufacturing & wholesale",
@@ -23,7 +24,8 @@
    "ind": [
     "all"
    ],
-   "monthly": true
+   "monthly": true,
+   "grade": "Strong"
   },
   {
    "id": 2,
@@ -31,12 +33,13 @@
    "name": "Local SEO Growth",
    "desc": "Everything in Lite plus technical fixes, new content and a dashboard tying searches to calls and bookings.",
    "apps": "Google Search Console, GA4",
-   "price": 999,
+   "price": 1200,
    "days": 10,
    "ind": [
     "all"
    ],
-   "monthly": true
+   "monthly": true,
+   "grade": "Strong"
   },
   {
    "id": 3,
@@ -100,7 +103,12 @@
    "days": 15,
    "ind": [
     "all"
-   ]
+   ],
+   "run": "$500–1,000/mo incl. minutes cap",
+   "grade": "Strong",
+   "wage": 38010,
+   "role": "receptionist",
+   "replaces": "Does the phone work of a receptionist — $38,010/yr (US median, BLS May 2025) — 24 hours a day."
   },
   {
    "id": 8,
@@ -112,7 +120,12 @@
    "days": 20,
    "ind": [
     "all"
-   ]
+   ],
+   "run": "$300–750/mo",
+   "grade": "Moderate",
+   "wage": 44770,
+   "role": "customer service rep",
+   "replaces": "Handles routine order and booking questions that a customer service rep ($44,770/yr (US median, BLS May 2025)) would answer."
   },
   {
    "id": 9,
@@ -129,7 +142,10 @@
     "Logistics & transport",
     "Agencies & creative",
     "Construction & equipment hire"
-   ]
+   ],
+   "run": "$400–1,000/mo",
+   "grade": "Moderate",
+   "replaces": "Staff get instant answers from your own manuals, with the page it came from — no more hunting through folders."
   },
   {
    "id": 10,
@@ -137,11 +153,16 @@
    "name": "Instant lead reply & booking",
    "desc": "Every web, WhatsApp and social enquiry gets a personal reply and booking link within a minute.",
    "apps": "Website forms, WhatsApp, Meta, Gmail/Outlook",
-   "price": 2500,
+   "price": 1500,
    "days": 10,
    "ind": [
     "all"
-   ]
+   ],
+   "run": "$250–500/mo",
+   "grade": "Moderate",
+   "wage": 38010,
+   "role": "receptionist",
+   "replaces": "Replies to every enquiry within a minute, day or night — work that otherwise falls to a receptionist ($38,010/yr (US median, BLS May 2025))."
   },
   {
    "id": 11,
@@ -149,7 +170,7 @@
    "name": "Missed-call text-back",
    "desc": "Any call you miss gets a text within a minute with a link to book or reply.",
    "apps": "Your phone line, SMS, calendar",
-   "price": 1500,
+   "price": 500,
    "days": 5,
    "ind": [
     "Trades & home services",
@@ -157,7 +178,10 @@
     "Clinics & healthcare",
     "Restaurants & hospitality",
     "Real estate & property"
-   ]
+   ],
+   "run": "$150–300/mo",
+   "grade": "Strong",
+   "replaces": "Texts back every missed call in seconds, so the job doesn't go to the next number they ring."
   },
   {
    "id": 12,
@@ -173,7 +197,12 @@
     "Logistics & transport",
     "Agencies & creative",
     "Construction & equipment hire"
-   ]
+   ],
+   "run": "$750–1,500/mo + your data/tool costs",
+   "grade": "Moderate",
+   "wage": 72080,
+   "role": "sales rep",
+   "replaces": "Does the research and first drafts a sales rep ($72,080/yr (US median, BLS May 2025)) would — you approve every email."
   },
   {
    "id": 13,
@@ -181,7 +210,7 @@
    "name": "Quote follow-up chaser",
    "desc": "Quotes that go quiet get timely, polite follow-ups until the customer decides.",
    "apps": "CRM, Gmail/Outlook, SMS",
-   "price": 1500,
+   "price": 1000,
    "days": 5,
    "ind": [
     "Trades & home services",
@@ -189,7 +218,9 @@
     "Manufacturing & wholesale",
     "Professional services",
     "Agencies & creative"
-   ]
+   ],
+   "run": "$100–250/mo",
+   "grade": "Lead"
   },
   {
    "id": 14,
@@ -222,13 +253,14 @@
    "id": 16,
    "cat": "Marketing",
    "name": "Email follow-up & win-back",
-   "desc": "Past customers and quiet leads get timely, personal emails that bring them back.",
+   "desc": "Six or more ready-written email flows — welcome, follow-up, quote reminder, win-back and more — that bring past customers and quiet leads back.",
    "apps": "Mailchimp, Klaviyo, CRM",
    "price": 1500,
    "days": 10,
    "ind": [
     "all"
-   ]
+   ],
+   "grade": "Moderate"
   },
   {
    "id": 17,
@@ -247,14 +279,15 @@
    "id": 18,
    "cat": "Marketing",
    "name": "Google & Meta ads management",
-   "desc": "Campaigns set up, watched and adjusted weekly, with every lead flowing straight into your follow-up.",
+   "desc": "Campaigns set up, watched and adjusted weekly, with every lead flowing straight into your follow-up. One-off setup fee applies.",
    "apps": "Google Ads, Meta Ads, GA4",
    "price": 750,
    "days": 10,
    "ind": [
     "all"
    ],
-   "monthly": true
+   "monthly": true,
+   "grade": "Lead"
   },
   {
    "id": 19,
@@ -352,13 +385,18 @@
    "name": "Job scheduling & dispatch",
    "desc": "Jobs become schedules and run sheets; staff get details and checklists on their phone.",
    "apps": "Google Calendar, Jobber, Airtable",
-   "price": 3000,
+   "price": 3500,
    "days": 15,
    "ind": [
     "Trades & home services",
     "Construction & equipment hire",
     "Logistics & transport"
-   ]
+   ],
+   "run": "$300–600/mo",
+   "grade": "Moderate",
+   "wage": 50340,
+   "role": "dispatcher",
+   "replaces": "Takes on the scheduling admin a dispatcher ($50,340/yr (US median, BLS May 2025)) does by phone and spreadsheet."
   },
   {
    "id": 27,
@@ -418,7 +456,12 @@
     "Clinics & healthcare",
     "Logistics & transport",
     "Manufacturing & wholesale"
-   ]
+   ],
+   "run": "$150–300/mo",
+   "grade": "Moderate",
+   "wage": 50610,
+   "role": "HR assistant",
+   "replaces": "Takes on the paperwork an HR assistant ($50,610/yr (US median, BLS May 2025)) does for every new starter."
   },
   {
    "id": 31,
@@ -442,20 +485,31 @@
    "days": 10,
    "ind": [
     "Professional services",
+    "Insurance agencies & claims",
     "Real estate & property"
-   ]
+   ],
+   "run": "$250–500/mo",
+   "grade": "Lead",
+   "wage": 55570,
+   "role": "legal secretary",
+   "replaces": "Takes on the intake admin a legal secretary ($55,570/yr (US median, BLS May 2025)) spends chasing forms and documents."
   },
   {
    "id": 33,
    "cat": "Industry",
    "name": "Patient booking, reminders & intake",
-   "desc": "Online booking, reminders that cut no-shows and digital intake forms — with health-data safeguards.",
+   "desc": "Online booking, reminders that cut no-shows and digital intake forms — hosted on health-data-ready infrastructure under a signed BAA, reviewed with your compliance adviser.",
    "apps": "Practice software, SMS, email",
-   "price": 3500,
+   "price": 5000,
    "days": 15,
    "ind": [
     "Clinics & healthcare"
-   ]
+   ],
+   "run": "$500–1,000/mo",
+   "grade": "Moderate",
+   "wage": 45930,
+   "role": "medical secretary",
+   "replaces": "Takes on front-desk booking and intake work of a medical secretary ($45,930/yr (US median, BLS May 2025))."
   },
   {
    "id": 34,
@@ -467,7 +521,9 @@
    "days": 15,
    "ind": [
     "Real estate & property"
-   ]
+   ],
+   "run": "$300–600/mo",
+   "grade": "Lead"
   },
   {
    "id": 35,
@@ -597,6 +653,40 @@
     "all"
    ],
    "monthly": true
+  },
+  {
+   "id": 45,
+   "cat": "Industry",
+   "name": "Insurance quote intake, follow-up & renewals",
+   "desc": "Quote requests captured and pre-filled, every quote followed up until the customer decides, and renewals contacted 60, 30 and 7 days out.",
+   "apps": "AgencyZoom, EZLynx, Applied Epic, HawkSoft, your email and phone",
+   "price": 5000,
+   "days": 20,
+   "ind": [
+    "Insurance agencies & claims"
+   ],
+   "run": "$400–800/mo",
+   "grade": "Moderate",
+   "wage": 49230,
+   "role": "policy processing clerk",
+   "replaces": "Takes on the quoting and renewal admin of a policy processing clerk ($49,230/yr (US median, BLS May 2025))."
+  },
+  {
+   "id": 46,
+   "cat": "Industry",
+   "name": "Claims intake (FNOL) & document triage",
+   "desc": "First notice of loss captured by web, phone or email; photos, reports and policy documents read and filed; each claim triaged and routed to the right handler.",
+   "apps": "Guidewire, Duck Creek, Snapsheet, your claims inbox and document store",
+   "price": 15000,
+   "days": 30,
+   "ind": [
+    "Insurance agencies & claims"
+   ],
+   "run": "$1,000–2,500/mo + usage",
+   "grade": "Moderate",
+   "wage": 49230,
+   "role": "claims clerk",
+   "replaces": "Takes on the intake work of a claims clerk ($49,230/yr (US median, BLS May 2025)), so adjusters start on complete files."
   }
  ],
  "how": {
@@ -659,6 +749,16 @@
    "Patients book online at any hour.",
    "Reminders go out; intake forms are completed before the visit.",
    "Health data stays inside approved, secure systems."
+  ],
+  "45": [
+   "A quote request arrives by web, phone or email and is pre-filled into your rating system.",
+   "Quotes that go quiet get timely, personal follow-ups until the customer decides.",
+   "Renewals are contacted at 60, 30 and 7 days, with any changes flagged to an agent."
+  ],
+  "46": [
+   "A claim is reported by web form, phone or email and logged straight away.",
+   "Photos, police reports and policy documents are read, checked and filed to the claim.",
+   "Each claim is triaged by type and severity and sent to the right handler, with gaps chased automatically."
   ]
  },
  "defaultHours": {
@@ -705,7 +805,9 @@
   "41": 2,
   "42": 2,
   "43": 1,
-  "44": 1
+  "44": 1,
+  "45": 10,
+  "46": 20
  },
  "bundles": [
   {
