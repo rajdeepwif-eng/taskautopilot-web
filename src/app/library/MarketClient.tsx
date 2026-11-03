@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { BUNDLES, CATEGORIES, INDUSTRIES, PRODUCTS, Product, byId, fitsIndustry, fmt, priceLabel } from "@/lib/catalogue";
 import { ProductDetail } from "./LibraryClient";
+import { loadPlan, savePlan } from "@/lib/plan";
+import { CatArt } from "@/components/CatArt";
 
 const PRICE_BANDS = [
   { id: "any", label: "Any price", test: () => true },
@@ -46,6 +48,18 @@ export default function MarketClient() {
   const [open, setOpen] = useState<Product | null>(null);
   const [cartOpen, setCartOpen] = useState(false);
   const [justAdded, setJustAdded] = useState<Product | null>(null);
+
+  const loaded = useRef(false);
+  useEffect(() => {
+    setPlan(loadPlan());
+    const sp = new URLSearchParams(window.location.search);
+    const qq = sp.get("q");
+    if (qq) { setQ(qq); setQuery(qq); }
+    const ind = sp.get("industry");
+    if (ind && INDUSTRIES.includes(ind)) setIndustry(ind);
+    loaded.current = true;
+  }, []);
+  useEffect(() => { if (loaded.current) savePlan(plan); }, [plan]);
 
   const results = useMemo(() => {
     const t = query.trim().toLowerCase();
@@ -206,15 +220,13 @@ export default function MarketClient() {
                   type="button"
                   onClick={() => setOpen(p)}
                   aria-label={`See ${p.name} and its demo video`}
-                  className="relative flex aspect-[16/10] cursor-pointer items-center justify-center border-0 bg-ink"
+                  className="relative flex aspect-[16/10] cursor-pointer items-center justify-center overflow-hidden border-0 p-0"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-clay">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-                  </span>
+                  <CatArt cat={p.cat} />
                   {p.grade === "Strong" && (
-                    <span className="absolute left-2 top-2 rounded bg-amber px-2 py-0.5 text-[11px] font-bold text-ink">Market-checked price</span>
+                    <span className="absolute left-2 top-2 rounded bg-white px-2 py-0.5 text-[11px] font-bold text-ok">✓ Price checked vs market</span>
                   )}
-                  <span className="absolute bottom-2 right-2 rounded bg-[rgba(255,255,255,0.12)] px-1.5 font-mono text-[10px] text-[#D9D6CC]">DEMO</span>
+                  <span className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-ink px-2.5 py-1 text-[11px] font-semibold text-white">▶ Watch demo</span>
                 </button>
                 <div className="flex flex-1 flex-col gap-1.5 p-4">
                   <button type="button" onClick={() => setOpen(p)} className="cursor-pointer border-0 bg-transparent p-0 text-left font-display text-[17px] font-bold leading-snug text-ink hover:text-clay">

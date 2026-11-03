@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Logo } from "@/components/CatArt";
 import "@fontsource-variable/inter";
 import "@fontsource/space-grotesk/500.css";
 import "@fontsource/space-grotesk/700.css";
@@ -18,29 +19,39 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-sans antialiased">
         <header className="border-b border-line">
-          <div className="wrap flex flex-wrap items-center justify-between gap-4 py-4">
+          <div className="wrap flex items-center justify-between gap-4 py-3.5">
             <Link href="/" className="flex items-center gap-2.5 no-underline text-ink">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-ink">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F4F3EE" strokeWidth="2" aria-hidden="true">
-                  <path d="M2 4h12M2 8h8M2 12h5" />
-                </svg>
-              </span>
+              <Logo />
               <span className="font-display text-xl font-bold">TaskAutopilot</span>
             </Link>
-            <nav className="flex flex-wrap items-center gap-6 text-[15px]">
-              <Link href="/library" className="font-semibold text-ink">Automation library</Link>
-              <Link href="/#assess" className="text-ink">Free assessment</Link>
+            <nav className="hidden items-center gap-6 text-[15px] lg:flex">
+              <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
               <Link href="/consulting/" className="text-ink">Consulting</Link>
               <Link href="/insurance/" className="text-ink">Insurance</Link>
               <Link href="/legal-firms/" className="text-ink">Law firms</Link>
               <Link href="/#security" className="text-ink">Security</Link>
-              <Link href="/#packages" className="btn btn-primary !min-h-[44px]">See prices</Link>
+              <Link href="/library/" className="btn btn-primary !min-h-[44px]">Browse &amp; buy</Link>
             </nav>
+            <div className="flex items-center gap-2 lg:hidden">
+              <Link href="/library/" className="btn btn-primary !min-h-[40px] !px-4 whitespace-nowrap text-sm">Browse &amp; buy</Link>
+              <details className="relative">
+                <summary aria-label="Menu" className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-line [&::-webkit-details-marker]:hidden">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+                </summary>
+                <div className="absolute right-0 top-12 z-40 flex w-56 flex-col gap-1 rounded-xl border border-line bg-white p-3 text-[15px] shadow-lg [&>a]:py-2">
+                  <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
+                  <Link href="/consulting/" className="text-ink">Consulting</Link>
+                  <Link href="/insurance/" className="text-ink">Insurance</Link>
+                  <Link href="/legal-firms/" className="text-ink">Law firms</Link>
+                  <Link href="/#security" className="text-ink">Security</Link>
+                </div>
+              </details>
+            </div>
           </div>
         </header>
         {children}
         <footer className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm text-muted">
-          <span>TaskAutopilot · [company number] · [address]</span>
+          <span>© 2026 TaskAutopilot · Prices in US dollars</span>
           <span>
             <Link href="/legal/privacy">Privacy</Link> · <Link href="/legal/terms">Terms</Link>
           </span>

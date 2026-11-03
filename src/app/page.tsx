@@ -1,3 +1,4 @@
+import HeroSearch from "@/components/HeroSearch";
 import Link from "next/link";
 import Assessment from "@/components/Assessment";
 import AppChecker from "@/components/AppChecker";
@@ -48,8 +49,9 @@ export default function Home() {
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
             Local SEO, booking websites and AI automations from one team. Pick a package, pay online, and it&apos;s live in 10–15 working days.
           </p>
+          <HeroSearch />
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="#packages" className="btn btn-primary text-[17px]">See packages &amp; prices →</Link>
+            <Link href="/library/" className="btn btn-primary text-[17px]">Browse &amp; buy automations →</Link>
             <Link href="#assess" className="font-semibold text-ink">Not sure? 3-question check</Link>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">

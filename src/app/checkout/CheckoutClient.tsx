@@ -12,8 +12,8 @@ const TIERS = [
 const APPS = ["Gmail", "Outlook", "Slack", "Teams", "WhatsApp", "Xero", "QuickBooks", "Sage", "Zoho Books", "HubSpot", "Shopify", "Other"];
 
 export default function CheckoutClient({ items }: { items: Product[] }) {
-  const [tier, setTier] = useState(items.length >= 3 ? "full" : "lite");
-  const [apps, setApps] = useState<string[]>(["Gmail"]);
+  const [tier, setTier] = useState("none");
+  const [apps, setApps] = useState<string[]>([]);
   const [form, setForm] = useState({ name: "", email: "", company: "", phone: "" });
   const [terms, setTerms] = useState(false);
   const [err, setErr] = useState("");
@@ -113,7 +113,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         {monthly > 0 && <div className="flex justify-between"><span>Monthly services, first month</span><span className="font-mono">{fmt(monthly)}</span></div>}
         {t.price > 0 && <div className="flex justify-between"><span>{t.name}, first month</span><span className="font-mono">{fmt(t.price)}</span></div>}
         <div className="flex items-baseline justify-between border-t border-[#2B2E33] pt-3"><span className="text-[#A9ADB4]">Due today</span><span className="font-display text-4xl font-bold text-amber">{fmt(total)}</span></div>
-        <div className="text-[13px] text-[#A9ADB4]">[+ VAT / tax where it applies] · placeholder prices</div>
+        <div className="text-[13px] text-[#A9ADB4]">Plus sales tax or VAT where it applies. Usage-based costs (call minutes, AI usage) are billed at cost.</div>
         <label className="flex cursor-pointer items-start gap-2.5 text-sm text-[#C9C7C0]">
           <input type="checkbox" checked={terms} onChange={() => { setTerms(!terms); setErr(""); }} className="mt-0.5 h-5 w-5" />
           <span>I agree to the <Link href="/legal/terms" className="text-amber">terms of service</Link>, scope and <Link href="/legal/refunds" className="text-amber">refund policy</Link>.</span>

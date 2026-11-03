@@ -234,7 +234,7 @@ export default function LibraryClient() {
   );
 }
 
-export function ProductDetail({ p, inPlan, onAdd, onClose, children }: { p: Product; inPlan: boolean; onAdd: () => void; onClose: () => void; children?: React.ReactNode }) {
+export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = false }: { p: Product; inPlan: boolean; onAdd: () => void; onClose: () => void; children?: React.ReactNode; inline?: boolean }) {
   const [hours, setHours] = useState(defaultHours(p));
   const [rate, setRate] = useState(roleHourly(p));
   const weekly = (Number(hours) || 0) * (Number(rate) || 0);
@@ -249,16 +249,17 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children }: { p: Prod
     }
   }
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[rgba(21,23,26,0.62)] px-4 py-8" onClick={onClose}>
-      <div role="dialog" aria-modal="true" aria-label={p.name} className="flex w-full max-w-[920px] flex-col overflow-hidden rounded-[18px] bg-white" onClick={(e) => e.stopPropagation()}>
-        <div className="flex aspect-video flex-col items-center justify-center gap-3 bg-ink p-6 text-center text-[#A9ADB4]">
-          <span className="flex h-19 w-19 items-center justify-center rounded-full bg-clay">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-          </span>
-          <div className="font-mono text-[13px]">[Demo video · {p.name} · 45–60 s · captions on]</div>
-        </div>
-        <div className="flex flex-wrap gap-7 p-7">
+    <div className={inline ? "wrap py-6" : "fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[rgba(21,23,26,0.62)] px-3 py-6"} onClick={inline ? undefined : onClose}>
+      <div role={inline ? undefined : "dialog"} aria-modal={inline ? undefined : true} aria-label={p.name} className={inline ? "flex flex-col rounded-[18px] border border-line bg-white" : "relative flex w-full max-w-[1040px] flex-col overflow-hidden rounded-[18px] bg-white"} onClick={(e) => e.stopPropagation()}>
+        {!inline && <button type="button" onClick={onClose} aria-label="Close" className="absolute right-3 top-3 z-10 h-10 w-10 cursor-pointer rounded-full border-0 bg-white text-2xl shadow">×</button>}
+        <div className="flex flex-wrap items-start gap-7 p-5 md:p-7">
           <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-3.5">
+            <div className="flex aspect-video flex-col items-center justify-center gap-3 rounded-xl bg-ink p-6 text-center text-[#A9ADB4]">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-clay">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+              <div className="font-mono text-[12px]">Watch it work · 45–60 s</div>
+            </div>
             <div className="font-mono text-xs text-muted">{p.cat} · ● ready-made</div>
             <h2 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h2>
             <p className="m-0 text-[17px] leading-normal text-ink-2">{p.desc}</p>
@@ -294,8 +295,11 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children }: { p: Prod
             <div className="text-sm text-muted">Works with: {p.apps}</div>
             {children}
           </div>
-          <div className="flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-[14px] bg-paper p-5">
+          <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-[14px] border border-line bg-paper p-5 md:order-none md:sticky md:top-4">
+            <div className="font-display text-xl font-bold leading-tight md:hidden">{p.name}</div>
             <div className="font-display text-4xl font-bold">{priceLabel(p)}</div>
+            <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
+            <button type="button" onClick={onAdd} className="btn btn-outline">{inPlan ? "✓ In your plan" : "Add to plan"}</button>
             <div className="text-sm leading-relaxed text-ink-2">
               {p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
               <br />✓ Live in {p.days} working days
@@ -303,10 +307,9 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children }: { p: Prod
               <br />✓ Approve a test run before go-live
               {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
             </div>
-            {p.grade && <div className="text-[12px] text-muted">Price checked against US market data, Nov 2026 · evidence: {p.grade}</div>}
-            <Link href={`/checkout?plan=${p.id}`} className="btn btn-primary">Buy now — secure checkout</Link>
-            <button type="button" onClick={onAdd} className="btn btn-outline">{inPlan ? "✓ In your plan" : "+ Add to plan and keep browsing"}</button>
-            <button type="button" onClick={onClose} className="min-h-[44px] cursor-pointer border-0 bg-transparent text-muted underline">Close</button>
+            {p.grade && <div className="text-[12px] text-muted">Price checked against US market rates, Nov 2026</div>}
+            <div className="text-[12px] text-muted">🔒 Secure card payment by Stripe. We never see your card.</div>
+            {!inline && <Link href={`/p/${p.id}/`} className="text-center text-sm text-muted underline">Open full page / share link</Link>}
           </div>
         </div>
       </div>
