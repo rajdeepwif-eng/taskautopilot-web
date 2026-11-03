@@ -47,7 +47,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(244,243,238,0.98)] from-30% via-[rgba(244,243,238,0.75)] via-50% to-transparent to-75% max-lg:bg-[rgba(244,243,238,0.88)]" aria-hidden="true" />
       <div className="wrap relative flex flex-wrap items-center gap-12 pt-16 pb-14">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
-          <div className="kicker">For owner-run businesses of every kind</div>
+          <div className="kicker">Automation made simple · for owner-run businesses</div>
           <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
             Things get done — without you doing them.
           </h1>
