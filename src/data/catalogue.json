@@ -1524,6 +1524,34 @@
    "desc": "One CRM for the whole customer journey: every enquiry from web, phone, email, WhatsApp and social captured automatically, a clear sales pipeline, follow-ups that run themselves, quotes, bookings and invoices linked to each customer, and a dashboard of sales and cash. We move your old spreadsheets in.",
    "apps": "HubSpot, GoHighLevel, Airtable, Zoho CRM or Pipedrive; Xero, QuickBooks or Zoho Books; WhatsApp, Gmail, Outlook",
    "replaces": "Replaces spreadsheets, sticky notes and memory with one place your whole team works from."
+  },
+  {
+   "id": 110,
+   "cat": "Owner & management",
+   "name": "Recruitment autopilot — CVs to booked interviews",
+   "price": 3500,
+   "days": 15,
+   "run": "$200–400/mo + AI usage",
+   "desc": "Job ad out, every CV summarised against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organised on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own.",
+   "apps": "Indeed, LinkedIn, your careers page, Gmail or Outlook, Google or Outlook Calendar, Asana or Airtable",
+   "replaces": "Turns days of reading CVs and emailing candidates into a short review and a full interview diary.",
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 111,
+   "cat": "Owner & management",
+   "name": "AI executive assistant — calendar, agendas, notes & research",
+   "price": 3500,
+   "days": 15,
+   "run": "$300–600/mo + AI usage",
+   "desc": "Your calendar kept in order with meeting requests handled, an agenda built for every meeting from open tasks and emails, notes and actions taken and sent after, and a one-page research brief before important calls. You approve anything that goes out in your name.",
+   "apps": "Google Calendar or Outlook, Zoom, Teams or Meet, Gmail or Outlook, Asana or ClickUp, web research",
+   "replaces": "Does the diary, agenda, notes and prep an executive assistant ($76,590/yr, US median, BLS May 2025) would — with you approving what goes out.",
+   "ind": [
+    "all"
+   ]
   }
  ],
  "how": {
@@ -1911,6 +1939,16 @@
    "We choose the right CRM with you, design your pipeline and move your existing customers in.",
    "Every channel feeds it automatically; follow-ups, quotes and bookings run from it.",
    "Invoices and payments link back to each customer; you get one live sales and cash dashboard."
+  ],
+  "110": [
+   "You set the role, must-haves and nice-to-haves; the job ad goes out.",
+   "Each CV is summarised against your criteria; you choose the shortlist.",
+   "Shortlisted candidates book their own interview; you get the pack, scorecard and a board of every candidate."
+  ],
+  "111": [
+   "Meeting requests are handled and your diary kept free for deep work.",
+   "Before each meeting: an agenda from open tasks, plus a research brief for key calls.",
+   "After: notes, decisions and actions go to the right people once you approve."
   ]
  },
  "defaultHours": {
@@ -2022,7 +2060,9 @@
   "106": 4,
   "107": 4,
   "108": 8,
-  "109": 8
+  "109": 8,
+  "110": 5,
+  "111": 6
  },
  "bundles": [
   {
@@ -2288,6 +2328,29 @@
     27,
     28,
     97
+   ],
+   "kit": true
+  },
+  {
+   "name": "Hiring kit",
+   "depts": "HR · ANY INDUSTRY",
+   "desc": "From job ad to booked interviews, then onboarding and training for the new starter.",
+   "ids": [
+    110,
+    30,
+    100
+   ],
+   "kit": true
+  },
+  {
+   "name": "Executive assistant kit",
+   "depts": "OWNER & LEADERSHIP",
+   "desc": "Calendar, agendas, notes and research, your inbox handled and research on demand.",
+   "ids": [
+    111,
+    96,
+    93,
+    51
    ],
    "kit": true
   }
