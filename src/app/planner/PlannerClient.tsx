@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { byId, fmt } from "@/lib/catalogue";
+import { byId, fmt, runLow } from "@/lib/catalogue";
 import { savePlan } from "@/lib/plan";
 
 /* ---------- Who is buying ---------- */
@@ -150,7 +150,7 @@ export default function PlannerClient() {
         const rate = s.rate[t.id] ?? (p.wage ? Math.round(p.wage / 2080) : t.rate);
         const timeYear = hours * 52 * rate * (s.share / 100);
         const revenueYear = t.lead ? s.missed * 52 * s.jobValue * (s.winRate / 100) * (s.share / 100) : 0;
-        const firstYearCost = p.monthly ? p.price * 12 : p.price;
+        const firstYearCost = p.monthly ? p.price * 12 : p.price + runLow(p) * 12;
         const yearly = timeYear + revenueYear;
         const paybackWeeks = yearly > 0 ? Math.ceil(firstYearCost / (yearly / 52)) : 999;
         return { t, p, hours, rate, timeYear, revenueYear, yearly, firstYearCost, paybackWeeks };
@@ -173,7 +173,8 @@ export default function PlannerClient() {
   const monthly = chosen.filter((r) => r.p.monthly).reduce((a, r) => a + r.p.price, 0);
   const yearly = chosen.reduce((a, r) => a + r.yearly, 0);
   const hoursBack = chosen.reduce((a, r) => a + r.hours * (s.share / 100), 0);
-  const cost1 = oneOff - discount + monthly * 12;
+  const runYear = chosen.reduce((a, r) => a + (r.p.monthly ? 0 : runLow(r.p) * 12), 0);
+  const cost1 = oneOff - discount + monthly * 12 + runYear;
   const payback = yearly > 0 ? Math.ceil(cost1 / (yearly / 52)) : 0;
   const phases = [chosen.slice(0, 2), chosen.slice(2, 4), chosen.slice(4)];
   const ids = chosen.map((r) => r.p.id);
@@ -294,7 +295,7 @@ export default function PlannerClient() {
                   <div><div className="text-[12px] text-[#A9ADB4]">Value a year</div><div className="font-display text-[28px] font-bold text-amber">{fmt(yearly)}</div></div>
                   <div><div className="text-[12px] text-[#A9ADB4]">Pays back in</div><div className="font-display text-[28px] font-bold">{payback} wk{payback === 1 ? "" : "s"}</div></div>
                   <div><div className="text-[12px] text-[#A9ADB4]">Hours back a week</div><div className="font-display text-xl font-bold">{Math.round(hoursBack)}</div></div>
-                  <div><div className="text-[12px] text-[#A9ADB4]">First-year cost</div><div className="font-display text-xl font-bold">{fmt(cost1)}</div></div>
+                  <div><div className="text-[12px] text-[#A9ADB4]">First-year cost incl. run plans</div><div className="font-display text-xl font-bold">{fmt(cost1)}</div></div>
                 </div>
                 <div className="flex flex-col gap-3 border-t border-[#2B2E33] pt-3">
                   {phases.map((ph, i) => ph.length > 0 && (

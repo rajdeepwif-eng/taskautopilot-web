@@ -35,7 +35,7 @@ export const TRADES: Trade[] = [
     headline: "Patients book themselves, reminders cut no-shows, every call is answered.",
     pains: [["\"The phone rings while we're with patients.\"", "An AI receptionist answers, books and passes urgent calls to you."], ["\"No-shows leave gaps in the diary.\"", "Reminders and easy rebooking go out automatically."], ["\"Intake forms are clipboards.\"", "Digital intake forms before the visit."]],
     kit: "Clinic starter kit", top: [33, 7, 15, 64, 96, 100], apps: "Dentrix, Jane, Cliniko, Google Calendar, Weave",
-    faq: [SAFE, ["Is patient data handled properly?", "Patient data runs only on services that sign a business associate agreement (BAA), set up with your compliance adviser."], OWN] },
+    faq: [SAFE, ["Is patient data handled properly?", "Patient data runs only on services that have signed a business associate agreement (BAA) — not on our standard cloud setup — chosen with your compliance adviser."], OWN] },
   { slug: "property", name: "Property & real estate", short: "Investors, landlords, letting agents", cat: "Industry", industry: "Real estate & property",
     headline: "Tenants looked after, repairs closed out, rent chased — without the phone glued to you.",
     pains: [["\"Maintenance requests come by text, email and calls.\"", "One form logs every request with photos and assigns a contractor."], ["\"Rent chasing is awkward.\"", "Polite reminders and statements go out on schedule."], ["\"Viewings enquiries go unanswered.\"", "Every enquiry answered with a booking link in a minute."]],
@@ -61,6 +61,10 @@ export const TRADES: Trade[] = [
     headline: "Delegate in one message, see who did what, and stop drowning in email.",
     pains: [["\"I chase people for updates all day.\"", "SOP tasks with proof, an evening exceptions list and a Friday scorecard."], ["\"My inbox runs my day.\"", "Emails sorted, replies drafted, one digest of what needs you."], ["\"Nobody trained the new starter.\"", "Training by role on their phone, with sign-off and records."]],
     kit: "Team accountability kit", top: [109, 101, 96, 62, 107, 100], apps: "Asana, ClickUp, Monday.com, Slack, Teams, Gmail, Outlook", faq: [SAFE, OWN] },
+  { slug: "solo", name: "Just me — self-employed", short: "Sole traders, freelancers, one-person firms", cat: "Solo (self-employed)",
+    headline: "Run your business like it has an office behind it — from $300.",
+    pains: [["\"I can't answer the phone while I'm working.\"", "Every enquiry gets an instant reply and your booking link."], ["\"Invoicing eats my evenings.\"", "Invoices go out when the job's done; late payers are chased."], ["\"My receipts are in a shoebox.\"", "Snap a receipt; it's read and filed for your accountant."]],
+    kit: "Solo starter kit", top: [40, 41, 42, 43, 55, 69], apps: "Gmail, Outlook, WhatsApp, Xero, QuickBooks, FreeAgent, Google Calendar", faq: [SAFE, OWN] },
 ];
 
 export const tradeBySlug = (s: string) => TRADES.find((t) => t.slug === s)!;

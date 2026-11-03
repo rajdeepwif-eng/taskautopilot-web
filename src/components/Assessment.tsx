@@ -17,7 +17,7 @@ export default function Assessment() {
   const step = answers.length;
   const score = Math.min(100, answers.reduce((a, b) => a + b, 0));
   const slowReplies = (answers[1] ?? 0) >= 20;
-  const rec = slowReplies ? { name: "Instant lead reply & booking", price: "$[2,500]", id: 10 } : { name: "Supplier invoice reader + bank reconciliation", price: "$[4,950]", id: 21 };
+  const rec = slowReplies ? { name: "Instant lead reply & booking", price: "$2,500", id: 10 } : { name: "Supplier invoice reader + bank reconciliation", price: "$4,950", id: 21 };
   const verdict =
     score >= 70
       ? "High: most of your admin can run itself. Start with the fastest payback."

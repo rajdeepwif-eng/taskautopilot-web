@@ -225,9 +225,7 @@ export default function MarketClient() {
                   className="relative flex aspect-[16/10] cursor-pointer items-center justify-center overflow-hidden border-0 p-0"
                 >
                   <CatArt cat={p.cat} />
-                  {p.grade === "Strong" && (
-                    <span className="absolute left-2 top-2 rounded bg-white px-2 py-0.5 text-[11px] font-bold text-ok">✓ Price checked vs market</span>
-                  )}
+                  
                   <span className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-ink px-2.5 py-1 text-[11px] font-semibold text-white">▶ Watch demo</span>
                 </button>
                 <div className="flex flex-1 flex-col gap-1.5 p-4">
@@ -274,7 +272,7 @@ export default function MarketClient() {
                     <div className="font-display text-lg font-bold">{b.name}</div>
                     <div className="text-[13px] text-ink-2">{bi.map((p) => p.name).join(" → ")}</div>
                     <div className="mt-auto">
-                      <b className="font-display text-xl">{fmt(full * 0.9)}</b> <span className="text-sm text-muted line-through">{fmt(full)}</span>
+                      <b className="font-display text-xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs separately</span>
                     </div>
                     <button type="button" onClick={() => addMany(b.ids)} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber text-sm font-semibold text-ink">
                       Add all {b.ids.length} to plan
@@ -354,7 +352,7 @@ export default function MarketClient() {
                   ))}
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-muted line-through">{fmt(full)}</span></span>
+                  <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs separately</span></span>
                   <button type="button" onClick={() => { addMany(b.ids); setOpen(null); }} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber px-4 text-sm font-semibold text-ink">
                     Add all {b.ids.length} to plan
                   </button>

@@ -5,9 +5,9 @@ import Link from "next/link";
 
 type Msg = { from: "you" | "bot"; text: string };
 const SCRIPT: { q: string; a: string[] }[] = [
-  { q: "Do you have a mini digger free this Saturday?", a: ["Yes — the 1.5-tonne mini digger is free this Saturday.", "Day hire is $[price] including delivery within 10 miles. Want me to book it?"] },
+  { q: "Do you have a mini digger free this Saturday?", a: ["Yes — the 1.5-tonne mini digger is free this Saturday.", "Day hire is $180 including delivery within 10 miles. Want me to book it?"] },
   { q: "Can I book a table for 4 at 7pm Friday?", a: ["I can do 7:15pm Friday for 4, or 6:30pm.", "Shall I hold 7:15pm? I'll text you a reminder on Friday morning."] },
-  { q: "Where's my order #1042?", a: ["Order #1042 left our warehouse this morning.", "It's due tomorrow before 1pm. Here's the tracking link: [link]."] },
+  { q: "Where's my order #1042?", a: ["Order #1042 left our warehouse this morning.", "It's due tomorrow before 1pm. I've texted you the tracking link."] },
   { q: "I need to speak to someone about a complaint.", a: ["I'm sorry to hear that. I've passed this to the manager now, with your details.", "They'll call you back within 1 hour. Is this the best number?"] },
 ];
 
@@ -66,8 +66,8 @@ export default function DemoClient() {
             <Link href="/p/7/" className="font-semibold">AI phone receptionist →</Link>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link href="/p/8/" className="btn btn-primary">Get this assistant — $6,000</Link>
-            <Link href="/p/10/" className="btn btn-outline">Start smaller — $1,500</Link>
+            <Link href="/p/108/" className="btn btn-primary">Get the 24/7 AI sales agent — $5,000</Link>
+            <Link href="/p/10/" className="btn btn-outline">Start smaller — instant replies, $1,500</Link>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ export default function PartnersPage() {
           <h1 className="m-0 font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-tight">Accountants, bookkeepers and advisers: your clients&apos; admin pain is our work.</h1>
           <p className="m-0 text-lg text-ink-2">You see the late invoices, the shoebox receipts and the owner doing everything at midnight. Introduce them; we fix it with fixed-price automations.</p>
           <ul className="m-0 flex list-none flex-col gap-2 p-0 text-[16px]">
-            <li>✓ A referral fee on every client who buys — terms sent when you apply</li>
+            <li>✓ A referral fee on every client who buys — terms sent when you apply (partners tell their clients about the fee)</li>
             <li>✓ Cleaner books for you: bills, receipts and bank lines arrive matched</li>
             <li>✓ You stay the trusted adviser — we never offer accounting services</li>
             <li>✓ A co-branded time-leak scan you can send to clients</li>

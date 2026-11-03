@@ -500,7 +500,7 @@
    "id": 33,
    "cat": "Industry",
    "name": "Patient booking, reminders & intake",
-   "desc": "Online booking, reminders that cut no-shows and digital intake forms — hosted on health-data-ready infrastructure under a signed BAA, reviewed with your compliance adviser.",
+   "desc": "Online booking, reminders that cut no-shows and digital intake forms. Patient data runs only on services that have signed a business associate agreement (BAA) — not on our standard n8n Cloud setup — chosen with your compliance adviser.",
    "apps": "Practice software, SMS, email",
    "price": 5000,
    "days": 15,
@@ -1151,7 +1151,7 @@
    "id": 81,
    "cat": "Industry",
    "name": "BRCGS & HACCP audit-ready records (factories)",
-   "desc": "Digital monitoring checks at every CCP, with readings checked against the limits in your HACCP plan. An out-of-limit reading opens a corrective action with an owner; document reviews, internal audits and training records are scheduled, so the audit pack is ready any day. Limits and methods come from your own HACCP plan and are approved by your food safety team — we never set them.",
+   "desc": "Digital monitoring checks at every CCP, with readings checked against the limits in your HACCP plan. An out-of-limit reading opens a corrective action with an owner; document reviews, internal audits and training records are scheduled, so the audit pack is ready any day. Limits and methods come from your own HACCP plan and are approved by your food safety team — we never set them. Does not guarantee certification.",
    "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
    "price": 4500,
    "days": 15,
@@ -1532,7 +1532,7 @@
    "price": 3500,
    "days": 15,
    "run": "$200–400/mo + AI usage",
-   "desc": "Job ad out, every CV summarised against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organised on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own.",
+   "desc": "Job ad out, every CV summarised against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organised on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own. You stay responsible for your hiring criteria and local rules on AI in hiring (for example NYC Local Law 144, UK GDPR Article 22).",
    "apps": "Indeed, LinkedIn, your careers page, Gmail or Outlook, Google or Outlook Calendar, Asana or Airtable",
    "replaces": "Turns days of reading CVs and emailing candidates into a short review and a full interview diary.",
    "ind": [
@@ -1606,7 +1606,7 @@
     "Food production & processing"
    ],
    "run": "$200–400/mo",
-   "desc": "The records your farm assurance audit asks for, kept up to date as you work: field and spray records, traceability from field to buyer, staff training, hygiene and maintenance checks, risk assessments and an internal self-assessment schedule — with gaps flagged weeks before the audit. Checklists are built from the current standard you hold; your certification body still audits and decides. Not affiliated with either scheme.",
+   "desc": "The records your farm assurance audit asks for, kept up to date as you work: field and spray records, traceability from field to buyer, staff training, hygiene and maintenance checks, risk assessments and an internal self-assessment schedule — with gaps flagged weeks before the audit. Checklists are built from the current standard you hold; your certification body still audits and decides. Not affiliated with either scheme; does not guarantee certification.",
    "apps": "Google Sheets or Airtable, phone forms or SafetyCulture, Google Drive or OneDrive, WhatsApp",
    "replaces": "Ends the pre-audit scramble — every record already there, with the gaps flagged early."
   },
@@ -2522,6 +2522,18 @@
     117,
     119,
     118
+   ],
+   "kit": true
+  },
+  {
+   "name": "Solo starter kit",
+   "depts": "SELF-EMPLOYED",
+   "desc": "Never miss a job, get invoices paid, tidy books and more reviews — the four basics for one-person businesses.",
+   "ids": [
+    40,
+    41,
+    42,
+    43
    ],
    "kit": true
   }

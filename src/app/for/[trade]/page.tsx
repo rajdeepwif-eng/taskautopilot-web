@@ -50,7 +50,7 @@ export default async function TradePage({ params }: { params: Promise<{ trade: s
               </ul>
             </div>
             <div className="flex flex-[1_1_220px] flex-col gap-2">
-              <div><b className="font-display text-4xl text-amber">{fmt(kitFull * 0.9)}</b> <span className="text-sm line-through opacity-60">{fmt(kitFull)}</span></div>
+              <div><b className="font-display text-4xl text-amber">{fmt(kitFull * 0.9)}</b> <span className="text-sm opacity-80">save {fmt(kitFull * 0.1)} vs separately</span></div>
               <Link href={`/checkout/?plan=${kit.ids.join(",")}`} className="btn btn-primary">Buy the kit</Link>
               <Link href="/planner/" className="text-center text-sm text-amber">Not sure? Build my plan →</Link>
             </div>

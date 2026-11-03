@@ -8,7 +8,7 @@ export default function TradeGrid() {
       <div className="kicker">Start here</div>
       <h2 className="m-0 font-display text-[clamp(28px,4vw,40px)] font-bold">What&apos;s your business?</h2>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-        {TRADES.map((t) => (
+        {TRADES.filter((t) => t.slug !== "solo").map((t) => (
           <Link key={t.slug} href={`/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
             <div className="relative aspect-[16/7]"><TradeIcon slug={t.slug} size={38} /></div>
             <div className="flex flex-col gap-0.5 p-3.5">
@@ -17,7 +17,7 @@ export default function TradeGrid() {
             </div>
           </Link>
         ))}
-        <Link href="/library/?q=Solo" className="flex flex-col justify-center gap-0.5 rounded-xl border border-dashed border-[#C9C5B9] p-4 text-ink no-underline hover:border-ink">
+        <Link href="/for/solo/" className="flex flex-col justify-center gap-0.5 rounded-xl border border-dashed border-[#C9C5B9] p-4 text-ink no-underline hover:border-ink">
           <span className="font-display text-[17px] font-bold">Just me</span>
           <span className="text-[12.5px] text-muted">Self-employed — Solo versions from $300</span>
         </Link>

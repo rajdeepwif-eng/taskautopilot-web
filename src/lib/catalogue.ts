@@ -65,3 +65,9 @@ export const roleHourly = (p: Product) => (p.wage ? Math.round(p.wage / 2080) : 
 
 /** Example yearly cost of the manual work at the default hours and the role's median wage. */
 export const exampleYearly = (p: Product) => defaultHours(p) * 52 * (p.wage ? p.wage / 2080 : 30);
+
+/** Lowest monthly run & support fee in the product's run range (0 if none). */
+export const runLow = (p: Product) => {
+  const m = p.run?.match(/\$([\d,]+)/);
+  return m ? Number(m[1].replace(/,/g, "")) : 0;
+};

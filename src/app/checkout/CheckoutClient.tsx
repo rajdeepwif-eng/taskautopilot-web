@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Product, fmt, priceLabel } from "@/lib/catalogue";
 
 const TIERS = [
-  { id: "none", name: "No plan", sub: "You maintain it yourselves", price: 0 },
+  { id: "none", name: "No plan", sub: "You maintain it; fixes later at $150/hour", price: 0 },
   { id: "lite", name: "Run Lite", sub: "Alerts + fixes · 1–2 automations", price: 300 },
   { id: "full", name: "Run Full", sub: "+ new workflow monthly, results panel", price: 1500 },
 ];
@@ -56,7 +56,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   }
 
   return (
-    <main className="wrap flex flex-wrap items-start gap-8 pt-10 pb-20">
+    <main className="wrap flex flex-wrap items-start gap-8 pt-10 pb-32 lg:pb-20">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-6">
         <h1 className="font-display m-0 text-[clamp(30px,4vw,40px)] font-bold tracking-tight">One minute, then we take it from here.</h1>
         <div className="text-[15px] text-ink-2">Pay now; tell us about your apps and team on a 10-minute setup form afterwards.</div>

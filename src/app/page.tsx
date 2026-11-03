@@ -3,7 +3,6 @@ import TradeGrid, { ThreeDoors } from "@/components/TradeGrid";
 import heroImg from "@/assets/hero.jpg";
 import OwnAutomations, { LIVE_WORKFLOWS } from "@/components/OwnAutomations";
 import Link from "next/link";
-import Assessment from "@/components/Assessment";
 import AppChecker from "@/components/AppChecker";
 import { APP_GROUPS, INDUSTRY_APPS } from "@/lib/apps";
 import { PRODUCTS } from "@/lib/catalogue";
@@ -20,14 +19,14 @@ const PERSON_VS_AUTOMATION = [
   ["Answers a new enquiry", "Within hours, if free", "In under a minute, 24/7"],
   ["Works", "Office hours, holidays off", "Nights, weekends, every day"],
   ["Follows the process", "Usually — steps get missed when busy", "Every step, every time, with a log"],
-  ["Typical cost", "$[25–40] an hour, every hour", "One fixed build + optional monthly plan"],
+  ["Typical cost", "$25–40 an hour, every hour", "One fixed build + optional monthly plan"],
   ["Best at", "Judgement, relationships, tricky cases", "Repetitive, rules-based, high-volume work"],
 ];
 
 const PACKAGES = [
-  { name: "Never miss a lead", price: "$[2,500]", id: 10, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in 10 working days"] },
-  { name: "Invoices & bank, done overnight", price: "$[4,950]", id: 21, popular: true, points: ["Supplier bills read & booked", "Nightly bank matching + checker", "Weekly sign-off list for you", "Xero, QuickBooks, Sage or Zoho"] },
-  { name: "Paid automation audit", price: "$[499]", id: 0, points: ["Recorded walkthrough of your tools", "Ranked plan: hours saved per workflow", "Fixed quotes for each build", "Fee credited if you build with us"] },
+  { name: "Never miss a lead", price: "$2,500", id: 10, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in 10 working days"] },
+  { name: "Invoices & bank, done overnight", price: "$4,950", id: 21, popular: true, points: ["Supplier bills read & booked", "Nightly bank matching + checker", "Weekly sign-off list for you", "Xero, QuickBooks, Sage or Zoho"] },
+  { name: "Paid automation audit", price: "$499", id: 0, points: ["Recorded walkthrough of your tools", "Ranked plan: hours saved per workflow", "Fixed quotes for each build", "Fee credited if you build with us"] },
 ];
 
 const FAQ = [
@@ -36,7 +35,7 @@ const FAQ = [
   ["Do you need our passwords?", "No. You connect each app with its own secure login that you can switch off at any time."],
   ["What happens if you disappear?", "You keep everything: the workflows, the data and a written handover document. Another builder can pick it up."],
   ["Can a person approve things first?", "Yes. Anything that moves money or messages customers can wait for a one-tap approval."],
-  ["What if it breaks?", "Failures alert us straight away. On a Run plan we fix them; without one, fixes are billed at $[150]/hour."],
+  ["What if it breaks?", "Failures alert us straight away. On a Run plan we fix them; without one, fixes are billed at $150/hour."],
 ];
 
 export default function Home() {
@@ -78,7 +77,7 @@ export default function Home() {
           {[
             ["140,000+", "automation runs to date in our own businesses"],
             [String(LIVE_WORKFLOWS), "workflows live in our own businesses today"],
-            ["~200/day", "runs — 0 failures in the last 24 hours"],
+            ["~200/day", "runs in our own businesses (n8n, 3 Nov 2026)"],
             ["100%", "yours — documented handover, no lock-in"],
           ].map(([n, l]) => (
             <div key={l} className="flex-[1_1_200px]">
@@ -94,9 +93,9 @@ export default function Home() {
         <h2 className="font-display m-0 text-[40px] font-bold tracking-tight">One team for the whole journey</h2>
         <div className="flex flex-wrap items-stretch gap-3">
           {[
-            ["01 · Get found", "Local SEO", "Area pages, Google Business Profile and automatic review requests.", "from $[450]/mo", false],
-            ["02 · Get booked", "Booking websites & portals", "Customers price, book and pay online; your team runs the desk from one screen.", "from $[4,500]", false],
-            ["03 · Get paid", "AI automations", "Leads answered, bills booked, bank matched, late payers chased.", "from $[600]", true],
+            ["01 · Get found", "Local SEO", "Area pages, Google Business Profile and automatic review requests.", "from $450/mo", false],
+            ["02 · Get booked", "Booking websites & portals", "Customers price, book and pay online; your team runs the desk from one screen.", "from $4,500", false],
+            ["03 · Get paid", "AI automations", "Leads answered, bills booked, bank matched, late payers chased.", "from $600", true],
           ].map(([k, t, d, p, dark]) => (
             <Link key={k as string} href="/library" className={`flex flex-[1_1_280px] flex-col gap-2.5 rounded-[14px] p-6 no-underline ${dark ? "bg-ink text-paper" : "card text-ink"}`}>
               <span className={`font-mono text-xs uppercase ${dark ? "text-amber" : "text-clay"}`}>{k}</span>
@@ -139,14 +138,14 @@ export default function Home() {
         <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-3">
           <h2 className="font-display m-0 text-[34px] font-bold leading-tight">Watch one job go from enquiry to paid — with nobody typing.</h2>
           <Link href="#packages" className="btn btn-primary self-start">Seen enough? Buy a fixed package →</Link>
-          <Link href="#assess" className="font-semibold">Not sure which? Take the 2-minute assessment</Link>
+          <Link href="/planner/" className="font-semibold">Not sure which? Build your plan in 2 minutes</Link>
         </div>
       </section>
 
       {/* Packages */}
       <section id="packages" className="wrap flex flex-col gap-5 pt-16">
         <div className="kicker !text-clay">Skip the call</div>
-        <h2 className="font-display m-0 text-[clamp(28px,4vw,40px)] font-bold tracking-tight">Fixed scope. Fixed price. Pay online, we start Monday.</h2>
+        <h2 className="font-display m-0 text-[clamp(28px,4vw,40px)] font-bold tracking-tight">Fixed scope. Fixed price. Pay online — we start within 2 working days.</h2>
         <div className="flex flex-wrap gap-4">
           {PACKAGES.map((p) => (
             <div key={p.name} className={`flex flex-[1_1_280px] flex-col gap-3 rounded-[14px] p-6 ${p.popular ? "bg-ink text-paper" : "card"}`}>
@@ -169,7 +168,6 @@ export default function Home() {
       </section>
 
       {/* Assessment */}
-      <section id="assess" className="wrap pt-16"><Assessment /></section>
 
       <div className="pt-16"><OwnAutomations /></div>
 

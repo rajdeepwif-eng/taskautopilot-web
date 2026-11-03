@@ -16,6 +16,7 @@ import {
   priceLabel,
   roleHourly,
   exampleYearly,
+  runLow,
 } from "@/lib/catalogue";
 
 function Chip({ active, onClick, children, tone = "dark" }: { active: boolean; onClick: () => void; children: React.ReactNode; tone?: "dark" | "clay" }) {
@@ -52,10 +53,10 @@ export default function LibraryClient() {
   const discount = planItems.length >= 3 ? oneOff * 0.1 : 0;
   const allSolo = planItems.length > 0 && planItems.every((p) => p.cat === "Solo (self-employed)");
   const runText = allSolo
-    ? "Solo Care $[49]/mo — we keep it all running"
+    ? "Solo Care $49/mo — we keep it all running"
     : planItems.length >= 3
-      ? "Run Full $[1,500]/mo — monitoring, fixes, a new workflow monthly, live results panel"
-      : "Run Lite $[300]/mo — monitoring, failure alerts and fixes";
+      ? "Run Full $1,500/mo — monitoring, fixes, a new workflow monthly, live results panel"
+      : "Run Lite $300/mo — monitoring, failure alerts and fixes";
 
   return (
     <main>
@@ -177,7 +178,7 @@ export default function LibraryClient() {
                   <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#EDEAE1] pt-3">
                     <span>
                       <b className="font-display text-[22px]">{fmt(full * 0.9)}</b>{" "}
-                      <span className="text-muted line-through">{fmt(full)}</span> <span className="text-ok">bundle −10%</span>
+                      <span className="text-ok">save {fmt(full * 0.1)} vs buying separately</span>
                     </span>
                     <button
                       type="button"
@@ -244,8 +245,12 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
       const m = (weekly * 52) / 12;
       payback = m >= p.price ? `Saves ${fmt(m - p.price)} a month after the fee` : `Costs ${fmt(p.price - m)} a month more than the time saved`;
     } else {
-      const w = Math.ceil(p.price / weekly);
-      payback = `Pays for itself in about ${w} week${w === 1 ? "" : "s"}`;
+      const net = weekly - (runLow(p) * 12) / 52;
+      if (net <= 0) payback = "At these numbers the monthly run plan costs more than the time saved — lower-cost options may suit you better.";
+      else {
+        const w = Math.ceil(p.price / net);
+        payback = `Pays back in about ${w} week${w === 1 ? "" : "s"}${runLow(p) ? ` after the run plan (from ${fmt(runLow(p))}/mo)` : ""} — illustrative, on your numbers.`;
+      }
     }
   }
   return (
@@ -307,7 +312,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               <br />✓ Approve a test run before go-live
               {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
             </div>
-            {p.grade && <div className="text-[12px] text-muted">Price checked against US market rates, Nov 2026</div>}
+            
             <div className="text-[12px] text-muted">🔒 Secure card payment by Stripe. We never see your card.</div>
             {!inline && <Link href={`/p/${p.id}/`} className="text-center text-sm text-muted underline">Open full page / share link</Link>}
           </div>
