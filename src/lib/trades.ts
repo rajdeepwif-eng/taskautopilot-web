@@ -60,7 +60,7 @@ export const TRADES: Trade[] = [
   { slug: "office-teams", name: "Offices & growing teams", short: "Any business with 5–500 staff", cat: "Owner & management",
     headline: "Delegate in one message, see who did what, and stop drowning in email.",
     pains: [["\"I chase people for updates all day.\"", "SOP tasks with proof, an evening exceptions list and a Friday scorecard."], ["\"My inbox runs my day.\"", "Emails sorted, replies drafted, one digest of what needs you."], ["\"Nobody trained the new starter.\"", "Training by role on their phone, with sign-off and records."]],
-    kit: "Team accountability kit", top: [96, 61, 62, 63, 100, 49], apps: "Asana, ClickUp, Monday.com, Slack, Teams, Gmail, Outlook", faq: [SAFE, OWN] },
+    kit: "Team accountability kit", top: [101, 96, 61, 62, 63, 100], apps: "Asana, ClickUp, Monday.com, Slack, Teams, Gmail, Outlook", faq: [SAFE, OWN] },
 ];
 
 export const tradeBySlug = (s: string) => TRADES.find((t) => t.slug === s)!;

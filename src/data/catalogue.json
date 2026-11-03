@@ -1408,6 +1408,80 @@
    ],
    "run": "$150–300/mo + AI usage",
    "replaces": "Ends 'nobody showed them how' — every person trained, tested and signed off, with records."
+  },
+  {
+   "id": 101,
+   "cat": "Owner & management",
+   "name": "Goals & strategic planning system",
+   "price": 3500,
+   "days": 15,
+   "run": "$200–400/mo + AI usage",
+   "desc": "Your yearly goal broken into quarterly priorities, owners and weekly lead measures. Every week the team scoreboard updates itself, off-track goals are flagged, and each quarter a review pack and next-quarter draft plan are ready for your leadership meeting.",
+   "apps": "Asana, ClickUp or Monday.com, Google Sheets, Slack or Teams",
+   "replaces": "Turns the yearly plan into weekly action — no more strategy that dies in a slide deck.",
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 102,
+   "cat": "Courses",
+   "name": "AI-powered strategy & goal planning (owners & leadership teams)",
+   "price": 699,
+   "days": 1,
+   "desc": "Set one clear goal, turn it into quarterly priorities with owners, and run a weekly scoreboard and quarterly review with AI doing the analysis and admin. Built on the planning system we use ourselves. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "4 weeks · leadership teams welcome",
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 103,
+   "cat": "Courses",
+   "name": "Practical AI at work — team licence (up to 25 staff)",
+   "price": 1990,
+   "days": 1,
+   "desc": "Short, role-based lessons that get every employee using AI safely for writing, research, analysis and admin — with a company AI policy template and a manager progress view. Renew yearly. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "Per year · up to 25 learners · progress dashboard",
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 104,
+   "cat": "Courses",
+   "name": "Data & dashboards for managers",
+   "price": 499,
+   "days": 1,
+   "desc": "Analytical thinking for busy managers: get the numbers out of your apps automatically, build one dashboard that matters, and use AI to explain what changed and why. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "4 weeks · Google Sheets, Excel, Looker Studio",
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 105,
+   "cat": "Courses",
+   "name": "Certified Automation Practitioner",
+   "price": 2997,
+   "days": 1,
+   "desc": "Our premium programme: 10 weeks, live sessions, a reviewed capstone automation in your own business and a practical exam. Graduates receive the TaskAutopilot practitioner certificate (our own certificate, not an accredited qualification). Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "10 weeks · live + 1-to-1 review · certificate",
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 106,
+   "cat": "Courses",
+   "name": "Founder's Automation Mastermind — 12 weeks",
+   "price": 4997,
+   "days": 1,
+   "desc": "A small group of owners working directly with us for 12 weeks: we plan your automation roadmap, review every build and meet weekly. Limited places. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "12 weeks · max 8 owners · weekly calls + private reviews",
+   "ind": [
+    "all"
+   ]
   }
  ],
  "how": {
@@ -1750,6 +1824,36 @@
    "We build a training matrix: each role, the skills it needs and the SOP or video for each.",
    "Staff get short lessons and a quiz on their phone; supervisors sign off practical skills.",
    "Refreshers and expiring certificates are chased; you see a live matrix of who is trained."
+  ],
+  "101": [
+   "Set one goal with a number and a date; break it into quarterly priorities and owners.",
+   "Weekly lead measures update a team scoreboard automatically; off-track items are flagged.",
+   "Each quarter a review pack and draft plan are ready for your leadership meeting."
+  ],
+  "102": [
+   "Set one measurable goal and break it into quarterly priorities.",
+   "Build a weekly scoreboard your team updates in two minutes.",
+   "Run quarterly reviews with AI preparing the analysis."
+  ],
+  "103": [
+   "Choose roles and add up to 25 staff.",
+   "Each person does short lessons using AI on their real work.",
+   "Managers see progress; the company gets an AI-use policy template."
+  ],
+  "104": [
+   "Connect the apps where your numbers live.",
+   "Build one dashboard that updates itself.",
+   "Use AI to explain changes and spot problems early."
+  ],
+  "105": [
+   "Live weekly sessions and hands-on builds.",
+   "Build and present a capstone automation in your own business.",
+   "Pass the practical review to earn the certificate."
+  ],
+  "106": [
+   "We map your business and agree the 90-day roadmap.",
+   "Weekly group calls and private reviews of every build.",
+   "Leave with your key automations live and a plan for the next year."
   ]
  },
  "defaultHours": {
@@ -1852,7 +1956,13 @@
   "97": 4,
   "98": 4,
   "99": 4,
-  "100": 4
+  "100": 4,
+  "101": 4,
+  "102": 4,
+  "103": 4,
+  "104": 4,
+  "105": 4,
+  "106": 4
  },
  "bundles": [
   {
@@ -1863,7 +1973,8 @@
     49,
     50,
     51,
-    52
+    52,
+    101
    ]
   },
   {
@@ -1871,6 +1982,7 @@
    "depts": "CEO → MANAGERS → STAFF",
    "desc": "Delegate in one message, every role on SOP tasks with proof, an evening exceptions list and a Friday scorecard.",
    "ids": [
+    101,
     61,
     62,
     50,
