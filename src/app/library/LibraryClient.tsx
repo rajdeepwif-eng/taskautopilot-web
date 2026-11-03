@@ -234,7 +234,7 @@ export default function LibraryClient() {
   );
 }
 
-function ProductDetail({ p, inPlan, onAdd, onClose }: { p: Product; inPlan: boolean; onAdd: () => void; onClose: () => void }) {
+export function ProductDetail({ p, inPlan, onAdd, onClose, children }: { p: Product; inPlan: boolean; onAdd: () => void; onClose: () => void; children?: React.ReactNode }) {
   const [hours, setHours] = useState(defaultHours(p));
   const [rate, setRate] = useState(roleHourly(p));
   const weekly = (Number(hours) || 0) * (Number(rate) || 0);
@@ -292,6 +292,7 @@ function ProductDetail({ p, inPlan, onAdd, onClose }: { p: Product; inPlan: bool
               </div>
             </div>
             <div className="text-sm text-muted">Works with: {p.apps}</div>
+            {children}
           </div>
           <div className="flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-[14px] bg-paper p-5">
             <div className="font-display text-4xl font-bold">{priceLabel(p)}</div>
