@@ -26,6 +26,9 @@ export default function ProductPageClient({ id }: { id: number }) {
           </Link>
         )}
       </div>
+      {id === 120 && (
+        <div className="wrap pt-4"><Link href="/starter/" className="btn btn-primary">Choose your starter automation →</Link></div>
+      )}
       <ProductDetail inline p={p} inPlan={plan.includes(id)} onAdd={() => add([id])} onClose={() => {}}>
         {bundle && (() => {
           const bi = bundle.ids.map(byId);

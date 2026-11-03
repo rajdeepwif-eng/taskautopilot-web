@@ -309,7 +309,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
               {p.cat !== "Courses" && p.cat !== "DIY kits" && <><br />✓ Live in {p.days} working days</>}
               <br />✓ You own it — documented handover
-              <br />✓ Approve a test run before go-live
+              <br />✓ Approve the test run or get a full refund
               {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
             </div>
             

@@ -60,11 +60,11 @@ export default function Home() {
             <Link href="/planner/" className="font-semibold text-ink">Not sure? Build my plan in 2 minutes →</Link>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
-            <span>✓ Fixed price</span><span>✓ Pay online, no sales call</span><span>✓ You own everything</span>
+            <span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ You own everything</span>
           </div>
-          <Link href="/p/120/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border-2 border-clay bg-white/90 px-4 py-3 text-ink no-underline">
+          <Link href="/starter/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border-2 border-clay bg-white/90 px-4 py-3 text-ink no-underline">
             <span><b>New here? Try one automation for $99.</b> <span className="text-ink-2">Set up for you, runs 30 days, $99 credited if you upgrade.</span></span>
-            <span className="whitespace-nowrap font-semibold text-clay">Start →</span>
+            <span className="whitespace-nowrap font-semibold text-clay">Pick yours →</span>
           </Link>
         </div>
         <div className="hidden min-h-[380px] flex-[1_1_380px] lg:block" aria-hidden="true" />

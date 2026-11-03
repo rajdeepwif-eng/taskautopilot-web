@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/CatArt";
+import CurrencySwitch, { CurrencyApplier } from "@/components/Currency";
 import "@fontsource-variable/inter";
 import "@fontsource/space-grotesk/500.css";
 import "@fontsource/space-grotesk/700.css";
@@ -30,9 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/academy/" className="text-ink">Courses</Link>
               <Link href="/consulting/" className="text-ink">Consulting</Link>
               <Link href="/ask/" className="text-ink">Can we automate it?</Link>
+              <CurrencySwitch />
               <Link href="/library/" className="btn btn-primary !min-h-[44px]">Browse &amp; buy</Link>
             </nav>
             <div className="flex items-center gap-2 lg:hidden">
+              <CurrencySwitch />
               <Link href="/library/" className="btn btn-primary !min-h-[40px] !px-4 whitespace-nowrap text-sm">Browse &amp; buy</Link>
               <details className="relative">
                 <summary aria-label="Menu" className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-line [&::-webkit-details-marker]:hidden">
@@ -53,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
         {children}
+        <CurrencyApplier />
         <footer className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm text-muted">
           <span>© 2026 TaskAutopilot · Prices in US dollars</span>
           <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/kits/">Starter kits</Link><Link href="/demo/">Try it live</Link><Link href="/library/">All automations</Link><Link href="/#security">Security</Link></span>

@@ -1,0 +1,110 @@
+"use client";
+
+/**
+ * Shows prices in the visitor's currency. Prices are authored in US$; set list prices for
+ * UK, Australia and Canada are derived from ECB reference rates (18 May 2026) and rounded.
+ * Text that quotes US statistics (BLS medians) is left in US$.
+ */
+import { useEffect, useState } from "react";
+
+const RATES = { USD: 1, GBP: 0.747, AUD: 1.396, CAD: 1.374 } as const;
+type Cur = keyof typeof RATES;
+const SYM: Record<Cur, string> = { USD: "$", GBP: "£", AUD: "A$", CAD: "C$" };
+const LABEL: Record<Cur, string> = { USD: "US $", GBP: "UK £", AUD: "AU $", CAD: "CA $" };
+const KEY = "ta-currency";
+const PRICE = /\$([\d,]+(?:\.\d+)?)/g;
+const seen = new WeakMap<Text, { orig: string; shown: string }>();
+
+function nice(n: number) {
+  if (n >= 1000) return Math.round(n / 50) * 50;
+  if (n >= 100) return Math.round(n / 10) * 10;
+  return Math.max(1, Math.round(n / 5) * 5 - 1);
+}
+
+function convertText(t: string, cur: Cur) {
+  if (cur === "USD" || /BLS|median|US\$/.test(t)) return t;
+  return t.replace(PRICE, (_, v: string) => SYM[cur] + nice(Number(v.replace(/,/g, "")) * RATES[cur]).toLocaleString("en-GB"));
+}
+
+function apply(root: Node, cur: Cur) {
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let n: Node | null;
+  while ((n = w.nextNode())) {
+    const t = n as Text;
+    const p = t.parentElement;
+    if (!p || p.closest("script,style,[data-nocurrency]")) continue;
+    const rec = seen.get(t);
+    // If the text is what we last showed, keep the stored original; otherwise React (or first sight) set new text.
+    const orig = rec && t.data === rec.shown ? rec.orig : t.data;
+    if (!/\$\d/.test(orig)) { if (rec) seen.delete(t); continue; }
+    const shown = convertText(orig, cur);
+    seen.set(t, { orig, shown });
+    if (t.data !== shown) t.data = shown;
+  }
+}
+
+function read(): Cur {
+  try {
+    const v = window.localStorage.getItem(KEY) as Cur | null;
+    if (v && v in RATES) return v;
+  } catch { /* storage blocked */ }
+  try {
+    const l = navigator.language || "";
+    if (/-GB$/i.test(l)) return "GBP";
+    if (/-AU$/i.test(l)) return "AUD";
+    if (/-CA$/i.test(l)) return "CAD";
+  } catch { /* ignore */ }
+  return "USD";
+}
+
+const EVT = "ta-currency-change";
+
+/** Mounted once (in the layout): converts prices on the page and keeps them converted. */
+export function CurrencyApplier() {
+  const [cur, setCur] = useState<Cur>("USD");
+  useEffect(() => {
+    setCur(read());
+    const on = (e: Event) => setCur((e as CustomEvent<Cur>).detail);
+    window.addEventListener(EVT, on);
+    return () => window.removeEventListener(EVT, on);
+  }, []);
+  useEffect(() => {
+    apply(document.body, cur);
+    let busy = false;
+    const mo = new MutationObserver(() => {
+      if (busy) return;
+      busy = true;
+      requestAnimationFrame(() => { mo.disconnect(); apply(document.body, cur); mo.observe(document.body, { subtree: true, childList: true, characterData: true }); busy = false; });
+    });
+    mo.observe(document.body, { subtree: true, childList: true, characterData: true });
+    return () => mo.disconnect();
+  }, [cur]);
+  return null;
+}
+
+/** A currency picker; any number can be on the page — they stay in sync. */
+export default function CurrencySwitch() {
+  const [cur, setCur] = useState<Cur>("USD");
+  useEffect(() => {
+    setCur(read());
+    const on = (e: Event) => setCur((e as CustomEvent<Cur>).detail);
+    window.addEventListener(EVT, on);
+    return () => window.removeEventListener(EVT, on);
+  }, []);
+  return (
+    <label className="flex items-center gap-1.5 text-sm" data-nocurrency>
+      <select
+        value={cur}
+        onChange={(e) => {
+          const v = e.target.value as Cur;
+          try { window.localStorage.setItem(KEY, v); } catch { /* ignore */ }
+          window.dispatchEvent(new CustomEvent(EVT, { detail: v }));
+        }}
+        className="!min-h-[36px] !py-1 !pl-2 !pr-7 text-sm"
+        aria-label="Currency"
+      >
+        {(Object.keys(RATES) as Cur[]).map((c) => <option key={c} value={c}>{LABEL[c]}</option>)}
+      </select>
+    </label>
+  );
+}

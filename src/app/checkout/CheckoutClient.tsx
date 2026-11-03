@@ -98,6 +98,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         </label>
         {err && <div role="alert" className="text-sm text-[#FCA5A5]">{err}</div>}
         <button type="button" onClick={pay} className="btn btn-primary border-0 text-lg">Pay {fmt(total)} securely →</button>
+        <div className="rounded-lg bg-[#1F2226] px-3 py-2.5 text-sm"><b className="text-[#7FD1A8]">✓ Approve the test run or get a full refund</b><span className="block text-[#C9C7C0]">If you don&apos;t approve the test run of a build, we refund its build fee in full.</span></div>
         <div className="text-xs leading-normal text-[#A9ADB4]">You enter card details on Stripe&apos;s own page. We never see or store them.</div>
         <div className="flex flex-col gap-2 text-sm">
           <button type="button" onClick={() => { try { navigator.clipboard.writeText(window.location.href); } catch {} setErr("✓ Quote link copied — send it to whoever signs off."); }} className="cursor-pointer border-0 bg-transparent p-0 text-left text-amber">Need sign-off? Copy a link to this quote →</button>
