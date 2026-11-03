@@ -31,6 +31,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/library" className="font-semibold text-ink">Automation library</Link>
               <Link href="/#assess" className="text-ink">Free assessment</Link>
               <Link href="/consulting/" className="text-ink">Consulting</Link>
+              <Link href="/insurance/" className="text-ink">Insurance</Link>
+              <Link href="/legal-firms/" className="text-ink">Law firms</Link>
               <Link href="/#security" className="text-ink">Security</Link>
               <Link href="/#packages" className="btn btn-primary !min-h-[44px]">See prices</Link>
             </nav>
