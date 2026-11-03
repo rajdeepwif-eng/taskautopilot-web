@@ -73,6 +73,7 @@ const TASKS: Task[] = [
   { id: "trackers", label: "Updating trackers and spreadsheets by hand", hours: 4, rate: 22, product: 99 },
   { id: "training", label: "Training staff and keeping training records", hours: 4, rate: 30, product: 100 },
   { id: "goals", label: "Setting goals and tracking the plan each week", hours: 3, rate: 60, product: 101 },
+  { id: "epr", label: "Preparing staff performance reviews", hours: 2, rate: 40, product: 107 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];

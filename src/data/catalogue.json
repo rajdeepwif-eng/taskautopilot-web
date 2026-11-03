@@ -1482,6 +1482,34 @@
    "ind": [
     "all"
    ]
+  },
+  {
+   "id": 107,
+   "cat": "Owner & management",
+   "name": "Employee performance reviews (EPRs) on autopilot",
+   "price": 2500,
+   "days": 15,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo + AI usage",
+   "desc": "Monthly or quarterly reviews prepared for every employee from real evidence — tasks done on time, checklists, training and feedback — with a draft review, self-assessment form and 1-to-1 agenda ready for the manager. The manager writes the final review and makes every decision.",
+   "apps": "Asana, ClickUp, Google Forms, Slack or Teams, Google Drive or SharePoint",
+   "replaces": "Turns a week of review prep into an hour — fair reviews based on evidence, not memory."
+  },
+  {
+   "id": 108,
+   "cat": "AI agents",
+   "name": "24/7 AI sales agent — WhatsApp & website",
+   "price": 5000,
+   "days": 15,
+   "ind": [
+    "all"
+   ],
+   "run": "$300–700/mo + AI usage & Meta fees",
+   "desc": "An AI sales agent on your website chat and WhatsApp that answers product and price questions from your own information, qualifies the lead, sends quotes, books calls or appointments and can send a secure Stripe payment link — day and night. Anything it can't answer goes to a person.",
+   "apps": "WhatsApp Business Platform, your website, your CRM, calendar, Stripe payment links",
+   "replaces": "Sells while you sleep — every enquiry answered and moved towards a sale in seconds."
   }
  ],
  "how": {
@@ -1854,6 +1882,16 @@
    "We map your business and agree the 90-day roadmap.",
    "Weekly group calls and private reviews of every build.",
    "Leave with your key automations live and a plan for the next year."
+  ],
+  "107": [
+   "Each review cycle it gathers each person's evidence: tasks, proof, checklists, training and feedback.",
+   "Staff get a self-assessment form; managers get a draft review and a 1-to-1 agenda.",
+   "The manager edits and signs off; records are filed and goals carried into next cycle."
+  ],
+  "108": [
+   "We load your products, prices, FAQs and sales rules, and connect WhatsApp and your website chat.",
+   "The agent answers, qualifies, quotes and books — or sends a secure payment link — any time of day.",
+   "Hot leads and anything unusual go straight to a person, with the full conversation logged."
   ]
  },
  "defaultHours": {
@@ -1962,9 +2000,22 @@
   "103": 4,
   "104": 4,
   "105": 4,
-  "106": 4
+  "106": 4,
+  "107": 4,
+  "108": 8
  },
  "bundles": [
+  {
+   "name": "24/7 sales kit",
+   "depts": "SALES · ANY INDUSTRY",
+   "desc": "An AI sales agent on WhatsApp and your website, instant replies to every enquiry and missed calls texted back.",
+   "ids": [
+    108,
+    10,
+    11
+   ],
+   "kit": true
+  },
   {
    "name": "The owner's office",
    "depts": "OWNER → TEAM → OPERATIONS",
@@ -1987,7 +2038,8 @@
     62,
     50,
     63,
-    100
+    100,
+    107
    ],
    "kit": true
   },

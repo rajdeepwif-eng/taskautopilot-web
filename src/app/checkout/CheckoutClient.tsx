@@ -27,7 +27,6 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
 
   const pay = () => {
     if (!items.length) return setErr("Your plan is empty — add something from the library first.");
-    if (!form.name || !form.company) return setErr("Please add your name and company.");
     if (!/.+@.+\..+/.test(form.email)) return setErr("Please add a valid work email.");
     if (!terms) return setErr("Please accept the terms to continue.");
     // TODO: create a Stripe Checkout Session (test mode) via an API route, then redirect.
@@ -38,10 +37,10 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
     return (
       <main className="mx-auto flex max-w-[760px] flex-col gap-5 px-6 py-14">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ok text-2xl text-white">✓</div>
-        <h1 className="font-display m-0 text-4xl font-bold">Paid. Your build is booked, {form.name.split(" ")[0]}.</h1>
+        <h1 className="font-display m-0 text-4xl font-bold">Paid. Your build is booked.</h1>
         <p className="m-0 text-lg text-ink-2">[Demo — Stripe not connected yet.] Receipt sent to {form.email}. Here&apos;s exactly what happens next — nobody needs to call you.</p>
         {[
-          ["01", "Now — 10-minute setup form.", `Connect ${apps.join(", ") || "your apps"} with secure logins (no passwords shared).`],
+          ["01", "Now — 10-minute setup form.", "Tell us your apps and connect them with secure logins (no passwords shared)."],
           ["02", "Day 1 — build starts.", "You get a project page with progress you can check any time."],
           ["03", "Day 8–12 — approve a test run", "in one click, before anything goes live."],
           ["04", "Go-live", "plus your live results panel and handover document."],
@@ -59,7 +58,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   return (
     <main className="wrap flex flex-wrap items-start gap-8 pt-10 pb-20">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-6">
-        <h1 className="font-display m-0 text-[40px] font-bold tracking-tight">Two minutes, then we take it from here.</h1>
+        <h1 className="font-display m-0 text-[clamp(30px,4vw,40px)] font-bold tracking-tight">One minute, then we take it from here.</h1>
+        <div className="text-[15px] text-ink-2">Pay now; tell us about your apps and team on a 10-minute setup form afterwards.</div>
 
         <div className="card flex flex-col gap-3 p-5">
           <div className="font-semibold">1 · Your plan</div>
@@ -78,32 +78,6 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
           </div>
         </div>
 
-        <div className="card flex flex-col gap-3 p-5">
-          <div className="font-semibold">2 · Which apps do you use? <span className="font-normal text-muted">(so we&apos;re ready on day one)</span></div>
-          <div className="flex flex-wrap gap-2">
-            {APPS.map((a) => {
-              const on = apps.includes(a);
-              return (
-                <button key={a} type="button" aria-pressed={on} onClick={() => setApps(on ? apps.filter((x) => x !== a) : [...apps, a])}
-                  className={`min-h-[44px] cursor-pointer rounded-full border px-3.5 text-sm ${on ? "border-ink bg-ink text-white" : "border-[#C9C5B9] bg-white text-ink"}`}>
-                  {on ? "✓ " : ""}{a}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="card flex flex-col gap-3 p-5">
-          <div className="font-semibold">3 · Your details</div>
-          <div className="flex flex-wrap gap-3">
-            {([["name", "Full name", "text"], ["email", "Work email", "email"], ["company", "Company", "text"], ["phone", "Phone (go-live day only)", "tel"]] as const).map(([k, label, type]) => (
-              <label key={k} className="flex flex-[1_1_220px] flex-col gap-1.5 text-sm">
-                {label}
-                <input type={type} value={form[k]} onChange={(e) => { setForm({ ...form, [k]: e.target.value }); setErr(""); }} />
-              </label>
-            ))}
-          </div>
-        </div>
       </div>
 
       <aside className="flex min-w-0 flex-[1_1_320px] flex-col gap-3.5 rounded-2xl bg-ink p-6 text-paper">
@@ -114,6 +88,10 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         {t.price > 0 && <div className="flex justify-between"><span>{t.name}, first month</span><span className="font-mono">{fmt(t.price)}</span></div>}
         <div className="flex items-baseline justify-between border-t border-[#2B2E33] pt-3"><span className="text-[#A9ADB4]">Due today</span><span className="font-display text-4xl font-bold text-amber">{fmt(total)}</span></div>
         <div className="text-[13px] text-[#A9ADB4]">Plus sales tax or VAT where it applies. Usage-based costs (call minutes, AI usage) are billed at cost.</div>
+        <label className="flex flex-col gap-1.5 text-sm text-[#C9C7C0]">
+          Email for your receipt and setup form
+          <input type="email" value={form.email} onChange={(e) => { setForm({ ...form, email: e.target.value }); setErr(""); }} placeholder="you@company.com" className="!text-ink" />
+        </label>
         <label className="flex cursor-pointer items-start gap-2.5 text-sm text-[#C9C7C0]">
           <input type="checkbox" checked={terms} onChange={() => { setTerms(!terms); setErr(""); }} className="mt-0.5 h-5 w-5" />
           <span>I agree to the <Link href="/legal/terms" className="text-amber">terms of service</Link>, scope and <Link href="/legal/refunds" className="text-amber">refund policy</Link>.</span>
@@ -122,8 +100,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         <button type="button" onClick={pay} className="btn btn-primary border-0 text-lg">Pay {fmt(total)} securely →</button>
         <div className="text-xs leading-normal text-[#A9ADB4]">You enter card details on Stripe&apos;s own page. We never see or store them.</div>
         <div className="flex flex-col gap-2 text-sm">
-          <a href="mailto:[sales@yourdomain]" className="text-amber">Need sign-off? Send this quote to your manager →</a>
-          <a href="mailto:[sales@yourdomain]" className="text-amber">Prefer to pay by invoice / bank transfer →</a>
+          <button type="button" onClick={() => { try { navigator.clipboard.writeText(window.location.href); } catch {} setErr("✓ Quote link copied — send it to whoever signs off."); }} className="cursor-pointer border-0 bg-transparent p-0 text-left text-amber">Need sign-off? Copy a link to this quote →</button>
+          <Link href="/consulting/#audit" className="text-amber">Need an invoice or a purchase order? Ask here →</Link>
           <Link href="/#security" className="text-amber">Data &amp; security →</Link>
         </div>
       </aside>
