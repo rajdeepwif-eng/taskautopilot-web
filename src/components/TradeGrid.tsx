@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { TRADES } from "@/lib/trades";
 import TradeIcon from "@/components/TradeIcon";
+import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 
 // Lead with the owner groups that earn the most (IRS-based study: Smith, Yagan, Zidar & Zwick, QJE 2019)
 // and need the most admin automated; the rest follow.
-const ORDER = ["trades", "clinics", "professional", "property", "equipment-hire", "manufacturing", "food-production", "restaurants", "logistics", "retail", "farming", "office-teams"];
+const ORDER = ["trades", "clinics", "professional", "busy-professionals", "property", "equipment-hire", "manufacturing", "food-production", "restaurants", "logistics", "retail", "farming", "office-teams"];
 
 export default function TradeGrid() {
   return (
@@ -14,7 +15,12 @@ export default function TradeGrid() {
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {ORDER.map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t) => (
           <Link key={t.slug} href={`/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
-            <div className="relative aspect-[16/7]"><TradeIcon slug={t.slug} size={38} /></div>
+            <div className="relative aspect-[16/7] overflow-hidden">
+              {TRADE_PHOTOS[t.slug]
+                // eslint-disable-next-line @next/next/no-img-element
+                ? <img src={TRADE_PHOTOS[t.slug].src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
+                : <TradeIcon slug={t.slug} size={38} />}
+            </div>
             <div className="flex flex-col gap-0.5 p-3.5">
               <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{t.name}</span>
               <span className="text-[12.5px] text-muted">{t.short}</span>

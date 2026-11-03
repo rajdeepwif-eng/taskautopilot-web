@@ -1913,6 +1913,34 @@
       ],
       "run": "$300–600/mo",
       "desc": "For a new factory, unit or commercial conversion: planning and building-control milestones, contractor packages and quotes, a programme that updates from site, cost against budget, change requests, snags and the handover file — in one place with weekly reports. Your architect, engineer and building control still approve their parts."
+    },
+    {
+      "id": 140,
+      "cat": "Owner & management",
+      "name": "Personal admin autopilot — bills, renewals, family & travel",
+      "desc": "Your life admin handled like a private office: bills, subscriptions and renewals tracked with a reminder before anything auto-renews; family and school dates merged into your work calendar; travel bookings and documents kept in one place; and a Sunday digest of the week ahead. Anything that spends money waits for your one-tap approval.",
+      "apps": "Gmail or Outlook, Google or Apple Calendar, Google Drive or OneDrive, WhatsApp",
+      "price": 3200,
+      "days": 10,
+      "ind": [
+        "all"
+      ],
+      "run": "$200–400/mo + AI usage",
+      "role": "Executive Assistants",
+      "replaces": "a part-time personal assistant"
+    },
+    {
+      "id": 141,
+      "cat": "Owner & management",
+      "name": "Money at a glance — spending, bills & net-worth dashboard",
+      "desc": "A read-only dashboard across your accounts: monthly spending by category, upcoming bills, cash and net worth from your balances, and a year-end pack of statements and receipts for your accountant. It reports; it never moves money, trades or gives investment advice.",
+      "apps": "Bank exports or a read-only bank feed (Plaid / open banking), Google Sheets or Excel, your accountant",
+      "price": 2400,
+      "days": 10,
+      "ind": [
+        "all"
+      ],
+      "run": "$100–200/mo"
     }
   ],
   "how": {
@@ -2450,6 +2478,18 @@
       "We set up the programme, budget, packages and approval milestones.",
       "Site updates, quotes, invoices and changes flow in and are checked against budget.",
       "Weekly reports, chased snags and a complete handover file at the end."
+    ],
+    "140": [
+      "Bills, subscriptions and renewals are pulled from your inbox into one list with due dates.",
+      "A reminder lands before anything renews, so you can cancel or switch in time.",
+      "Family, school and travel dates sit in your calendar next to work.",
+      "Every Sunday: one short digest of the week ahead and what needs you."
+    ],
+    "141": [
+      "Connect your accounts read-only, or drop in monthly exports.",
+      "Spending is categorised and upcoming bills are listed automatically.",
+      "Balances roll up into a cash and net-worth view that updates itself.",
+      "At year end your accountant gets a tidy pack of statements and receipts."
     ]
   },
   "defaultHours": {
@@ -2590,7 +2630,9 @@
     "136": 4,
     "137": 4,
     "138": 4,
-    "139": 6
+    "139": 6,
+    "140": 4,
+    "141": 2
   },
   "bundles": [
     {
@@ -2929,6 +2971,18 @@
         41,
         42,
         43
+      ],
+      "kit": true
+    },
+    {
+      "name": "Busy professional kit",
+      "depts": "INBOX → DIARY → LIFE ADMIN",
+      "desc": "For doctors, lawyers, consultants and directors: inbox sorted, diary and meetings run for you, life admin and money tracked without lifting a finger.",
+      "ids": [
+        96,
+        111,
+        140,
+        141
       ],
       "kit": true
     }

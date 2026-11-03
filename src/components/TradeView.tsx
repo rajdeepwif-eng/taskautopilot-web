@@ -3,6 +3,7 @@ import { BUNDLES, byId, defaultHours, exampleYearly } from "@/lib/catalogue";
 import { tradeBySlug } from "@/lib/trades";
 import { CatArt } from "@/components/CatArt";
 import { COUNTRIES, Country, money } from "@/lib/geo";
+import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 
 export default function TradeView({ slug, country }: { slug: string; country: Country }) {
   const t = tradeBySlug(slug);
@@ -16,10 +17,21 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
   return (
     <main className="pb-24 lg:pb-0" data-nocurrency={country !== "us" ? "" : undefined}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: t.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }) }} />
-      <section className="wrap flex flex-col gap-4 pb-8 pt-12">
-        <Link href={`${C.path}/#trades`} className="text-sm">← All trades</Link>
-        <div className="kicker">{t.name} · {t.short}{country !== "us" ? ` · ${C.name}` : ""}</div>
-        <h1 className="m-0 max-w-[900px] font-display text-[clamp(32px,5vw,52px)] font-bold leading-[1.05] tracking-tight">{t.headline}</h1>
+      <section className="wrap flex flex-wrap items-center gap-8 pb-8 pt-12">
+        <div className="flex min-w-0 flex-[999_1_480px] flex-col gap-4">
+          <Link href={`${C.path}/#trades`} className="text-sm">← All trades</Link>
+          <div className="kicker">{t.name} · {t.short}{country !== "us" ? ` · ${C.name}` : ""}</div>
+          <h1 className="m-0 max-w-[900px] font-display text-[clamp(32px,5vw,52px)] font-bold leading-[1.05] tracking-tight">{t.headline}</h1>
+          <div className="flex flex-wrap items-center gap-4">
+            {kit && <a href="#kit" className="btn btn-primary">See the starter kit — {fmt(kitFull * 0.9)}</a>}
+            <Link href="/starter/" className="font-semibold text-ink">Or try one automation for {fmt(99)} →</Link>
+          </div>
+          <div className="flex flex-wrap gap-4 text-sm text-ink-2"><span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ Secure Stripe checkout</span></div>
+        </div>
+        {TRADE_PHOTOS[slug] && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={TRADE_PHOTOS[slug].src} width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt="" className="aspect-[4/3] w-full min-w-0 flex-[1_1_380px] rounded-2xl object-cover" />
+        )}
       </section>
 
       <section className="border-y border-line bg-[#ECEAE2]">
@@ -34,7 +46,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
       </section>
 
       {kit && (
-        <section className="wrap py-12">
+        <section id="kit" className="wrap scroll-mt-20 py-12">
           <div className="flex flex-wrap items-center gap-6 rounded-2xl bg-ink p-6 text-paper md:p-8">
             <div className="flex min-w-0 flex-[2_1_420px] flex-col gap-2">
               <div className="font-mono text-xs text-amber">START HERE · ONE PRICE · ONE SETUP</div>

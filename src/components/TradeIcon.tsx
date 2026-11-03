@@ -11,6 +11,7 @@ const I: Record<string, [string, string, string]> = {
   retail: ["#F9EEDA", "#7A4E00", "M5 8h14l-1 13H6zM9 8a3 3 0 0 1 6 0"],
   logistics: ["#E7F1FB", "#15457A", "M2 7h12v9H2zM14 10h4l3 3v3h-7M6 19a2 2 0 1 0 0-.1M17 19a2 2 0 1 0 0-.1"],
   manufacturing: ["#F0EFEC", "#15171A", "M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"],
+  "busy-professionals": ["#E6ECF7", "#1F3E73", "M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"],
   solo: ["#F9EEDA", "#7A4E00", "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0"],
   "office-teams": ["#15171A", "#F2B36B", "M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20a6 6 0 0 1 12 0M12 20a6 6 0 0 1 10 0"],
 };
