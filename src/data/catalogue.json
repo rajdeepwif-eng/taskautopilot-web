@@ -812,6 +812,120 @@
    "run": "$100–200/mo",
    "replaces": "Gets know-how out of your head and into tasks someone else can run.",
    "grade": "Lead"
+  },
+  {
+   "id": 55,
+   "cat": "DIY kits",
+   "name": "Missed-call text-back — DIY kit",
+   "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Missed-call text-back'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+   "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+   "price": 99,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 56,
+   "cat": "DIY kits",
+   "name": "Instant lead reply — DIY kit",
+   "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Instant lead reply & booking'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+   "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+   "price": 149,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 57,
+   "cat": "DIY kits",
+   "name": "Review requests — DIY kit",
+   "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Review requests & replies'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+   "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+   "price": 99,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 58,
+   "cat": "DIY kits",
+   "name": "Supplier invoice reader — DIY kit",
+   "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Supplier invoice reader'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+   "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+   "price": 199,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 59,
+   "cat": "DIY kits",
+   "name": "Nightly bank reconciliation — DIY kit",
+   "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Nightly bank reconciliation'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+   "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+   "price": 299,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 60,
+   "cat": "DIY kits",
+   "name": "Forms to workflow — DIY kit",
+   "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Forms to workflow'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+   "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+   "price": 99,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 61,
+   "cat": "Owner & management",
+   "name": "Delegate from chat — message to Asana task",
+   "desc": "Type or voice-note a job in Slack, Teams or WhatsApp. It drafts a proper task — owner, due date, steps, proof needed — you tap ✅ and it lands in Asana for the right person.",
+   "apps": "Asana, Slack, Microsoft Teams, WhatsApp",
+   "price": 2000,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo + AI usage",
+   "replaces": "Turns 'can someone sort this' into an owned, dated task in seconds."
+  },
+  {
+   "id": 62,
+   "cat": "Owner & management",
+   "name": "Staff accountability system in Asana",
+   "desc": "Every role gets its daily, weekly and monthly SOP tasks with an owner, a deadline and proof required. Overdue, 'done with no proof' and stuck tasks are flagged to the manager every evening.",
+   "apps": "Asana, Slack or Teams, Google Drive or OneDrive",
+   "price": 4500,
+   "days": 20,
+   "ind": [
+    "all"
+   ],
+   "run": "$300–600/mo + AI usage",
+   "replaces": "Ends chasing staff for updates — you see who did what, with proof."
+  },
+  {
+   "id": 63,
+   "cat": "Owner & management",
+   "name": "Weekly team review & scorecard",
+   "desc": "Every Friday each person's tasks are scored: done on time, done late, missed and done without proof — with a one-page summary per person for the manager's 1-to-1.",
+   "apps": "Asana, Slack or Teams, Google Sheets",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo + AI usage",
+   "replaces": "Replaces hours of preparing weekly reviews and 1-to-1s."
   }
  ],
  "how": {
@@ -924,6 +1038,51 @@
    "Explain, upload or record how the job is done.",
    "It drafts a short SOP: owner, cadence, steps, proof and 'done when'.",
    "On your approval it becomes a task in your system, ready to repeat."
+  ],
+  "55": [
+   "Pay and download the workflow file, video guide and checklist straight away.",
+   "Import the file into your n8n and connect your own apps by following the video.",
+   "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
+  ],
+  "56": [
+   "Pay and download the workflow file, video guide and checklist straight away.",
+   "Import the file into your n8n and connect your own apps by following the video.",
+   "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
+  ],
+  "57": [
+   "Pay and download the workflow file, video guide and checklist straight away.",
+   "Import the file into your n8n and connect your own apps by following the video.",
+   "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
+  ],
+  "58": [
+   "Pay and download the workflow file, video guide and checklist straight away.",
+   "Import the file into your n8n and connect your own apps by following the video.",
+   "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
+  ],
+  "59": [
+   "Pay and download the workflow file, video guide and checklist straight away.",
+   "Import the file into your n8n and connect your own apps by following the video.",
+   "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
+  ],
+  "60": [
+   "Pay and download the workflow file, video guide and checklist straight away.",
+   "Import the file into your n8n and connect your own apps by following the video.",
+   "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
+  ],
+  "61": [
+   "You message the job in plain words — text or voice note.",
+   "It drafts the task: owner, due date, steps, proof and why it matters.",
+   "You tap ✅ and it is created in Asana for that person; nothing is created without your tick."
+  ],
+  "62": [
+   "We map each role's recurring work into SOP tasks with owner, cadence and proof.",
+   "Tasks repeat automatically; staff tick them off with a photo, file or note as proof.",
+   "Each evening the manager gets one list: overdue, no proof, stuck — with one-tap replies."
+  ],
+  "63": [
+   "Every Friday it reads each person's tasks for the week.",
+   "It scores on time, late, missed and no-proof, and spots repeating problems.",
+   "The manager gets one page per person, ready for the 1-to-1."
   ]
  },
  "defaultHours": {
@@ -980,7 +1139,16 @@
   "51": 3,
   "52": 3,
   "53": 6,
-  "54": 3
+  "54": 3,
+  "55": 2,
+  "56": 2,
+  "57": 2,
+  "58": 2,
+  "59": 2,
+  "60": 2,
+  "61": 3,
+  "62": 6,
+  "63": 3
  },
  "bundles": [
   {
@@ -993,6 +1161,18 @@
     51,
     52
    ]
+  },
+  {
+   "name": "Team accountability kit",
+   "depts": "CEO → MANAGERS → STAFF",
+   "desc": "Delegate in one message, every role on SOP tasks with proof, an evening exceptions list and a Friday scorecard.",
+   "ids": [
+    61,
+    62,
+    50,
+    63
+   ],
+   "kit": true
   },
   {
    "name": "Found → Booked → Paid",
@@ -1080,6 +1260,64 @@
     37,
     39
    ]
+  },
+  {
+   "name": "Equipment hire starter kit",
+   "depts": "EQUIPMENT HIRE",
+   "desc": "Never miss an enquiry, chase every invoice and keep safety checks closed out.",
+   "ids": [
+    11,
+    10,
+    22,
+    47
+   ],
+   "kit": true
+  },
+  {
+   "name": "Restaurant starter kit",
+   "depts": "RESTAURANTS & FOOD",
+   "desc": "Fewer no-shows, bills booked without typing, staff onboarded and reviews coming in.",
+   "ids": [
+    35,
+    21,
+    30,
+    15
+   ],
+   "kit": true
+  },
+  {
+   "name": "Clinic starter kit",
+   "depts": "CLINICS & DENTAL",
+   "desc": "Patients book online, reminders cut no-shows and every call is answered.",
+   "ids": [
+    33,
+    7,
+    15
+   ],
+   "kit": true
+  },
+  {
+   "name": "Trades starter kit",
+   "depts": "TRADES & HOME SERVICES",
+   "desc": "Missed calls texted back, quotes chased, jobs scheduled and invoices paid.",
+   "ids": [
+    11,
+    13,
+    26,
+    22
+   ],
+   "kit": true
+  },
+  {
+   "name": "Professional firm starter kit",
+   "depts": "LAW, ACCOUNTING & INSURANCE",
+   "desc": "Enquiries answered in a minute and client documents collected without chasing.",
+   "ids": [
+    10,
+    32,
+    7
+   ],
+   "kit": true
   }
  ]
 }

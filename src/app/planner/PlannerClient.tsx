@@ -51,6 +51,7 @@ const TASKS: Task[] = [
   { id: "reporting", label: "Pulling numbers together for reports", hours: 3, rate: 30, product: 25 },
   { id: "brief", label: "Checking every app to see what needs me", hours: 5, rate: 60, product: 49 },
   { id: "team", label: "Checking my team's or assistant's progress", hours: 4, rate: 60, product: 50 },
+  { id: "delegate", label: "Delegating jobs and chasing staff for updates", hours: 5, rate: 60, product: 62 },
   { id: "research", label: "Researching before decisions", hours: 3, rate: 60, product: 51 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },

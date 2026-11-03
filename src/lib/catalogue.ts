@@ -20,7 +20,7 @@ export type Product = {
   replaces?: string;
 };
 
-export type Bundle = { name: string; depts: string; desc: string; ids: number[] };
+export type Bundle = { name: string; depts: string; desc: string; ids: number[]; kit?: boolean };
 
 export const INDUSTRIES: string[] = data.industries;
 export const PRODUCTS: Product[] = data.products as Product[];
@@ -42,6 +42,7 @@ export const CATEGORIES = [
   "Monitoring",
   "Owner & management",
   "Solo (self-employed)",
+  "DIY kits",
 ];
 
 /** Prices are placeholders until confirmed by the business owner. */
