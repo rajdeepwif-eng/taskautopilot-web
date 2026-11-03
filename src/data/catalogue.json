@@ -3,6 +3,8 @@
   "Trades & home services",
   "Construction & equipment hire",
   "Restaurants & hospitality",
+  "Farming & agriculture",
+  "Food production & processing",
   "Retail & e-commerce",
   "Professional services",
   "Insurance agencies & claims",
@@ -1144,6 +1146,201 @@
    "ind": [
     "all"
    ]
+  },
+  {
+   "id": 81,
+   "cat": "Industry",
+   "name": "BRCGS & HACCP audit-ready records",
+   "desc": "Digital monitoring checks at every CCP, with readings checked against the limits in your HACCP plan. An out-of-limit reading opens a corrective action with an owner; document reviews, internal audits and training records are scheduled, so the audit pack is ready any day. Limits and methods come from your own HACCP plan and are approved by your food safety team — we never set them.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 4500,
+   "days": 15,
+   "ind": [
+    "Food production & processing"
+   ],
+   "run": "$300–600/mo"
+  },
+  {
+   "id": 82,
+   "cat": "Industry",
+   "name": "Batch records & traceability",
+   "desc": "Raw material lots captured by QR at goods-in and linked to every batch made. Run a mock recall — forwards and backwards — in minutes instead of a day of paperwork.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 3500,
+   "days": 15,
+   "ind": [
+    "Food production & processing"
+   ],
+   "run": "$200–400/mo"
+  },
+  {
+   "id": 83,
+   "cat": "Compliance",
+   "name": "Supplier approval & certificate tracker",
+   "desc": "Supplier questionnaires, certificates and specifications collected and checked; expiry dates chased at 60, 30 and 0 days, with unapproved suppliers flagged before you order.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 84,
+   "cat": "Compliance",
+   "name": "Complaints, non-conformances & CAPA",
+   "desc": "Every customer complaint or non-conformance logged once, investigated by a named owner, with root cause, corrective and preventive action and close-out evidence — and trends reported monthly.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo"
+  },
+  {
+   "id": 85,
+   "cat": "Operations",
+   "name": "Cleaning & hygiene schedules with proof",
+   "desc": "Cleaning tasks scheduled by area and shift, signed off with a photo, verified by a supervisor. Missed cleans alert the manager the same shift. Limits and methods come from your own HACCP plan and are approved by your food safety team — we never set them.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1200,
+   "days": 10,
+   "ind": [
+    "Food production & processing"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 86,
+   "cat": "Operations",
+   "name": "Production planning & daily line report",
+   "desc": "Orders turned into a daily production plan; the line reports output, waste and downtime from a phone, and you get one report each evening with yield against plan.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "Food production & processing"
+   ],
+   "run": "$200–400/mo"
+  },
+  {
+   "id": 87,
+   "cat": "Industry",
+   "name": "Farm operations schedule & field tasks",
+   "desc": "Your crop calendar turned into dated field tasks for each worker, with photos as proof, weather notes and a weekly summary of what was done and what slipped.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "Farming & agriculture"
+   ],
+   "run": "$150–300/mo"
+  },
+  {
+   "id": 88,
+   "cat": "Compliance",
+   "name": "Spray & input records",
+   "desc": "Every spray, fertiliser and seed application recorded — product, field, date, operator, weather — for audits and buyers. Rates come from the product label and your agronomist; we only record them.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "Farming & agriculture"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 89,
+   "cat": "Industry",
+   "name": "Harvest, yield & sales tracker",
+   "desc": "Harvest quantities by field and crop, what was sold to whom and at what price, and yield per acre compared with last season — all in one sheet that fills itself.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "Farming & agriculture"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 90,
+   "cat": "Industry",
+   "name": "Crop problem photo triage",
+   "desc": "Send a photo of a sick crop; AI suggests the likely causes and what to check, and sends it to your agronomist or local extension expert to confirm. It never gives a spray dose.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "Farming & agriculture"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 91,
+   "cat": "Operations",
+   "name": "Machinery maintenance & fuel log",
+   "desc": "Machines and vehicles logged by QR: hours, fuel, checks and faults. Services fall due automatically and faults become repair tasks with an owner.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 92,
+   "cat": "Owner & management",
+   "name": "Office admin autopilot",
+   "desc": "Shared inbox sorted and answered in drafts, documents filed to the right folder, meeting notes turned into tasks with owners, and a short daily list of what the office must do today.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$200–400/mo"
+  },
+  {
+   "id": 93,
+   "cat": "Owner & management",
+   "name": "Meeting notes to tasks",
+   "desc": "Record or upload a meeting; you get short notes, decisions and a task for every action with an owner and due date — sent to your task app after you approve.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1000,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$50–100/mo"
+  },
+  {
+   "id": 94,
+   "cat": "Operations",
+   "name": "Leave & holiday requests",
+   "desc": "Staff request leave on a form; the manager approves in one tap, the rota and calendar update, and balances are tracked — no more paper slips.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1200,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$50–100/mo"
+  },
+  {
+   "id": 95,
+   "cat": "Finance",
+   "name": "Purchase requests & approvals",
+   "desc": "Staff request what they need; requests under your limit are approved automatically, larger ones go to the right manager, and approved orders are logged against the budget.",
+   "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
   }
  ],
  "how": {
@@ -1386,6 +1583,81 @@
    "We connect your existing cameras and agree the zones and hours to watch.",
    "AI flags only the events you chose and sends a short clip to your phone.",
    "A morning summary lists overnight events; footage stays in your system."
+  ],
+  "81": [
+   "Your HACCP team enters the CCPs, limits and checks from your plan.",
+   "Operators record readings on a phone or tablet; anything out of limit opens a corrective action at once.",
+   "Reviews, internal audits and training are scheduled and the audit pack builds itself."
+  ],
+  "82": [
+   "Goods-in scans each lot and its paperwork.",
+   "Production records which lots went into each batch and where it was shipped.",
+   "One search traces any lot forwards to customers or backwards to suppliers."
+  ],
+  "83": [
+   "Suppliers get a link to upload certificates and answer your questionnaire.",
+   "Expiry dates are tracked and chased automatically.",
+   "Buyers see who is approved before they order."
+  ],
+  "84": [
+   "A complaint or issue is logged by form, email or phone.",
+   "It goes to an owner with a due date for root cause and corrective action.",
+   "Close-out needs evidence; trends are reported monthly."
+  ],
+  "85": [
+   "Cleaning tasks appear by area and shift on a phone.",
+   "Staff sign off with a photo; supervisors verify.",
+   "Missed or failed cleans alert the manager straight away."
+  ],
+  "86": [
+   "Confirmed orders build tomorrow's production plan.",
+   "The line logs output, waste and downtime as it happens.",
+   "An evening report shows yield, waste and late orders."
+  ],
+  "87": [
+   "Your crop calendar becomes dated tasks by field and worker.",
+   "Workers tick tasks off with a photo from the field.",
+   "A weekly summary shows done, late and coming up."
+  ],
+  "88": [
+   "The operator records each application on a phone.",
+   "Product, field, date, weather and operator are saved with a photo of the label.",
+   "Records are ready for audits and buyer checks."
+  ],
+  "89": [
+   "Harvest is logged by field and crop.",
+   "Sales and dispatches are logged against each harvest.",
+   "Yield per acre and income per crop are compared with last season."
+  ],
+  "90": [
+   "A worker sends a photo and the field name.",
+   "AI lists likely causes and what to check next.",
+   "Your agronomist or extension expert confirms before anything is applied."
+  ],
+  "91": [
+   "Each machine has a QR code for fuel, hours and daily checks.",
+   "Services fall due by hours or date; faults become repair tasks.",
+   "A monthly report shows fuel use and costs per machine."
+  ],
+  "92": [
+   "The shared inbox is sorted and replies are drafted for approval.",
+   "Attachments are named and filed to the right folder.",
+   "Meeting notes become tasks; the office gets one daily list."
+  ],
+  "93": [
+   "Record the meeting or upload the recording.",
+   "AI writes notes, decisions and actions.",
+   "You approve and each action becomes a task with an owner and date."
+  ],
+  "94": [
+   "Staff request leave from their phone.",
+   "The manager approves or declines in one tap.",
+   "The calendar, rota and leave balance update automatically."
+  ],
+  "95": [
+   "Staff submit a purchase request with a quote or link.",
+   "Under-limit requests approve automatically; larger ones go to the manager.",
+   "Approved orders are logged against budget and supplier."
   ]
  },
  "defaultHours": {
@@ -1468,7 +1740,22 @@
   "77": 4,
   "78": 4,
   "79": 4,
-  "80": 5
+  "80": 5,
+  "81": 4,
+  "82": 4,
+  "83": 4,
+  "84": 4,
+  "85": 4,
+  "86": 4,
+  "87": 4,
+  "88": 4,
+  "89": 4,
+  "90": 4,
+  "91": 4,
+  "92": 4,
+  "93": 4,
+  "94": 4,
+  "95": 4
  },
  "bundles": [
   {
@@ -1636,6 +1923,42 @@
     10,
     32,
     7
+   ],
+   "kit": true
+  },
+  {
+   "name": "Food factory starter kit (BRCGS-ready)",
+   "depts": "FOOD PRODUCTION & PROCESSING",
+   "desc": "Audit-ready HACCP records, traceability, supplier approvals and cleaning with proof.",
+   "ids": [
+    81,
+    82,
+    83,
+    85
+   ],
+   "kit": true
+  },
+  {
+   "name": "Farm starter kit",
+   "depts": "FARMING & AGRICULTURE",
+   "desc": "Field tasks, spray records, harvest and sales tracking, and machinery logs.",
+   "ids": [
+    87,
+    88,
+    89,
+    91
+   ],
+   "kit": true
+  },
+  {
+   "name": "Office starter kit",
+   "depts": "OFFICE & ADMIN",
+   "desc": "Inbox, filing, meeting actions, leave and purchase approvals on autopilot.",
+   "ids": [
+    92,
+    93,
+    94,
+    95
    ],
    "kit": true
   }

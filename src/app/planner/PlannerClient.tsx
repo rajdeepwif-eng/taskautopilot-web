@@ -23,6 +23,9 @@ const PRESETS: { id: string; label: string; tasks: string[] }[] = [
   { id: "law", label: "Law or accounting firm", tasks: ["enquiries", "intake", "calls", "invoicing"] },
   { id: "property", label: "Property management", tasks: ["tenants", "calls", "invoicing", "bank"] },
   { id: "construction", label: "Construction or manufacturing", tasks: ["safety", "forms", "scheduling", "bills", "invoicing"] },
+  { id: "foodfactory", label: "Food production (BRCGS)", tasks: ["haccp", "trace", "bills", "staff", "excel"] },
+  { id: "farm", label: "Farm", tasks: ["fieldtasks", "spray", "timesheets", "invoicing", "translate"] },
+  { id: "office", label: "Office / admin team", tasks: ["office", "enquiries", "invoicing", "delegate"] },
   { id: "other", label: "Something else", tasks: ["enquiries", "invoicing", "forms"] },
 ];
 
@@ -58,6 +61,11 @@ const TASKS: Task[] = [
   { id: "translate", label: "Translating messages and documents", hours: 2, rate: 25, product: 67 },
   { id: "timesheets", label: "Checking timesheets and who turned up", hours: 3, rate: 24, product: 79 },
   { id: "cctv", label: "Watching CCTV or checking the site after hours", hours: 3, rate: 20, product: 80 },
+  { id: "haccp", label: "Food safety records & audit prep (HACCP / BRCGS)", hours: 6, rate: 24, product: 81 },
+  { id: "trace", label: "Batch records & traceability", hours: 4, rate: 24, product: 82 },
+  { id: "fieldtasks", label: "Planning and checking farm field work", hours: 5, rate: 20, product: 87 },
+  { id: "spray", label: "Spray, fertiliser & input records", hours: 2, rate: 20, product: 88 },
+  { id: "office", label: "Office admin: inbox, filing, meeting actions", hours: 8, rate: 22, product: 92 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];
