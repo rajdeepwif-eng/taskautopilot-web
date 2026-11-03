@@ -1,4 +1,5 @@
 import HeroSearch from "@/components/HeroSearch";
+import heroImg from "@/assets/hero.jpg";
 import OwnAutomations, { LIVE_WORKFLOWS } from "@/components/OwnAutomations";
 import Link from "next/link";
 import Assessment from "@/components/Assessment";
@@ -41,7 +42,10 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="wrap flex flex-wrap items-center gap-12 pt-16 pb-10">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-[position:70%_center]" style={{ backgroundImage: `url(${heroImg.src})` }} aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(244,243,238,0.97)] via-[rgba(244,243,238,0.88)] to-[rgba(244,243,238,0.15)] max-lg:bg-[rgba(244,243,238,0.9)]" aria-hidden="true" />
+      <div className="wrap relative flex flex-wrap items-center gap-12 pt-16 pb-14">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
           <div className="kicker">For owner-run businesses of every kind</div>
           <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
@@ -59,16 +63,8 @@ export default function Home() {
             <span>✓ Fixed price</span><span>✓ Pay online, no sales call</span><span>✓ You own everything</span>
           </div>
         </div>
-        <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-3 rounded-2xl bg-ink p-6 font-mono text-[13px] text-[#E9E7E0]">
-          <div className="flex justify-between"><span className="text-[#A9ADB4]">run log · today</span><span className="text-[#7FD1A8]">● live</span></div>
-          {RUN_LOG.map(([t, label, st], i) => (
-            <div key={t} className={`flex justify-between gap-3 ${i === 0 ? "border-t border-[#2B2E33] pt-3" : ""}`}>
-              <span>{t} {label}</span>
-              <span className={st === "ok" ? "text-[#7FD1A8]" : "text-amber"}>{st}</span>
-            </div>
-          ))}
-          <div className="border-t border-[#2B2E33] pt-3 text-[#A9ADB4]">Every client gets this view of their own workflows.</div>
-        </div>
+        <div className="hidden min-h-[380px] flex-[1_1_380px] lg:block" aria-hidden="true" />
+      </div>
       </section>
 
       {/* Proof strip — real figures from our own n8n account (refresh before launch) */}

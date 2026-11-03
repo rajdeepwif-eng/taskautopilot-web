@@ -926,6 +926,88 @@
    ],
    "run": "$150–300/mo + AI usage",
    "replaces": "Replaces hours of preparing weekly reviews and 1-to-1s."
+  },
+  {
+   "id": 64,
+   "cat": "AI agents",
+   "name": "WhatsApp Business setup & automations",
+   "desc": "Your WhatsApp Business number connected properly: instant replies, booking links, order updates and reminders, with every chat logged to your CRM and handed to a person when needed.",
+   "apps": "WhatsApp Business Platform (Meta), your CRM, calendar, Shopify or booking system",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo + Meta message fees at cost",
+   "replaces": "Answers WhatsApp in seconds, day or night — no one glued to the phone."
+  },
+  {
+   "id": 65,
+   "cat": "Get found (SEO)",
+   "name": "Google Business Profile & reviews — managed",
+   "desc": "Your Google profile kept accurate and active: hours, photos, posts and Q&A. Every happy customer is asked for a review and every review gets a reply drafted for your approval.",
+   "apps": "Google Business Profile, your CRM or invoicing app, Gmail or SMS",
+   "price": 350,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "monthly": true,
+   "replaces": "Keeps you visible on Google Maps without anyone remembering to post or reply."
+  },
+  {
+   "id": 66,
+   "cat": "AI agents",
+   "name": "AI voice calls — confirmations & follow-ups",
+   "desc": "An AI voice calls customers who agreed to be called: confirms appointments, follows up quotes and reminds about renewals, then logs the outcome and passes 'call me back' to a person.",
+   "apps": "Your phone number, calendar, CRM",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "all"
+   ],
+   "run": "$300–700/mo incl. minutes cap",
+   "replaces": "Makes the routine calls your team never gets round to — only to customers who said yes to calls."
+  },
+  {
+   "id": 67,
+   "cat": "Operations",
+   "name": "Auto-translate messages & documents",
+   "desc": "Customer messages, supplier documents and staff instructions translated automatically between English and your team's languages — Hindi, Punjabi, Spanish and more — with the original kept beside it.",
+   "apps": "Gmail, Outlook, WhatsApp, Slack, Google Drive, OneDrive",
+   "price": 1500,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo + AI usage",
+   "replaces": "Ends copy-pasting into a translator — everyone reads it in their own language."
+  },
+  {
+   "id": 68,
+   "cat": "Finance",
+   "name": "Invoices & documents to Excel",
+   "desc": "Invoices, receipts, delivery notes and forms — PDFs or phone photos — read automatically and added as clean rows to your Excel or Google Sheet, with the file linked on each row.",
+   "apps": "Excel, Google Sheets, OneDrive, Google Drive, Gmail, Outlook, WhatsApp",
+   "price": 900,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo + AI usage",
+   "replaces": "Stops someone typing invoice lines into a spreadsheet by hand."
+  },
+  {
+   "id": 69,
+   "cat": "DIY kits",
+   "name": "Invoices to Excel — DIY kit",
+   "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Invoices & documents to Excel'. Includes 30 days of email help. Your kit price is credited if you upgrade within 30 days.",
+   "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+   "price": 99,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
   }
  ],
  "how": {
@@ -1083,6 +1165,36 @@
    "Every Friday it reads each person's tasks for the week.",
    "It scores on time, late, missed and no-proof, and spots repeating problems.",
    "The manager gets one page per person, ready for the 1-to-1."
+  ],
+  "64": [
+   "We connect your WhatsApp Business number to Meta's official platform and your systems.",
+   "Customers get instant replies, booking links, order updates and reminders.",
+   "Anything tricky goes to a person, and every chat is logged against the customer."
+  ],
+  "65": [
+   "We tidy your Google profile and keep hours, photos and posts up to date.",
+   "Every finished job triggers a review request.",
+   "New reviews get a drafted reply you approve in one tap; you get a monthly report."
+  ],
+  "66": [
+   "A call is due — an appointment tomorrow, a quote gone quiet, a renewal.",
+   "The AI voice calls only customers who agreed, confirms or follows up, and handles simple answers.",
+   "The outcome is logged; 'call me back' and complaints go straight to a person."
+  ],
+  "67": [
+   "A message or document arrives in any language.",
+   "It is translated, with the original kept beside it.",
+   "Replies can be written in English and sent back in the customer's language."
+  ],
+  "68": [
+   "Send invoices or photos by email, WhatsApp or a shared folder.",
+   "AI reads supplier, date, lines, tax and totals and checks them.",
+   "A clean row lands in your Excel or Google Sheet with the file linked."
+  ],
+  "69": [
+   "Pay and download the workflow file, video guide and checklist straight away.",
+   "Import the file into your n8n and connect your own apps by following the video.",
+   "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
   ]
  },
  "defaultHours": {
@@ -1148,7 +1260,13 @@
   "60": 2,
   "61": 3,
   "62": 6,
-  "63": 3
+  "63": 3,
+  "64": 6,
+  "65": 2,
+  "66": 4,
+  "67": 3,
+  "68": 4,
+  "69": 2
  },
  "bundles": [
   {

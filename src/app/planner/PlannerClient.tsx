@@ -53,6 +53,9 @@ const TASKS: Task[] = [
   { id: "team", label: "Checking my team's or assistant's progress", hours: 4, rate: 60, product: 50 },
   { id: "delegate", label: "Delegating jobs and chasing staff for updates", hours: 5, rate: 60, product: 62 },
   { id: "research", label: "Researching before decisions", hours: 3, rate: 60, product: 51 },
+  { id: "excel", label: "Typing invoices or documents into Excel", hours: 4, rate: 21, product: 68 },
+  { id: "whatsapp", label: "Answering WhatsApp messages", hours: 5, rate: 18, product: 64, lead: true },
+  { id: "translate", label: "Translating messages and documents", hours: 2, rate: 25, product: 67 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];
