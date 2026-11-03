@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const SUGGEST = ["missed calls", "invoices", "bookings", "reviews", "Xero", "renewals"];
+const SUGGEST = ["email inbox", "missed calls", "invoices", "WhatsApp", "timesheets", "HACCP"];
 
 export default function HeroSearch() {
   const [q, setQ] = useState("");

@@ -66,6 +66,7 @@ const TASKS: Task[] = [
   { id: "fieldtasks", label: "Planning and checking farm field work", hours: 5, rate: 20, product: 87 },
   { id: "spray", label: "Spray, fertiliser & input records", hours: 2, rate: 20, product: 88 },
   { id: "office", label: "Office admin: inbox, filing, meeting actions", hours: 8, rate: 22, product: 92 },
+  { id: "inbox", label: "Reading, sorting and replying to email", hours: 7, rate: 22, product: 96 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];

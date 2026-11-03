@@ -1341,6 +1341,20 @@
     "all"
    ],
    "run": "$100–200/mo"
+  },
+  {
+   "id": 96,
+   "cat": "AI agents",
+   "name": "Email inbox autopilot",
+   "desc": "Every email sorted the moment it lands: urgent ones flagged, replies drafted in your voice for one-tap approval, leads sent to your CRM, invoices to your accounts, newsletters archived — and one short digest of what needs you.",
+   "apps": "Gmail, Outlook / Microsoft 365, Slack or Teams, your CRM and accounting app",
+   "price": 1500,
+   "days": 7,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo + AI usage",
+   "replaces": "Gets you to inbox zero without reading every email — we run this on our own inboxes every minute."
   }
  ],
  "how": {
@@ -1658,6 +1672,11 @@
    "Staff submit a purchase request with a quote or link.",
    "Under-limit requests approve automatically; larger ones go to the manager.",
    "Approved orders are logged against budget and supplier."
+  ],
+  "96": [
+   "A new email arrives in your Gmail or Outlook.",
+   "AI sorts it, drafts a reply in your voice and routes leads, invoices and documents to the right app.",
+   "You approve replies in one tap and get one digest of what truly needs you."
   ]
  },
  "defaultHours": {
@@ -1755,7 +1774,8 @@
   "92": 4,
   "93": 4,
   "94": 4,
-  "95": 4
+  "95": 4,
+  "96": 6
  },
  "bundles": [
   {
