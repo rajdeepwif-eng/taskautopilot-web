@@ -1394,6 +1394,20 @@
     "all"
    ],
    "run": "$50–150/mo"
+  },
+  {
+   "id": 100,
+   "cat": "Owner & management",
+   "name": "Staff training on autopilot",
+   "desc": "A training matrix for every role, built from your own SOPs and videos. New and existing staff get short lessons and quizzes on their phone (WhatsApp or app), supervisors sign off practical skills, refreshers and expiring certificates are chased, and you see who is trained on what.",
+   "apps": "Your SOPs and videos, WhatsApp or Teams, Asana, Google Sheets or Airtable, SafetyCulture Training or any LMS",
+   "price": 2500,
+   "days": 15,
+   "ind": [
+    "all"
+   ],
+   "run": "$150–300/mo + AI usage",
+   "replaces": "Ends 'nobody showed them how' — every person trained, tested and signed off, with records."
   }
  ],
  "how": {
@@ -1731,6 +1745,11 @@
    "We agree what you track, the stages and who owns each.",
    "Updates come in from a phone form, email or your existing apps.",
    "Reminders chase anything stuck and a dashboard shows it all live."
+  ],
+  "100": [
+   "We build a training matrix: each role, the skills it needs and the SOP or video for each.",
+   "Staff get short lessons and a quiz on their phone; supervisors sign off practical skills.",
+   "Refreshers and expiring certificates are chased; you see a live matrix of who is trained."
   ]
  },
  "defaultHours": {
@@ -1832,7 +1851,8 @@
   "96": 6,
   "97": 4,
   "98": 4,
-  "99": 4
+  "99": 4,
+  "100": 4
  },
  "bundles": [
   {
@@ -1854,7 +1874,8 @@
     61,
     62,
     50,
-    63
+    63,
+    100
    ],
    "kit": true
   },
