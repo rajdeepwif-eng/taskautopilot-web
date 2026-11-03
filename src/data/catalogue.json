@@ -1510,6 +1510,20 @@
    "desc": "An AI sales agent on your website chat and WhatsApp that answers product and price questions from your own information, qualifies the lead, sends quotes, books calls or appointments and can send a secure Stripe payment link — day and night. Anything it can't answer goes to a person.",
    "apps": "WhatsApp Business Platform, your website, your CRM, calendar, Stripe payment links",
    "replaces": "Sells while you sleep — every enquiry answered and moved towards a sale in seconds."
+  },
+  {
+   "id": 109,
+   "cat": "Sales",
+   "name": "Full CRM — from first enquiry to paid invoice",
+   "price": 6500,
+   "days": 20,
+   "ind": [
+    "all"
+   ],
+   "run": "$300–600/mo",
+   "desc": "One CRM for the whole customer journey: every enquiry from web, phone, email, WhatsApp and social captured automatically, a clear sales pipeline, follow-ups that run themselves, quotes, bookings and invoices linked to each customer, and a dashboard of sales and cash. We move your old spreadsheets in.",
+   "apps": "HubSpot, GoHighLevel, Airtable, Zoho CRM or Pipedrive; Xero, QuickBooks or Zoho Books; WhatsApp, Gmail, Outlook",
+   "replaces": "Replaces spreadsheets, sticky notes and memory with one place your whole team works from."
   }
  ],
  "how": {
@@ -1892,6 +1906,11 @@
    "We load your products, prices, FAQs and sales rules, and connect WhatsApp and your website chat.",
    "The agent answers, qualifies, quotes and books — or sends a secure payment link — any time of day.",
    "Hot leads and anything unusual go straight to a person, with the full conversation logged."
+  ],
+  "109": [
+   "We choose the right CRM with you, design your pipeline and move your existing customers in.",
+   "Every channel feeds it automatically; follow-ups, quotes and bookings run from it.",
+   "Invoices and payments link back to each customer; you get one live sales and cash dashboard."
   ]
  },
  "defaultHours": {
@@ -2002,7 +2021,8 @@
   "105": 4,
   "106": 4,
   "107": 4,
-  "108": 8
+  "108": 8,
+  "109": 8
  },
  "bundles": [
   {

@@ -80,7 +80,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
 
       </div>
 
-      <aside className="flex min-w-0 flex-[1_1_320px] flex-col gap-3.5 rounded-2xl bg-ink p-6 text-paper">
+      <aside id="pay-box" className="flex min-w-0 flex-[1_1_320px] flex-col gap-3.5 rounded-2xl bg-ink p-6 text-paper">
         <div className="font-display text-[22px] font-bold">Order summary</div>
         <div className="flex justify-between"><span>One-off build</span><span className="font-mono">{fmt(oneOff)}</span></div>
         {discount > 0 && <div className="flex justify-between text-[#7FD1A8]"><span>Bundle saving</span><span className="font-mono">−{fmt(discount)}</span></div>}
@@ -105,6 +105,12 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
           <Link href="/#security" className="text-amber">Data &amp; security →</Link>
         </div>
       </aside>
+      {items.length > 0 && (
+        <div className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-3 border-t border-line bg-paper p-3 lg:hidden">
+          <span className="font-display text-xl font-bold">{fmt(total)}</span>
+          <a href="#pay-box" className="btn btn-primary !min-h-[44px] flex-1">Continue to pay →</a>
+        </div>
+      )}
     </main>
   );
 }
