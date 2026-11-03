@@ -1060,10 +1060,10 @@
   {
    "id": 74,
    "cat": "Courses",
-   "name": "Automation Builder — live 6-week cohort",
-   "desc": "Small live group. Every week you build one automation on your own business with us on the call, plus office hours and templates. Leave with 5 working automations. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
-   "apps": "6 weeks · max 12 people · live calls",
-   "price": 1500,
+   "name": "Automation Builder — live cohort with 1-to-1 builds",
+   "desc": "Small live group over 6 weeks. Each week you build one automation on your own business with us on the call, plus two private 1-to-1 build sessions, office hours and templates. Leave with 5 working automations.",
+   "apps": "6 weeks · max 12 people · live calls + 2 private sessions",
+   "price": 2500,
    "days": 30,
    "ind": [
     "all"
@@ -1077,6 +1077,70 @@
    "apps": "1 day · up to 10 people · online or on site",
    "price": 3500,
    "days": 30,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 76,
+   "cat": "Courses",
+   "name": "Team licence — any course for up to 10 staff",
+   "price": 2500,
+   "desc": "Give up to 10 staff a course, with a manager dashboard of who has finished which lesson and what they built. Renew yearly. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "Per year · up to 10 learners · manager progress view",
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 77,
+   "cat": "Courses",
+   "name": "Managing with AI — delegation & accountability (for managers)",
+   "price": 499,
+   "desc": "For managers and supervisors: delegate in one message, give every role SOP tasks with proof, review the team every Friday and run better 1-to-1s with AI doing the admin. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "4 weeks · Asana, ClickUp or Monday.com",
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 78,
+   "cat": "Courses",
+   "name": "Safety & compliance automation",
+   "price": 499,
+   "desc": "Turn checklists into scheduled inspections, failed items into owned fixes and expiry dates into reminders — so audits are ready any day. Your competent person keeps sign-off. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "4 weeks · SafetyCulture, Google Forms, Asana",
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 79,
+   "cat": "Operations",
+   "name": "GPS clock in & clock out",
+   "price": 2500,
+   "desc": "Staff clock in and out on their phone only when they are on site (GPS fence, optional photo). Timesheets build themselves, late or missed shifts alert the manager, and hours go to payroll.",
+   "apps": "Deputy, Homebase or Connecteam, or a simple phone form; Xero, QuickBooks or Gusto payroll",
+   "run": "$150–300/mo",
+   "replaces": "Ends paper timesheets and 'what time did you start?' arguments. Staff are told what is recorded and why.",
+   "days": 15,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 80,
+   "cat": "Operations",
+   "name": "CCTV watch — alerts that matter",
+   "price": 3500,
+   "desc": "AI watches your existing cameras for the events you choose — movement in the yard after hours, a gate left open, a vehicle at the depot — and sends a short clip to your phone, plus a morning summary. No face recognition.",
+   "apps": "Most IP cameras (ONVIF/RTSP) and cloud camera systems with an API; WhatsApp, Slack or Teams for alerts",
+   "run": "$300–600/mo + AI usage",
+   "replaces": "Stops someone scrolling hours of footage — you only see the moments that matter.",
+   "days": 15,
    "ind": [
     "all"
    ]
@@ -1297,6 +1361,31 @@
    "We agree dates and the workflows to cover.",
    "Live sessions: we build together on your real processes.",
    "Everyone leaves with working automations and the templates."
+  ],
+  "76": [
+   "Choose the course and add up to 10 staff.",
+   "Each learner works through the lessons on their own real tasks.",
+   "You see progress and what each person built."
+  ],
+  "77": [
+   "Set up delegation from one chat message.",
+   "Give every role SOP tasks with owner, cadence and proof.",
+   "Run Friday reviews and 1-to-1s from an automatic scorecard."
+  ],
+  "78": [
+   "Turn your paper checklists into scheduled digital inspections.",
+   "Route failed items to an owner until fixed, with photos.",
+   "Track expiry dates and keep an audit trail ready."
+  ],
+  "79": [
+   "Staff tap Clock in on their phone; it only works inside the site's GPS fence.",
+   "Late, missed or overtime shifts alert the manager the same day.",
+   "Approved hours flow to payroll; staff can see their own records."
+  ],
+  "80": [
+   "We connect your existing cameras and agree the zones and hours to watch.",
+   "AI flags only the events you chose and sends a short clip to your phone.",
+   "A morning summary lists overnight events; footage stays in your system."
   ]
  },
  "defaultHours": {
@@ -1374,7 +1463,12 @@
   "72": 4,
   "73": 4,
   "74": 4,
-  "75": 4
+  "75": 4,
+  "76": 4,
+  "77": 4,
+  "78": 4,
+  "79": 4,
+  "80": 5
  },
  "bundles": [
   {
