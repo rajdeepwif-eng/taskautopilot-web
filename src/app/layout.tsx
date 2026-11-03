@@ -9,7 +9,7 @@ import "@fontsource/jetbrains-mono/600.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TaskAutopilot — Get found. Get booked. Get paid.",
+  title: "TaskAutopilot — things get done without you doing them",
   description:
     "Ready-made AI automations, booking websites and local SEO for every kind of business. Watch each one work, see the price, pay online.",
 };

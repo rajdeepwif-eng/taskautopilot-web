@@ -49,10 +49,10 @@ export default function Home() {
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
           <div className="kicker">For owner-run businesses of every kind</div>
           <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
-            Get found. Get booked. Get paid — while your team gets on with the work.
+            Things get done — without you doing them.
           </h1>
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
-            Local SEO, booking websites and AI automations from one team. Pick a package, pay online, and it&apos;s live in 10–15 working days.
+            Calls answered, jobs booked, invoices paid, staff on track — automated for your business. Pick it, pay online, and it&apos;s live in 10–15 working days.
           </p>
           <HeroSearch />
           <div className="flex flex-wrap items-center gap-4">
