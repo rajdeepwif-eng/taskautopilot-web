@@ -21,7 +21,7 @@ const PRESETS: { id: string; label: string; tasks: string[] }[] = [
   { id: "food", label: "Restaurant or food business", tasks: ["reservations", "bills", "staff", "safety", "reviews"] },
   { id: "insurance", label: "Insurance agency", tasks: ["quotesIns", "calls", "intake", "claims"] },
   { id: "law", label: "Law or accounting firm", tasks: ["enquiries", "intake", "calls", "invoicing"] },
-  { id: "property", label: "Property management", tasks: ["tenants", "calls", "invoicing", "bank"] },
+  { id: "property", label: "Property investing & management", tasks: ["deals", "refurb", "tenants", "calls", "invoicing", "bank"] },
   { id: "construction", label: "Construction or manufacturing", tasks: ["safety", "forms", "scheduling", "bills", "invoicing"] },
   { id: "foodfactory", label: "Food production (BRCGS)", tasks: ["haccp", "trace", "bills", "staff", "excel"] },
   { id: "farm", label: "Farm", tasks: ["assurance", "fieldtasks", "spray", "timesheets", "invoicing", "translate"] },
@@ -81,6 +81,8 @@ const TASKS: Task[] = [
   { id: "stock", label: "Tracking stock in and out", hours: 4, rate: 20, product: 27 },
   { id: "p2p", label: "Matching orders, deliveries and invoices", hours: 4, rate: 23, product: 115 },
   { id: "assurance", label: "Farm assurance audit prep (Red Tractor / GLOBALG.A.P.)", hours: 4, rate: 22, product: 116 },
+  { id: "deals", label: "Searching and analysing property deals", hours: 6, rate: 40, product: 117 },
+  { id: "refurb", label: "Managing renovation projects", hours: 5, rate: 35, product: 119 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];

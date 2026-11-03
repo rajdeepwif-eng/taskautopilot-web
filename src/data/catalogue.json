@@ -1609,6 +1609,50 @@
    "desc": "The records your farm assurance audit asks for, kept up to date as you work: field and spray records, traceability from field to buyer, staff training, hygiene and maintenance checks, risk assessments and an internal self-assessment schedule — with gaps flagged weeks before the audit. Checklists are built from the current standard you hold; your certification body still audits and decides. Not affiliated with either scheme.",
    "apps": "Google Sheets or Airtable, phone forms or SafetyCulture, Google Drive or OneDrive, WhatsApp",
    "replaces": "Ends the pre-audit scramble — every record already there, with the gaps flagged early."
+  },
+  {
+   "id": 117,
+   "cat": "Industry",
+   "name": "Property deal finder & deal packs",
+   "price": 3500,
+   "days": 15,
+   "ind": [
+    "Real estate & property"
+   ],
+   "run": "$200–400/mo + AI usage",
+   "desc": "New listings and auction lots from the alerts and feeds you subscribe to are checked every day against your criteria — area, price, size, yield. Matches get a one-page deal pack with the numbers worked through on your assumptions (purchase costs, refurb, rent, yield, cash left in) and comparable sales, sent to your phone. Numbers are estimates for your own judgement, not investment advice.",
+   "apps": "Listing alert emails and permitted data feeds, Google Sheets or Airtable, Gmail, WhatsApp",
+   "replaces": "Stops you trawling portals every evening — only deals that fit your rules reach you."
+  },
+  {
+   "id": 118,
+   "cat": "Industry",
+   "name": "Property listing autopilot",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "Real estate & property"
+   ],
+   "run": "$100–250/mo + AI usage",
+   "desc": "Listing descriptions drafted from your notes and photos (checked for fair-housing wording), photos organised, listings prepared for the portals you use, and every enquiry answered with viewing slots that book themselves.",
+   "apps": "The portals you list on, Google Drive, Gmail or Outlook, calendar, WhatsApp",
+   "replaces": "Gets a property listed and viewings booked in an hour, not a day."
+  },
+  {
+   "id": 119,
+   "cat": "Industry",
+   "name": "Renovation project management",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "Real estate & property",
+    "Trades & home services",
+    "Construction & equipment hire"
+   ],
+   "run": "$200–400/mo",
+   "desc": "A schedule of works for each property, trades booked and reminded, daily photo updates from site, budget against actual spend, a snag list chased to closed, and a handover pack at the end.",
+   "apps": "Asana or ClickUp, Google Sheets, WhatsApp, Gmail, Xero or QuickBooks",
+   "replaces": "Keeps every refurb on time and on budget without you visiting site daily."
   }
  ],
  "how": {
@@ -2031,6 +2075,21 @@
    "We map the records your current standard requires to simple phone checks and logs.",
    "Workers record as they go; anything missing or overdue is flagged weeks ahead.",
    "Before the audit you get a folder of every record and a self-assessment, ready for the auditor."
+  ],
+  "117": [
+   "You set your buying rules and the assumptions to use.",
+   "Every day new listings from your alerts are checked against them.",
+   "Matches arrive as a one-page deal pack with the numbers and comparable sales."
+  ],
+  "118": [
+   "Send notes and photos for the property.",
+   "A listing is drafted, checked for fair-housing wording and prepared for your portals.",
+   "Enquiries are answered and viewings book themselves into your calendar."
+  ],
+  "119": [
+   "We set up the schedule of works and budget for the property.",
+   "Trades are booked and reminded; site sends daily photo updates.",
+   "Spend, snags and progress are tracked to a handover pack."
   ]
  },
  "defaultHours": {
@@ -2148,7 +2207,10 @@
   "112": 3,
   "113": 4,
   "115": 5,
-  "116": 5
+  "116": 5,
+  "117": 6,
+  "118": 3,
+  "119": 5
  },
  "bundles": [
   {
@@ -2449,6 +2511,17 @@
     27,
     91,
     115
+   ],
+   "kit": true
+  },
+  {
+   "name": "Property investor kit",
+   "depts": "REAL ESTATE & PROPERTY",
+   "desc": "Deals found and analysed daily, refurbs managed, properties listed and viewings booked.",
+   "ids": [
+    117,
+    119,
+    118
    ],
    "kit": true
   }
