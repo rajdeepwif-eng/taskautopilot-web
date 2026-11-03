@@ -1653,6 +1653,187 @@
    "desc": "A schedule of works for each property, trades booked and reminded, daily photo updates from site, budget against actual spend, a snag list chased to closed, and a handover pack at the end.",
    "apps": "Asana or ClickUp, Google Sheets, WhatsApp, Gmail, Xero or QuickBooks",
    "replaces": "Keeps every refurb on time and on budget without you visiting site daily."
+  },
+  {
+   "id": 120,
+   "cat": "Get started",
+   "name": "Starter — try one automation for $99",
+   "desc": "We set up one quick automation for you from a short list — missed-call text-back, review requests, invoices to Excel, email sorting or forms to a sheet — and run it for 30 days. Like it? Your $99 is credited against any bigger build. Don't? Nothing more to pay.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 99,
+   "days": 5,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 121,
+   "cat": "Sales",
+   "name": "Contract, e-signature & deposit",
+   "desc": "When a customer says yes, the contract or terms are generated, sent for e-signature and followed by a deposit invoice with a secure payment link. Work starts only when both are done. Payments go through Stripe or your payment provider — never through us.",
+   "apps": "DocuSign, PandaDoc or Dropbox Sign; Stripe or your payment provider; Xero or QuickBooks; your CRM",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 122,
+   "cat": "Sales",
+   "name": "Client welcome & onboarding",
+   "desc": "New clients get a welcome message, a short checklist, a secure upload link for what you need from them and a clear 'what happens next' timeline — with gentle chasers until everything's in.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 123,
+   "cat": "Finance",
+   "name": "Payments received — matched, receipted, thanked",
+   "desc": "Incoming payments are matched to open invoices, part-payments and unknown receipts are flagged, the customer gets an automatic receipt and thank-you, and the job is marked paid everywhere.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 124,
+   "cat": "Finance",
+   "name": "Customer statements & aged-debt report",
+   "desc": "A monthly statement of open invoices goes to every customer who owes you, and you get a one-page aged-debt report: who owes what, how late and who to call first.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 900,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$50–100/mo"
+  },
+  {
+   "id": 125,
+   "cat": "Finance",
+   "name": "Recurring & stage-payment billing",
+   "desc": "Invoices drafted automatically on a schedule (monthly contracts, retainers, rentals) or when a job reaches a milestone — ready for your one-tap approval before they go.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 1200,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 126,
+   "cat": "Finance",
+   "name": "New-customer credit check & limits",
+   "desc": "Before a new customer gets credit, their company details and available credit information are checked and a suggested limit and payment terms are prepared for you to approve.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 900,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$50–150/mo + data fees"
+  },
+  {
+   "id": 127,
+   "cat": "Finance",
+   "name": "13-week cash-flow forecast",
+   "desc": "A rolling 13-week view of cash in and out, built from open invoices, bills, payroll and regular costs — updated every week, with warnings before a tight week arrives.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 1800,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 128,
+   "cat": "Finance",
+   "name": "Tax prep pack for your accountant",
+   "desc": "Sales tax / VAT, UK Making Tax Digital quarterly updates or US 1099 contractor totals — figures gathered, checked for gaps and packed for your accountant or CPA, who reviews and files. No tax advice from us.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 129,
+   "cat": "Operations",
+   "name": "Supplier price tracker & best-deal finder",
+   "desc": "Every supplier invoice is read and prices compared with last time and your other suppliers; price rises are flagged, and for regular buys you can send one request for quotes to several suppliers and get the answers side by side.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "all"
+   ],
+   "run": "$100–250/mo"
+  },
+  {
+   "id": 130,
+   "cat": "Industry",
+   "name": "Equipment utilisation & idle-asset alerts",
+   "desc": "See how often each machine is out on hire, get alerts when something has sat idle too long, and send targeted offers to past customers who hired similar kit.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 2000,
+   "days": 10,
+   "ind": [
+    "Construction & equipment hire"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 131,
+   "cat": "Marketing",
+   "name": "Returns & exchanges portal",
+   "desc": "Customers start a return or exchange themselves, get the label and instructions, and refunds or exchanges are prepared for your approval — with repeat-returner flags.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "Retail & e-commerce"
+   ],
+   "run": "$100–200/mo"
+  },
+  {
+   "id": 132,
+   "cat": "Industry",
+   "name": "Clinical notes assistant",
+   "desc": "Turns the session conversation or your dictation into a draft note in your template for you to review and sign — so notes aren't done at home. Runs only on services that sign a business associate agreement (BAA).",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 2500,
+   "days": 10,
+   "ind": [
+    "Clinics & healthcare"
+   ],
+   "run": "$200–400/mo + AI usage"
+  },
+  {
+   "id": 133,
+   "cat": "Industry",
+   "name": "Detention & extra-charge capture",
+   "desc": "Arrival and departure times at every stop are captured from driver phones or tracking, detention and extra charges are calculated on your rules and added to the invoice with proof.",
+   "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "Logistics & transport"
+   ],
+   "run": "$100–200/mo"
   }
  ],
  "how": {
@@ -2090,6 +2271,76 @@
    "We set up the schedule of works and budget for the property.",
    "Trades are booked and reminded; site sends daily photo updates.",
    "Spend, snags and progress are tracked to a handover pack."
+  ],
+  "120": [
+   "Pay $99 and pick one starter automation from the list.",
+   "We set it up in your own accounts within 5 working days.",
+   "It runs for 30 days; upgrade with your $99 credited, or stop — no further charge."
+  ],
+  "121": [
+   "A quote is accepted.",
+   "The contract is generated and sent for e-signature; a deposit invoice with a payment link follows.",
+   "When signed and paid, the job is confirmed and the team is told."
+  ],
+  "122": [
+   "The contract is signed.",
+   "The client gets a welcome, checklist, upload link and timeline.",
+   "Missing items are chased; your team is told when the client is ready to start."
+  ],
+  "123": [
+   "A payment lands in your bank or payment provider.",
+   "It is matched to the invoice; part-payments and unknown payments are flagged for you.",
+   "The customer gets a receipt and thank-you; your CRM and job records update."
+  ],
+  "124": [
+   "At month end every open invoice is gathered by customer.",
+   "Each customer gets a clear statement.",
+   "You get an aged-debt summary ranked by amount and days late."
+  ],
+  "125": [
+   "We load your contracts, schedules and job milestones.",
+   "Invoices are drafted on the right day or when a milestone is reached.",
+   "You approve in one tap; the invoice is sent and tracked."
+  ],
+  "126": [
+   "A new customer asks for credit terms.",
+   "Company records and available credit data are checked automatically.",
+   "You get a suggested limit and terms to approve."
+  ],
+  "127": [
+   "We connect your accounts, invoices, bills and payroll dates.",
+   "The forecast rebuilds every week with expected ins and outs.",
+   "You get a warning and options before any week looks tight."
+  ],
+  "128": [
+   "Each period the figures and missing documents are gathered.",
+   "Gaps (missing receipts, W-9s, uncategorised items) are chased.",
+   "Your accountant or CPA gets a ready pack to review and file."
+  ],
+  "129": [
+   "Supplier invoices are read line by line.",
+   "Price changes and cheaper alternatives you already use are flagged.",
+   "Send one request for quotes; replies come back in one comparison table."
+  ],
+  "130": [
+   "Hire records and telematics are combined per machine.",
+   "Idle or under-used machines are flagged weekly.",
+   "Offers go to past hirers of similar kit, with your approval."
+  ],
+  "131": [
+   "The customer starts a return online.",
+   "They get the label and steps; the item is tracked back.",
+   "The refund or exchange is prepared for your approval."
+  ],
+  "132": [
+   "You dictate or record (with patient consent) during or after the session.",
+   "A draft note appears in your template.",
+   "You review, edit and sign it in your system."
+  ],
+  "133": [
+   "Drivers' arrival and departure are captured automatically.",
+   "Detention and extras are calculated on your agreed rules.",
+   "Charges go on the invoice with time-stamped proof."
   ]
  },
  "defaultHours": {
@@ -2210,9 +2461,36 @@
   "116": 5,
   "117": 6,
   "118": 3,
-  "119": 5
+  "119": 5,
+  "120": 3,
+  "121": 3,
+  "122": 3,
+  "123": 3,
+  "124": 3,
+  "125": 3,
+  "126": 3,
+  "127": 3,
+  "128": 3,
+  "129": 3,
+  "130": 3,
+  "131": 3,
+  "132": 3,
+  "133": 3
  },
  "bundles": [
+  {
+   "name": "Lead to cash kit",
+   "depts": "SALES → FINANCE",
+   "desc": "From first enquiry to money in the bank: instant replies, contract and deposit, client welcome, chasing and payments matched.",
+   "ids": [
+    10,
+    121,
+    122,
+    22,
+    123
+   ],
+   "kit": true
+  },
   {
    "name": "24/7 sales kit",
    "depts": "SALES · ANY INDUSTRY",

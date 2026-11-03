@@ -43,8 +43,8 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-[position:70%_center]" style={{ backgroundImage: `url(${heroImg.src})` }} aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(244,243,238,0.97)] via-[rgba(244,243,238,0.88)] to-[rgba(244,243,238,0.15)] max-lg:bg-[rgba(244,243,238,0.9)]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-cover bg-[position:75%_30%]" style={{ backgroundImage: `url(${heroImg.src})` }} aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(244,243,238,0.98)] from-30% via-[rgba(244,243,238,0.75)] via-50% to-transparent to-75% max-lg:bg-[rgba(244,243,238,0.88)]" aria-hidden="true" />
       <div className="wrap relative flex flex-wrap items-center gap-12 pt-16 pb-14">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
           <div className="kicker">For owner-run businesses of every kind</div>
@@ -62,6 +62,10 @@ export default function Home() {
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
             <span>✓ Fixed price</span><span>✓ Pay online, no sales call</span><span>✓ You own everything</span>
           </div>
+          <Link href="/p/120/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border-2 border-clay bg-white/90 px-4 py-3 text-ink no-underline">
+            <span><b>New here? Try one automation for $99.</b> <span className="text-ink-2">Set up for you, runs 30 days, $99 credited if you upgrade.</span></span>
+            <span className="whitespace-nowrap font-semibold text-clay">Start →</span>
+          </Link>
         </div>
         <div className="hidden min-h-[380px] flex-[1_1_380px] lg:block" aria-hidden="true" />
       </div>

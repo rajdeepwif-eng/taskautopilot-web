@@ -74,7 +74,7 @@ export default async function TradePage({ params }: { params: Promise<{ trade: s
             </article>
           ))}
         </div>
-        <Link href={t.industry ? `/library/?industry=${encodeURIComponent(t.industry)}` : "/library/"} className="font-semibold">See every automation for {t.name.toLowerCase()} →</Link>
+        <div className="flex flex-wrap gap-x-6 gap-y-2"><Link href={t.industry ? `/library/?industry=${encodeURIComponent(t.industry)}` : "/library/"} className="font-semibold">See every automation for {t.name.toLowerCase()} →</Link><Link href="/ask/" className="font-semibold">Don&apos;t see your task? Ask free — we can usually build it →</Link></div>
       </section>
 
       <section className="wrap grid grid-cols-1 gap-6 pb-14 md:grid-cols-2">

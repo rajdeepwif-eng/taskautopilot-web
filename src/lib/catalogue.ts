@@ -30,6 +30,7 @@ const DEFAULT_HOURS: Record<string, number> = data.defaultHours;
 
 export const CATEGORIES = [
   "All",
+  "Get started",
   "Get found (SEO)",
   "Websites & portals",
   "AI agents",

@@ -210,8 +210,8 @@ export default function MarketClient() {
           {results.length === 0 && (
             <div className="card flex flex-col gap-2 p-6">
               <div className="font-display text-xl font-bold">No ready-made match.</div>
-              <div className="text-ink-2">We can build it for you — describe the task and get a fixed quote.</div>
-              <Link href="/bespoke/" className="btn btn-primary self-start">Send a bespoke brief</Link>
+              <div className="text-ink-2">We build custom automations too. Describe the task and get a free yes/no and a fixed price within 1 working day.</div>
+              <Link href="/ask/" className="btn btn-primary self-start">Can you automate it? Ask free</Link>
             </div>
           )}
 

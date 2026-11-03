@@ -14,6 +14,7 @@ const TINT: Record<string, [string, string]> = {
   "Owner & management": ["#15171A", "#F2B36B"],
   "DIY kits": ["#E5F4E4", "#1A7F4E"],
   Courses: ["#EFEDFF", "#3F3299"],
+  "Get started": ["#F9ECE7", "#B23A0B"],
 };
 
 const PATHS: Record<string, string> = {
@@ -31,6 +32,7 @@ const PATHS: Record<string, string> = {
   "Owner & management": "M3 7l4 4 5-6 5 6 4-4-2 11H5zM5 21h14",
   "DIY kits": "M14 6l4 4M4 20l6-1 10-10-5-5L5 14zM12 6l6 6",
   Courses: "M2 8l10-5 10 5-10 5zM6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5M22 8v6",
+  "Get started": "M5 13l4 4L19 7",
 };
 
 export function CatArt({ cat, size = 56 }: { cat: string; size?: number }) {
