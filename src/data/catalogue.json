@@ -154,7 +154,7 @@
    "cat": "Sales",
    "name": "Instant lead reply & booking",
    "desc": "Every web, WhatsApp and social enquiry gets a personal reply and booking link within a minute.",
-   "apps": "Website forms, WhatsApp, Meta, Gmail/Outlook",
+   "apps": "Website forms, WhatsApp, Meta, Gmail/Outlook, Salesforce",
    "price": 1500,
    "days": 10,
    "ind": [
@@ -190,7 +190,7 @@
    "cat": "Sales",
    "name": "AI outbound prospecting",
    "desc": "Finds ideal prospects, researches them and drafts personal emails you approve before sending.",
-   "apps": "LinkedIn, CRM, Gmail/Outlook",
+   "apps": "LinkedIn, CRM, Gmail/Outlook, Salesforce",
    "price": 4000,
    "days": 15,
    "ind": [
@@ -891,8 +891,8 @@
    "id": 61,
    "cat": "Owner & management",
    "name": "Delegate from chat — message to Asana task",
-   "desc": "Type or voice-note a job in Slack, Teams or WhatsApp. It drafts a proper task — owner, due date, steps, proof needed — you tap ✅ and it lands in Asana for the right person.",
-   "apps": "Asana, Slack, Microsoft Teams, WhatsApp",
+   "desc": "Type it, voice-note it or just speak it with a dictation app like Wispr Flow — in Slack, Teams or WhatsApp. It drafts a proper task — owner, due date, steps, proof needed — you tap ✅ and it lands in Asana for the right person.",
+   "apps": "Asana, Slack, Microsoft Teams, WhatsApp, Wispr Flow or any voice dictation",
    "price": 2000,
    "days": 7,
    "ind": [
@@ -1522,7 +1522,7 @@
    ],
    "run": "$300–600/mo",
    "desc": "One CRM for the whole customer journey: every enquiry from web, phone, email, WhatsApp and social captured automatically, a clear sales pipeline, follow-ups that run themselves, quotes, bookings and invoices linked to each customer, and a dashboard of sales and cash. We move your old spreadsheets in.",
-   "apps": "HubSpot, GoHighLevel, Airtable, Zoho CRM or Pipedrive; Xero, QuickBooks or Zoho Books; WhatsApp, Gmail, Outlook",
+   "apps": "Salesforce, HubSpot, GoHighLevel, Airtable, Zoho CRM or Pipedrive; Xero, QuickBooks or Zoho Books; WhatsApp, Gmail, Outlook",
    "replaces": "Replaces spreadsheets, sticky notes and memory with one place your whole team works from."
   },
   {
@@ -1650,7 +1650,7 @@
     "Construction & equipment hire"
    ],
    "run": "$200–400/mo",
-   "desc": "A schedule of works for each property, trades booked and reminded, daily photo updates from site, budget against actual spend, a snag list chased to closed, and a handover pack at the end.",
+   "desc": "A schedule of works for each property — houses, flats or commercial units, trades booked and reminded, daily photo updates from site, budget against actual spend, a snag list chased to closed, and a handover pack at the end.",
    "apps": "Asana or ClickUp, Google Sheets, WhatsApp, Gmail, Xero or QuickBooks",
    "replaces": "Keeps every refurb on time and on budget without you visiting site daily."
   },
@@ -1887,6 +1887,32 @@
     "all"
    ],
    "run": "$150–300/mo"
+  },
+  {
+   "id": 138,
+   "cat": "Industry",
+   "name": "Refinance pack — from finished works to new mortgage",
+   "price": 1500,
+   "days": 10,
+   "ind": [
+    "Real estate & property"
+   ],
+   "run": "$100–200/mo",
+   "desc": "When the works finish, everything the lender and valuer will ask for is gathered and checked: costs and invoices, before-and-after photos, certificates and sign-offs, tenancy and rent evidence, comparable sales — packed for your broker, with valuation and offer dates chased. Your broker and lender decide; this is not financial advice."
+  },
+  {
+   "id": 139,
+   "cat": "Industry",
+   "name": "Commercial & industrial build project control",
+   "price": 4500,
+   "days": 20,
+   "ind": [
+    "Real estate & property",
+    "Manufacturing & wholesale",
+    "Construction & equipment hire"
+   ],
+   "run": "$300–600/mo",
+   "desc": "For a new factory, unit or commercial conversion: planning and building-control milestones, contractor packages and quotes, a programme that updates from site, cost against budget, change requests, snags and the handover file — in one place with weekly reports. Your architect, engineer and building control still approve their parts."
   }
  ],
  "how": {
@@ -2414,6 +2440,16 @@
    "Your accounting app and sales systems are connected.",
    "Each month the pack and dashboard rebuild with notes on what changed.",
    "You get it on the 3rd working day; questions go to the owner of each number."
+  ],
+  "138": [
+   "Costs, photos, certificates and tenancy evidence are gathered from the project as it runs.",
+   "Gaps are chased before the valuation is booked.",
+   "Your broker gets a complete pack; valuation and offer dates are tracked."
+  ],
+  "139": [
+   "We set up the programme, budget, packages and approval milestones.",
+   "Site updates, quotes, invoices and changes flow in and are checked against budget.",
+   "Weekly reports, chased snags and a complete handover file at the end."
   ]
  },
  "defaultHours": {
@@ -2552,7 +2588,9 @@
   "134": 4,
   "135": 4,
   "136": 4,
-  "137": 4
+  "137": 4,
+  "138": 4,
+  "139": 6
  },
  "bundles": [
   {
@@ -2873,11 +2911,12 @@
   {
    "name": "Property investor kit",
    "depts": "REAL ESTATE & PROPERTY",
-   "desc": "Deals found and analysed daily, refurbs managed, properties listed and viewings booked.",
+   "desc": "Deals found and analysed daily, refurbs managed, properties listed and refinance packs ready for your broker.",
    "ids": [
     117,
     119,
-    118
+    118,
+    138
    ],
    "kit": true
   },

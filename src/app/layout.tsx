@@ -10,6 +10,8 @@ import "@fontsource/jetbrains-mono/600.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rajdeepwif-eng.github.io/taskautopilot-web/"),
+  openGraph: { type: "website", siteName: "TaskAutopilot"},
   title: "TaskAutopilot — things get done without you doing them",
   description:
     "Ready-made AI automations, booking websites and local SEO for every kind of business. Watch each one work, see the price, pay online.",
@@ -59,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CurrencyApplier />
         <footer className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm text-muted">
           <span>© 2026 TaskAutopilot · Prices in US dollars</span>
-          <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/kits/">Starter kits</Link><Link href="/demo/">Try it live</Link><Link href="/library/">All automations</Link><Link href="/#security">Security</Link></span>
+          <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/kits/">Starter kits</Link><Link href="/demo/">Try it live</Link><Link href="/library/">All automations</Link><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link><Link href="/#security">Security</Link></span>
           <span>
             <Link href="/legal/privacy">Privacy</Link> · <Link href="/legal/terms">Terms</Link>
           </span>
