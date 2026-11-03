@@ -240,7 +240,7 @@ export default function MarketClient() {
                       {!p.monthly && <span className="text-[12px] text-muted">one-off</span>}
                     </div>
                     {p.run && <div className="text-[12.5px] text-muted">then {p.run}</div>}
-                    <div className="mt-1 text-[13px] text-ok">✓ Live in {p.days} working days</div>
+                    <div className="mt-1 text-[13px] text-ok">{p.cat === "Courses" ? "✓ Founding enrolment open" : p.cat === "DIY kits" ? "✓ Instant download" : `✓ Live in ${p.days} working days`}</div>
                   </div>
                   <div className="mt-2 flex flex-col gap-2">
                     <button

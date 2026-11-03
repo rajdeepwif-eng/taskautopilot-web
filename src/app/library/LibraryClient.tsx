@@ -301,8 +301,8 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
             <button type="button" onClick={onAdd} className="btn btn-outline">{inPlan ? "✓ In your plan" : "Add to plan"}</button>
             <div className="text-sm leading-relaxed text-ink-2">
-              {p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
-              <br />✓ Live in {p.days} working days
+              {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
+              {p.cat !== "Courses" && p.cat !== "DIY kits" && <><br />✓ Live in {p.days} working days</>}
               <br />✓ You own it — documented handover
               <br />✓ Approve a test run before go-live
               {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}

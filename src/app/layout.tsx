@@ -28,9 +28,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
               <Link href="/planner/" className="text-ink">Planner</Link>
               <Link href="/kits/" className="text-ink">Starter kits</Link>
+              <Link href="/academy/" className="text-ink">Courses</Link>
               <Link href="/demo/" className="text-ink">Try it live</Link>
               <Link href="/consulting/" className="text-ink">Consulting</Link>
-              <Link href="/scan/" className="text-ink">Free leak scan</Link>
+              
               <Link href="/library/" className="btn btn-primary !min-h-[44px]">Browse &amp; buy</Link>
             </nav>
             <div className="flex items-center gap-2 lg:hidden">
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link href="/library/" className="font-semibold text-ink">Shop automations</Link>
               <Link href="/planner/" className="text-ink">Planner</Link>
               <Link href="/kits/" className="text-ink">Starter kits</Link>
+              <Link href="/academy/" className="text-ink">Courses</Link>
               <Link href="/demo/" className="text-ink">Try it live</Link>
                   <Link href="/consulting/" className="text-ink">Consulting</Link>
                   <Link href="/insurance/" className="text-ink">Insurance</Link>
@@ -56,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <footer className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm text-muted">
           <span>© 2026 TaskAutopilot · Prices in US dollars</span>
-          <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/#security">Security</Link></span>
+          <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/#security">Security</Link></span>
           <span>
             <Link href="/legal/privacy">Privacy</Link> · <Link href="/legal/terms">Terms</Link>
           </span>

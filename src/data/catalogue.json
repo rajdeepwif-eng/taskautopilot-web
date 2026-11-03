@@ -1008,6 +1008,78 @@
    "ind": [
     "all"
    ]
+  },
+  {
+   "id": 70,
+   "cat": "Courses",
+   "name": "Automate your business in 30 days (self-paced)",
+   "desc": "For owners. Short lessons, each ending with a working automation in your own business: missed calls, enquiries, invoices, bank matching, reviews. Includes 10 ready-made workflow templates and checklists. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "30 days · 20 lessons · 10 templates",
+   "price": 299,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 71,
+   "cat": "Courses",
+   "name": "Run your team from Asana & Slack (self-paced)",
+   "desc": "The accountability system we run ourselves: SOP tasks with owners and proof, delegating from one chat message, an evening exceptions list and a Friday scorecard. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "4 weeks · Asana + Slack or Teams",
+   "price": 399,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 72,
+   "cat": "Courses",
+   "name": "Build your AI Chief of Staff (self-paced)",
+   "desc": "Set up AI that briefs you every morning, tracks your assistant's work, researches before decisions and keeps your systems improving — with approval steps so nothing happens without your yes. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "4 weeks · Claude + n8n",
+   "price": 499,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 73,
+   "cat": "Courses",
+   "name": "n8n for operations managers (self-paced)",
+   "desc": "From first workflow to reliable systems: triggers, AI steps, error alerts, missed-run checks, labelling and handover — the standards we use on 40+ live workflows. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "6 weeks · hands-on",
+   "price": 499,
+   "days": 1,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 74,
+   "cat": "Courses",
+   "name": "Automation Builder — live 6-week cohort",
+   "desc": "Small live group. Every week you build one automation on your own business with us on the call, plus office hours and templates. Leave with 5 working automations. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+   "apps": "6 weeks · max 12 people · live calls",
+   "price": 1500,
+   "days": 30,
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 75,
+   "cat": "Courses",
+   "name": "Team workshop — one day, your workflows",
+   "desc": "A live day for up to 10 of your staff, built around your own processes. Everyone leaves having built and tested an automation they will use the next morning.",
+   "apps": "1 day · up to 10 people · online or on site",
+   "price": 3500,
+   "days": 30,
+   "ind": [
+    "all"
+   ]
   }
  ],
  "how": {
@@ -1195,6 +1267,36 @@
    "Pay and download the workflow file, video guide and checklist straight away.",
    "Import the file into your n8n and connect your own apps by following the video.",
    "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
+  ],
+  "70": [
+   "Enrol and get your welcome pack and setup checklist.",
+   "Work through short lessons; each one ends with something working in your business.",
+   "Get help when stuck and keep the templates for good."
+  ],
+  "71": [
+   "Enrol and get your welcome pack and setup checklist.",
+   "Work through short lessons; each one ends with something working in your business.",
+   "Get help when stuck and keep the templates for good."
+  ],
+  "72": [
+   "Enrol and get your welcome pack and setup checklist.",
+   "Work through short lessons; each one ends with something working in your business.",
+   "Get help when stuck and keep the templates for good."
+  ],
+  "73": [
+   "Enrol and get your welcome pack and setup checklist.",
+   "Work through short lessons; each one ends with something working in your business.",
+   "Get help when stuck and keep the templates for good."
+  ],
+  "74": [
+   "We agree dates and the workflows to cover.",
+   "Live sessions: we build together on your real processes.",
+   "Everyone leaves with working automations and the templates."
+  ],
+  "75": [
+   "We agree dates and the workflows to cover.",
+   "Live sessions: we build together on your real processes.",
+   "Everyone leaves with working automations and the templates."
   ]
  },
  "defaultHours": {
@@ -1266,7 +1368,13 @@
   "66": 4,
   "67": 3,
   "68": 4,
-  "69": 2
+  "69": 2,
+  "70": 4,
+  "71": 4,
+  "72": 4,
+  "73": 4,
+  "74": 4,
+  "75": 4
  },
  "bundles": [
   {

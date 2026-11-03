@@ -43,6 +43,7 @@ export const CATEGORIES = [
   "Owner & management",
   "Solo (self-employed)",
   "DIY kits",
+  "Courses",
 ];
 
 /** Prices are placeholders until confirmed by the business owner. */
