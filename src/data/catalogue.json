@@ -403,8 +403,8 @@
   {
    "id": 27,
    "cat": "Operations",
-   "name": "Stock & inventory tracking",
-   "desc": "Stock in and out logged by scan; low stock and reorders flagged automatically.",
+   "name": "Stock in & out by QR scan",
+   "desc": "Every item booked in at goods-in and out to a job, vehicle or person by scanning a QR code on a phone, with returns and stock takes logged. Low stock triggers a reorder request, and you always know what's where and who has it.",
    "apps": "Airtable, Shopify, Odoo",
    "price": 2500,
    "days": 10,
@@ -1566,6 +1566,34 @@
    "desc": "Every pay period, hours from clock-in or timesheets, overtime, leave, sickness and expenses are gathered, checked against the rota and flagged where they don't match — then sent into your payroll software or to your accountant ready to approve. Your payroll provider runs the pay and the tax filings; we never move money.",
    "apps": "Gusto, ADP, QuickBooks Payroll, Xero Payroll, Deputy, Homebase, Connecteam",
    "replaces": "Ends the payday scramble of chasing timesheets and fixing hours by hand."
+  },
+  {
+   "id": 113,
+   "cat": "Compliance",
+   "name": "Vehicle & machinery daily checks",
+   "price": 1800,
+   "days": 10,
+   "run": "$100–250/mo",
+   "desc": "A QR code on every vehicle and machine opens its pre-use walkaround check on the driver's or operator's phone. Pass, and it's logged; fail, and the defect goes to the workshop with photos, and the vehicle can be marked off the road until fixed — with a full record for audits and driver vehicle inspection reports.",
+   "apps": "SafetyCulture or phone forms, Airtable or Google Sheets, Slack, Teams or WhatsApp, your fleet or maintenance system",
+   "replaces": "Replaces paper check sheets nobody reads — every defect seen and fixed, with proof.",
+   "ind": [
+    "all"
+   ]
+  },
+  {
+   "id": 115,
+   "cat": "Finance",
+   "name": "Purchase to pay — PO, goods receipt, invoice match",
+   "price": 4000,
+   "days": 20,
+   "run": "$200–400/mo",
+   "desc": "Purchase requests become numbered purchase orders after approval; deliveries are booked in against the order (goods receipt) with photos; the supplier invoice is read and matched to the order and the receipt. Matches go to the payment list for your approval; differences are flagged before anyone pays. You or your bank make the payment — we never move money.",
+   "apps": "Xero, QuickBooks, Zoho Books or Sage; Gmail or Outlook; phone forms; Slack or Teams",
+   "replaces": "Stops paying for goods you didn't order or never received — every invoice checked three ways.",
+   "ind": [
+    "all"
+   ]
   }
  ],
  "how": {
@@ -1968,6 +1996,21 @@
    "At period end it gathers hours, overtime, leave and expenses from your systems.",
    "Mismatches with the rota or approvals are flagged for the manager to fix.",
    "Approved figures go into your payroll software or to your accountant; they run pay and filings."
+  ],
+  "27": [
+   "Each item or shelf gets a QR code.",
+   "Staff scan in at goods-in, and out to a job, vehicle or person; returns and counts are logged.",
+   "Low stock raises a reorder request; a live report shows stock, movements and who has what."
+  ],
+  "113": [
+   "Scan the QR on the vehicle or machine to open its check.",
+   "Each item is passed or failed with a photo; failures raise a defect straight away.",
+   "Defects go to the workshop until fixed; managers see who checked what, and when."
+  ],
+  "115": [
+   "A purchase request is approved and becomes a numbered purchase order.",
+   "Deliveries are booked in against the order, with photos of the delivery note.",
+   "The invoice is matched to order and receipt; matches go to your payment list for approval, differences are flagged."
   ]
  },
  "defaultHours": {
@@ -2082,7 +2125,9 @@
   "109": 8,
   "110": 5,
   "111": 6,
-  "112": 3
+  "112": 3,
+  "113": 4,
+  "115": 5
  },
  "bundles": [
   {
@@ -2371,6 +2416,18 @@
     96,
     93,
     51
+   ],
+   "kit": true
+  },
+  {
+   "name": "Yard & warehouse kit",
+   "depts": "OPERATIONS · FINANCE",
+   "desc": "Daily vehicle and machine checks, stock in and out by QR, maintenance on schedule and purchase-to-pay matching.",
+   "ids": [
+    113,
+    27,
+    91,
+    115
    ],
    "kit": true
   }
