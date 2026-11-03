@@ -5,7 +5,7 @@ import OwnAutomations, { LIVE_WORKFLOWS } from "@/components/OwnAutomations";
 import Link from "next/link";
 import AppChecker from "@/components/AppChecker";
 import { APP_GROUPS, INDUSTRY_APPS } from "@/lib/apps";
-import { PRODUCTS } from "@/lib/catalogue";
+import { PRODUCTS, byId, fmt } from "@/lib/catalogue";
 
 const RUN_LOG = [
   ["03:45", "Bank reconciliation — lines matched", "ok"],
@@ -24,8 +24,8 @@ const PERSON_VS_AUTOMATION = [
 ];
 
 const PACKAGES = [
-  { name: "Never miss a lead", price: "$2,500", id: 10, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in 10 working days"] },
-  { name: "Invoices & bank, done overnight", price: "$4,950", id: 21, popular: true, points: ["Supplier bills read & booked", "Nightly bank matching + checker", "Weekly sign-off list for you", "Xero, QuickBooks, Sage or Zoho"] },
+  { name: "Never miss a lead", price: fmt(byId(10).price), id: 10, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in 10 working days"] },
+  { name: "Invoices & bank, done overnight", price: fmt(byId(21).price + byId(23).price), id: 21, popular: true, points: ["Supplier bills read & booked", "Nightly bank matching + checker", "Weekly sign-off list for you", "Xero, QuickBooks, Sage or Zoho"] },
   { name: "Paid automation audit", price: "$499", id: 0, points: ["Recorded walkthrough of your tools", "Ranked plan: hours saved per workflow", "Fixed quotes for each build", "Fee credited if you build with us"] },
 ];
 
@@ -47,7 +47,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(244,243,238,0.98)] from-30% via-[rgba(244,243,238,0.75)] via-50% to-transparent to-75% max-lg:bg-[rgba(244,243,238,0.88)]" aria-hidden="true" />
       <div className="wrap relative flex flex-wrap items-center gap-12 pt-16 pb-14">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
-          <div className="kicker">Automation made simple · for owner-run businesses</div>
+          <div className="kicker">Automation made simple · built by operators, for owner-run businesses</div>
           <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
             Things get done — without you doing them.
           </h1>
@@ -60,7 +60,7 @@ export default function Home() {
             <Link href="/planner/" className="font-semibold text-ink">Not sure? Build my plan in 2 minutes →</Link>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
-            <span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ You own everything</span>
+            <span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ Secure Stripe checkout</span><span>✓ You own everything</span>
           </div>
           <Link href="/starter/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border-2 border-clay bg-white/90 px-4 py-3 text-ink no-underline">
             <span><b>New here? Try one automation for $99.</b> <span className="text-ink-2">Set up for you, runs 30 days, $99 credited if you upgrade.</span></span>
@@ -98,7 +98,7 @@ export default function Home() {
         <div className="flex flex-wrap items-stretch gap-3">
           {[
             ["01 · Get found", "Local SEO", "Area pages, Google Business Profile and automatic review requests.", "from $450/mo", false],
-            ["02 · Get booked", "Booking websites & portals", "Customers price, book and pay online; your team runs the desk from one screen.", "from $4,500", false],
+            ["02 · Get booked", "Booking websites & portals", "Customers price, book and pay online; your team runs the desk from one screen.", `from ${fmt(Math.min(...PRODUCTS.filter((x) => x.cat === "Websites & portals").map((x) => x.price)))}`, false],
             ["03 · Get paid", "AI automations", "Leads answered, bills booked, bank matched, late payers chased.", "from $600", true],
           ].map(([k, t, d, p, dark]) => (
             <Link key={k as string} href="/library" className={`flex flex-[1_1_280px] flex-col gap-2.5 rounded-[14px] p-6 no-underline ${dark ? "bg-ink text-paper" : "card text-ink"}`}>
@@ -155,7 +155,7 @@ export default function Home() {
             <div key={p.name} className={`flex flex-[1_1_280px] flex-col gap-3 rounded-[14px] p-6 ${p.popular ? "bg-ink text-paper" : "card"}`}>
               <div className="flex items-center justify-between">
                 <div className="text-[19px] font-semibold">{p.name}</div>
-                {p.popular && <span className="rounded-xl bg-clay px-2.5 py-1 text-xs text-white">Most popular</span>}
+                {p.popular && <span className="rounded-xl bg-clay px-2.5 py-1 text-xs text-white">Our pick</span>}
               </div>
               <div className="font-display text-4xl font-bold">{p.price}</div>
               <ul className={`m-0 list-none p-0 text-[15px] leading-relaxed ${p.popular ? "text-[#C9C7C0]" : "text-ink-2"}`}>

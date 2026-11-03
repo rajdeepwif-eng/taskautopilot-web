@@ -31,7 +31,7 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
           <Link href="#trades" className="btn btn-primary">Show me my trade →</Link>
           <Link href="/starter/" className="btn btn-outline">Try one automation for {money(99, c)}</Link>
         </div>
-        <div className="flex flex-wrap gap-4 text-sm text-ink-2"><span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ You own everything</span></div>
+        <div className="flex flex-wrap gap-4 text-sm text-ink-2"><span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ Secure Stripe checkout</span><span>✓ You own everything</span></div>
       </section>
       <section id="trades" className="wrap flex flex-col gap-5 pb-16">
         <h2 className="m-0 font-display text-[clamp(28px,4vw,40px)] font-bold">What&apos;s your business?</h2>

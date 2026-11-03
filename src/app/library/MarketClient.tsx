@@ -64,7 +64,11 @@ export default function MarketClient() {
   useEffect(() => { if (loaded.current) savePlan(plan); }, [plan]);
 
   const results = useMemo(() => {
-    const t = query.trim().toLowerCase();
+    // Word search: every word must appear; hyphens count as spaces and plurals match singulars.
+    const norm = (s: string) => s.toLowerCase().replace(/[-–/&]/g, " ");
+    const words = norm(query).split(/\s+/).filter((w) => w.length > 1).map((w) => (w.length > 3 && w.endsWith("s") ? w.slice(0, -1) : w));
+    const t = words.length > 0;
+    const hit = (p: Product) => { const h = norm(`${p.name} ${p.desc} ${p.apps} ${p.cat} ${p.role ?? ""}`); return words.every((w) => h.includes(w)); };
     const b = PRICE_BANDS.find((x) => x.id === band)!;
     const max = SPEED.find((x) => x.id === speed)!.max;
     const r = PRODUCTS.filter(
@@ -73,7 +77,7 @@ export default function MarketClient() {
         fitsIndustry(p, industry) &&
         b.test(p) &&
         p.days <= max &&
-        (!t || `${p.name} ${p.desc} ${p.apps} ${p.cat} ${p.role ?? ""}`.toLowerCase().includes(t)),
+        (!t || hit(p)),
     );
     if (sort === "low") r.sort((a, b2) => a.price - b2.price);
     if (sort === "high") r.sort((a, b2) => b2.price - a.price);

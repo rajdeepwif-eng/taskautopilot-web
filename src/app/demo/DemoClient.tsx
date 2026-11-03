@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { byId, fmt } from "@/lib/catalogue";
 
 type Msg = { from: "you" | "bot"; text: string };
 const SCRIPT: { q: string; a: string[] }[] = [
@@ -66,8 +67,8 @@ export default function DemoClient() {
             <Link href="/p/7/" className="font-semibold">AI phone receptionist →</Link>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link href="/p/108/" className="btn btn-primary">Get the 24/7 AI sales agent — $5,000</Link>
-            <Link href="/p/10/" className="btn btn-outline">Start smaller — instant replies, $1,500</Link>
+            <Link href="/p/108/" className="btn btn-primary">Get the 24/7 AI sales agent — {fmt(byId(108).price)}</Link>
+            <Link href="/p/10/" className="btn btn-outline">Start smaller — instant replies, {fmt(byId(10).price)}</Link>
           </div>
         </div>
       </div>

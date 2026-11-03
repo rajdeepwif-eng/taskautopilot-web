@@ -313,7 +313,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
             </div>
             
-            <div className="text-[12px] text-muted">🔒 Secure card payment by Stripe. We never see your card.</div>
+            <div className="text-[12px] text-muted">🔒 Paid on Stripe&apos;s secure checkout — certified to PCI DSS Level 1, the top card-security standard. We never see your card, and card payments keep your card provider&apos;s dispute rights.</div>
             {!inline && <Link href={`/p/${p.id}/`} className="text-center text-sm text-muted underline">Open full page / share link</Link>}
           </div>
         </div>

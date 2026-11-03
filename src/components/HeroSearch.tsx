@@ -2,8 +2,17 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-const SUGGEST = ["email inbox", "missed calls", "invoices", "WhatsApp", "timesheets", "HACCP"];
+// Highest-demand, highest-value jobs across trades (from the trade problem research).
+const SUGGEST: { label: string; href: string }[] = [
+  { label: "Invoice on time", href: "/p/125/" },
+  { label: "Get paid on time", href: "/p/22/" },
+  { label: "See net profit", href: "/p/137/" },
+  { label: "Never miss a call", href: "/p/7/" },
+  { label: "Follow up quotes", href: "/p/13/" },
+  { label: "More reviews", href: "/p/15/" },
+];
 
 export default function HeroSearch() {
   const [q, setQ] = useState("");
@@ -29,7 +38,7 @@ export default function HeroSearch() {
       <div className="flex flex-wrap gap-2 text-sm text-ink-2">
         Popular:
         {SUGGEST.map((s) => (
-          <button key={s} type="button" onClick={() => go(s)} className="cursor-pointer border-0 bg-transparent p-0 text-clay underline">{s}</button>
+          <Link key={s.label} href={s.href} className="text-clay underline">{s.label}</Link>
         ))}
       </div>
     </div>

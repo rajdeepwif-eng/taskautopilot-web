@@ -17,8 +17,9 @@ const seen = new WeakMap<Text, { orig: string; shown: string }>();
 
 function nice(n: number) {
   if (n >= 1000) return Math.round(n / 50) * 50;
-  if (n >= 100) return Math.round(n / 10) * 10;
-  return Math.max(1, Math.round(n / 5) * 5 - 1);
+  // Under 1,000: prices ending in 9 (e.g. £79, A$139), rounded up so never below the exact conversion.
+  if (n >= 100) return Math.ceil(n / 10) * 10 - 1;
+  return Math.max(9, Math.ceil(n / 10) * 10 - 1);
 }
 
 function convertText(t: string, cur: Cur) {
