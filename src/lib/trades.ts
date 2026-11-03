@@ -60,7 +60,7 @@ export const TRADES: Trade[] = [
   { slug: "office-teams", name: "Offices & growing teams", short: "Any business with 5–500 staff", cat: "Owner & management",
     headline: "Delegate in one message, see who did what, and stop drowning in email.",
     pains: [["\"I chase people for updates all day.\"", "SOP tasks with proof, an evening exceptions list and a Friday scorecard."], ["\"My inbox runs my day.\"", "Emails sorted, replies drafted, one digest of what needs you."], ["\"Nobody trained the new starter.\"", "Training by role on their phone, with sign-off and records."]],
-    kit: "Team accountability kit", top: [109, 101, 96, 62, 107, 100], apps: "Asana, ClickUp, Monday.com, Slack, Teams, Gmail, Outlook", faq: [SAFE, OWN] },
+    kit: "Team accountability kit", top: [134, 109, 101, 96, 62, 107], apps: "Asana, ClickUp, Monday.com, Slack, Teams, Gmail, Outlook", faq: [SAFE, OWN] },
   { slug: "solo", name: "Just me — self-employed", short: "Sole traders, freelancers, one-person firms", cat: "Solo (self-employed)",
     headline: "Run your business like it has an office behind it — from $300.",
     pains: [["\"I can't answer the phone while I'm working.\"", "Every enquiry gets an instant reply and your booking link."], ["\"Invoicing eats my evenings.\"", "Invoices go out when the job's done; late payers are chased."], ["\"My receipts are in a shoebox.\"", "Snap a receipt; it's read and filed for your accountant."]],

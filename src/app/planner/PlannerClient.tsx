@@ -83,6 +83,7 @@ const TASKS: Task[] = [
   { id: "assurance", label: "Farm assurance audit prep (Red Tractor / GLOBALG.A.P.)", hours: 4, rate: 22, product: 116 },
   { id: "deals", label: "Searching and analysing property deals", hours: 6, rate: 40, product: 117 },
   { id: "refurb", label: "Managing renovation projects", hours: 5, rate: 35, product: 119 },
+  { id: "audit", label: "Checking the business is compliant & on track each month", hours: 3, rate: 60, product: 134 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];

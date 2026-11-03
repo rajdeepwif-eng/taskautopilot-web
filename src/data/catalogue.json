@@ -1834,6 +1834,20 @@
     "Logistics & transport"
    ],
    "run": "$100–200/mo"
+  },
+  {
+   "id": 134,
+   "cat": "Owner & management",
+   "name": "Company health checks & monthly internal audit",
+   "price": 3000,
+   "days": 15,
+   "ind": [
+    "all"
+   ],
+   "run": "$200–400/mo + AI usage",
+   "desc": "Automatic checks across the business every day — filing and licence dates, insurance and certificates, overdue tasks, missed checklists, finance mismatches, failed automations and SOPs due for review — and on the first of each month a one-page internal audit: a score per area, what slipped, who owns the fix and the trend since last month. Your accountant, solicitor or competent person still signs off their areas.",
+   "apps": "Asana, Airtable or Google Sheets, Xero or QuickBooks, SafetyCulture, Companies House or state business records, Slack or Teams",
+   "replaces": "Gives you an internal auditor's view every month without hiring one — problems found before customers, auditors or regulators do."
   }
  ],
  "how": {
@@ -2341,6 +2355,11 @@
    "Drivers' arrival and departure are captured automatically.",
    "Detention and extras are calculated on your agreed rules.",
    "Charges go on the invoice with time-stamped proof."
+  ],
+  "134": [
+   "We agree the areas to check — legal dates, insurance, finance, safety, people, systems — and who owns each.",
+   "Daily checks flag anything due, overdue or out of line to its owner.",
+   "Each month you get a scored audit report with actions, owners and the trend since last month."
   ]
  },
  "defaultHours": {
@@ -2475,7 +2494,8 @@
   "130": 3,
   "131": 3,
   "132": 3,
-  "133": 3
+  "133": 3,
+  "134": 4
  },
  "bundles": [
   {
@@ -2511,7 +2531,8 @@
     50,
     51,
     52,
-    101
+    101,
+    134
    ]
   },
   {
