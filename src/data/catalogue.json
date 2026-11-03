@@ -1150,7 +1150,7 @@
   {
    "id": 81,
    "cat": "Industry",
-   "name": "BRCGS & HACCP audit-ready records",
+   "name": "BRCGS & HACCP audit-ready records (factories)",
    "desc": "Digital monitoring checks at every CCP, with readings checked against the limits in your HACCP plan. An out-of-limit reading opens a corrective action with an owner; document reviews, internal audits and training records are scheduled, so the audit pack is ready any day. Limits and methods come from your own HACCP plan and are approved by your food safety team — we never set them.",
    "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
    "price": 4500,
@@ -1594,6 +1594,21 @@
    "ind": [
     "all"
    ]
+  },
+  {
+   "id": 116,
+   "cat": "Compliance",
+   "name": "Red Tractor & GLOBALG.A.P. audit-ready records",
+   "price": 3500,
+   "days": 20,
+   "ind": [
+    "Farming & agriculture",
+    "Food production & processing"
+   ],
+   "run": "$200–400/mo",
+   "desc": "The records your farm assurance audit asks for, kept up to date as you work: field and spray records, traceability from field to buyer, staff training, hygiene and maintenance checks, risk assessments and an internal self-assessment schedule — with gaps flagged weeks before the audit. Checklists are built from the current standard you hold; your certification body still audits and decides. Not affiliated with either scheme.",
+   "apps": "Google Sheets or Airtable, phone forms or SafetyCulture, Google Drive or OneDrive, WhatsApp",
+   "replaces": "Ends the pre-audit scramble — every record already there, with the gaps flagged early."
   }
  ],
  "how": {
@@ -2011,6 +2026,11 @@
    "A purchase request is approved and becomes a numbered purchase order.",
    "Deliveries are booked in against the order, with photos of the delivery note.",
    "The invoice is matched to order and receipt; matches go to your payment list for approval, differences are flagged."
+  ],
+  "116": [
+   "We map the records your current standard requires to simple phone checks and logs.",
+   "Workers record as they go; anything missing or overdue is flagged weeks ahead.",
+   "Before the audit you get a folder of every record and a self-assessment, ready for the auditor."
   ]
  },
  "defaultHours": {
@@ -2127,7 +2147,8 @@
   "111": 6,
   "112": 3,
   "113": 4,
-  "115": 5
+  "115": 5,
+  "116": 5
  },
  "bundles": [
   {

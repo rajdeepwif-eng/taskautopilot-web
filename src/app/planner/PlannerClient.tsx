@@ -24,7 +24,7 @@ const PRESETS: { id: string; label: string; tasks: string[] }[] = [
   { id: "property", label: "Property management", tasks: ["tenants", "calls", "invoicing", "bank"] },
   { id: "construction", label: "Construction or manufacturing", tasks: ["safety", "forms", "scheduling", "bills", "invoicing"] },
   { id: "foodfactory", label: "Food production (BRCGS)", tasks: ["haccp", "trace", "bills", "staff", "excel"] },
-  { id: "farm", label: "Farm", tasks: ["fieldtasks", "spray", "timesheets", "invoicing", "translate"] },
+  { id: "farm", label: "Farm", tasks: ["assurance", "fieldtasks", "spray", "timesheets", "invoicing", "translate"] },
   { id: "office", label: "Office / admin team", tasks: ["office", "enquiries", "invoicing", "delegate"] },
   { id: "other", label: "Something else", tasks: ["enquiries", "invoicing", "forms"] },
 ];
@@ -80,6 +80,7 @@ const TASKS: Task[] = [
   { id: "vehicle", label: "Vehicle & machine daily checks on paper", hours: 3, rate: 22, product: 113 },
   { id: "stock", label: "Tracking stock in and out", hours: 4, rate: 20, product: 27 },
   { id: "p2p", label: "Matching orders, deliveries and invoices", hours: 4, rate: 23, product: 115 },
+  { id: "assurance", label: "Farm assurance audit prep (Red Tractor / GLOBALG.A.P.)", hours: 4, rate: 22, product: 116 },
   { id: "safety", label: "Safety checks, inspections & fixing failed items", hours: 4, rate: 24, product: 47 },
   { id: "forms", label: "Retyping answers from Google / Microsoft forms", hours: 3, rate: 21, product: 48 },
 ];
