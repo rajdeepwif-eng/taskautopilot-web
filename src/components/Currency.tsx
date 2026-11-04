@@ -13,7 +13,7 @@ type Cur = keyof typeof RATES;
 const SYM: Record<Cur, string> = { USD: "$", GBP: "£", AUD: "A$", CAD: "C$" };
 const LABEL: Record<Cur, string> = { USD: "US $", GBP: "UK £", AUD: "AU $", CAD: "CA $" };
 const KEY = "ta-currency";
-const PRICE = /\$([\d,]+(?:\.\d+)?)(?:–([\d,]+))?/g;
+const PRICE = /\$(\d(?:[\d,]*\d)?(?:\.\d+)?)(?:–(\d(?:[\d,]*\d)?))?/g;
 const seen = new WeakMap<Text, { orig: string; shown: string }>();
 
 

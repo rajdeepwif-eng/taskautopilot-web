@@ -51,7 +51,7 @@ export const loc = (text: string, c: Country) => {
 
 /** Convert every US$ amount (incl. ranges like "$100–200/mo") in a string for a country edition. */
 export const localPrices = (text: string, c: Country) =>
-  c === "us" ? text : text.replace(/\$([\d,]+)(?:–([\d,]+))?/g, (_, a: string, b?: string) => {
+  c === "us" ? text : text.replace(/\$(\d(?:[\d,]*\d)?)(?:–(\d(?:[\d,]*\d)?))?/g, (_, a: string, b?: string) => {
     const cv = (v: string) => nice(Number(v.replace(/,/g, "")) * COUNTRIES[c].rate).toLocaleString("en-US");
     return COUNTRIES[c].sym + cv(a) + (b ? "–" + cv(b) : "");
   });
