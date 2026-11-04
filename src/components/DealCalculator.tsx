@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { EQUITY, PLAN_TERMS, RESULTS, planFor, resultsFor, stakeFor } from "@/lib/deals";
+import { EQUITY, PLAN_TERMS, RESULTS, STAGES, planFor, resultsFor, stakeFor } from "@/lib/deals";
 
 const money = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 
@@ -26,9 +26,11 @@ export default function DealCalculator({ start = 1800 }: { start?: number }) {
   const [gain, setGain] = useState(1500);
   const [build, setBuild] = useState(15000);
   const [value, setValue] = useState(300000);
+  const [stage, setStage] = useState("growing");
   const plan = planFor(price, months);
   const res = resultsFor(price, gain);
-  const stake = stakeFor(build, value);
+  const stake = stakeFor(build, value, stage);
+  const st = STAGES.find((x) => x.id === stage)!;
 
   return (
     <div className="card flex flex-col gap-4 p-5" data-testid="deal-calc">
@@ -73,10 +75,14 @@ export default function DealCalculator({ start = 1800 }: { start?: number }) {
           <div className="flex flex-col gap-3">
             <Num label="Value of the automations we'd build" value={build} onChange={setBuild} step={1000} />
             <Num label="Agreed value of your company today" value={value} onChange={setValue} step={10000} />
+            <label className="flex flex-col gap-1 text-[13px] text-ink-2">Stage
+              <select value={stage} onChange={(e) => setStage(e.target.value)} data-testid="eq-stage">{STAGES.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</select>
+            </label>
           </div>
           <div className="flex flex-col gap-1 rounded-xl bg-ink p-4 text-paper" aria-live="polite">
             <div className="text-[13px] text-[#A9ADB4]">Indicative stake</div><div className="text-3xl font-bold text-amber" data-testid="eq-stake">{stake}%</div>
-            <div className="text-[13px] text-[#A9ADB4]">Vests over {EQUITY.vestingMonths} months as agreed milestones are hit. We look for {EQUITY.minStake}–{EQUITY.maxStake}%; builds from {money(EQUITY.minBuildValue)}.</div>
+            <div className="text-[13px] text-[#A9ADB4]">Build value × {st.risk} (risk at this stage) ÷ company value, capped at {st.cap}%. The earlier the company, the more risk we carry, so the bigger the stake.</div>
+            <div className="text-[13px] text-[#A9ADB4]">Vests over {EQUITY.vestingMonths} months as agreed milestones are hit. Builds from {money(EQUITY.minBuildValue)}.</div>
           </div>
         </div>
       )}

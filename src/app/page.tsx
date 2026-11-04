@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { DEALS } from "@/lib/deals";
+import HireVsAutomate from "@/components/HireVsAutomate";
+import { DEALS, fromMonthly } from "@/lib/deals";
 import { alternates, seoTitle } from "@/lib/geo";
 import HeroSearch from "@/components/HeroSearch";
 import TradeGrid from "@/components/TradeGrid";
@@ -71,7 +72,7 @@ export default function Home() {
           </div>
           <HeroSearch />
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
-            <span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span>{PAYMENTS_LIVE && <span>✓ Secure Stripe checkout</span>}<span>✓ You own everything</span>
+            <span>✓ Fixed price</span><span>✓ Pay up front, monthly or from results</span><span>✓ Approve the test run or full refund</span>{PAYMENTS_LIVE && <span>✓ Secure Stripe checkout</span>}<span>✓ You own everything</span>
           </div>
           <Link href="/starter/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border-2 border-clay bg-white/90 px-4 py-3 text-ink no-underline">
             <span><b>New here? Try one automation for $99.</b> <span className="text-ink-2">Set up for you, runs 30 days, $99 credited if you upgrade.</span></span>
@@ -117,9 +118,11 @@ export default function Home() {
       <section className="wrap flex flex-col gap-4 pt-16" data-testid="home-deals">
         <div className="kicker">Not ready to pay it all up front?</div>
         <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Pick how you pay — or how we get paid.</h2>
+        <p className="m-0 max-w-[720px] text-ink-2">Most owners pay up front. If that doesn&apos;t suit, spread it, finance it, pay from results — or, for startups and owners planning an exit, pay in shares.</p>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
           {DEALS.filter((d) => d.id !== "upfront").map((d) => (
             <Link key={d.id} href={d.id === "equity" || d.id === "hybrid" ? "/startups/" : d.id === "succession" ? "/selling-or-retiring/" : `/ways-to-pay/#${d.id}`} className="card flex flex-col gap-1 p-4 text-ink no-underline hover:border-ink">
+              <span className="text-[12px] font-bold uppercase tracking-wide text-clay">{({ monthly: `From ${fmt(fromMonthly(byId(11).price))}/mo`, finance: "Decision in minutes", results: "25% to start", hybrid: "Half cash, half shares", equity: "2–20% stake", succession: "Confidential" } as Record<string, string>)[d.id]}</span>
               <b>{d.name}</b><span className="text-[13px] text-ink-2">{d.forWho}</span>
             </Link>
           ))}
@@ -142,6 +145,8 @@ export default function Home() {
         </div>
       </section>
 
+
+      <HireVsAutomate country="us" />
 
       {/* Person vs automation */}
       <section className="wrap flex flex-col gap-4 pt-16">

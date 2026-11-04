@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HireVsAutomate from "@/components/HireVsAutomate";
 import Link from "next/link";
 import { PAYMENTS_LIVE } from "@/lib/launch";
 import TradeGrid from "@/components/TradeGrid";
@@ -50,6 +51,7 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
           </div>
         </div>
       </section>
+      <HireVsAutomate country={c} />
       <div className="pb-16"><TradeGrid country={c} /></div>
     </main>
   );

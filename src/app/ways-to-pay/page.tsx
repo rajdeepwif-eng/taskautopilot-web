@@ -3,6 +3,8 @@ import Link from "next/link";
 import { DEALS, PLAN_TERMS, RESULTS, fromMonthly, planFor } from "@/lib/deals";
 import { byId, fmt } from "@/lib/catalogue";
 import DealCalculator from "@/components/DealCalculator";
+import { HIRE_COST } from "@/lib/hireCost";
+import { COUNTRIES, Country } from "@/lib/geo";
 import { SITE, seoTitle } from "@/lib/geo";
 
 export const metadata: Metadata = {
@@ -15,9 +17,27 @@ const FAQ: [string, string][] = [
   ["Is there interest on monthly plans?", `There's no interest rate: a fixed amount is added for spreading the cost (${PLAN_TERMS.map((t) => `${Math.round(t.uplift * 100)}% over ${t.months} months`).join(", ")}). You see the total before you agree.`],
   ["How are results measured for 'pay from results'?", "We agree the measure before we start — for example money recovered from overdue invoices, or jobs booked from missed calls — and both sides see the same report each month."],
   ["What happens if the results don't come?", `You've paid the setup fee only. Our share comes from measured gains, and it stops after ${RESULTS.months} months or at the cap, whichever comes first.`],
-  ["Do you take control of my company with shares?", "No. Stakes are small minority stakes (usually 2–10%), they vest as agreed milestones are hit, and you keep control."],
+  ["Do you take control of my company with shares?", "No. Stakes are minority stakes — usually 2–5% for established businesses and up to 20% for pre-revenue startups, because we carry more risk early, they vest as agreed milestones are hit, and you keep control."],
   ["Is every business eligible?", "Pay up front and pay monthly are open to most businesses (monthly plans are subject to approval). Results, shares and exit deals are for selected businesses after a short review."],
 ];
+
+function HireCompare() {
+  const rows = (["us", "uk", "au", "ca"] as Country[]).map((c) => ({ c, h: HIRE_COST[c], C: COUNTRIES[c] }));
+  return (
+    <section className="flex flex-col gap-3" data-testid="hire-table" data-nocurrency>
+      <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">What hiring for this work costs, per year</h2>
+      <div className="overflow-x-auto rounded-xl border border-line bg-white">
+        <table className="w-full min-w-[640px] border-collapse text-left text-[15px]">
+          <thead><tr className="bg-[#F7F8F8] text-[13px] text-muted"><th className="px-4 py-3">Country</th><th className="px-4 py-3">Pay</th><th className="px-4 py-3">Employer costs</th><th className="px-4 py-3">Total a year</th><th className="px-4 py-3">Based on</th></tr></thead>
+          <tbody>{rows.map(({ c, h, C }) => (
+            <tr key={c} className="border-t border-line align-top"><td className="px-4 py-3 font-semibold">{C.name}</td><td className="px-4 py-3">{C.sym}{h.salary.toLocaleString("en-US")}</td><td className="px-4 py-3">{h.onCost ? C.sym + h.onCost.toLocaleString("en-US") : "not included"}</td><td className="px-4 py-3 font-bold">{C.sym}{h.total.toLocaleString("en-US")}</td><td className="px-4 py-3 text-[13px] text-ink-2">{h.basis} · {h.sources.map(([t, u], i) => <span key={u}>{i ? ", " : ""}<a href={u} rel="noopener">{t.split(" — ")[0]}</a></span>)}</td></tr>
+          ))}</tbody>
+        </table>
+      </div>
+      <p className="m-0 text-[13px] text-muted">One full-time admin or bookkeeping role. Automation takes on the repetitive part — compare with a one-off build, or spread it monthly below.</p>
+    </section>
+  );
+}
 
 export default function WaysToPay() {
   const lead = byId(10), missed = byId(11);
@@ -29,6 +49,8 @@ export default function WaysToPay() {
         <h1 className="m-0 max-w-[900px] font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-tight">Don&apos;t want to pay it all up front? Pick how you pay.</h1>
         <p className="m-0 max-w-[760px] text-lg text-ink-2">Hiring someone to do this work can cost tens of thousands a year. Our builds are a fixed price, and you can spread it, pay from results, swap part of it for shares — or, if you&apos;re planning to sell or retire, let the automation raise what your business is worth.</p>
       </section>
+
+      <HireCompare />
 
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {DEALS.map((d) => (
