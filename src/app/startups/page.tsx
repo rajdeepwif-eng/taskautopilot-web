@@ -20,7 +20,7 @@ const STEPS = [
 ];
 
 const FAQ: [string, string][] = [
-  ["How much equity do you take?", `From ${EQUITY.minStake}% up to ${EQUITY.maxStake}%. It's the value of what we build, times a risk multiple for your stage (3× pre-revenue down to 1× established), divided by an agreed company value. The earlier you are, the more risk we carry, so the bigger the stake. It's a minority stake; you keep control.`],
+  ["How much equity do you take?", `From ${EQUITY.minStake}% up to ${EQUITY.maxStake}%. It's the value of what we build, times a risk multiple for your stage (3× pre-revenue down to 1× established), divided by an agreed company value. The earlier you are, the more risk we carry, so the bigger the stake. It's a minority stake; you keep control. For comparison, accelerators that also invest cash take about 6–9% (Y Combinator 7%, Techstars 6–9%). Shares are issued under a securities exemption, and each side takes its own legal and tax advice.`],
   ["What if we'd rather pay some cash?", `Part cash, part shares works: at least ${Math.round(HYBRID_MIN_CASH * 100)}% in cash and a smaller stake for the rest.`],
   ["What do you look for?", "A committed founding team, a company already set up, a clear way to make money, and a real need for automation (sales, operations, finance or support)."],
   ["What happens if the startup doesn't make it?", "Then our stake is worth nothing — that's the risk we take. You keep everything we built, documented, in your own accounts."],

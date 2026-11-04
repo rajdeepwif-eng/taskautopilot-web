@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 const FAQ: [string, string][] = [
-  ["Is there interest on monthly plans?", `There's no interest rate: a fixed amount is added for spreading the cost (${PLAN_TERMS.map((t) => `${Math.round(t.uplift * 100)}% over ${t.months} months`).join(", ")}). You see the total before you agree.`],
+  ["Is there interest on monthly plans?", `Instead of a variable rate, a fixed amount is added for spreading the cost (${PLAN_TERMS.map((t) => `${Math.round(t.uplift * 100)}% over ${t.months} months`).join(", ")}) — about 13–14% as an APR. You see the total before you agree. Plans are for limited companies; sole traders and partnerships can use our finance partner instead.`],
   ["How are results measured for 'pay from results'?", "We agree the measure before we start — for example money recovered from overdue invoices, or jobs booked from missed calls — and both sides see the same report each month."],
   ["What happens if the results don't come?", `You've paid the setup fee only. Our share comes from measured gains, and it stops after ${RESULTS.months} months or at the cap, whichever comes first.`],
-  ["Do you take control of my company with shares?", "No. Stakes are minority stakes — usually 2–5% for established businesses and up to 20% for pre-revenue startups, because we carry more risk early, they vest as agreed milestones are hit, and you keep control."],
+  ["Do you take control of my company with shares?", "No. Stakes are minority stakes — usually 0.5–3% for established businesses and up to 10% for pre-revenue startups, because we carry more risk early, they vest as agreed milestones are hit, and you keep control."],
   ["Is every business eligible?", "Pay up front and pay monthly are open to most businesses (monthly plans are subject to approval). Results, shares and exit deals are for selected businesses after a short review."],
 ];
 

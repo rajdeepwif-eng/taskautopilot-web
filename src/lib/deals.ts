@@ -14,28 +14,38 @@ export type Deal = {
   href: string;
 };
 
-/** Monthly plans: length in months → price uplift over the one-off price (covers our cost of waiting). */
+/**
+ * Monthly plans: length in months → price uplift over the one-off price (covers our cost of waiting).
+ * Benchmarked 4 Nov 2026: +3/+6/+12% ≈ 13–14% APR — between UK bank SME loans (8–15% APR, via iwoca's
+ * summary of Bank of England data) and fintech lenders; the earlier +5/+10/+20% was ≈ 21–24% APR, too high.
+ */
 export const PLAN_TERMS: { months: number; uplift: number; deposit: number }[] = [
-  { months: 6, uplift: 0.05, deposit: 0.2 },
-  { months: 12, uplift: 0.1, deposit: 0.2 },
-  { months: 24, uplift: 0.2, deposit: 0.2 },
+  { months: 6, uplift: 0.03, deposit: 0.2 },
+  { months: 12, uplift: 0.06, deposit: 0.2 },
+  { months: 24, uplift: 0.12, deposit: 0.2 },
 ];
+/** Approximate APR shown beside plans (worked out from the uplifts above). */
+export const PLAN_APR = "about 13–14%";
 
-/** Pay from results: setup fee as a share of list price, our share of measured gains, the cap, and how long it runs. */
-export const RESULTS = { setupShare: 0.25, gainShare: 0.2, capMultiple: 2, months: 12 };
+/**
+ * Pay from results: setup fee as a share of list price, our share of measured gains, the cap, and how long it runs.
+ * Cap cut from 2× to 1.5× list price (GAO found performance-contract financing cost 8–56% more than paying up front).
+ */
+export const RESULTS = { setupShare: 0.25, gainShare: 0.2, capMultiple: 1.5, months: 12 };
 
 /** Equity for automation: the stake range we look for, and the build value we commit (in US$). */
-export const EQUITY = { minStake: 2, maxStake: 20, minBuildValue: 5000, vestingMonths: 12 };
+export const EQUITY = { minStake: 0.5, maxStake: 10, minBuildValue: 5000, vestingMonths: 12 };
 
 /**
  * The earlier the company, the more risk we carry (no revenue to pay us back if it fails),
  * so the stake is the build value × a risk multiple ÷ the agreed company value, capped per stage.
  */
 export const STAGES: { id: string; name: string; risk: number; cap: number }[] = [
-  { id: "idea", name: "Idea / pre-revenue", risk: 3, cap: 20 },
-  { id: "early", name: "Early revenue (under $250k a year)", risk: 2, cap: 15 },
-  { id: "growing", name: "Growing ($250k–$1M a year)", risk: 1.5, cap: 10 },
-  { id: "established", name: "Established (over $1M a year)", risk: 1, cap: 5 },
+  // Caps benchmarked 4 Nov 2026 against accelerators that also bring cash: YC 7%, Techstars 6–9%, Antler 9.09%.
+  { id: "idea", name: "Idea / pre-revenue", risk: 3, cap: 10 },
+  { id: "early", name: "Early revenue (under $250k a year)", risk: 2, cap: 7.5 },
+  { id: "growing", name: "Growing ($250k–$1M a year)", risk: 1.5, cap: 5 },
+  { id: "established", name: "Established (over $1M a year)", risk: 1, cap: 3 },
 ];
 
 /** Revenue bands written in round local amounts (so £ visitors don't see "£187k"). */
@@ -59,11 +69,11 @@ export const HYBRID_MIN_CASH = 0.5;
 
 export const DEALS: Deal[] = [
   { id: "upfront", name: "Pay up front", forWho: "Owners who want the lowest price", how: "Fixed price, approve the test run or get the build fee back.", youPay: "The list price", bestWhen: "You have the budget and want it live fastest", href: "/library/" },
-  { id: "monthly", name: "Pay monthly", forWho: "Owners who'd rather not pay in one go", how: "20% deposit, the rest spread over 6, 12 or 24 months.", youPay: "List price + 5–20% for spreading it", bestWhen: "Cash flow matters more than the last 10%", href: "/ways-to-pay/#monthly" },
+  { id: "monthly", name: "Pay monthly", forWho: "Owners who'd rather not pay in one go", how: "20% deposit, the rest spread over 6, 12 or 24 months. For limited companies; sole traders can use our finance partner.", youPay: "List price + 3–12% for spreading it (about 13–14% APR)", bestWhen: "Cash flow matters more than the last 10%", href: "/ways-to-pay/#monthly" },
   { id: "finance", name: "Finance it", forWho: "Owners who want to pay later with a finance partner", how: "Apply in minutes at checkout through a business finance partner. We're paid up front; you repay them over 3–12 months. Short terms can be interest-free.", youPay: "The list price, over time (partner terms)", bestWhen: "You want a decision in minutes and to keep cash in the business", href: "/ways-to-pay/#finance" },
-  { id: "results", name: "Pay from results", forWho: "Owners who want proof before paying in full", how: "A small setup fee, then a share of the gains we measure (recovered invoices, extra booked jobs) for 12 months — capped.", youPay: "25% setup + 20% of measured gains, capped at 2× list price", bestWhen: "The gain is easy to measure (money chased, calls answered)", href: "/ways-to-pay/#results" },
+  { id: "results", name: "Pay from results", forWho: "Owners who want proof before paying in full", how: "A small setup fee, then a share of the gains we measure (recovered invoices, extra booked jobs) for 12 months — capped.", youPay: "25% setup + 20% of measured gains, capped at 1.5× list price — you keep at least 80% of every gain", bestWhen: "The gain is easy to measure (money chased, calls answered)", href: "/ways-to-pay/#results" },
   { id: "hybrid", name: "Part cash, part shares", forWho: "Growing or established companies with a strong trading record", how: "At least half in cash; the rest as a small minority stake.", youPay: "≥50% cash + a small stake", bestWhen: "You'd rather share upside than pay full price now", href: "/startups/#hybrid" },
-  { id: "equity", name: "Automation for equity", forWho: "Startups with a strong team — or companies with a strong trading record", how: "We build your automations for a stake that vests as milestones are hit — usually 2–20%: larger the earlier you are, smaller for companies with a strong trading record.", youPay: "No cash — a vesting minority stake", bestWhen: "You want a tech partner and would rather share upside than pay cash", href: "/startups/" },
+  { id: "equity", name: "Automation for equity", forWho: "Startups with a strong team — or companies with a strong trading record", how: "We build your automations for a stake that vests as milestones are hit — usually 0.5–10%: larger the earlier you are, smaller for companies with a strong trading record.", youPay: "No cash — a vesting minority stake", bestWhen: "You want a tech partner and would rather share upside than pay cash", href: "/startups/" },
   { id: "succession", name: "Selling or retiring", forWho: "Owners planning to step back or sell", how: "We automate the business so it runs without you — then you sell for more, sell part to us, or sell it to us over time.", youPay: "Nothing up front for selected businesses", bestWhen: "You want out in 1–5 years and want the best price", href: "/selling-or-retiring/" },
 ];
 

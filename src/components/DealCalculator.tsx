@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { EQUITY, PLAN_TERMS, RESULTS, STAGES, planFor, resultsFor, stageName, stakeFor } from "@/lib/deals";
+import { EQUITY, PLAN_APR, PLAN_TERMS, RESULTS, STAGES, planFor, resultsFor, stageName, stakeFor } from "@/lib/deals";
 import { useCurrency } from "@/components/Currency";
 
 function Num({ label, value, onChange, prefix, step = 100 }: { label: string; value: number; onChange: (n: number) => void; prefix?: string; step?: number }) {
@@ -57,7 +57,7 @@ export default function DealCalculator({ start = 1800, initialTab = "monthly" }:
           <div className="flex flex-col gap-1 rounded-xl bg-ink p-4 text-paper" aria-live="polite">
             <div className="text-[13px] text-[#A9ADB4]">Deposit today</div><div className="text-2xl font-bold" data-testid="plan-deposit">{money(plan.deposit)}</div>
             <div className="text-[13px] text-[#A9ADB4]">Then {plan.months} monthly payments of</div><div className="text-3xl font-bold text-amber" data-testid="plan-monthly">{money(plan.monthly)}</div>
-            <div className="text-[13px] text-[#A9ADB4]">Total {money(plan.total)} vs {money(price)} paid up front (+{Math.round((plan.total / price - 1) * 100) || 0}% for spreading it)</div>
+            <div className="text-[13px] text-[#A9ADB4]">Total {money(plan.total)} vs {money(price)} paid up front (+{Math.round((plan.total / price - 1) * 100) || 0}% for spreading it; {PLAN_APR} APR across the plans)</div>
           </div>
         </div>
       )}
@@ -70,7 +70,7 @@ export default function DealCalculator({ start = 1800, initialTab = "monthly" }:
           </div>
           <div className="flex flex-col gap-1 rounded-xl bg-ink p-4 text-paper" aria-live="polite">
             <div className="text-[13px] text-[#A9ADB4]">Setup fee</div><div className="text-2xl font-bold" data-testid="res-setup">{money(res.setup)}</div>
-            <div className="text-[13px] text-[#A9ADB4]">Then {Math.round(RESULTS.gainShare * 100)}% of measured gains for {res.months} months</div><div className="text-3xl font-bold text-amber" data-testid="res-month">{money(res.perMonth)}/mo</div>
+            <div className="text-[13px] text-[#A9ADB4]">Then {Math.round(RESULTS.gainShare * 100)}% of measured gains for {res.months} months (you keep {100 - Math.round(RESULTS.gainShare * 100)}%), against a baseline agreed in writing</div><div className="text-3xl font-bold text-amber" data-testid="res-month">{money(res.perMonth)}/mo</div>
             <div className="text-[13px] text-[#A9ADB4]">Most you&apos;d ever pay: {money(res.cap)} · on these numbers: {money(res.total)} vs {money(price)} up front</div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function DealCalculator({ start = 1800, initialTab = "monthly" }:
           <div className="flex flex-col gap-1 rounded-xl bg-ink p-4 text-paper" aria-live="polite">
             <div className="text-[13px] text-[#A9ADB4]">Indicative stake</div><div className="text-3xl font-bold text-amber" data-testid="eq-stake">{value > 0 ? `${stake}%` : "—"}</div>
             {build < minBuild && <div className="text-[13px] text-amber">Equity builds start at {money(minBuild)} — below that, pay monthly or from results suits better.</div>}
-            <div className="text-[13px] text-[#A9ADB4]">Build value × {st.risk} (risk at this stage) ÷ company value, capped at {st.cap}% at this stage (20% is the most we take, pre-revenue). The earlier the company, the more risk we carry, so the bigger the stake.</div>
+            <div className="text-[13px] text-[#A9ADB4]">Build value × {st.risk} (risk at this stage) ÷ company value, capped at {st.cap}% at this stage (10% is the most we take, pre-revenue). The earlier the company, the more risk we carry, so the bigger the stake.</div>
             <div className="text-[13px] text-[#A9ADB4]">Vests over {EQUITY.vestingMonths} months as agreed milestones are hit. Builds from {money(minBuild)}.</div>
           </div>
         </div>

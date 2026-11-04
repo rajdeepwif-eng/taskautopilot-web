@@ -122,7 +122,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
           {DEALS.filter((d) => d.id !== "upfront").map((d) => (
             <Link key={d.id} href={d.id === "equity" || d.id === "hybrid" ? "/startups/" : d.id === "succession" ? "/selling-or-retiring/" : `/ways-to-pay/#${d.id}`} className="card flex flex-col gap-1 p-4 text-ink no-underline hover:border-ink">
-              <span className="text-[12px] font-bold uppercase tracking-wide text-clay">{({ monthly: `From ${fmt(fromMonthly(byId(11).price))}/mo`, finance: "Decision in minutes", results: "25% to start", hybrid: "Half cash, half shares", equity: "2–20% stake", succession: "Confidential" } as Record<string, string>)[d.id]}</span>
+              <span className="text-[12px] font-bold uppercase tracking-wide text-clay">{({ monthly: `From ${fmt(fromMonthly(byId(11).price))}/mo`, finance: "Decision in minutes", results: "25% to start", hybrid: "Half cash, half shares", equity: "0.5–10% stake", succession: "Confidential" } as Record<string, string>)[d.id]}</span>
               <b>{d.name}</b><span className="text-[13px] text-ink-2">{d.forWho}</span>
             </Link>
           ))}
