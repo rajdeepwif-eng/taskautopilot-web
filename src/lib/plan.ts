@@ -16,4 +16,5 @@ export function savePlan(ids: number[]) {
   } catch {
     /* storage blocked — plan lives in memory only */
   }
+  try { window.dispatchEvent(new CustomEvent("ta-plan-change", { detail: ids })); } catch { /* ignore */ }
 }

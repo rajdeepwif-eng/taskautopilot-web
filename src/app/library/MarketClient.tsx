@@ -6,6 +6,7 @@ import { BUNDLES, CATEGORIES, INDUSTRIES, PRODUCTS, Product, byId, fitsIndustry,
 import { ProductDetail } from "./LibraryClient";
 import { loadPlan, savePlan } from "@/lib/plan";
 import { CatArt } from "@/components/CatArt";
+import { LiveBy } from "@/components/StoreBar";
 
 const PRICE_BANDS = [
   { id: "any", label: "Any price", test: () => true },
@@ -57,6 +58,8 @@ export default function MarketClient() {
     if (qq) { setQ(qq); setQuery(qq); }
     const ind = sp.get("industry");
     if (ind && INDUSTRIES.includes(ind)) setIndustry(ind);
+    const onSearch = (e: Event) => { const v = (e as CustomEvent<string>).detail; setQ(v); setQuery(v); };
+    window.addEventListener("ta-search", onSearch);
     const bd = sp.get("band");
     if (bd && PRICE_BANDS.some((b) => b.id === bd)) setBand(bd);
     loaded.current = true;
@@ -134,52 +137,27 @@ export default function MarketClient() {
 
   return (
     <main>
-      {/* Search bar */}
-      <div className="sticky top-0 z-30 border-b border-line bg-ink">
-        <div className="wrap flex items-center gap-3 py-3">
-          <form
-            className="flex min-w-0 flex-1 overflow-hidden rounded-[10px] bg-white"
-            onSubmit={(e) => { e.preventDefault(); setQuery(q); }}
-            role="search"
-          >
-            <select
-              aria-label="Department"
-              value={dept}
-              onChange={(e) => setDept(e.target.value)}
-              className="hidden max-w-[190px] rounded-none border-0 border-r border-line bg-paper text-sm sm:block"
-            >
-              {CATEGORIES.map((c) => <option key={c} value={c}>{c === "All" ? "All departments" : c}</option>)}
-            </select>
-            <input
-              type="search"
-              value={q}
-              onChange={(e) => { setQ(e.target.value); if (!e.target.value) setQuery(""); }}
-              placeholder="Search automations, e.g. invoices, missed calls, Xero…"
-              aria-label="Search automations"
-              className="min-w-0 flex-1 rounded-none border-0"
-            />
-            <button type="submit" aria-label="Search" className="flex w-14 cursor-pointer items-center justify-center border-0 bg-clay text-white">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-            </button>
-          </form>
+      {/* Department strip (search lives in the site header) */}
+      <div className="sticky top-0 z-30 border-b border-line bg-white">
+        <div className="wrap flex items-center gap-3 pt-2">
+          {query && <div className="text-[15px]">Results for <b className="text-clay">&ldquo;{query}&rdquo;</b> <button type="button" onClick={() => { setQ(""); setQuery(""); }} className="cursor-pointer border-0 bg-transparent p-0 text-[13px] text-[#007185] underline">clear</button></div>}
           <button
             type="button"
             onClick={() => { setJustAdded(null); setCartOpen(true); }}
-            className="relative flex min-h-[44px] cursor-pointer items-center gap-2 rounded-[10px] border border-[#3A3D42] bg-transparent px-3 text-white"
+            className="ml-auto flex min-h-[36px] cursor-pointer items-center gap-2 rounded-full border border-line bg-white px-3 text-ink"
             aria-label={`Your plan, ${plan.length} items`}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6" /><circle cx="10" cy="20" r="1.4" /><circle cx="17" cy="20" r="1.4" /></svg>
-            <span className="hidden font-semibold sm:inline">Plan</span>
-            <span className="rounded-full bg-amber px-2 text-sm font-bold text-ink">{plan.length}</span>
+            <span>Your plan</span>
+            <span className="rounded-full bg-[#FFD814] px-2 text-sm font-bold text-ink">{plan.length}</span>
           </button>
         </div>
-        <div className="wrap flex gap-1 overflow-x-auto pb-2 text-sm">
+        <div className="wrap flex gap-1.5 overflow-x-auto py-2 text-sm">
           {CATEGORIES.map((c) => (
             <button
               key={c}
               type="button"
               onClick={() => setDept(c)}
-              className={`min-h-[36px] shrink-0 cursor-pointer rounded-md border-0 px-3 ${dept === c ? "bg-white font-semibold text-ink" : "bg-transparent text-[#D9D6CC]"}`}
+              className={`min-h-[34px] shrink-0 cursor-pointer rounded-full px-3 ${dept === c ? "border border-[#007185] bg-[#EDFDFF] font-bold text-ink" : "border border-line bg-white text-ink hover:bg-[#F7FAFA]"}`}
             >
               {c === "All" ? "All" : c}
             </button>
@@ -221,40 +199,41 @@ export default function MarketClient() {
 
           <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
             {results.map((p) => (
-              <article key={p.id} className="flex flex-col overflow-hidden rounded-xl border border-line bg-white transition hover:shadow-[0_6px_24px_rgba(21,23,26,0.10)]">
+              <article key={p.id} className="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition hover:shadow-[0_2px_10px_rgba(15,17,17,0.15)]">
                 <button
                   type="button"
                   onClick={() => setOpen(p)}
-                  aria-label={`See ${p.name} and its demo video`}
+                  aria-label={`See how ${p.name} works`}
                   className="relative flex aspect-[16/10] cursor-pointer items-center justify-center overflow-hidden border-0 p-0"
                 >
                   <CatArt cat={p.cat} />
                   
-                  <span className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-ink px-2.5 py-1 text-[11px] font-semibold text-white">▶ Watch demo</span>
+                  {p.id === 120 && <span className="absolute left-0 top-2 rounded-r bg-[#CC0C39] px-2 py-0.5 text-[12px] font-bold text-white">Try it for $99</span>}
                 </button>
                 <div className="flex flex-1 flex-col gap-1.5 p-4">
-                  <button type="button" onClick={() => setOpen(p)} className="cursor-pointer border-0 bg-transparent p-0 text-left font-display text-[17px] font-bold leading-snug text-ink hover:text-clay">
+                  <button type="button" onClick={() => setOpen(p)} className="cursor-pointer border-0 bg-transparent p-0 text-left text-[16px] font-normal leading-snug text-ink hover:text-clay hover:underline">
                     {p.name}
                   </button>
                   <p className="m-0 line-clamp-2 text-[13.5px] leading-snug text-ink-2">{p.desc}</p>
                   {p.role && <p className="m-0 text-[12.5px] text-muted">Takes on work of a {p.role}</p>}
                   <div className="mt-auto pt-2">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="font-display text-[26px] font-bold leading-none">{priceLabel(p)}</span>
-                      {!p.monthly && <span className="text-[12px] text-muted">one-off</span>}
+                      <span className="text-[28px] font-medium leading-none">{priceLabel(p)}</span>
+                      {!p.monthly && <span className="text-[13px] text-muted">fixed price</span>}
                     </div>
-                    {p.run && <div className="text-[12.5px] text-muted">then {p.run}</div>}
-                    <div className="mt-1 text-[13px] text-ok">{p.cat === "Courses" ? "✓ Founding enrolment open" : p.cat === "DIY kits" ? "✓ Instant download" : `✓ Live in ${p.days} working days`}</div>
+                    {p.run && <div className="text-[13px] text-muted">Run plan from {p.run}</div>}
+                    <div className="mt-1 text-[14px] text-ink">{p.cat === "Courses" ? "Founding enrolment open" : p.cat === "DIY kits" ? <>Instant <b>download</b></> : <LiveBy days={p.days} />}</div>
+                    {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[13px] text-ok">Approve the test run or full refund</div>}
                   </div>
                   <div className="mt-2 flex flex-col gap-2">
                     <button
                       type="button"
                       onClick={() => (inPlan(p.id) ? remove(p.id) : add(p))}
-                      className={`min-h-[40px] cursor-pointer rounded-full text-sm font-semibold ${inPlan(p.id) ? "border border-ink bg-white text-ink" : "border-0 bg-amber text-ink"}`}
+                      className={`min-h-[36px] cursor-pointer rounded-full text-[14px] ${inPlan(p.id) ? "border border-line bg-white text-ink" : "border border-[#FCD200] bg-[#FFD814] text-ink hover:bg-[#F7CA00]"}`}
                     >
                       {inPlan(p.id) ? "✓ In plan — remove" : "Add to plan"}
                     </button>
-                    <Link href={`/checkout/?plan=${p.id}`} className="flex min-h-[40px] items-center justify-center rounded-full bg-clay text-sm font-semibold text-white no-underline">
+                    <Link href={`/checkout/?plan=${p.id}`} className="flex min-h-[36px] items-center justify-center rounded-full border border-[#FF8F00] bg-[#FFA41C] text-[14px] text-ink no-underline hover:bg-[#FA8900] hover:text-ink">
                       Buy now
                     </Link>
                   </div>

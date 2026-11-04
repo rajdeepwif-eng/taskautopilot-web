@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // Highest-demand, highest-value jobs across trades (from the trade problem research).
@@ -14,31 +10,14 @@ const SUGGEST: { label: string; href: string }[] = [
   { label: "More reviews", href: "/p/15/" },
 ];
 
+/** Most-wanted outcomes as quick links (the site header holds the search box). */
 export default function HeroSearch() {
-  const [q, setQ] = useState("");
-  const router = useRouter();
-  const go = (t: string) => router.push(`/library/?q=${encodeURIComponent(t)}`);
   return (
     <div className="flex flex-col gap-2">
-      <form
-        role="search"
-        className="flex max-w-[620px] overflow-hidden rounded-xl border-2 border-ink bg-white"
-        onSubmit={(e) => { e.preventDefault(); go(q); }}
-      >
-        <input
-          type="search"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="What do you want to stop doing by hand?"
-          aria-label="Search automations"
-          className="min-w-0 flex-1 rounded-none border-0 text-[17px]"
-        />
-        <button type="submit" className="cursor-pointer border-0 bg-clay px-5 font-semibold text-white">Search</button>
-      </form>
-      <div className="flex flex-wrap gap-2 text-sm text-ink-2">
-        Popular:
+      <div className="text-[14px] font-bold text-ink">Most wanted:</div>
+      <div className="flex flex-wrap gap-2">
         {SUGGEST.map((s) => (
-          <Link key={s.label} href={s.href} className="text-clay underline">{s.label}</Link>
+          <Link key={s.label} href={s.href} className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[14px] text-ink no-underline shadow-[0_1px_2px_rgba(15,17,17,0.1)] hover:border-[#007185] hover:bg-[#EDFDFF] hover:text-ink">{s.label}</Link>
         ))}
       </div>
     </div>

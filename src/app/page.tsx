@@ -42,17 +42,15 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-[position:75%_30%]" style={{ backgroundImage: `url(${heroImg.src})` }} aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(244,243,238,0.98)] from-30% via-[rgba(244,243,238,0.75)] via-50% to-transparent to-75% max-lg:bg-[rgba(244,243,238,0.88)]" aria-hidden="true" />
-      <div className="wrap relative flex flex-wrap items-center gap-12 pt-16 pb-14">
+      <section className="relative overflow-hidden bg-white">
+      <div className="wrap relative flex flex-wrap items-center gap-10 pt-10 pb-12">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
-          <div className="kicker">Automation made simple · built by operators, for owner-run businesses</div>
+          <div className="kicker">Done-for-you automation · built by business owners, for business owners</div>
           <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
             Things get done — without you doing them.
           </h1>
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
-            Calls answered, jobs booked, invoices paid, staff on track — automated for your business. Pick it, pay online, and it&apos;s live in 10–15 working days.
+            Calls answered, jobs booked, invoices paid and staff on track. We set it up for you, test it with you, and it&apos;s live in 10–15 working days.
           </p>
           <HeroSearch />
           <div className="flex flex-wrap items-center gap-4">
@@ -67,7 +65,11 @@ export default function Home() {
             <span className="whitespace-nowrap font-semibold text-clay">Pick yours →</span>
           </Link>
         </div>
-        <div className="hidden min-h-[380px] flex-[1_1_380px] lg:block" aria-hidden="true" />
+        <div className="order-first min-w-0 flex-[1_1_380px] lg:order-none">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={heroImg.src} width={heroImg.width} height={heroImg.height} alt="A business owner at his child's soccer game sees 'Invoice paid' on his phone" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:aspect-[4/3] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
+          <div className="mt-2 text-[13px] text-muted">The idea: the invoice goes out, gets chased and gets paid — while you're at the game.</div>
+        </div>
       </div>
       </section>
 
@@ -79,9 +81,9 @@ export default function Home() {
       <section className="bg-ink text-paper">
         <div className="wrap flex flex-wrap justify-between gap-6 py-8">
           {[
-            ["140,000+", "automation runs to date in our own businesses"],
-            [String(LIVE_WORKFLOWS), "workflows live in our own businesses today"],
-            ["~200/day", "runs in our own businesses (n8n, 3 Nov 2026)"],
+            ["140,000+", "jobs done automatically in our own companies"],
+            [String(LIVE_WORKFLOWS), "automations running our own companies today"],
+            ["~200 a day", "tasks our own companies no longer do by hand"],
             ["100%", "yours — documented handover, no lock-in"],
           ].map(([n, l]) => (
             <div key={l} className="flex-[1_1_200px]">
@@ -94,12 +96,12 @@ export default function Home() {
 
       {/* Journey */}
       <section className="wrap flex flex-col gap-5 pt-16">
-        <h2 className="font-display m-0 text-[40px] font-bold tracking-tight">One team for the whole journey</h2>
+        <h2 className="font-display m-0 text-[40px] font-bold tracking-tight">From first enquiry to money in the bank</h2>
         <div className="flex flex-wrap items-stretch gap-3">
           {[
-            ["01 · Get found", "Local SEO", "Area pages, Google Business Profile and automatic review requests.", "from $450/mo", false],
-            ["02 · Get booked", "Booking websites & portals", "Customers price, book and pay online; your team runs the desk from one screen.", `from ${fmt(Math.min(...PRODUCTS.filter((x) => x.cat === "Websites & portals").map((x) => x.price)))}`, false],
-            ["03 · Get paid", "AI automations", "Leads answered, bills booked, bank matched, late payers chased.", "from $600", true],
+            ["01 · Get found", "Show up on Google", "Your Google profile, local pages and a steady flow of 5-star review requests.", "from $450/mo", false],
+            ["02 · Get booked", "Let customers book and pay online", "Prices, availability and booking on your site — your team runs it from one screen.", `from ${fmt(Math.min(...PRODUCTS.filter((x) => x.cat === "Websites & portals").map((x) => x.price)))}`, false],
+            ["03 · Get paid", "Answer, invoice and chase — automatically", "Every enquiry answered, invoices out on time, late payers chased, bank matched.", "from $600", true],
           ].map(([k, t, d, p, dark]) => (
             <Link key={k as string} href="/library" className={`flex flex-[1_1_280px] flex-col gap-2.5 rounded-[14px] p-6 no-underline ${dark ? "bg-ink text-paper" : "card text-ink"}`}>
               <span className={`font-mono text-xs uppercase ${dark ? "text-amber" : "text-clay"}`}>{k}</span>
@@ -113,7 +115,7 @@ export default function Home() {
 
       {/* Person vs automation */}
       <section className="wrap flex flex-col gap-4 pt-16">
-        <h2 className="font-display m-0 text-[clamp(28px,4vw,40px)] font-bold tracking-tight">What automation does that a person can&apos;t — and what stays human</h2>
+        <h2 className="font-display m-0 text-[clamp(28px,4vw,40px)] font-bold tracking-tight">What it does that a person can&apos;t — and what stays human</h2>
         <div className="card overflow-hidden">
           <div className="flex flex-wrap font-mono text-xs text-muted">
             <div className="flex-[1_1_200px] px-4 py-3" />
@@ -131,18 +133,19 @@ export default function Home() {
         <p className="m-0 text-[15px] text-ink-2">Automation doesn&apos;t replace your team — it takes the repetitive work so they spend their time on customers and decisions. Every product page shows the value using <b>your</b> hours and costs.</p>
       </section>
 
-      {/* Video */}
+      {/* Try it live */}
       <section className="wrap flex flex-wrap items-center gap-8 pt-16">
-        <div className="flex aspect-video min-w-0 flex-[999_1_560px] flex-col items-center justify-center gap-3.5 rounded-2xl bg-ink p-6 text-center text-[#C9C7C0]">
-          <span className="flex h-18 w-18 items-center justify-center rounded-full bg-clay">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-          </span>
-          <div className="font-mono text-[13px] text-[#A9ADB4]">[Explainer video · 45–60 s · captions on]</div>
-        </div>
+        <Link href="/demo/" className="flex aspect-video min-w-0 flex-[999_1_560px] flex-col justify-end gap-2 rounded-2xl bg-ink p-6 text-paper no-underline">
+          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Do you have a mini digger free Saturday?</span>
+          <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Yes — it&apos;s free Saturday. Want me to book it?</span>
+          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Yes please</span>
+          <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Booked ✓ I&apos;ve texted you the details.</span>
+          <span className="mt-2 font-semibold text-amber">Try it yourself →</span>
+        </Link>
         <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-3">
-          <h2 className="font-display m-0 text-[34px] font-bold leading-tight">Watch one job go from enquiry to paid — with nobody typing.</h2>
-          <Link href="#packages" className="btn btn-primary self-start">Seen enough? Buy a fixed package →</Link>
-          <Link href="/planner/" className="font-semibold">Not sure which? Build your plan in 2 minutes</Link>
+          <h2 className="font-display m-0 text-[34px] font-bold leading-tight">See a customer answered and booked in seconds — with nobody typing.</h2>
+          <Link href="/demo/" className="btn btn-primary self-start">Try the live demo →</Link>
+          <Link href="#packages" className="font-semibold">Seen enough? Buy a fixed package</Link>
         </div>
       </section>
 
@@ -166,12 +169,12 @@ export default function Home() {
           ))}
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/library" className="btn btn-dark">Browse all {PRODUCTS.length} products — each with a demo video →</Link>
+          <Link href="/library" className="btn btn-dark">Browse all {PRODUCTS.length} automations →</Link>
           <Link href="/bespoke" className="btn btn-outline">Need something custom? Build your brief →</Link>
         </div>
       </section>
 
-      {/* Assessment */}
+      
 
       <div className="pt-16"><OwnAutomations /></div>
 
@@ -232,7 +235,7 @@ export default function Home() {
         <div className="wrap flex flex-wrap items-center justify-between gap-8 py-16">
           <div className="flex flex-[1_1_480px] flex-col gap-3">
             <h2 className="font-display m-0 text-[40px] font-bold">Ready to get your week back?</h2>
-            <p className="m-0 text-[17px] text-[#C9C7C0]">Pick a package and pay online — live in 10–15 working days.</p>
+            <p className="m-0 text-[17px] text-[#C9C7C0]">Pick it, pay online, approve the test run — live in 10–15 working days.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="#packages" className="btn btn-primary text-lg">See packages &amp; prices</Link>

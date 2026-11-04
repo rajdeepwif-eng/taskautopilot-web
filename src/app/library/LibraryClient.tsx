@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { CatArt } from "@/components/CatArt";
+import { LiveBy } from "@/components/StoreBar";
 import {
   BUNDLES,
   CATEGORIES,
@@ -112,13 +114,10 @@ export default function LibraryClient() {
                 <button
                   type="button"
                   onClick={() => setOpen(p)}
-                  aria-label={`Play the ${p.name} demo`}
+                  aria-label={`See how ${p.name} works`}
                   className="relative flex aspect-video cursor-pointer flex-col items-center justify-center gap-2 border-0 bg-ink"
                 >
-                  <span className="flex h-13 w-13 items-center justify-center rounded-full bg-clay">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-                  </span>
-                  <span className="font-mono text-[11px] text-[#A9ADB4]">[Demo video · {p.name}]</span>
+                  <CatArt cat={p.cat} />
                 </button>
                 <div className="flex flex-col gap-2 px-5 pb-5">
                   <div className="flex justify-between font-mono text-xs text-muted">
@@ -259,16 +258,11 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
         {!inline && <button type="button" onClick={onClose} aria-label="Close" className="absolute right-3 top-3 z-10 h-10 w-10 cursor-pointer rounded-full border-0 bg-white text-2xl shadow">×</button>}
         <div className="flex flex-wrap items-start gap-7 p-5 md:p-7">
           <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-3.5">
-            <div className="flex aspect-video flex-col items-center justify-center gap-3 rounded-xl bg-ink p-6 text-center text-[#A9ADB4]">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-clay">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-              </span>
-              <div className="font-mono text-[12px]">Watch it work · 45–60 s</div>
-            </div>
+            <div className="relative aspect-[16/4] overflow-hidden rounded-lg"><CatArt cat={p.cat} /></div>
             <div className="font-mono text-xs text-muted">{p.cat} · ● ready-made</div>
             <h2 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h2>
             <p className="m-0 text-[17px] leading-normal text-ink-2">{p.desc}</p>
-            <div className="mt-1 font-semibold">How it works</div>
+            <div className="mt-1 text-[18px] font-bold">About this automation</div>
             {howItWorks(p).map((t, i) => (
               <div key={i} className="flex gap-3 text-[15px] leading-normal">
                 <span className="font-mono text-clay">0{i + 1}</span>
@@ -300,16 +294,17 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             <div className="text-sm text-muted">Works with: {p.apps}</div>
             {children}
           </div>
-          <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-[14px] border border-line bg-paper p-5 md:order-none md:sticky md:top-4">
-            <div className="font-display text-xl font-bold leading-tight md:hidden">{p.name}</div>
-            <div className="font-display text-4xl font-bold">{priceLabel(p)}</div>
+          <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-lg border border-line bg-white p-5 md:order-none md:sticky md:top-4">
+            <div className="text-xl leading-tight md:hidden">{p.name}</div>
+            <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
+            {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[15px]"><LiveBy days={p.days} /></div>}
+            <div className="text-[18px] text-ok">Ready to start</div>
+            <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your plan" : "Add to plan"}</button>
             <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
-            <button type="button" onClick={onAdd} className="btn btn-outline">{inPlan ? "✓ In your plan" : "Add to plan"}</button>
+            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>Secure transaction · Stripe</span><span className="text-muted">Guarantee</span><span>Approve the test run or full refund</span></div>
             <div className="text-sm leading-relaxed text-ink-2">
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
-              {p.cat !== "Courses" && p.cat !== "DIY kits" && <><br />✓ Live in {p.days} working days</>}
               <br />✓ You own it — documented handover
-              <br />✓ Approve the test run or get a full refund
               {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
             </div>
             

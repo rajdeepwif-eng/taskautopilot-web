@@ -3,7 +3,7 @@ import MarketClient from "./MarketClient";
 
 export const metadata: Metadata = {
   title: "Automation library — TaskAutopilot",
-  description: "46 ready-made automations, websites and SEO packages, filtered by industry, with prices and demo videos.",
+  description: "Ready-made automations, websites and SEO packages for owner-run businesses — filter by industry, see how each one works, fixed prices.",
 };
 
 export default function LibraryPage() {

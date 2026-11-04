@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --font-inter: "Inter Variable", system-ui, sans-serif;
-  --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
-  --font-jetbrains: "JetBrains Mono", ui-monospace, monospace;
+  /* Retail-store type: one plain, fast system sans for everything (no web-font download). */
+  --font-inter: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-space-grotesk: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-jetbrains: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 @theme inline {
-  --color-paper: #F4F3EE;
-  --color-paper-2: #ECEAE2;
-  --color-ink: #15171A;
-  --color-ink-2: #3A3D42;
-  --color-muted: #5B5F66;
-  --color-line: #D9D6CC;
-  --color-clay: #B23A0B;
-  --color-clay-soft: #FFF4EE;
-  --color-amber: #F2B36B;
-  --color-ok: #1A7F4E;
+  --color-paper: #EAEDED;
+  --color-paper-2: #E3E6E6;
+  --color-ink: #0F1111;
+  --color-ink-2: #333333;
+  --color-muted: #565959;
+  --color-line: #D5D9D9;
+  --color-clay: #C7511F;
+  --color-clay-soft: #FEF8F2;
+  --color-amber: #FEBD69;
+  --color-ok: #007600;
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-jetbrains);
@@ -25,6 +26,14 @@
 body {
   background: var(--color-paper);
   color: var(--color-ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+@layer base {
+  a { color: #007185; }
+  a:hover { color: #C7511F; }
+  h1, h2, h3 { letter-spacing: -0.01em; }
 }
 
 .wrap {
@@ -34,12 +43,11 @@ body {
   padding-right: 24px;
 }
 
+@layer components {
 .kicker {
-  font-family: var(--font-jetbrains);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-clay);
 }
 
 .btn {
@@ -48,20 +56,28 @@ body {
   justify-content: center;
   min-height: 48px;
   padding: 0 22px;
-  border-radius: 10px;
-  font-weight: 600;
+  border-radius: 100px;
+  font-weight: 400;
+  font-size: 15px;
   text-decoration: none;
   cursor: pointer;
 }
-.btn-primary { background: var(--color-clay); color: #fff; }
-.btn-primary:hover { background: #8f2e08; }
-.btn-dark { background: var(--color-ink); color: #fff; }
-.btn-outline { border: 1px solid var(--color-ink); color: var(--color-ink); background: transparent; }
+/* Shop-style buttons: orange "Buy now", yellow "Add to plan". */
+.btn-primary, a.btn-primary { background: #FFA41C; border: 1px solid #FF8F00; color: #0F1111; }
+.btn-primary:hover, a.btn-primary:hover { background: #FA8900; color: #0F1111; }
+.btn-cart, a.btn-cart { background: #FFD814; border: 1px solid #FCD200; color: #0F1111; }
+.btn-cart:hover, a.btn-cart:hover { background: #F7CA00; color: #0F1111; }
+.btn-dark, a.btn-dark { background: #232F3E; color: #fff; }
+.btn-dark:hover, a.btn-dark:hover { background: #37475A; color: #fff; }
+.btn-outline, a.btn-outline { border: 1px solid #D5D9D9; color: #0F1111; background: #fff; box-shadow: 0 2px 5px rgba(213,217,217,.5); }
+.btn-outline:hover, a.btn-outline:hover { background: #F7FAFA; color: #0F1111; }
 
 .card {
   background: #fff;
   border: 1px solid var(--color-line);
-  border-radius: 14px;
+  border-radius: 8px;
+}
+
 }
 
 input, select, textarea {

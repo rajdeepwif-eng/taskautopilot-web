@@ -15,7 +15,7 @@ export default function TradeGrid() {
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {ORDER.map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t) => (
           <Link key={t.slug} href={`/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
-            <div className="relative aspect-[16/7] overflow-hidden">
+            <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
                 ? <img src={TRADE_PHOTOS[t.slug].src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
