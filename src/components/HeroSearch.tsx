@@ -8,6 +8,7 @@ const SUGGEST: { label: string; href: string }[] = [
   { label: "Follow up every quote", href: "/solutions/quote-follow-up/" },
   { label: "Get admin hours back", href: "/solutions/admin-hours/" },
   { label: "More 5-star reviews", href: "/solutions/google-reviews/" },
+  { label: "Answer every call", href: "/solutions/ai-receptionist/" },
   { label: "Know your real profit", href: "/solutions/profit-dashboard/" },
 ];
 

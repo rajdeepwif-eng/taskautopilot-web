@@ -9,11 +9,12 @@ import MissedCallCalc from "@/components/MissedCallCalc";
 import { SRCSET } from "@/lib/srcset";
 
 const SHORT: Record<string, Partial<Record<Country, string>>> = {
-  "get-paid-faster": { us: "Automated invoice reminders & AR automation", ca: "Automated invoice reminders for Canadian firms", uk: "Credit control automation for Xero & QuickBooks", au: "Automatic invoice reminders for tradies (Xero)" },
+  "get-paid-faster": { us: "Invoice reminder automation + free email templates", ca: "Automated invoice reminders for Canadian firms", uk: "Credit control automation for Xero & QuickBooks", au: "Automatic invoice reminders for tradies (Xero)" },
   "missed-calls": { us: "Missed call text back service for contractors", ca: "Missed call text back & AI receptionist Canada", uk: "Missed call text back & AI receptionist UK", au: "Missed call text back & AI receptionist for tradies" },
   "quote-follow-up": { us: "Quote follow up automation + email templates", ca: "Quote follow up automation + templates (Canada)", uk: "Quote follow up automation for UK trades", au: "Quote follow up for tradies + email templates" },
   "google-reviews": { us: "Automate Google review requests", ca: "Automate Google review requests in Canada", uk: "Automate Google review requests (UK)", au: "Automate Google reviews for tradies" },
   "admin-hours": { us: "QuickBooks & Xero bank reconciliation automation", ca: "Xero bank reconciliation automation (Canada)", uk: "Invoice processing & Xero bank reconciliation", au: "Xero bank reconciliation automation (Australia)" },
+  "ai-receptionist": { us: "AI receptionist for contractors & small businesses", ca: "AI receptionist for Canadian small businesses", uk: "AI receptionist for UK small businesses", au: "AI receptionist for tradies (Australia)" },
   "profit-dashboard": { us: "Small business profit dashboard & monthly reports", ca: "Profit dashboard for Canadian small businesses", uk: "Management accounts pack & profit dashboard", au: "Monthly management reports & profit dashboard" },
 };
 /** Search-result title: ≤60 characters so Google doesn't cut it; brand added only when it fits. */
@@ -76,10 +77,11 @@ export default function SolutionView({ slug, country }: { slug: string; country:
       </section>
 
       {s.templates && (
-        <section className="wrap flex flex-col gap-3 pb-10">
-          <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">Free quote follow-up email templates</h2>
-          <p className="m-0 text-ink-2">Copy these as they are. The automation sends them for you at the right time and stops as soon as the customer replies.</p>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+        <section id="templates" className="wrap flex scroll-mt-20 flex-col gap-3 pb-10">
+          <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">{s.templatesTitle ?? "Free quote follow-up email templates"}</h2>
+          {slug === "get-paid-faster" && country === "uk" && <p className="m-0 text-ink-2">Owed by another business? <Link href="/tools/late-payment-interest-calculator/">Work out the statutory interest you can add →</Link></p>}
+          <p className="m-0 text-ink-2">Copy these as they are. The automation sends them for you at the right time and stops as soon as the customer replies or pays.</p>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {s.templates.map(([when, body]) => (
               <div key={when} className="card flex flex-col gap-2 p-5"><b>{when}</b><p className="m-0 whitespace-pre-line text-[15px] text-ink-2">{L(body)}</p></div>
             ))}

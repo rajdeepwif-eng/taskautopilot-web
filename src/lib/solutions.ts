@@ -15,6 +15,7 @@ export type Solution = {
   /** Local page titles built from the keyword research (US/UK/CA/AU autocomplete, 4 Nov 2026). */
   local: Partial<Record<"us" | "uk" | "au" | "ca", string>>;
   templates?: [string, string][];
+  templatesTitle?: string;
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -47,6 +48,14 @@ export const SOLUTIONS: Solution[] = [
       ["Does it work with QuickBooks or Xero?", "Yes. It works with QuickBooks, Xero, Sage and Zoho Books, using the invoices already in your accounts."],
       ["Can customers pay from the reminder?", "Yes — every reminder includes a pay-now link from your existing payment provider."],
       ["What happens with customers who still don't pay?", "After your last reminder, the account is flagged to you with a summary, so you decide the next step."],
+    ],
+    templatesTitle: "Free invoice reminder email templates",
+    templates: [
+      ["3 days before it's due", "Hi {first name}, a friendly heads-up that invoice {number} for {amount} is due on {date}. You can pay here: {pay link}. Thanks, {your name}"],
+      ["On the due date", "Hi {first name}, invoice {number} for {amount} is due today. Pay in a minute here: {pay link}. If it's already on its way, thank you — please ignore this. {your name}"],
+      ["7 days overdue", "Hi {first name}, invoice {number} for {amount} was due on {date} and still shows as unpaid. Could you let me know when we can expect payment? Pay link: {pay link}. {your name}"],
+      ["14 days overdue", "Hi {first name}, I'm following up again on invoice {number} ({amount}), now 14 days overdue. If there's a problem with the invoice, reply and we'll sort it today. Otherwise please pay here: {pay link}. {your name}"],
+      ["Final reminder", "Hi {first name}, this is our final reminder for invoice {number} ({amount}), due on {date}. Please pay by {date + 7 days} to keep your account in good standing. If you can't, call me and we'll agree a plan. {your name}"],
     ],
   },
   {
@@ -197,6 +206,37 @@ export const SOLUTIONS: Solution[] = [
       ["Does it replace my accountant?", "No. It gives you the numbers monthly; your accountant still handles tax and year-end."],
       ["Which accounting software?", "QuickBooks, Xero, Sage and Zoho Books."],
       ["Is it a one-off or monthly?", "The build is a fixed one-off price; an optional monthly plan keeps it running and adds new reports."],
+    ],
+  },
+  {
+    slug: "ai-receptionist",
+    title: "AI receptionist for small businesses: every call answered, 24/7",
+    short: "AI receptionist",
+    metaDescription: "An AI receptionist answers every call 24/7, answers questions from your info, books appointments and passes tricky calls to you. Fixed-price setup.",
+    problem: [
+      "If you're the one answering the phone, every call lands while you're busy — on a job, with a customer or after hours. Voicemail loses many of them.",
+      "An AI receptionist answers in your business's name, uses your prices, hours and FAQs, books into your calendar, and hands anything sensitive or unusual straight to you with a summary.",
+    ],
+    fixes: [7, 11, 10],
+    trades: [
+      ["trades", "Answers while you're on a job, books the visit and texts you the details."],
+      ["clinics", "Books, moves and confirms appointments; clinical questions go to your team."],
+      ["property", "Logs maintenance requests out of hours and flags emergencies to you at once."],
+      ["professional", "Takes new-client details and books a consultation in your diary."],
+      ["restaurants", "Takes reservations and answers opening-hours and menu questions."],
+    ],
+    local: {
+      us: "AI receptionist for contractors & small businesses",
+      ca: "AI receptionist for Canadian small businesses (works with Jobber)",
+      uk: "AI receptionist for UK small businesses, clinics & trades",
+      au: "AI receptionist for tradies & small businesses in Australia",
+    },
+    faq: [
+      ["Will callers know it's AI?", "Yes — it introduces itself as your virtual assistant. Callers can ask for a person at any time and it passes the call or takes a message."],
+      ["What does it cost to run?", "A fixed setup price, then a monthly plan that includes a cap on call minutes. Minutes above the cap are billed at cost."],
+      ["Can it book into my calendar?", "Yes — Google, Outlook, Jobber and most booking tools with an API."],
+      ["What if it doesn't know the answer?", "It never guesses. It takes a message, texts you a summary and tells the caller when you'll call back."],
+      ["Should I start with missed-call text-back instead?", "If you miss a handful of calls a week, text-back is cheaper and live in about a week. If calls are constant, an AI receptionist answers them all."],
     ],
   },
 ];
