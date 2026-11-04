@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import { TRADES, tradeBySlug } from "@/lib/trades";
 import TradeView from "@/components/TradeView";
 import { alternates } from "@/lib/geo";
@@ -9,7 +10,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ trade: string }> }): Promise<Metadata> {
   const t = tradeBySlug((await params).trade);
-  return { title: `Automation for ${t.name} | TaskAutopilot`, description: t.headline, alternates: alternates(`/for/${t.slug}/`, "us") };
+  return { title: `${t.name} automation — ${t.short} | TaskAutopilot`, description: `${t.headline} Fixed prices, approve the test run or full refund.`, alternates: alternates(`/for/${t.slug}/`, "us"), openGraph: TRADE_PHOTOS[t.slug] ? { images: [TRADE_PHOTOS[t.slug].src] } : undefined };
 }
 
 export default async function TradePage({ params }: { params: Promise<{ trade: string }> }) {

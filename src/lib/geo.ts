@@ -41,4 +41,10 @@ const UK_AU: [RegExp, string][] = [
   [/\borganiz/g, "organis"], [/\bsummariz/g, "summaris"], [/\bprioritiz/g, "prioritis"], [/\bcolor\b/g, "colour"],
   [/\bsales tax\b/g, "VAT/GST"], [/\bdial 911\b/g, "call emergency services"],
 ];
-export const loc = (text: string, c: Country) => (c === "uk" || c === "au" ? UK_AU.reduce((s, [a, b]) => s.replace(a, b), text) : text);
+const AU: [RegExp, string][] = [[/\bTrades & home services\b/g, "Tradies & home services"], [/\bPlumbers, electricians, builders, cleaners\b/g, "Tradies: plumbers, sparkies, builders, cleaners"], [/\bVAT\/GST\b/g, "GST"]];
+const UK: [RegExp, string][] = [[/\bVAT\/GST\b/g, "VAT"]];
+export const loc = (text: string, c: Country) => {
+  if (c !== "uk" && c !== "au") return text;
+  const t = UK_AU.reduce((s, [a, b]) => s.replace(a, b), text);
+  return (c === "au" ? AU : UK).reduce((s, [a, b]) => s.replace(a, b), t);
+};
