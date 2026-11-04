@@ -29,3 +29,16 @@ export const alternates = (path: string, c: Country) => ({
     "x-default": `${SITE}${path}`,
   },
 });
+
+/** Local wording for the UK and Australian editions (search terms people there actually use). */
+const UK_AU: [RegExp, string][] = [
+  [/\bequipment rental\b/g, "equipment hire"], [/\bEquipment rental\b/g, "Equipment hire"], [/\btool rental\b/g, "tool hire"],
+  [/\bBook more rentals\b/g, "Book more hires"], [/\bOn rent: extend or call off\b/g, "On hire: extend or off-hire"], [/\brentals\b/g, "hires"],
+  [/\binquiries\b/g, "enquiries"], [/\bInquiries\b/g, "Enquiries"], [/\binquiry\b/g, "enquiry"], [/\bInquiry\b/g, "Enquiry"],
+  [/\bbusiness days\b/g, "working days"], [/\bbusiness day\b/g, "working day"],
+  [/\bresumes\b/g, "CVs"], [/\bresume\b/g, "CV"], [/\btakeout\b/g, "takeaways"], [/\bTrucking\b/g, "Haulage"], [/\btrucking\b/g, "haulage"], [/\bmovers\b/g, "removals"],
+  [/\bshowings\b/g, "viewings"], [/\bShowings\b/g, "Viewings"], [/\bShift schedules\b/g, "Rotas"], [/\bshift schedules\b/g, "rotas"],
+  [/\borganiz/g, "organis"], [/\bsummariz/g, "summaris"], [/\bprioritiz/g, "prioritis"], [/\bcolor\b/g, "colour"],
+  [/\bsales tax\b/g, "VAT/GST"], [/\bdial 911\b/g, "call emergency services"],
+];
+export const loc = (text: string, c: Country) => (c === "uk" || c === "au" ? UK_AU.reduce((s, [a, b]) => s.replace(a, b), text) : text);

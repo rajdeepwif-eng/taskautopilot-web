@@ -261,7 +261,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
           <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-3.5">
             <div className="relative aspect-[16/4] overflow-hidden rounded-lg"><CatArt cat={p.cat} /></div>
             <div className="font-mono text-xs text-muted">{p.cat} · ● ready-made</div>
-            <h2 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h2>
+            {inline ? <h1 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h1> : <h2 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h2>}
             <p className="m-0 text-[17px] leading-normal text-ink-2">{p.desc}</p>
             <div className="mt-1 text-[18px] font-bold">About this automation</div>
             {howItWorks(p).map((t, i) => (

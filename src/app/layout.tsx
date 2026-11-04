@@ -7,7 +7,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rajdeepwif-eng.github.io/taskautopilot-web/"),
-  openGraph: { type: "website", siteName: "TaskAutopilot"},
+  openGraph: { type: "website", siteName: "TaskAutopilot" },
+  alternates: { canonical: "./" },
   title: "TaskAutopilot — things get done without you doing them",
   description:
     "Ready-made AI automations, booking websites and local SEO for every kind of business. See how each one works, see the price, pay online.",
@@ -17,6 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="font-sans antialiased">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [
+          { "@type": "Organization", "@id": "https://rajdeepwif-eng.github.io/taskautopilot-web/#org", name: "TaskAutopilot", url: "https://rajdeepwif-eng.github.io/taskautopilot-web/", logo: "https://rajdeepwif-eng.github.io/taskautopilot-web/icon.svg", areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
+          { "@type": "WebSite", name: "TaskAutopilot", url: "https://rajdeepwif-eng.github.io/taskautopilot-web/", potentialAction: { "@type": "SearchAction", target: "https://rajdeepwif-eng.github.io/taskautopilot-web/library/?q={search_term_string}", "query-input": "required name=search_term_string" } },
+        ] }) }} />
         <header>
           <div className="bg-[#131921] text-white">
             <div className="mx-auto flex max-w-[1500px] items-center gap-3 px-3 py-2 sm:gap-4 sm:px-4">

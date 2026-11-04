@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { alternates } from "@/lib/geo";
 import HeroSearch from "@/components/HeroSearch";
 import TradeGrid from "@/components/TradeGrid";
 import heroImg from "@/assets/hero.jpg";
@@ -38,6 +40,12 @@ const FAQ = [
   ["Can a person approve things first?", "Yes. Anything that moves money or messages customers can wait for a one-tap approval."],
   ["What if it breaks?", "Failures alert us straight away. On a Run plan we fix them; without one, fixes are billed at $150/hour."],
 ];
+
+export const metadata: Metadata = {
+  title: "Done-for-you business automation for small businesses | TaskAutopilot",
+  description: "Fixed-price automations that get owner-run businesses paid, booked and followed up: missed-call text-back, invoice reminders, quote follow-up, reviews. Tested with you, live in 2–3 weeks.",
+  alternates: alternates("/", "us"),
+};
 
 export default function Home() {
   return (

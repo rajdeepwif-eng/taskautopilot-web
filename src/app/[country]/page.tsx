@@ -4,7 +4,7 @@ import { PAYMENTS_LIVE } from "@/lib/launch";
 import TradeGrid from "@/components/TradeGrid";
 import HeroSearch from "@/components/HeroSearch";
 import heroImg from "@/assets/hero.jpg";
-import { COUNTRIES, Country, EDITIONS, alternates, money } from "@/lib/geo";
+import { COUNTRIES, Country, EDITIONS, alternates, money, loc } from "@/lib/geo";
 
 export function generateStaticParams() {
   return EDITIONS.map((country) => ({ country }));

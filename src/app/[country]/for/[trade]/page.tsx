@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { TRADES, tradeBySlug } from "@/lib/trades";
 import TradeView from "@/components/TradeView";
-import { COUNTRIES, Country, EDITIONS, alternates } from "@/lib/geo";
+import { COUNTRIES, Country, EDITIONS, alternates, loc } from "@/lib/geo";
 
 export function generateStaticParams() {
   return EDITIONS.flatMap((country) => TRADES.map((t) => ({ country, trade: t.slug })));
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ country: 
   const { country, trade } = await params;
   const t = tradeBySlug(trade);
   const C = COUNTRIES[country as Country];
-  return { title: `${t.name} automation in the ${C.adj === "UK" ? "UK" : C.name} | TaskAutopilot`, description: `${t.headline} Fixed prices in ${C.sym}, ${C.tax}.`, alternates: alternates(`/for/${t.slug}/`, country as Country) };
+  return { title: `${loc(t.name, country as Country)} automation in ${C.adj === "UK" ? "the UK" : C.name} | TaskAutopilot`, description: `${loc(t.headline, country as Country)} Fixed prices in ${C.sym}, ${C.tax}.`, alternates: alternates(`/for/${t.slug}/`, country as Country) };
 }
 
 export default async function Page({ params }: { params: Promise<{ country: string; trade: string }> }) {

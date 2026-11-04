@@ -3,13 +3,15 @@ import { PAYMENTS_LIVE } from "@/lib/launch";
 import { BUNDLES, byId, defaultHours, exampleYearly } from "@/lib/catalogue";
 import { tradeBySlug } from "@/lib/trades";
 import { CatArt } from "@/components/CatArt";
-import { COUNTRIES, Country, money } from "@/lib/geo";
+import { COUNTRIES, Country, money, loc } from "@/lib/geo";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import AddToCart from "@/components/AddToCart";
 import { runLow } from "@/lib/catalogue";
 
 export default function TradeView({ slug, country }: { slug: string; country: Country }) {
-  const t = tradeBySlug(slug);
+  const raw = tradeBySlug(slug);
+  const L = (x: string) => loc(x, country);
+  const t = { ...raw, name: L(raw.name), short: L(raw.short), headline: L(raw.headline), pains: raw.pains.map(([a, b]) => [L(a), L(b)] as [string, string]), faq: raw.faq.map(([a, b]) => [L(a), L(b)] as [string, string]), journey: raw.journey?.map(([st, ids]) => [L(st), ids] as [string, number[]]) };
   const fmt = (n: number) => money(n, country);
   const priceLabel = (p: { price: number; monthly?: boolean }) => fmt(p.price) + (p.monthly ? "/mo" : "");
   const C = COUNTRIES[country];
@@ -57,10 +59,10 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
           <div className="flex flex-wrap items-center gap-6 rounded-2xl bg-ink p-6 text-paper md:p-8">
             <div className="flex min-w-0 flex-[2_1_420px] flex-col gap-2">
               <div className="text-sm font-bold text-amber">Start here · one price · one setup</div>
-              <h2 className="m-0 font-display text-3xl font-bold">{kit.name}</h2>
+              <h2 className="m-0 font-display text-3xl font-bold">{L(kit.name)}</h2>
               <p className="m-0 opacity-80">{kit.desc}</p>
               <ul className="m-0 flex list-none flex-wrap gap-x-5 gap-y-1 p-0 text-[15px]">
-                {kitItems.map((p) => <li key={p.id}>✓ {p.name}</li>)}
+                {kitItems.map((p) => <li key={p.id}>✓ {L(p.name)}</li>)}
               </ul>
             </div>
             <div className="flex flex-[1_1_220px] flex-col gap-2">
@@ -86,7 +88,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
                 <span className="flex flex-col gap-1">
                   <b className="text-[15px]">{stage}</b>
                   <span className="flex flex-wrap gap-x-3 gap-y-1 text-[13px]">
-                    {ids.map((id) => <Link key={id} href={`/p/${id}/`}>{byId(id).name.split(" — ")[0]}</Link>)}
+                    {ids.map((id) => <Link key={id} href={`/p/${id}/`}>{L(byId(id).name.split(" — ")[0])}</Link>)}
                   </span>
                 </span>
               </li>
@@ -102,8 +104,8 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
             <article key={p.id} className="flex flex-col overflow-hidden rounded-xl border border-line bg-white">
               <Link href={`/p/${p.id}/`} className="relative block aspect-[16/8]" aria-label={p.name}><CatArt cat={p.cat} size={44} /></Link>
               <div className="flex flex-1 flex-col gap-1.5 p-4">
-                <Link href={`/p/${p.id}/`} className="font-display text-[17px] font-bold text-ink">{p.name}</Link>
-                <p className="m-0 line-clamp-2 text-[13.5px] text-ink-2">{p.desc}</p>
+                <Link href={`/p/${p.id}/`} className="font-display text-[17px] font-bold text-ink">{L(p.name)}</Link>
+                <p className="m-0 line-clamp-2 text-[13.5px] text-ink-2">{L(p.desc)}</p>
                 {p.wage && country === "us" && <p className="m-0 text-[12.5px] text-muted">Example: {defaultHours(p)} hrs/week ≈ {fmt(exampleYearly(p))}/yr of a {p.role}&apos;s time</p>}
                 <div className="mt-auto pt-2 font-display text-2xl font-bold">{priceLabel(p)}</div>
                 {p.run && <span className="text-[13px] text-muted">then optional support from {p.run}</span>}

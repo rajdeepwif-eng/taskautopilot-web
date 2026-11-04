@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PRODUCTS, byId, priceLabel } from "@/lib/catalogue";
 import ProductPageClient from "./ProductPageClient";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ id: String(p.id) }));
@@ -8,9 +9,31 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const p = byId(Number((await params).id));
-  return { title: `${p.name} — ${priceLabel(p)} — TaskAutopilot`, description: p.desc };
+  return { title: `${p.name} — ${priceLabel(p)} | TaskAutopilot`, description: p.desc, alternates: { canonical: `/p/${p.id}/` } };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
-  return <ProductPageClient id={Number((await params).id)} />;
+  const p = byId(Number((await params).id));
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: p.name,
+    description: p.desc,
+    brand: { "@type": "Brand", name: "TaskAutopilot" },
+    category: p.cat,
+    offers: {
+      "@type": "Offer",
+      price: p.price,
+      priceCurrency: "USD",
+      availability: PAYMENTS_LIVE ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
+      url: `https://rajdeepwif-eng.github.io/taskautopilot-web/p/${p.id}/`,
+      ...(p.monthly ? { priceSpecification: { "@type": "UnitPriceSpecification", price: p.price, priceCurrency: "USD", unitCode: "MON" } } : {}),
+    },
+  };
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      <ProductPageClient id={p.id} />
+    </>
+  );
 }
