@@ -9,10 +9,11 @@ export const COUNTRIES: Record<Country, { name: string; adj: string; locale: str
 };
 export const EDITIONS: Country[] = ["uk", "au", "ca"];
 
-function nice(n: number) {
+/** One rounding rule for every non-US price: under 1,000 ends in 9 (rounded up); 1,000+ to the nearest 50. Zero stays zero. */
+export function nice(n: number) {
+  if (n <= 0) return 0;
   if (n >= 1000) return Math.round(n / 50) * 50;
-  if (n >= 100) return Math.round(n / 10) * 10;
-  return Math.max(1, Math.round(n / 5) * 5 - 1);
+  return Math.max(9, Math.ceil(n / 10) * 10 - 1);
 }
 export const money = (usd: number, c: Country) =>
   COUNTRIES[c].sym + (c === "us" ? Math.round(usd) : nice(usd * COUNTRIES[c].rate)).toLocaleString("en-US");

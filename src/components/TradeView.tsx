@@ -30,12 +30,13 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
         </div>
         {TRADE_PHOTOS[slug] && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={TRADE_PHOTOS[slug].src} width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt="" className="aspect-[4/3] w-full min-w-0 flex-[1_1_380px] rounded-2xl object-cover" />
+          <img src={TRADE_PHOTOS[slug].src} width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt="Illustrative photo" title="Illustrative photo" className="aspect-[4/3] w-full min-w-0 flex-[1_1_380px] rounded-2xl object-cover" />
         )}
       </section>
 
       <section className="border-y border-line bg-[#ECEAE2]">
-        <div className="wrap grid grid-cols-1 gap-5 py-10 md:grid-cols-3">
+        <div className="wrap pt-8 text-[14px] font-bold text-muted">The problems owners in this trade tell us about most</div>
+        <div className="wrap grid grid-cols-1 gap-5 pb-10 pt-3 md:grid-cols-3">
           {t.pains.map(([pain, fix]) => (
             <div key={pain} className="flex flex-col gap-2">
               <div className="font-display text-xl font-bold leading-snug">{pain}</div>

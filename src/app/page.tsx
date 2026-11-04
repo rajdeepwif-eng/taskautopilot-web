@@ -65,7 +65,7 @@ export default function Home() {
             <span className="whitespace-nowrap font-semibold text-clay">Pick yours →</span>
           </Link>
         </div>
-        <div className="order-first min-w-0 flex-[1_1_380px] lg:order-none">
+        <div className="min-w-0 flex-[1_1_380px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={heroImg.src} width={heroImg.width} height={heroImg.height} alt="A business owner at his child's soccer game sees 'Invoice paid' on his phone" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:aspect-[4/3] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
           <div className="mt-2 text-[13px] text-muted">The idea: the invoice goes out, gets chased and gets paid — while you're at the game.</div>
@@ -81,7 +81,7 @@ export default function Home() {
       <section className="bg-ink text-paper">
         <div className="wrap flex flex-wrap justify-between gap-6 py-8">
           {[
-            ["140,000+", "jobs done automatically in our own companies"],
+            ["4", "countries served — US, UK, Australia, Canada"],
             [String(LIVE_WORKFLOWS), "automations running our own companies today"],
             ["~200 a day", "tasks our own companies no longer do by hand"],
             ["100%", "yours — documented handover, no lock-in"],
@@ -99,7 +99,7 @@ export default function Home() {
         <h2 className="font-display m-0 text-[40px] font-bold tracking-tight">From first enquiry to money in the bank</h2>
         <div className="flex flex-wrap items-stretch gap-3">
           {[
-            ["01 · Get found", "Show up on Google", "Your Google profile, local pages and a steady flow of 5-star review requests.", "from $450/mo", false],
+            ["01 · Get found", "Show up on Google", "Your Google profile, local pages and a steady flow of 5-star review requests.", `from ${fmt(Math.min(...PRODUCTS.filter((x) => x.cat === "Get found (SEO)").map((x) => x.price)))}/mo`, false],
             ["02 · Get booked", "Let customers book and pay online", "Prices, availability and booking on your site — your team runs it from one screen.", `from ${fmt(Math.min(...PRODUCTS.filter((x) => x.cat === "Websites & portals").map((x) => x.price)))}`, false],
             ["03 · Get paid", "Answer, invoice and chase — automatically", "Every enquiry answered, invoices out on time, late payers chased, bank matched.", "from $600", true],
           ].map(([k, t, d, p, dark]) => (

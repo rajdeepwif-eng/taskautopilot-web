@@ -36,9 +36,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   if (paid) {
     return (
       <main className="mx-auto flex max-w-[760px] flex-col gap-5 px-6 py-14">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ok text-2xl text-white">✓</div>
-        <h1 className="font-display m-0 text-4xl font-bold">Paid. Your build is booked.</h1>
-        <p className="m-0 text-lg text-ink-2">[Demo — Stripe not connected yet.] Receipt sent to {form.email}. Here&apos;s exactly what happens next — nobody needs to call you.</p>
+        <h1 className="font-display m-0 text-4xl font-bold">Card payments open soon.</h1>
+        <p className="m-0 text-lg text-ink-2">We&apos;re finishing our secure Stripe checkout. <b>Nothing has been charged.</b> Here&apos;s exactly what will happen once you pay — nobody needs to call you.</p>
         {[
           ["01", "Now — 10-minute setup form.", "Tell us your apps and connect them with secure logins (no passwords shared)."],
           ["02", "Day 1 — build starts.", "You get a project page with progress you can check any time."],
@@ -50,7 +49,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
             <span><b>{b}</b> {r}</span>
           </div>
         ))}
-        <Link href="/" className="btn btn-primary">Start my setup form →</Link>
+        <Link href="/" className="btn btn-outline">Back to the shop</Link>
       </main>
     );
   }

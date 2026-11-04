@@ -50,6 +50,7 @@ export default function MarketClient() {
   const [cartOpen, setCartOpen] = useState(false);
   const [justAdded, setJustAdded] = useState<Product | null>(null);
 
+  const [limit, setLimit] = useState(24);
   const loaded = useRef(false);
   useEffect(() => {
     setPlan(loadPlan());
@@ -65,6 +66,7 @@ export default function MarketClient() {
     loaded.current = true;
   }, []);
   useEffect(() => { if (loaded.current) savePlan(plan); }, [plan]);
+  useEffect(() => { setLimit(24); }, [query, dept, industry, band, speed, sort]);
 
   const results = useMemo(() => {
     // Word search: every word must appear; hyphens count as spaces and plurals match singulars.
@@ -198,7 +200,7 @@ export default function MarketClient() {
           )}
 
           <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
-            {results.map((p) => (
+            {results.slice(0, limit).map((p) => (
               <article key={p.id} className="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition hover:shadow-[0_2px_10px_rgba(15,17,17,0.15)]">
                 <button
                   type="button"
@@ -223,7 +225,7 @@ export default function MarketClient() {
                     </div>
                     {p.run && <div className="text-[13px] text-muted">Run plan from {p.run}</div>}
                     <div className="mt-1 text-[14px] text-ink">{p.cat === "Courses" ? "Founding enrolment open" : p.cat === "DIY kits" ? <>Instant <b>download</b></> : <LiveBy days={p.days} />}</div>
-                    {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[13px] text-ok">Approve the test run or full refund</div>}
+                    {p.cat !== "Courses" && p.cat !== "DIY kits" && !p.monthly && <div className="text-[13px] text-ok">Approve the test run or full refund</div>}
                   </div>
                   <div className="mt-2 flex flex-col gap-2">
                     <button
@@ -241,6 +243,11 @@ export default function MarketClient() {
               </article>
             ))}
           </div>
+          {results.length > limit && (
+            <button type="button" onClick={() => setLimit((n) => n + 24)} className="btn btn-outline mt-4 self-center">
+              Show more ({results.length - limit} left)
+            </button>
+          )}
 
           {/* Complete processes */}
           <div className="mt-6 flex flex-col gap-3">
@@ -313,7 +320,7 @@ export default function MarketClient() {
               </>
             )}
             <button type="button" onClick={() => setCartOpen(false)} className="btn btn-outline">Keep browsing</button>
-            <div className="mt-2 text-[12px] text-muted">Prices in US dollars. Final scope confirmed on your setup form.</div>
+            <div className="mt-2 text-[12px] text-muted">Prices set in US$ and shown in your chosen currency. Final scope confirmed on your setup form.</div>
           </aside>
         </div>
       )}

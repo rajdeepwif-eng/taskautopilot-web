@@ -301,7 +301,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             <div className="text-[18px] text-ok">Ready to start</div>
             <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your plan" : "Add to plan"}</button>
             <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
-            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>Secure transaction · Stripe</span><span className="text-muted">Guarantee</span><span>Approve the test run or full refund</span></div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>Secure transaction · Stripe</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund</span></>}</div>
             <div className="text-sm leading-relaxed text-ink-2">
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
               <br />✓ You own it — documented handover

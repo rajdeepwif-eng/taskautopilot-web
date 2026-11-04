@@ -6,6 +6,7 @@
  * Text that quotes US statistics (BLS medians) is left in US$.
  */
 import { useEffect, useState } from "react";
+import { nice } from "@/lib/geo";
 
 const RATES = { USD: 1, GBP: 0.747, AUD: 1.396, CAD: 1.374 } as const;
 type Cur = keyof typeof RATES;
@@ -15,12 +16,6 @@ const KEY = "ta-currency";
 const PRICE = /\$([\d,]+(?:\.\d+)?)/g;
 const seen = new WeakMap<Text, { orig: string; shown: string }>();
 
-function nice(n: number) {
-  if (n >= 1000) return Math.round(n / 50) * 50;
-  // Under 1,000: prices ending in 9 (e.g. £79, A$139), rounded up so never below the exact conversion.
-  if (n >= 100) return Math.ceil(n / 10) * 10 - 1;
-  return Math.max(9, Math.ceil(n / 10) * 10 - 1);
-}
 
 function convertText(t: string, cur: Cur) {
   if (cur === "USD" || /BLS|median|US\$/.test(t)) return t;
@@ -44,7 +39,14 @@ function apply(root: Node, cur: Cur) {
   }
 }
 
+const ROUTE: Record<string, Cur> = { uk: "GBP", au: "AUD", ca: "CAD" };
+
 function read(): Cur {
+  try {
+    // A country edition (/uk/, /au/, /ca/) always shows its own currency.
+    const seg = window.location.pathname.split("/").filter(Boolean).find((s) => s in ROUTE);
+    if (seg) { const cur = ROUTE[seg]; try { window.localStorage.setItem(KEY, cur); } catch { /* ignore */ } return cur; }
+  } catch { /* ignore */ }
   try {
     const v = window.localStorage.getItem(KEY) as Cur | null;
     if (v && v in RATES) return v;
@@ -75,10 +77,12 @@ export function CurrencyApplier() {
     const mo = new MutationObserver(() => {
       if (busy) return;
       busy = true;
-      requestAnimationFrame(() => { mo.disconnect(); apply(document.body, cur); mo.observe(document.body, { subtree: true, childList: true, characterData: true }); busy = false; });
+      requestAnimationFrame(() => { mo.disconnect(); apply(document.body, cur); mo.observe(document.documentElement, { subtree: true, childList: true, characterData: true }); busy = false; });
     });
-    mo.observe(document.body, { subtree: true, childList: true, characterData: true });
-    return () => mo.disconnect();
+    // Watch the whole document: if React replaces <body> during hydration, conversion still follows.
+    mo.observe(document.documentElement, { subtree: true, childList: true, characterData: true });
+    const late = window.setTimeout(() => apply(document.body, cur), 1500);
+    return () => { mo.disconnect(); window.clearTimeout(late); };
   }, [cur]);
   return null;
 }

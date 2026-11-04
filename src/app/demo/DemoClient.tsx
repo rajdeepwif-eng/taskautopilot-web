@@ -63,7 +63,7 @@ export default function DemoClient() {
           </div>
           <div className="card flex flex-col gap-2 p-5">
             <div className="font-display text-xl font-bold">Prefer to hear it?</div>
-            <div className="text-[15px] text-ink-2">A demo phone line for the AI receptionist is being set up. Until then, watch the demo on the product page.</div>
+            <div className="text-[15px] text-ink-2">A demo phone line for the AI receptionist is being set up. Until then, see how it works step by step on the product page.</div>
             <Link href="/p/7/" className="font-semibold">AI phone receptionist →</Link>
           </div>
           <div className="flex flex-wrap gap-3">
