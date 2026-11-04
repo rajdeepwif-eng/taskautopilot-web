@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Your results panel — TaskAutopilot", description: "Every client gets a live panel showing hours saved, inquiries answered and money collected." };
+export const metadata: Metadata = { title: "Your results panel — TaskAutopilot", description: "Every build includes a results panel showing hours saved, inquiries answered and money collected." };
 
 const TILES = [
   ["Hours handed back this month", "62"], ["Inquiries answered in under 1 minute", "214"],
@@ -18,7 +18,7 @@ export default function ResultsPage() {
       <section className="wrap flex flex-col gap-3 pb-6 pt-12">
         <div className="kicker">Your results panel</div>
         <h1 className="m-0 font-display text-[clamp(32px,5vw,50px)] font-bold leading-[1.05] tracking-tight">See exactly what your automations did — every day.</h1>
-        <p className="m-0 max-w-[700px] text-lg text-ink-2">Every client gets a live panel: hours handed back, inquiries answered, money chased and anything waiting for you.</p>
+        <p className="m-0 max-w-[700px] text-lg text-ink-2">Every build includes a results panel: hours handed back, inquiries answered, money chased and anything waiting for you.</p>
       </section>
       <section className="wrap pb-16">
         <div className="flex flex-col gap-5 rounded-2xl bg-ink p-6 text-paper">

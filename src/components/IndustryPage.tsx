@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AddToCart from "@/components/AddToCart";
 import { byId, fmt, priceLabel, defaultHours, exampleYearly } from "@/lib/catalogue";
 
 export type IndustryContent = {
@@ -18,15 +19,15 @@ export default function IndustryPage({ c }: { c: IndustryContent }) {
     <main>
       <section className="wrap flex flex-col gap-4 pb-10 pt-16">
         <div className="kicker">{c.kicker}</div>
-        <h1 className="m-0 max-w-[900px] font-display text-[clamp(34px,5vw,54px)] leading-[1.05] tracking-tight">{c.title}</h1>
+        <h1 className="m-0 max-w-[900px] font-display text-[clamp(34px,5vw,54px)] font-bold leading-[1.05] tracking-tight">{c.title}</h1>
         <p className="m-0 max-w-[680px] text-[19px] leading-normal text-ink-2">{c.lede}</p>
         <div className="flex flex-wrap gap-3 pt-2">
           <a href="#automations" className="btn btn-primary">See the automations &amp; prices</a>
-          <Link href="/consulting/#audit" className="btn btn-outline">Book an audit</Link>
+          <Link href="/consulting/#audit" className="btn btn-outline">Book a paid audit — from $499</Link>
         </div>
       </section>
 
-      <section className="border-y border-line bg-[#ECEAE2]">
+      <section className="border-y border-line bg-white">
         <div className="wrap flex flex-wrap gap-4 py-12">
           {c.pains.map((p) => (
             <div key={p.t} className="flex flex-[1_1_260px] flex-col gap-2">
@@ -42,7 +43,6 @@ export default function IndustryPage({ c }: { c: IndustryContent }) {
         <div className="flex flex-wrap gap-4">
           {products.map((p) => (
             <div key={p.id} className="card flex min-w-0 flex-[1_1_320px] flex-col gap-2.5 p-6">
-              <div className="font-mono text-xs text-muted">{p.cat}</div>
               <h3 className="m-0 font-display text-[22px] font-bold leading-tight">{p.name}</h3>
               <p className="m-0 text-[15px] leading-normal text-ink-2">{p.desc}</p>
               {p.replaces && <p className="m-0 border-l-2 border-clay pl-2.5 text-[14px] font-medium leading-snug">{p.replaces}</p>}
@@ -51,15 +51,16 @@ export default function IndustryPage({ c }: { c: IndustryContent }) {
                   Example: {defaultHours(p)} hrs/week of a {p.role}&apos;s time ≈ <b>{fmt(exampleYearly(p))}/yr</b>
                 </p>
               )}
-              <div className="mt-auto flex items-baseline justify-between border-t border-[#EDEAE1] pt-2">
+              <div className="mt-auto flex items-baseline justify-between border-t border-line pt-2">
                 <span className="font-display text-2xl font-bold">{priceLabel(p)}</span>
                 <span className="text-[13px] text-muted">{p.run ? `then ${p.run}` : `live in ${p.days} days`}</span>
               </div>
-              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now — secure checkout</Link>
+              <AddToCart ids={[p.id]} />
+              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
             </div>
           ))}
         </div>
-        <p className="m-0 text-sm text-muted">Works with: {c.apps}. Wage figures are US medians from the Bureau of Labor Statistics (May 2025); change them to your own in the calculator.</p>
+        <p className="m-0 text-sm text-muted">Works with: {c.apps}. Wage figures are US medians from the Bureau of Labor Statistics (May 2025); change them to your own on any product page or in the <Link href="/planner/">planner</Link>.</p>
       </section>
 
       <section className="bg-ink text-paper">

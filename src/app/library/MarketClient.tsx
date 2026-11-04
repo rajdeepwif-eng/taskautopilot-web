@@ -31,7 +31,7 @@ const SORTS = [
 function Radio({ name, checked, onChange, children }: { name: string; checked: boolean; onChange: () => void; children: React.ReactNode }) {
   return (
     <label className="flex min-h-[36px] cursor-pointer items-center gap-2.5 text-[15px]">
-      <input type="radio" name={name} checked={checked} onChange={onChange} className="h-4 w-4 accent-[#B23A0B]" />
+      <input type="radio" name={name} checked={checked} onChange={onChange} className="h-4 w-4 accent-[#007185]" />
       <span className={checked ? "font-semibold" : ""}>{children}</span>
     </label>
   );
@@ -67,6 +67,11 @@ export default function MarketClient() {
   }, []);
   useEffect(() => { if (loaded.current) savePlan(plan); }, [plan]);
   useEffect(() => { setLimit(24); }, [query, dept, industry, band, speed, sort]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(null); setCartOpen(false); } };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   const results = useMemo(() => {
     // Word search: every word must appear; hyphens count as spaces and plurals match singulars.
@@ -84,6 +89,11 @@ export default function MarketClient() {
         p.days <= max &&
         (!t || hit(p)),
     );
+    // Featured: the $99 starter first, then one-off fixes cheapest-first, monthly services last.
+    // Featured: $99 starter, then the fixes owners need most (research-ranked), then one-off builds, monthly services, kits and courses.
+    const FEATURED = [120, 11, 22, 13, 15, 7, 10, 125, 137, 96, 21, 23];
+    const rank = (p: Product) => { const i = FEATURED.indexOf(p.id); return i >= 0 ? i : 100 + (p.monthly ? 50 : 0) + (p.cat === "Courses" || p.cat === "DIY kits" || p.cat === "Solo (self-employed)" ? 100 : 0); };
+    if (sort === "featured") r.sort((a, b2) => rank(a) - rank(b2) || a.price - b2.price);
     if (sort === "low") r.sort((a, b2) => a.price - b2.price);
     if (sort === "high") r.sort((a, b2) => b2.price - a.price);
     if (sort === "fast") r.sort((a, b2) => a.days - b2.days);
@@ -143,15 +153,8 @@ export default function MarketClient() {
       <div className="sticky top-0 z-30 border-b border-line bg-white">
         <div className="wrap flex items-center gap-3 pt-2">
           {query && <div className="text-[15px]">Results for <b className="text-clay">&ldquo;{query}&rdquo;</b> <button type="button" onClick={() => { setQ(""); setQuery(""); }} className="cursor-pointer border-0 bg-transparent p-0 text-[13px] text-[#007185] underline">clear</button></div>}
-          <button
-            type="button"
-            onClick={() => { setJustAdded(null); setCartOpen(true); }}
-            className="ml-auto flex min-h-[36px] cursor-pointer items-center gap-2 rounded-full border border-line bg-white px-3 text-ink"
-            aria-label={`Your cart, ${plan.length} items`}
-          >
-            <span>Your cart</span>
-            <span className="rounded-full bg-[#FFD814] px-2 text-sm font-bold text-ink">{plan.length}</span>
-          </button>
+          <h1 className="m-0 text-[20px] font-bold">{query ? "" : "Automations for small businesses"}</h1>
+          {plan.length > 0 && <button type="button" onClick={() => { setJustAdded(null); setCartOpen(true); }} className="ml-auto cursor-pointer border-0 bg-transparent p-0 text-[14px] text-[#007185] underline">View cart ({plan.length})</button>}
         </div>
         <div className="wrap flex gap-1.5 overflow-x-auto py-2 text-sm">
           {CATEGORIES.map((c) => (
@@ -199,14 +202,14 @@ export default function MarketClient() {
             </div>
           )}
 
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-4">
             {results.slice(0, limit).map((p) => (
               <article key={p.id} className="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition hover:shadow-[0_2px_10px_rgba(15,17,17,0.15)]">
                 <button
                   type="button"
                   onClick={() => setOpen(p)}
                   aria-label={`See how ${p.name} works`}
-                  className="relative flex aspect-[16/10] cursor-pointer items-center justify-center overflow-hidden border-0 p-0"
+                  className="relative flex aspect-[16/7] cursor-pointer items-center justify-center overflow-hidden border-0 p-0 sm:aspect-[16/10]"
                 >
                   <CatArt cat={p.cat} />
                   
@@ -223,8 +226,8 @@ export default function MarketClient() {
                       <span className="text-[28px] font-medium leading-none">{priceLabel(p)}</span>
                       {!p.monthly && <span className="text-[13px] text-muted">fixed price</span>}
                     </div>
-                    {p.run && <div className="text-[13px] text-muted">Run plan from {p.run}</div>}
-                    <div className="mt-1 text-[14px] text-ink">{p.cat === "Courses" ? "Founding enrolment open" : p.cat === "DIY kits" ? <>Instant <b>download</b></> : <LiveBy days={p.days} />}</div>
+                    {p.run && <div className="text-[13px] text-muted">Ongoing support from {p.run}</div>}
+                    <div className="mt-1 text-[14px] text-ink">{p.cat === "Courses" ? "Founding enrollment open" : p.cat === "DIY kits" ? <>Instant <b>download</b></> : <LiveBy days={p.days} />}</div>
                     {p.cat !== "Courses" && p.cat !== "DIY kits" && !p.monthly && <div className="text-[13px] text-ok">Approve the test run or full refund</div>}
                   </div>
                   <div className="mt-2 flex flex-col gap-2">
@@ -258,14 +261,14 @@ export default function MarketClient() {
                 const full = bi.filter((p) => !p.monthly).reduce((a, p) => a + p.price, 0);
                 return (
                   <div key={b.name} className="flex w-[300px] shrink-0 flex-col gap-2 rounded-xl border border-line bg-white p-4">
-                    <div className="font-mono text-[11px] text-muted">{b.depts}</div>
+                    <div className="text-[12px] text-muted">{b.depts}</div>
                     <div className="font-display text-lg font-bold">{b.name}</div>
                     <div className="text-[13px] text-ink-2">{bi.map((p) => p.name).join(" → ")}</div>
                     <div className="mt-auto">
                       <b className="font-display text-xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs separately</span>
                     </div>
                     <button type="button" onClick={() => addMany(b.ids)} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber text-sm font-semibold text-ink">
-                      Add all {b.ids.length} to plan
+                      Add all {b.ids.length} to cart
                     </button>
                   </div>
                 );
@@ -315,7 +318,7 @@ export default function MarketClient() {
                 {monthly > 0 && (
                   <div className="flex items-baseline justify-between"><span className="text-muted">Monthly</span><span className="font-display text-xl font-bold">{fmt(monthly)}/mo</span></div>
                 )}
-                {items.length < 3 && <div className="text-[13px] text-ink-2">Add {3 - items.length} more for 10% off the build.</div>}
+                {items.length < 3 && oneOff > 0 && <div className="text-[13px] text-ink-2">Add {3 - items.length} more for 10% off the build.</div>}
                 <Link href={`/checkout/?plan=${plan.join(",")}`} className="btn btn-primary">Proceed to secure checkout</Link>
               </>
             )}
@@ -344,7 +347,7 @@ export default function MarketClient() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs separately</span></span>
                   <button type="button" onClick={() => { addMany(b.ids); setOpen(null); }} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber px-4 text-sm font-semibold text-ink">
-                    Add all {b.ids.length} to plan
+                    Add all {b.ids.length} to cart
                   </button>
                 </div>
               </div>

@@ -12,7 +12,7 @@ const SUGGEST: { label: string; href: string }[] = [
 ];
 
 /** Most-wanted outcomes as quick links (the site header holds the search box). */
-export default function HeroSearch() {
+export default function HeroSearch({ showSource = true }: { showSource?: boolean } = {}) {
   return (
     <div className="flex flex-col gap-2">
       <div className="text-[14px] font-bold text-ink">Where owners lose the most — fix one first:</div>
@@ -21,7 +21,7 @@ export default function HeroSearch() {
           <Link key={s.label} href={s.href} className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[14px] text-ink no-underline shadow-[0_1px_2px_rgba(15,17,17,0.1)] hover:border-[#007185] hover:bg-[#EDFDFF] hover:text-ink">{s.label}</Link>
         ))}
       </div>
-      <div className="text-[12px] text-muted">Ranked from US research: 56% of small businesses are owed money on unpaid invoices (QuickBooks, 2025); 51% struggle with uneven cash flow and 57% with winning customers (Federal Reserve, 2025).</div>
+      {showSource && <div className="text-[12px] text-muted">Ranked from US research: 56% of small businesses are owed money on unpaid invoices (QuickBooks, 2025); 51% struggle with uneven cash flow and 57% with winning customers (Federal Reserve, 2025).</div>}
     </div>
   );
 }

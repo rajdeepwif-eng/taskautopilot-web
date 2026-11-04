@@ -1,4 +1,4 @@
-/** Original line icons and tints per catalogue category, used until real demo thumbnails exist. */
+/** Original line icons and tints per catalog category, used until real demo thumbnails exist. */
 const TINT: Record<string, [string, string]> = {
   "Get found (SEO)": ["#E7F1FB", "#1E5FA8"],
   "Websites & portals": ["#EFEDFF", "#5546C8"],

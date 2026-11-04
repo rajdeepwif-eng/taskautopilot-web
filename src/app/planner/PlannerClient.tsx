@@ -44,7 +44,7 @@ const TASKS: Task[] = [
   { id: "questions", label: "Answering 'where's my order / booking?'", hours: 6, rate: 22, product: 8 },
   { id: "reviews", label: "Asking for reviews & replying", hours: 2, rate: 30, product: 15, solo: 43 },
   { id: "social", label: "Posting on social media", hours: 3, rate: 36, product: 17 },
-  { id: "staff", label: "Onboarding staff & rotas", hours: 3, rate: 24, product: 30 },
+  { id: "staff", label: "Onboarding staff & shift schedules", hours: 3, rate: 24, product: 30 },
   { id: "intake", label: "Collecting client forms & documents", hours: 4, rate: 27, product: 32 },
   { id: "reservations", label: "Reservations & no-shows", hours: 5, rate: 18, product: 35 },
   { id: "patients", label: "Patient booking, reminders & intake forms", hours: 8, rate: 22, product: 33 },
@@ -74,13 +74,13 @@ const TASKS: Task[] = [
   { id: "training", label: "Training staff and keeping training records", hours: 4, rate: 30, product: 100 },
   { id: "goals", label: "Setting goals and tracking the plan each week", hours: 3, rate: 60, product: 101 },
   { id: "epr", label: "Preparing staff performance reviews", hours: 2, rate: 40, product: 107 },
-  { id: "recruit", label: "Recruiting: reading CVs and booking interviews", hours: 4, rate: 30, product: 110 },
+  { id: "recruit", label: "Recruiting: reading resumes and booking interviews", hours: 4, rate: 30, product: 110 },
   { id: "ea", label: "Diary, meeting agendas, notes and prep", hours: 6, rate: 37, product: 111 },
   { id: "payroll", label: "Preparing payroll: hours, overtime, leave", hours: 3, rate: 25, product: 112 },
   { id: "vehicle", label: "Vehicle & machine daily checks on paper", hours: 3, rate: 22, product: 113 },
   { id: "stock", label: "Tracking stock in and out", hours: 4, rate: 20, product: 27 },
   { id: "p2p", label: "Matching orders, deliveries and invoices", hours: 4, rate: 23, product: 115 },
-  { id: "assurance", label: "Farm assurance audit prep (Red Tractor / GLOBALG.A.P.)", hours: 4, rate: 22, product: 116 },
+  { id: "assurance", label: "Farm audit prep (USDA GAP / GLOBALG.A.P.)", hours: 4, rate: 22, product: 116 },
   { id: "deals", label: "Searching and analysing property deals", hours: 6, rate: 40, product: 117 },
   { id: "refurb", label: "Managing renovation projects", hours: 5, rate: 35, product: 119 },
   { id: "audit", label: "Checking the business is compliant & on track each month", hours: 3, rate: 60, product: 134 },
@@ -120,7 +120,7 @@ function Num({ label, value, onChange, prefix, suffix, min = 0, step = 1 }: { la
   return (
     <label className="flex flex-col gap-1 text-[13px] text-ink-2">
       {label}
-      <span className="flex items-center gap-1 rounded-lg border border-[#C9C5B9] bg-white px-2.5 focus-within:border-ink">
+      <span className="flex items-center gap-1 rounded-lg border border-line bg-white px-2.5 focus-within:border-ink">
         {prefix && <span className="text-muted">{prefix}</span>}
         <input type="number" min={min} step={step} value={value} onChange={(e) => onChange(Math.max(min, Number(e.target.value) || 0))}
           className="w-full min-w-0 !border-0 !bg-transparent !px-0 !py-2 text-[15px] !shadow-none !outline-none" />
@@ -193,7 +193,7 @@ export default function PlannerClient() {
   };
 
   return (
-    <main>
+    <main className="pb-20 lg:pb-0">
       <section className="wrap flex flex-col gap-3 pb-6 pt-12">
         <div className="kicker">Automation planner · 2 minutes</div>
         <h1 className="m-0 font-display text-[clamp(32px,5vw,50px)] font-bold leading-[1.05] tracking-tight">
@@ -210,7 +210,7 @@ export default function PlannerClient() {
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {SIZES.map((z) => (
                 <button key={z.id} type="button" onClick={() => set({ size: z.id })} aria-pressed={s.size === z.id}
-                  className={`flex min-h-[64px] cursor-pointer flex-col items-start justify-center rounded-[10px] px-3 text-left ${s.size === z.id ? "border-2 border-clay bg-clay-soft" : "border border-[#C9C5B9] bg-white"}`}>
+                  className={`flex min-h-[64px] cursor-pointer flex-col items-start justify-center rounded-[10px] px-3 text-left ${s.size === z.id ? "border-2 border-clay bg-clay-soft" : "border border-line bg-white"}`}>
                   <span className="font-semibold">{z.label}</span><span className="text-[12px] text-muted">{z.sub}</span>
                 </button>
               ))}
@@ -223,7 +223,7 @@ export default function PlannerClient() {
             <div className="flex flex-wrap gap-2">
               {PRESETS.map((p) => (
                 <button key={p.id} type="button" onClick={() => set({ preset: p.id, picked: p.tasks })} aria-pressed={s.preset === p.id}
-                  className={`min-h-[40px] cursor-pointer rounded-full border px-3.5 text-sm ${s.preset === p.id ? "border-ink bg-ink text-white" : "border-[#C9C5B9] bg-white"}`}>
+                  className={`min-h-[40px] cursor-pointer rounded-full border px-3.5 text-sm ${s.preset === p.id ? "border-ink bg-ink text-white" : "border-line bg-white"}`}>
                   {p.label}
                 </button>
               ))}
@@ -242,7 +242,7 @@ export default function PlannerClient() {
                 return (
                   <div key={t.id} className="flex flex-wrap items-center gap-3 py-2.5">
                     <label className="flex min-w-0 flex-[1_1_240px] cursor-pointer items-center gap-2.5">
-                      <input type="checkbox" checked={on} className="h-4 w-4 accent-[#B23A0B]"
+                      <input type="checkbox" checked={on} className="h-4 w-4 accent-[#007185]"
                         onChange={() => set({ picked: on ? s.picked.filter((x) => x !== t.id) : [...s.picked, t.id] })} />
                       <span className={on ? "font-medium" : "text-ink-2"}>{t.label}</span>
                     </label>
@@ -277,18 +277,18 @@ export default function PlannerClient() {
             <div className="font-semibold">{hasLead ? "5" : "4"} · Budget & assumptions</div>
             <label className="flex flex-col gap-1.5 text-sm">
               Budget to start with: <b className="text-lg">{fmt(s.budget)}</b>
-              <input type="range" min={500} max={50000} step={500} value={s.budget} onChange={(e) => set({ budget: Number(e.target.value) })} className="accent-[#B23A0B]" />
+              <input type="range" min={500} max={50000} step={500} value={s.budget} onChange={(e) => set({ budget: Number(e.target.value) })} className="accent-[#007185]" />
             </label>
             <label className="flex flex-col gap-1.5 text-sm">
               Share of each task the automation takes on: <b>{s.share}%</b>
-              <input type="range" min={30} max={95} step={5} value={s.share} onChange={(e) => set({ share: Number(e.target.value) })} className="accent-[#B23A0B]" />
+              <input type="range" min={30} max={95} step={5} value={s.share} onChange={(e) => set({ share: Number(e.target.value) })} className="accent-[#007185]" />
               <span className="text-[12px] text-muted">Our planning estimate, not a promise — a person still checks and handles exceptions. Lower it to be cautious.</span>
             </label>
           </div>
         </div>
 
         {/* ---------- Result ---------- */}
-        <aside className="flex min-w-0 flex-[1_1_380px] flex-col gap-4 lg:sticky lg:top-4">
+        <aside id="plan-result" className="flex min-w-0 scroll-mt-20 flex-[1_1_380px] flex-col gap-4 lg:sticky lg:top-4">
           <div className="flex flex-col gap-4 rounded-2xl bg-ink p-6 text-paper">
             <div className="font-display text-2xl font-bold">Your plan</div>
             {chosen.length === 0 ? (
@@ -296,7 +296,7 @@ export default function PlannerClient() {
             ) : (
               <>
                 <div className="grid grid-cols-2 gap-3">
-                  <div><div className="text-[12px] text-[#A9ADB4]">Value a year</div><div className="font-display text-[28px] font-bold text-amber">{fmt(yearly)}</div></div>
+                  <div><div className="text-[12px] text-[#A9ADB4]">Estimated value a year (incl. missed jobs)</div><div className="font-display text-[28px] font-bold text-amber">{fmt(yearly)}</div></div>
                   <div><div className="text-[12px] text-[#A9ADB4]">Pays back in</div><div className="font-display text-[28px] font-bold">{payback} wk{payback === 1 ? "" : "s"}</div></div>
                   <div><div className="text-[12px] text-[#A9ADB4]">Hours back a week</div><div className="font-display text-xl font-bold">{Math.round(hoursBack)}</div></div>
                   <div><div className="text-[12px] text-[#A9ADB4]">First-year cost incl. run plans</div><div className="font-display text-xl font-bold">{fmt(cost1)}</div></div>
@@ -315,7 +315,7 @@ export default function PlannerClient() {
                   ))}
                 </div>
                 {discount > 0 && <div className="text-[14px] text-[#7FD1A8]">Includes 10% off for 3+ items: −{fmt(discount)}</div>}
-                <Link href={`/checkout/?plan=${ids.join(",")}`} onClick={() => savePlan(ids)} className="btn btn-primary">Buy this plan — {fmt(oneOff - discount)}{monthly ? ` + ${fmt(monthly)}/mo` : ""}</Link>
+                <Link href={`/checkout/?plan=${ids.join(",")}`} onClick={() => savePlan(ids)} className="btn btn-primary">Buy these automations — {fmt(oneOff - discount)}{monthly ? ` + ${fmt(monthly)}/mo` : ""}</Link>
                 <button type="button" onClick={shareLink} className="btn border border-paper bg-transparent text-paper">
                   {copied ? "✓ Link copied — send it to your partner or accountant" : "Copy a link to this plan"}
                 </button>
@@ -347,6 +347,12 @@ export default function PlannerClient() {
           </div>
         </aside>
       </div>
+      {ids.length > 0 && (
+        <div className="fixed inset-x-0 bottom-0 z-30 flex items-center gap-3 border-t border-line bg-white p-3 lg:hidden">
+          <span className="text-[15px]"><b>{ids.length}</b> picked · <b>{fmt(oneOff - discount)}</b></span>
+          <a href="#plan-result" className="btn btn-primary !min-h-[44px] flex-1">See my plan</a>
+        </div>
+      )}
     </main>
   );
 }

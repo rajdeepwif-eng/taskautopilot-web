@@ -7,11 +7,11 @@ export default function LegalFirmsPage() {
   return (
     <IndustryPage
       c={{
-        kicker: "LAW FIRMS · SMALL & MID-SIZE PRACTICES",
+        kicker: "Law firms — small and mid-size practices",
         title: "Turn more inquiries into signed clients — without your team chasing forms.",
         lede: "Every inquiry answered fast, intake forms and documents collected automatically, and your staff freed for billable work.",
         pains: [
-          { t: "Inquiries wait", d: "A prospective client who waits until tomorrow often calls another firm. Every inquiry gets a reply and a booking link within a minute." },
+          { t: "Inquiries wait", d: "A prospective client who waits until tomorrow may call another firm. Every inquiry gets a reply and a booking link within a minute." },
           { t: "Intake is chasing", d: "Forms, IDs and documents are requested, checked for gaps and chased automatically until the file is complete." },
           { t: "Missed calls are lost matters", d: "Calls you can't take get an instant text back and a booking link, day or night." },
         ],

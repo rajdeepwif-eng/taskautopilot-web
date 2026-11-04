@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="mx-auto flex max-w-[1500px] items-center gap-3 px-3 py-2 sm:gap-4 sm:px-4">
               <Link href="/" className="flex shrink-0 items-center gap-2 rounded px-1 py-1 text-white no-underline hover:outline hover:outline-1 hover:outline-white">
                 <Logo />
-                <span className="hidden text-[19px] font-bold tracking-tight sm:inline">TaskAutopilot</span>
+                <span className="text-[16px] font-bold tracking-tight sm:text-[19px]">TaskAutopilot</span>
               </Link>
               <div className="hidden min-w-0 flex-1 md:flex"><HeaderSearch /></div>
               <div className="hidden shrink-0 lg:block [&_select]:!border-0 [&_select]:!bg-transparent [&_select]:!text-white [&_select]:!py-1 [&_option]:text-black"><CurrencySwitch /></div>
@@ -33,13 +33,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
             <div className="px-3 pb-2 md:hidden"><HeaderSearch /></div>
           </div>
-          <nav className="bg-[#232F3E] text-white">
+          <nav className="relative bg-[#232F3E] text-white after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:w-10 after:bg-gradient-to-l after:from-[#232F3E] after:to-transparent lg:after:hidden">
             <div className="mx-auto flex max-w-[1500px] items-center gap-1 overflow-x-auto whitespace-nowrap px-2 py-1 text-[14px] [&>a]:rounded [&>a]:px-2 [&>a]:py-1.5 [&>a]:text-white [&>a]:no-underline [&>a:hover]:outline [&>a:hover]:outline-1 [&>a:hover]:outline-white">
               <Link href="/library/" className="font-bold">☰ All automations</Link>
               <Link href="/#trades">Shop by trade</Link>
               <Link href="/starter/">$99 starter</Link>
-              <Link href="/kits/">Starter kits</Link>
-              <Link href="/demo/">Try it live</Link>
+              <Link href="/kits/">Industry kits</Link>
+              <Link href="/demo/">Sample chat</Link>
               <Link href="/planner/">Planner</Link>
               <Link href="/academy/">Courses</Link>
               <Link href="/consulting/">Consulting</Link>
@@ -50,13 +50,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         {children}
         <CurrencyApplier />
-        <footer className="bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD]"><div className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm">
-          <span>© 2026 TaskAutopilot · Prices set in US$, shown in your chosen currency</span>
-          <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/kits/">Starter kits</Link><Link href="/demo/">Try it live</Link><Link href="/library/">All automations</Link><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link><Link href="/#security">Security</Link></span>
-          <span>
-            <Link href="/legal/privacy">Privacy</Link> · <Link href="/legal/terms">Terms</Link>
-          </span>
-        </div></footer>
+        <footer className="bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD] [&_a:hover]:text-white">
+          <div className="wrap grid grid-cols-2 gap-6 py-10 text-sm md:grid-cols-4">
+            <div className="flex flex-col gap-2"><b className="text-white">Shop</b><Link href="/library/">All automations</Link><Link href="/#trades">Shop by business type</Link><Link href="/starter/">$99 starter</Link><Link href="/kits/">Industry & DIY kits</Link><Link href="/academy/">Courses</Link></div>
+            <div className="flex flex-col gap-2"><b className="text-white">Not sure yet?</b><Link href="/ask/">Ask us free</Link><Link href="/planner/">Build my plan</Link><Link href="/scan/">Free leak scan</Link><Link href="/demo/">Sample conversation</Link><Link href="/consulting/">Consulting for teams</Link></div>
+            <div className="flex flex-col gap-2"><b className="text-white">Industries</b><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><span className="flex gap-3"><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link></span></div>
+            <div className="flex flex-col gap-2"><b className="text-white">Policies</b><Link href="/legal/terms/">Terms</Link><Link href="/legal/refunds/">Refunds</Link><Link href="/legal/privacy/">Privacy</Link><Link href="/legal/dpa/">Data processing</Link><Link href="/#security">Security</Link></div>
+          </div>
+          <div className="wrap border-t border-[#3A4553] py-4 text-[13px]">© 2026 TaskAutopilot · Prices set in US$, shown in your chosen currency</div>
+        </footer>
       </body>
     </html>
   );

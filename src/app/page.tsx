@@ -3,6 +3,7 @@ import TradeGrid from "@/components/TradeGrid";
 import heroImg from "@/assets/hero.jpg";
 import OwnAutomations from "@/components/OwnAutomations";
 import Link from "next/link";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import AppChecker from "@/components/AppChecker";
 import { APP_GROUPS } from "@/lib/apps";
 import { PRODUCTS, byId, fmt } from "@/lib/catalogue";
@@ -59,7 +60,7 @@ export default function Home() {
           </div>
           <HeroSearch />
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
-            <span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ Secure Stripe checkout</span><span>✓ You own everything</span>
+            <span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span>{PAYMENTS_LIVE && <span>✓ Secure Stripe checkout</span>}<span>✓ You own everything</span>
           </div>
           <Link href="/starter/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border-2 border-clay bg-white/90 px-4 py-3 text-ink no-underline">
             <span><b>New here? Try one automation for $99.</b> <span className="text-ink-2">Set up for you, runs 30 days, $99 credited if you upgrade.</span></span>
@@ -128,7 +129,7 @@ export default function Home() {
             <div className="flex-[1_1_220px] bg-clay-soft px-4 py-3 text-clay">AN AUTOMATION</div>
           </div>
           {PERSON_VS_AUTOMATION.map(([a, b, c]) => (
-            <div key={a} className="flex flex-wrap border-t border-[#E6E3D9]">
+            <div key={a} className="flex flex-wrap border-t border-line">
               <div className="flex-[1_1_200px] px-4 py-3.5 font-semibold">{a}</div>
               <div className="flex-[1_1_220px] px-4 py-3.5 text-ink-2">{b}</div>
               <div className="flex-[1_1_220px] bg-clay-soft px-4 py-3.5">{c}</div>

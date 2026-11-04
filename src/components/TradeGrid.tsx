@@ -55,7 +55,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             </div>
           </Link>
         ))}
-        <Link href={`${pre}/for/solo/`} className="flex flex-col justify-center gap-0.5 rounded-xl border border-dashed border-[#C9C5B9] p-4 text-ink no-underline hover:border-ink">
+        <Link href={`${pre}/for/solo/`} className="flex flex-col justify-center gap-0.5 rounded-xl border border-dashed border-line p-4 text-ink no-underline hover:border-ink">
           <span className="font-display text-[17px] font-bold">Just me</span>
           <span className="text-[12.5px] text-muted">Self-employed — Solo versions from {fmt(300)}</span>
         </Link>

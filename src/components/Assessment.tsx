@@ -43,7 +43,7 @@ export default function Assessment() {
             <div className="text-sm text-muted">Question {step + 1} of 3</div>
             <div className="font-display text-2xl font-bold">{QUESTIONS[step].text}</div>
             {QUESTIONS[step].opts.map(([label, v]) => (
-              <button key={label} type="button" onClick={() => setAnswers([...answers, v])} className="min-h-[48px] cursor-pointer rounded-[10px] border border-[#C9C5B9] bg-paper px-4 py-4 text-left text-base text-ink">
+              <button key={label} type="button" onClick={() => setAnswers([...answers, v])} className="min-h-[48px] cursor-pointer rounded-[10px] border border-line bg-paper px-4 py-4 text-left text-base text-ink">
                 {label}
               </button>
             ))}

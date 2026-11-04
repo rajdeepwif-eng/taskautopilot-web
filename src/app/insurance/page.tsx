@@ -7,11 +7,11 @@ export default function InsurancePage() {
   return (
     <IndustryPage
       c={{
-        kicker: "INSURANCE AGENCIES · MGAs · CLAIMS TEAMS",
+        kicker: "Insurance agencies, MGAs and claims teams",
         title: "Quote faster, renew more, and start every claim with a complete file.",
         lede: "Quote requests, follow-ups, renewals and first notice of loss handled automatically — so your agents sell and your adjusters adjust.",
         pains: [
-          { t: "Quotes go cold", d: "Shoppers often buy from whoever answers first. Every request gets captured and followed up until the customer decides." },
+          { t: "Quotes go cold", d: "Shoppers who wait may buy elsewhere. Every request gets captured and followed up until the customer decides." },
           { t: "Renewals slip", d: "Policies are contacted at 60, 30 and 7 days out, with changes flagged to an agent before the date passes." },
           { t: "Claims arrive half-complete", d: "Photos, reports and policy documents are read, filed and chased, so the handler starts on a full file." },
         ],

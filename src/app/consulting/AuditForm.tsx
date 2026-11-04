@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FORMS_LIVE, FORM_NOT_SENT } from "@/lib/launch";
 
 export default function AuditForm() {
   const [email, setEmail] = useState("");
@@ -10,8 +11,8 @@ export default function AuditForm() {
   if (sent)
     return (
       <div className="flex flex-col gap-3" aria-live="polite">
-        <div className="font-display text-[28px] font-bold">Thanks — your proposal is on its way.</div>
-        <div className="text-ink-2">We&apos;ll reply to {email} within one business day with scope, a fixed audit price and call times.</div>
+        <div className="font-display text-[28px] font-bold">{FORMS_LIVE ? "Thanks — we\u2019ve got your request." : "Thanks — almost there."}</div>
+        <div className="text-ink-2">{FORMS_LIVE ? `We\u2019ll reply to ${email} within one business day with scope, a fixed audit price and call times.` : FORM_NOT_SENT}</div>
       </div>
     );
 

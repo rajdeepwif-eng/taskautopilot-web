@@ -330,7 +330,7 @@
     {
       "id": 22,
       "cat": "Finance",
-      "name": "Automated credit control",
+      "name": "Automated invoice reminders & collections",
       "desc": "Polite reminders before and after due dates, pay-now links, statements and escalation.",
       "apps": "Xero, QuickBooks, Sage, Stripe, GoCardless",
       "price": 2400,
@@ -361,7 +361,7 @@
       "id": 24,
       "cat": "Finance",
       "name": "Receipts & expenses",
-      "desc": "Staff snap receipts; they are read, categorised and filed in your accounts.",
+      "desc": "Staff snap receipts; they are read, categorized and filed in your accounts.",
       "apps": "Dext, Xero, QuickBooks",
       "price": 1400,
       "days": 5,
@@ -447,9 +447,9 @@
     {
       "id": 30,
       "cat": "Operations",
-      "name": "Staff onboarding & rotas",
-      "desc": "New starters get documents, training and rota invites automatically.",
-      "apps": "Google Workspace, Microsoft 365, rota apps",
+      "name": "Staff onboarding & shift schedules",
+      "desc": "New starters get documents, training and shift schedule invites automatically.",
+      "apps": "Google Workspace, Microsoft 365, shift schedule apps",
       "price": 2400,
       "days": 10,
       "ind": [
@@ -463,7 +463,7 @@
       "grade": "Moderate",
       "wage": 50610,
       "role": "HR assistant",
-      "replaces": "Takes on the paperwork an HR assistant ($50,610/yr (US median, BLS May 2025)) does for every new starter."
+      "replaces": "Takes on the paperwork an HR assistant ($50,610/yr (US median, BLS May 2025)) does for every new hire."
     },
     {
       "id": 31,
@@ -500,7 +500,7 @@
       "id": 33,
       "cat": "Industry",
       "name": "Patient booking, reminders & intake",
-      "desc": "Online booking, reminders that cut no-shows and digital intake forms. Patient data runs only on services that have signed a business associate agreement (BAA) — not on our standard n8n Cloud setup — chosen with your compliance adviser.",
+      "desc": "Online booking, reminders that cut no-shows and digital intake forms. Patient data runs only on services that have signed a business associate agreement (BAA) — not on our standard n8n Cloud setup — chosen with your compliance advisor.",
       "apps": "Practice software, SMS, email",
       "price": 6500,
       "days": 15,
@@ -575,7 +575,7 @@
       "id": 38,
       "cat": "Compliance",
       "name": "Expiry & renewal reminders",
-      "desc": "Insurance, certificates, licences and contracts flagged at 30, 14 and 0 days.",
+      "desc": "Insurance, certificates, licenses and contracts flagged at 30, 14 and 0 days.",
       "apps": "Airtable, email, Asana",
       "price": 1200,
       "days": 5,
@@ -623,7 +623,7 @@
       "id": 42,
       "cat": "Solo (self-employed)",
       "name": "Receipts to tidy books — Solo",
-      "desc": "Snap a receipt; it is read, categorised and filed ready for your accountant.",
+      "desc": "Snap a receipt; it is read, categorized and filed ready for your accountant.",
       "apps": "Dext, Xero, Sage",
       "price": 500,
       "days": 5,
@@ -819,7 +819,7 @@
       "id": 55,
       "cat": "DIY kits",
       "name": "Missed-call text-back — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Missed-call text-back'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Missed-call text-back'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 99,
       "days": 1,
@@ -831,7 +831,7 @@
       "id": 56,
       "cat": "DIY kits",
       "name": "Instant lead reply — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Instant lead reply & booking'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Instant lead reply & booking'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 149,
       "days": 1,
@@ -843,7 +843,7 @@
       "id": 57,
       "cat": "DIY kits",
       "name": "Review requests — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Review requests & replies'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Review requests & replies'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 99,
       "days": 1,
@@ -855,7 +855,7 @@
       "id": 58,
       "cat": "DIY kits",
       "name": "Supplier invoice reader — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Supplier invoice reader'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Supplier invoice reader'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 199,
       "days": 1,
@@ -867,7 +867,7 @@
       "id": 59,
       "cat": "DIY kits",
       "name": "Nightly bank reconciliation — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Nightly bank reconciliation'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Nightly bank reconciliation'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 299,
       "days": 1,
@@ -879,7 +879,7 @@
       "id": 60,
       "cat": "DIY kits",
       "name": "Forms to workflow — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Forms to workflow'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Forms to workflow'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 99,
       "days": 1,
@@ -1003,7 +1003,7 @@
       "id": 69,
       "cat": "DIY kits",
       "name": "Invoices to Excel — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step video guide and a setup checklist for 'Invoices & documents to Excel'. Includes 30 days of email help. Your kit price is credited if you upgrade within 30 days.",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Invoices & documents to Excel'. Includes 30 days of email help. Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 99,
       "days": 1,
@@ -1015,7 +1015,7 @@
       "id": 70,
       "cat": "Courses",
       "name": "Automate your business in 30 days (self-paced)",
-      "desc": "For owners. Short lessons, each ending with a working automation in your own business: missed calls, inquiries, invoices, bank matching, reviews. Includes 10 ready-made workflow templates and checklists. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "For owners. Short lessons, each ending with a working automation in your own business: missed calls, inquiries, invoices, bank matching, reviews. Includes 10 ready-made workflow templates and checklists. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "30 days · 20 lessons · 10 templates",
       "price": 299,
       "days": 1,
@@ -1027,7 +1027,7 @@
       "id": 71,
       "cat": "Courses",
       "name": "Run your team from Asana & Slack (self-paced)",
-      "desc": "The accountability system we run ourselves: SOP tasks with owners and proof, delegating from one chat message, an evening exceptions list and a Friday scorecard. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "The accountability system we run ourselves: SOP tasks with owners and proof, delegating from one chat message, an evening exceptions list and a Friday scorecard. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "4 weeks · Asana + Slack or Teams",
       "price": 399,
       "days": 1,
@@ -1039,7 +1039,7 @@
       "id": 72,
       "cat": "Courses",
       "name": "Build your AI Chief of Staff (self-paced)",
-      "desc": "Set up AI that briefs you every morning, tracks your assistant's work, researches before decisions and keeps your systems improving — with approval steps so nothing happens without your yes. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "Set up AI that briefs you every morning, tracks your assistant's work, researches before decisions and keeps your systems improving — with approval steps so nothing happens without your yes. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "4 weeks · Claude + n8n",
       "price": 499,
       "days": 1,
@@ -1051,7 +1051,7 @@
       "id": 73,
       "cat": "Courses",
       "name": "n8n for operations managers (self-paced)",
-      "desc": "From first workflow to reliable systems: triggers, AI steps, error alerts, missed-run checks, labelling and handover — the standards we use on 40+ live workflows. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "From first workflow to reliable systems: triggers, AI steps, error alerts, missed-run checks, labelling and handover — the standards we use on 40+ live workflows. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "6 weeks · hands-on",
       "price": 499,
       "days": 1,
@@ -1086,9 +1086,9 @@
     {
       "id": 76,
       "cat": "Courses",
-      "name": "Team licence — any course for up to 10 staff",
+      "name": "Team license — any course for up to 10 staff",
       "price": 2500,
-      "desc": "Give up to 10 staff a course, with a manager dashboard of who has finished which lesson and what they built. Renew yearly. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "Give up to 10 staff a course, with a manager dashboard of who has finished which lesson and what they built. Renew yearly. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "Per year · up to 10 learners · manager progress view",
       "days": 1,
       "ind": [
@@ -1100,7 +1100,7 @@
       "cat": "Courses",
       "name": "Managing with AI — delegation & accountability (for managers)",
       "price": 499,
-      "desc": "For managers and supervisors: delegate in one message, give every role SOP tasks with proof, review the team every Friday and run better 1-to-1s with AI doing the admin. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "For managers and supervisors: delegate in one message, give every role SOP tasks with proof, review the team every Friday and run better 1-to-1s with AI doing the admin. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "4 weeks · Asana, ClickUp or Monday.com",
       "days": 1,
       "ind": [
@@ -1112,7 +1112,7 @@
       "cat": "Courses",
       "name": "Safety & compliance automation",
       "price": 499,
-      "desc": "Turn checklists into scheduled inspections, failed items into owned fixes and expiry dates into reminders — so audits are ready any day. Your competent person keeps sign-off. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "Turn checklists into scheduled inspections, failed items into owned fixes and expiry dates into reminders — so audits are ready any day. Your competent person keeps sign-off. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "4 weeks · SafetyCulture, Google Forms, Asana",
       "days": 1,
       "ind": [
@@ -1320,7 +1320,7 @@
       "id": 94,
       "cat": "Operations",
       "name": "Leave & holiday requests",
-      "desc": "Staff request leave on a form; the manager approves in one tap, the rota and calendar update, and balances are tracked — no more paper slips.",
+      "desc": "Staff request leave on a form; the manager approves in one tap, the shift schedule and calendar update, and balances are tracked — no more paper slips.",
       "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
       "price": 1400,
       "days": 10,
@@ -1429,7 +1429,7 @@
       "name": "AI-powered strategy & goal planning (owners & leadership teams)",
       "price": 699,
       "days": 1,
-      "desc": "Set one clear goal, turn it into quarterly priorities with owners, and run a weekly scoreboard and quarterly review with AI doing the analysis and admin. Built on the planning system we use ourselves. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "Set one clear goal, turn it into quarterly priorities with owners, and run a weekly scoreboard and quarterly review with AI doing the analysis and admin. Built on the planning system we use ourselves. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "4 weeks · leadership teams welcome",
       "ind": [
         "all"
@@ -1438,10 +1438,10 @@
     {
       "id": 103,
       "cat": "Courses",
-      "name": "Practical AI at work — team licence (up to 25 staff)",
+      "name": "Practical AI at work — team license (up to 25 staff)",
       "price": 1990,
       "days": 1,
-      "desc": "Short, role-based lessons that get every employee using AI safely for writing, research, analysis and admin — with a company AI policy template and a manager progress view. Renew yearly. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "Short, role-based lessons that get every employee using AI safely for writing, research, analysis and admin — with a company AI policy template and a manager progress view. Renew yearly. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "Per year · up to 25 learners · progress dashboard",
       "ind": [
         "all"
@@ -1453,7 +1453,7 @@
       "name": "Data & dashboards for managers",
       "price": 499,
       "days": 1,
-      "desc": "Analytical thinking for busy managers: get the numbers out of your apps automatically, build one dashboard that matters, and use AI to explain what changed and why. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "Analytical thinking for busy managers: get the numbers out of your apps automatically, build one dashboard that matters, and use AI to explain what changed and why. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "4 weeks · Google Sheets, Excel, Looker Studio",
       "ind": [
         "all"
@@ -1465,7 +1465,7 @@
       "name": "Certified Automation Practitioner",
       "price": 2997,
       "days": 1,
-      "desc": "Our premium programme: 10 weeks, live sessions, a reviewed capstone automation in your own business and a practical exam. Graduates receive the TaskAutopilot practitioner certificate (our own certificate, not an accredited qualification). Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "Our premium program: 10 weeks, live sessions, a reviewed capstone automation in your own business and a practical exam. Graduates receive the TaskAutopilot practitioner certificate (our own certificate, not an accredited qualification). Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "10 weeks · live + 1-to-1 review · certificate",
       "ind": [
         "all"
@@ -1477,7 +1477,7 @@
       "name": "Founder's Automation Mastermind — 12 weeks",
       "price": 4997,
       "days": 1,
-      "desc": "A small group of owners working directly with us for 12 weeks: we plan your automation roadmap, review every build and meet weekly. Limited places. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "A small group of owners working directly with us for 12 weeks: we plan your automation roadmap, review every build and meet weekly. Limited places. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "12 weeks · max 8 owners · weekly calls + private reviews",
       "ind": [
         "all"
@@ -1528,13 +1528,13 @@
     {
       "id": 110,
       "cat": "Owner & management",
-      "name": "Recruitment autopilot — CVs to booked interviews",
+      "name": "Recruiting autopilot — resumes to booked interviews",
       "price": 4600,
       "days": 15,
       "run": "$200–400/mo + AI usage",
-      "desc": "Job ad out, every CV summarised against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organized on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own. You stay responsible for your hiring criteria and local rules on AI in hiring (for example NYC Local Law 144, UK GDPR Article 22).",
+      "desc": "Job ad out, every resume summarized against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organized on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own. You stay responsible for your hiring criteria and local rules on AI in hiring (for example NYC Local Law 144, UK GDPR Article 22).",
       "apps": "Indeed, LinkedIn, your careers page, Gmail or Outlook, Google or Outlook Calendar, Asana or Airtable",
-      "replaces": "Turns days of reading CVs and emailing candidates into a short review and a full interview diary.",
+      "replaces": "Turns days of reading resumes and emailing candidates into a short review and a full interview calendar.",
       "ind": [
         "all"
       ]
@@ -1563,7 +1563,7 @@
         "all"
       ],
       "run": "$150–300/mo",
-      "desc": "Every pay period, hours from clock-in or timesheets, overtime, leave, sickness and expenses are gathered, checked against the rota and flagged where they don't match — then sent into your payroll software or to your accountant ready to approve. Your payroll provider runs the pay and the tax filings; we never move money.",
+      "desc": "Every pay period, hours from clock-in or timesheets, overtime, leave, sickness and expenses are gathered, checked against the shift schedule and flagged where they don't match — then sent into your payroll software or to your accountant ready to approve. Your payroll provider runs the pay and the tax filings; we never move money.",
       "apps": "Gusto, ADP, QuickBooks Payroll, Xero Payroll, Deputy, Homebase, Connecteam",
       "replaces": "Ends the payday scramble of chasing timesheets and fixing hours by hand."
     },
@@ -1598,7 +1598,7 @@
     {
       "id": 116,
       "cat": "Compliance",
-      "name": "Red Tractor & GLOBALG.A.P. audit-ready records",
+      "name": "Farm audit-ready records (GLOBALG.A.P., PrimusGFS, USDA GAP, Red Tractor)",
       "price": 4600,
       "days": 20,
       "ind": [
@@ -1636,7 +1636,7 @@
       "run": "$100–250/mo + AI usage",
       "desc": "Listing descriptions drafted from your notes and photos (checked for fair-housing wording), photos organized, listings prepared for the portals you use, and every inquiry answered with viewing slots that book themselves.",
       "apps": "The portals you list on, Google Drive, Gmail or Outlook, calendar, WhatsApp",
-      "replaces": "Gets a property listed and viewings booked in an hour, not a day."
+      "replaces": "Gets a property listed and showings booked in an hour, not a day."
     },
     {
       "id": 119,
@@ -1786,7 +1786,7 @@
     {
       "id": 130,
       "cat": "Industry",
-      "name": "Equipment utilisation & idle-asset alerts",
+      "name": "Equipment utilization & idle-asset alerts",
       "desc": "See how often each machine is out on hire, get alerts when something has sat idle too long, and send targeted offers to past customers who hired similar kit.",
       "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
       "price": 2600,
@@ -1845,7 +1845,7 @@
         "all"
       ],
       "run": "$200–400/mo + AI usage",
-      "desc": "Automatic checks across the business every day — filing and licence dates, insurance and certificates, overdue tasks, missed checklists, finance mismatches, failed automations and SOPs due for review — and on the first of each month a one-page internal audit: a score per area, what slipped, who owns the fix and the trend since last month. Your accountant, solicitor or competent person still signs off their areas.",
+      "desc": "Automatic checks across the business every day — filing and license dates, insurance and certificates, overdue tasks, missed checklists, finance mismatches, failed automations and SOPs due for review — and on the first of each month a one-page internal audit: a score per area, what slipped, who owns the fix and the trend since last month. Your accountant, solicitor or competent person still signs off their areas.",
       "apps": "Asana, Airtable or Google Sheets, Xero or QuickBooks, SafetyCulture, Companies House or state business records, Slack or Teams",
       "replaces": "Gives you an internal auditor's view every month without hiring one — problems found before customers, auditors or regulators do."
     },
@@ -1912,7 +1912,7 @@
         "Construction & equipment hire"
       ],
       "run": "$300–600/mo",
-      "desc": "For a new factory, unit or commercial conversion: planning and building-control milestones, contractor packages and quotes, a programme that updates from site, cost against budget, change requests, snags and the handover file — in one place with weekly reports. Your architect, engineer and building control still approve their parts."
+      "desc": "For a new factory, unit or commercial conversion: planning and building-control milestones, contractor packages and quotes, a program that updates from site, cost against budget, change requests, snags and the handover file — in one place with weekly reports. Your architect, engineer and building control still approve their parts."
     },
     {
       "id": 140,
@@ -2135,22 +2135,22 @@
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "70": [
-      "Enrol and get your welcome pack and setup checklist.",
+      "Enroll and get your welcome pack and setup checklist.",
       "Work through short lessons; each one ends with something working in your business.",
       "Get help when stuck and keep the templates for good."
     ],
     "71": [
-      "Enrol and get your welcome pack and setup checklist.",
+      "Enroll and get your welcome pack and setup checklist.",
       "Work through short lessons; each one ends with something working in your business.",
       "Get help when stuck and keep the templates for good."
     ],
     "72": [
-      "Enrol and get your welcome pack and setup checklist.",
+      "Enroll and get your welcome pack and setup checklist.",
       "Work through short lessons; each one ends with something working in your business.",
       "Get help when stuck and keep the templates for good."
     ],
     "73": [
-      "Enrol and get your welcome pack and setup checklist.",
+      "Enroll and get your welcome pack and setup checklist.",
       "Work through short lessons; each one ends with something working in your business.",
       "Get help when stuck and keep the templates for good."
     ],
@@ -2257,7 +2257,7 @@
     "94": [
       "Staff request leave from their phone.",
       "The manager approves or declines in one tap.",
-      "The calendar, rota and leave balance update automatically."
+      "The calendar, shift schedule and leave balance update automatically."
     ],
     "95": [
       "Staff submit a purchase request with a quote or link.",
@@ -2336,7 +2336,7 @@
     ],
     "110": [
       "You set the role, must-haves and nice-to-haves; the job ad goes out.",
-      "Each CV is summarised against your criteria; you choose the shortlist.",
+      "Each resume is summarized against your criteria; you choose the shortlist.",
       "Shortlisted candidates book their own interview; you get the pack, scorecard and a board of every candidate."
     ],
     "111": [
@@ -2346,7 +2346,7 @@
     ],
     "112": [
       "At period end it gathers hours, overtime, leave and expenses from your systems.",
-      "Mismatches with the rota or approvals are flagged for the manager to fix.",
+      "Mismatches with the shift schedule or approvals are flagged for the manager to fix.",
       "Approved figures go into your payroll software or to your accountant; they run pay and filings."
     ],
     "113": [
@@ -2372,7 +2372,7 @@
     "118": [
       "Send notes and photos for the property.",
       "A listing is drafted, checked for fair-housing wording and prepared for your portals.",
-      "Inquiries are answered and viewings book themselves into your calendar."
+      "Inquiries are answered and showings book themselves into your calendar."
     ],
     "119": [
       "We set up the schedule of works and budget for the property.",
@@ -2421,7 +2421,7 @@
     ],
     "128": [
       "Each period the figures and missing documents are gathered.",
-      "Gaps (missing receipts, W-9s, uncategorised items) are chased.",
+      "Gaps (missing receipts, W-9s, uncategorized items) are chased.",
       "Your accountant or CPA gets a ready pack to review and file."
     ],
     "129": [
@@ -2475,7 +2475,7 @@
       "Your broker gets a complete pack; valuation and offer dates are tracked."
     ],
     "139": [
-      "We set up the programme, budget, packages and approval milestones.",
+      "We set up the program, budget, packages and approval milestones.",
       "Site updates, quotes, invoices and changes flow in and are checked against budget.",
       "Weekly reports, chased snags and a complete handover file at the end."
     ],
@@ -2487,7 +2487,7 @@
     ],
     "141": [
       "Connect your accounts read-only, or drop in monthly exports.",
-      "Spending is categorised and upcoming bills are listed automatically.",
+      "Spending is categorized and upcoming bills are listed automatically.",
       "Balances roll up into a cash and net-worth view that updates itself.",
       "At year end your accountant gets a tidy pack of statements and receipts."
     ]
@@ -2775,7 +2775,7 @@
       ]
     },
     {
-      "name": "Equipment hire starter kit",
+      "name": "Equipment rental starter kit",
       "depts": "EQUIPMENT HIRE",
       "desc": "Never miss an inquiry, chase every invoice and keep safety checks closed out.",
       "ids": [
@@ -2833,7 +2833,7 @@
       "kit": true
     },
     {
-      "name": "Food factory starter kit (BRCGS-ready)",
+      "name": "Food factory starter kit (audit-ready records)",
       "depts": "FOOD PRODUCTION & PROCESSING",
       "desc": "Audit-ready HACCP records, traceability, supplier approvals and cleaning with proof.",
       "ids": [
@@ -2918,7 +2918,7 @@
     {
       "name": "Hiring kit",
       "depts": "HR · ANY INDUSTRY",
-      "desc": "From job ad to booked interviews, then onboarding and training for the new starter.",
+      "desc": "From job ad to booked interviews, then onboarding and training for the new hire.",
       "ids": [
         110,
         30,
@@ -2953,7 +2953,7 @@
     {
       "name": "Property investor kit",
       "depts": "REAL ESTATE & PROPERTY",
-      "desc": "Deals found and analysed daily, refurbs managed, properties listed and refinance packs ready for your broker.",
+      "desc": "Deals found and analyzed daily, refurbs managed, properties listed and refinance packs ready for your broker.",
       "ids": [
         117,
         119,

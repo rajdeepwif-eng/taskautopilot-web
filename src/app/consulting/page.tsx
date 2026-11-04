@@ -5,10 +5,10 @@ import AuditForm from "./AuditForm";
 export const metadata: Metadata = { title: "Consulting for larger teams — TaskAutopilot" };
 
 const STEPS = [
-  { n: "STEP 1 · AUDIT & ROADMAP", t: "Find the hours", d: "Interviews with each team, process maps, and every task ranked by hours saved and payback — with a fixed quote for each build.", m: "1–3 weeks · report, roadmap, quotes", p: "$7,500–20,000", s: "Credited against the build if you go ahead", hl: true },
-  { n: "STEP 2 · IMPLEMENTATION", t: "Build it inside your business", d: "We build in your own accounts and systems — CRM, ERP, accounts, ops — with approval steps, testing and documentation.", m: "4–12 weeks · phased go-lives", p: "$12,500–60,000", s: "Per phase, fixed price" },
-  { n: "STEP 3 · TEAM ENABLEMENT", t: "Train your people to run it", d: "Hands-on workshops on your own workflows, plus done-with-you builds so your team can create the next automations themselves.", m: "1-day workshops or 6-week programmes · up to 10 people", p: "$4,500 / day", s: "Programme: $9,500–15,000" },
-  { n: "STEP 4 · FRACTIONAL HEAD OF AUTOMATION", t: "Keep it improving", d: "A senior lead who owns your automation roadmap: monthly priorities, new builds, monitoring and a board-ready results report.", m: "Monthly · cancel with 30 days' notice", p: "$4,000–12,500 / mo", s: "", dark: true },
+  { n: "Step 1 · Audit & roadmap", t: "Find the hours", d: "Interviews with each team, process maps, and every task ranked by hours saved and payback — with a fixed quote for each build.", m: "1–3 weeks · report, roadmap, quotes", p: "$7,500–20,000", s: "Credited against the build if you go ahead", hl: true },
+  { n: "Step 2 · Implementation", t: "Build it inside your business", d: "We build in your own accounts and systems — CRM, ERP, accounts, ops — with approval steps, testing and documentation.", m: "4–12 weeks · phased go-lives", p: "$12,500–60,000", s: "Per phase, fixed price" },
+  { n: "Step 3 · Team enablement", t: "Train your people to run it", d: "Hands-on workshops on your own workflows, plus done-with-you builds so your team can create the next automations themselves.", m: "1-day workshops or 6-week programs · up to 10 people", p: "$4,500 / day", s: "Program: $9,500–15,000" },
+  { n: "Step 4 · Fractional head of automation", t: "Keep it improving", d: "A senior lead who owns your automation roadmap: monthly priorities, new builds, monitoring and a board-ready results report.", m: "Monthly · cancel with 30 days' notice", p: "$4,000–12,500 / mo", s: "", dark: true },
 ];
 
 export default function ConsultingPage() {
@@ -17,11 +17,11 @@ export default function ConsultingPage() {
       <section className="wrap flex flex-wrap items-end gap-10 pb-10 pt-16">
         <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-4">
           <div className="kicker">CONSULTING · FOR TEAMS OF 10 TO 500</div>
-          <h1 className="m-0 font-display text-[clamp(36px,5vw,54px)] leading-[1.05] tracking-tight">We find what to automate, build it inside your business, and train your team to run it.</h1>
+          <h1 className="m-0 font-display text-[clamp(36px,5vw,54px)] font-bold leading-[1.05] tracking-tight">We find what to automate, build it inside your business, and train your team to run it.</h1>
           <p className="m-0 max-w-[640px] text-[19px] leading-normal text-ink-2">For companies with several sites, departments or systems — where off-the-shelf packages are not enough and you want it done properly, once.</p>
         </div>
         <div className="flex flex-[1_1_300px] flex-col gap-2.5 rounded-2xl bg-ink p-6 text-paper">
-          <div className="font-mono text-xs text-amber">HOW CLIENTS USUALLY START</div>
+          <div className="text-sm font-bold text-amber">How it works</div>
           <div className="text-base">Audit → Build → Train → Run</div>
           <div className="text-sm opacity-80">Fixed price at every step. Stop after any step and keep everything.</div>
         </div>
@@ -40,7 +40,7 @@ export default function ConsultingPage() {
         ))}
       </section>
 
-      <section className="border-y border-line bg-[#ECEAE2]">
+      <section className="border-y border-line bg-white">
         <div className="wrap flex flex-wrap gap-8 py-14">
           <div className="flex flex-[1_1_340px] flex-col gap-3">
             <h2 className="m-0 font-display text-[32px]">Right for you if…</h2>
@@ -56,7 +56,7 @@ export default function ConsultingPage() {
       <section id="audit" className="wrap flex flex-wrap gap-10 py-16">
         <div className="flex flex-[1_1_340px] flex-col gap-3.5">
           <h2 className="m-0 font-display text-[38px] leading-tight">Book an audit</h2>
-          <p className="m-0 text-[17px] text-ink-2">Tell us about your business. We reply within one business day with a proposed scope, fixed audit price and a call time.</p>
+          <p className="m-0 text-[17px] text-ink-2">Tell us about your business. We reply with a proposed scope, fixed audit price and a call time.</p>
           <div className="text-sm text-muted">Prefer to start small? <Link href="/library/">Browse ready-made automations</Link> or <Link href="/bespoke/">send a bespoke brief</Link>.</div>
         </div>
         <div className="card min-w-0 flex-[1_1_460px] p-7">

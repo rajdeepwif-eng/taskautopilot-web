@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { CatArt } from "@/components/CatArt";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import { LiveBy } from "@/components/StoreBar";
 import {
   BUNDLES,
@@ -28,7 +29,7 @@ function Chip({ active, onClick, children, tone = "dark" }: { active: boolean; o
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`min-h-[44px] cursor-pointer rounded-full border px-4 text-sm ${active ? on : "border-[#C9C5B9] bg-white text-ink"}`}
+      className={`min-h-[44px] cursor-pointer rounded-full border px-4 text-sm ${active ? on : "border-line bg-white text-ink"}`}
     >
       {children}
     </button>
@@ -136,7 +137,7 @@ export default function LibraryClient() {
                   <button type="button" onClick={() => setOpen(p)} className="min-h-[44px] cursor-pointer border-0 bg-transparent p-0 text-left text-sm font-semibold text-clay">
                     Value vs doing it by hand →
                   </button>
-                  <div className="mt-auto flex items-baseline justify-between border-t border-[#EDEAE1] pt-2">
+                  <div className="mt-auto flex items-baseline justify-between border-t border-line pt-2">
                     <span className="font-display text-2xl font-bold">{priceLabel(p)}</span>
                     <span className="text-[13px] text-muted">live in {p.days} days</span>
                   </div>
@@ -174,7 +175,7 @@ export default function LibraryClient() {
                       </span>
                     ))}
                   </div>
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#EDEAE1] pt-3">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-3">
                     <span>
                       <b className="font-display text-[22px]">{fmt(full * 0.9)}</b>{" "}
                       <span className="text-ok">save {fmt(full * 0.1)} vs buying separately</span>
@@ -265,7 +266,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             <div className="mt-1 text-[18px] font-bold">About this automation</div>
             {howItWorks(p).map((t, i) => (
               <div key={i} className="flex gap-3 text-[15px] leading-normal">
-                <span className="font-mono text-clay">0{i + 1}</span>
+                <span className="font-bold text-muted">0{i + 1}</span>
                 <span>{t}</span>
               </div>
             ))}
@@ -285,7 +286,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
                 <div className="flex-[1_1_140px]"><div className="text-[13px] text-muted">Hours handed back a year</div><div className="font-display text-[26px] font-bold">{Math.round((Number(hours) || 0) * 52).toLocaleString("en-US")}</div></div>
                 <div className="flex-[1_1_140px]"><div className="text-[13px] text-muted">Cost of doing it by hand a year</div><div className="font-display text-[26px] font-bold">{fmt(weekly * 52)}</div></div>
               </div>
-              <div className="font-semibold text-ok">{payback}</div>
+              <div className={`font-semibold ${/more than|costs more/.test(payback) ? "text-[#B12704]" : "text-ok"}`}>{payback}</div>
               <div className="text-[13px] leading-normal text-ink-2">
                 Also: works nights and weekends, replies in seconds not hours, never forgets a step, and frees your people for work that needs a human.{" "}
                 <span className="text-muted">{p.wage ? `Starting rate is the US median for a ${p.role} (BLS, May 2025) — change it to yours.` : "Starting numbers are estimates — change them to yours."}</span>
@@ -299,16 +300,20 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
             {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[15px]"><LiveBy days={p.days} /></div>}
             <div className="text-[18px] text-ok">Ready to start</div>
-            <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
-            <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
-            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>Secure transaction · Stripe</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund</span></>}</div>
+            {p.id === 120 ? (
+              <Link href="/starter/" className="btn btn-primary">Choose your starter automation →</Link>
+            ) : (<>
+              <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
+              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
+            </>)}
+            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund</span></>}</div>
             <div className="text-sm leading-relaxed text-ink-2">
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
-              <br />✓ You own it — documented handover
+              {!p.monthly && p.id !== 120 && <><br />✓ You own it — documented handover</>}
               {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
             </div>
             
-            <div className="text-[12px] text-muted">🔒 Paid on Stripe&apos;s secure checkout — certified to PCI DSS Level 1, the top card-security standard. We never see your card, and card payments keep your card provider&apos;s dispute rights.</div>
+            <div className="text-[12px] text-muted">{PAYMENTS_LIVE ? "🔒 Paid on Stripe's secure checkout — certified to PCI DSS Level 1, the top card-security standard. We never see your card, and card payments keep your card provider's dispute rights." : "🔒 Card payments open at launch on Stripe's secure checkout — reserve now, nothing charged today."}</div>
             {!inline && <Link href={`/p/${p.id}/`} className="text-center text-sm text-muted underline">Open full page / share link</Link>}
           </div>
         </div>

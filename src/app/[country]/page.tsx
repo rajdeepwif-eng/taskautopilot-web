@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import TradeGrid from "@/components/TradeGrid";
 import HeroSearch from "@/components/HeroSearch";
 import heroImg from "@/assets/hero.jpg";
@@ -36,8 +37,8 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
               <Link href="#trades" className="btn btn-primary text-[17px]">Show me fixes for my business →</Link>
               <Link href="/starter/" className="btn btn-outline">Try one automation for {money(99, c)}</Link>
             </div>
-            <HeroSearch />
-            <div className="flex flex-wrap gap-4 text-sm text-ink-2"><span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span><span>✓ Secure Stripe checkout</span><span>✓ You own everything</span></div>
+            <HeroSearch showSource={false} />
+            <div className="flex flex-wrap gap-4 text-sm text-ink-2"><span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span>{PAYMENTS_LIVE && <span>✓ Secure Stripe checkout</span>}<span>✓ You own everything</span></div>
           </div>
           <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
