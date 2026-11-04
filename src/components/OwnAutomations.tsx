@@ -82,7 +82,7 @@ export default function OwnAutomations() {
           ))}
         </div>
         <details className="text-[14px] text-ink-2">
-          <summary className="cursor-pointer font-semibold text-[#007185]">See all {LIVE_COUNT} jobs we run</summary>
+          <summary className="cursor-pointer font-semibold text-[#007185]">See the {LIVE_COUNT} jobs those {LIVE_WORKFLOWS} automations do</summary>
           <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4">
             {GROUPS.map((g) => (
               <div key={g.dept}><div className="font-bold text-ink">{g.dept}</div><ul className="m-0 list-none p-0 leading-snug">{g.items.map((i) => <li key={i}>✓ {i}</li>)}</ul></div>

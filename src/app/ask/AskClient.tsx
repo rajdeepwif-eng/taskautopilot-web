@@ -47,6 +47,7 @@ export default function AskClient() {
         <input type="email" value={f.email} onChange={(e) => set("email", e.target.value)} className="font-normal" placeholder="you@company.com" />
       </label>
       {err && <div role="alert" className="text-sm text-[#B42318]">{err}</div>}
+      {!FORMS_LIVE && <div className="rounded-lg bg-[#FFF4E5] px-3 py-2 text-[14px] text-ink-2">Heads up: our inbox opens at launch, so questions can&apos;t be sent just yet. Browse the shop or check back soon.</div>}
       <button type="submit" className="btn btn-primary">Ask — it&apos;s free</button>
       <div className="text-[13px] text-muted">Don&apos;t include passwords or customer personal data. We&apos;ll only use this to answer you.</div>
     </form>

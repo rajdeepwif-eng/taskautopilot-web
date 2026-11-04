@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { byId, fmt, runLow } from "@/lib/catalogue";
 import { savePlan } from "@/lib/plan";
+import AppChecker from "@/components/AppChecker";
 
 /* ---------- Who is buying ---------- */
 const SIZES = [
@@ -184,6 +185,18 @@ export default function PlannerClient() {
   const ids = chosen.map((r) => r.p.id);
   const hasLead = s.picked.some((id) => TASKS.find((t) => t.id === id)?.lead);
 
+  const summary = () => [
+    `My automation plan (TaskAutopilot planner)`,
+    ...chosen.map((r) => `• ${r.p.name} — ${r.p.monthly ? fmt(r.p.price) + "/mo" : fmt(r.p.price)} (pays back in ${r.paybackWeeks} wks)`),
+    `Build total: ${fmt(oneOff - discount)}${monthly ? ` + ${fmt(monthly)}/mo` : ""}`,
+    `Estimated value: ${fmt(yearly)}/yr · ${Math.round(hoursBack)} hrs back a week · pays back in ${payback} wks`,
+    `${window.location.origin}${window.location.pathname}#${encode(s)}`,
+  ].join("\n");
+  const [copiedText, setCopiedText] = useState(false);
+  const copySummary = () => { try { navigator.clipboard.writeText(summary()); } catch { /* blocked */ } setCopiedText(true); setTimeout(() => setCopiedText(false), 2500); };
+  const [origin, setOrigin] = useState(false);
+  useEffect(() => setOrigin(true), []);
+
   const shareLink = () => {
     const url = `${window.location.origin}${window.location.pathname}#${encode(s)}`;
     try { navigator.clipboard.writeText(url); } catch { /* clipboard blocked */ }
@@ -285,12 +298,17 @@ export default function PlannerClient() {
               <span className="text-[12px] text-muted">Our planning estimate, not a promise — a person still checks and handles exceptions. Lower it to be cautious.</span>
             </label>
           </div>
+          <div className="flex flex-col gap-2">
+            <div className="font-semibold">{hasLead ? "6" : "5"} · Will it work with your apps?</div>
+            <AppChecker />
+          </div>
         </div>
 
         {/* ---------- Result ---------- */}
         <aside id="plan-result" className="flex min-w-0 scroll-mt-20 flex-[1_1_380px] flex-col gap-4 lg:sticky lg:top-4">
           <div className="flex flex-col gap-4 rounded-2xl bg-ink p-6 text-paper">
             <div className="font-display text-2xl font-bold">Your plan</div>
+            {chosen.length > 0 && <div className="rounded-lg bg-[#232F3E] px-3 py-2 text-[15px] font-semibold text-amber" aria-live="polite">{chosen.length} automation{chosen.length === 1 ? "" : "s"} · pays back in {payback} wk{payback === 1 ? "" : "s"} · {fmt(oneOff - discount)} to build</div>}
             {chosen.length === 0 ? (
               <div className="text-[#C9C7C0]">Tick at least one task, or raise the budget.</div>
             ) : (
@@ -319,6 +337,12 @@ export default function PlannerClient() {
                 <button type="button" onClick={shareLink} className="btn border border-paper bg-transparent text-paper">
                   {copied ? "✓ Link copied — send it to your partner or accountant" : "Copy a link to this plan"}
                 </button>
+                <div className="flex flex-wrap gap-x-4 text-[14px]">
+                  <button type="button" onClick={copySummary} className="min-h-[44px] cursor-pointer border-0 bg-transparent p-0 text-amber underline">{copiedText ? "✓ Summary copied" : "Copy plan as text"}</button>
+                  {origin && <a className="flex min-h-[44px] items-center text-amber underline" target="_blank" rel="noopener" href={`https://wa.me/?text=${encodeURIComponent(summary())}`}>WhatsApp this plan</a>}
+                  {origin && <a className="flex min-h-[44px] items-center text-amber underline" href={`mailto:?subject=${encodeURIComponent("Automation plan to review")}&body=${encodeURIComponent(summary())}`}>Email this plan</a>}
+                </div>
+                <div className="text-[12px] text-[#A9ADB4]">Not included: usage costs (call minutes, texts, AI usage) billed at cost, and sales tax / VAT / GST where it applies.</div>
               </>
             )}
           </div>
@@ -342,8 +366,29 @@ export default function PlannerClient() {
             </div>
           )}
 
+          {chosen.length > 0 && (
+            <div className="card flex flex-col gap-2 p-5">
+              <div className="font-semibold">Before you start — have these ready</div>
+              <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-[14px] text-ink-2">
+                <li>✓ Admin access to the apps involved (you connect them yourself — no passwords shared)</li>
+                <li>✓ One person who signs off the test run</li>
+                <li>✓ 2–3 real examples: a quote, an invoice, a typical customer message</li>
+                <li>✓ Your rules for exceptions — e.g. who handles complaints or VIP customers</li>
+              </ul>
+            </div>
+          )}
+          <details className="card p-5 text-[14px] text-ink-2">
+            <summary className="cursor-pointer font-semibold text-ink">How we worked this out</summary>
+            <ul className="mb-0 mt-2 flex flex-col gap-1.5 pl-5">
+              <li><b>Time value</b> = hours a week × 52 × cost per hour × share the automation takes on ({s.share}%).</li>
+              <li><b>Missed work</b> = missed inquiries a week × 52 × average job value × % that would have booked × share.</li>
+              <li><b>First-year cost</b> = build price (less 10% for 3+ items) + 12 months of the lowest support plan + any monthly services.</li>
+              <li><b>Payback</b> = first-year cost ÷ weekly value. Items are ranked by payback and fitted to your budget.</li>
+              <li><b>Rollout</b> = two builds per phase, quickest payback first.</li>
+            </ul>
+          </details>
           <div className="text-[12px] leading-relaxed text-muted">
-            Estimates use your numbers and the share you set; they are not a guarantee of results. Wage defaults: US median hourly pay for the matching role, Bureau of Labor Statistics, May 2025.
+            Prices as listed on this site, November 2026. Estimates use your numbers and the share you set; they are not a guarantee of results. Wage defaults: US median hourly pay for the matching role, Bureau of Labor Statistics, May 2025.
           </div>
         </aside>
       </div>

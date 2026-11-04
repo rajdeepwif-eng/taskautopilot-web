@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { byId, howItWorks } from "@/lib/catalogue";
+import { byId, howItWorks , runLow } from "@/lib/catalogue";
 import { COUNTRIES, Country, localPrices, loc, money } from "@/lib/geo";
 import { solutionBySlug } from "@/lib/solutions";
 import { tradeBySlug } from "@/lib/trades";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import AddToCart from "@/components/AddToCart";
 import MissedCallCalc from "@/components/MissedCallCalc";
+import { SRCSET } from "@/lib/srcset";
 
 const SHORT: Record<string, Partial<Record<Country, string>>> = {
   "get-paid-faster": { us: "Automated invoice reminders & AR automation", ca: "Automated invoice reminders for Canadian firms", uk: "Credit control automation for Xero & QuickBooks", au: "Automatic invoice reminders for tradies (Xero)" },
@@ -48,7 +49,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
             <nav className="text-sm" aria-label="Breadcrumb"><Link href={`${C.path}/`}>Home</Link> › <span className="text-muted">{s.short}</span></nav>
             <h1 className="m-0 font-display text-[clamp(30px,4.5vw,46px)] font-bold leading-[1.08] tracking-tight">{solutionTitle(slug, country)}</h1>
             {s.problem.map((p) => <p key={p} className="m-0 max-w-[680px] text-[17px] leading-relaxed text-ink-2">{L(p)}</p>)}
-            {s.stat && country !== "uk" && country !== "au" && (
+            {s.stat && country === "us" && (
               <p className="m-0 max-w-[680px] border-l-4 border-[#FFA41C] pl-3 text-[15px]"><b>{s.stat.text}</b> <a href={s.stat.url} rel="noopener" target="_blank" className="text-[13px]">{s.stat.source}</a></p>
             )}
             <div className="flex flex-wrap items-center gap-3">
@@ -59,7 +60,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
           </div>
           {photo && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={photo.src} width={photo.width} height={photo.height} alt="Illustrative photo: an owner sees the job done on their phone" className="aspect-[4/3] w-full min-w-0 flex-[1_1_360px] rounded-lg object-cover" />
+            <img src={photo.src} srcSet={SRCSET[s.trades[0][0]] } sizes="(min-width: 1024px) 560px, 100vw" width={photo.width} height={photo.height} alt="Illustrative photo: an owner sees the job done on their phone" className="aspect-[4/3] w-full min-w-0 flex-[1_1_360px] rounded-lg object-cover" />
           )}
         </div>
       </section>
@@ -94,7 +95,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
               <Link href={`/p/${p.id}/`} className="text-[17px] font-bold text-ink">{L(p.name)}</Link>
               <p className="m-0 text-[14px] text-ink-2">{L(p.desc)}</p>
               <div className="mt-auto text-2xl font-bold">{fmt(p.price)}{p.monthly ? "/mo" : ""}</div>
-              {p.run && <div className="text-[13px] text-muted">then optional support from {localPrices(p.run, country)}</div>}
+              {p.run && <div className="text-[13px] text-muted">then optional Run Lite support {fmt(runLow(p))}/mo</div>}
               <AddToCart ids={[p.id]} className="!min-h-[40px]" />
             </div>
           ))}

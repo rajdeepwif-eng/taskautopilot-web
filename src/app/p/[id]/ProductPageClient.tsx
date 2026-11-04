@@ -38,7 +38,7 @@ export default function ProductPageClient({ id }: { id: number }) {
               <div className="font-semibold">Often added together — {bundle.name}</div>
               <div className="text-[14px] text-ink-2">{bi.map((x) => x.name).join(" + ")}</div>
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs separately</span></span>
+                <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save 10% vs buying separately</span></span>
                 <Link href={`/checkout/?plan=${bundle.ids.join(",")}`} className="btn btn-primary">Buy all {bundle.ids.length}</Link>
               </div>
             </div>

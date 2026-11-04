@@ -47,7 +47,7 @@ export default async function LegalPage({ params }: { params: Promise<{ doc: str
     <main className="wrap flex max-w-[820px] flex-col gap-4 py-14">
       <h1 className="font-display m-0 text-4xl font-bold">{TITLES[doc] ?? "Legal"}</h1>
       <div className="rounded-lg border border-[#F3A847] bg-[#FEF8F2] p-4 text-[15px]">
-        The full {(TITLES[doc] ?? "document").toLowerCase()} is being finalized with our attorney before card payments open. Nothing is charged until then.
+        The full {(TITLES[doc] ?? "document").toLowerCase()} {doc === "terms" ? "are" : "is"} being finalized with our attorney before card payments open. Nothing is charged until then.
       </div>
       <h2 className="m-0 mt-2 text-xl font-bold">In plain English, what we already commit to</h2>
       <ul className="m-0 flex flex-col gap-2 pl-5 text-[16px] leading-relaxed text-ink-2">

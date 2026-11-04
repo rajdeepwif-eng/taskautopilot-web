@@ -3,7 +3,8 @@ import { TRADES } from "@/lib/trades";
 import TradeIcon from "@/components/TradeIcon";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import { BUNDLES, byId } from "@/lib/catalogue";
-import { COUNTRIES, Country, money } from "@/lib/geo";
+import { COUNTRIES, Country, money , loc } from "@/lib/geo";
+import { SRCSET } from "@/lib/srcset";
 
 /** Lowest one-off price in a trade's top picks — the cheapest way in. */
 const fromPrice = (ids: number[]) => Math.min(...ids.map(byId).filter((p) => p && !p.monthly).map((p) => p.price));
@@ -26,12 +27,12 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
-                ? <img src={TRADE_PHOTOS[t.slug].src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
+                ? <img src={TRADE_PHOTOS[t.slug].src} srcSet={SRCSET[t.slug]} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
                 : <TradeIcon slug={t.slug} size={38} />}
             </div>
             <div className="flex flex-col gap-0.5 p-3.5">
-              <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{t.name}</span>
-              <span className="text-[12.5px] text-muted">{t.short}</span>
+              <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{loc(t.name, country)}</span>
+              <span className="text-[12.5px] text-muted">{loc(t.short, country)}</span>
               <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
             </div>
           </Link>
@@ -45,12 +46,12 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
-                ? <img src={TRADE_PHOTOS[t.slug].src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
+                ? <img src={TRADE_PHOTOS[t.slug].src} srcSet={SRCSET[t.slug]} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
                 : <TradeIcon slug={t.slug} size={38} />}
             </div>
             <div className="flex flex-col gap-0.5 p-3.5">
-              <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{t.name}</span>
-              <span className="text-[12.5px] text-muted">{t.short}</span>
+              <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{loc(t.name, country)}</span>
+              <span className="text-[12.5px] text-muted">{loc(t.short, country)}</span>
               <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
             </div>
           </Link>

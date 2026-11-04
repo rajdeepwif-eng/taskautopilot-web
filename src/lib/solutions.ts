@@ -55,10 +55,10 @@ export const SOLUTIONS: Solution[] = [
     short: "Never miss a lead",
     metaDescription: "Every missed call gets a text back within a minute with your booking link; web and WhatsApp inquiries get an instant reply. From $600, fixed price.",
     problem: [
-      "When you're on a job, with a patient or driving, the phone rings out. Most callers don't leave a voicemail — they ring the next business on the list.",
+      "When you're on a job, with a patient or driving, the phone rings out. Many callers won't leave a voicemail — they try the next business on the list.",
       "A missed-call text-back answers for you: the caller gets a friendly text within a minute with your booking link, and you get the details to call back when you're free.",
     ],
-    stat: { text: "57% of US small employers name reaching customers and growing sales as their top operating challenge.", source: "Federal Reserve Small Business Credit Survey, 2025", url: "https://fedsmallbusiness.org/-/media/project/clevelandfedtenant/fsbsite/reports/2025/2025-report-on-employer-firms.pdf" },
+    stat: { text: "57% of US small employers name reaching customers and growing sales as an operating challenge.", source: "Federal Reserve Small Business Credit Survey, 2025", url: "https://fedsmallbusiness.org/-/media/project/clevelandfedtenant/fsbsite/reports/2025/2025-report-on-employer-firms.pdf" },
     fixes: [11, 10, 7],
     trades: [
       ["trades", "Callers get a text while you're up a ladder, with a link to book a visit."],

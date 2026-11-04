@@ -40,8 +40,10 @@ const UK_AU: [RegExp, string][] = [
   [/\bshowings\b/g, "viewings"], [/\bShowings\b/g, "Viewings"], [/\bShift schedules\b/g, "Rotas"], [/\bshift schedules\b/g, "rotas"],
   [/\borganiz/g, "organis"], [/\bsummariz/g, "summaris"], [/\bprioritiz/g, "prioritis"], [/\bcolor\b/g, "colour"],
   [/\bsales tax\b/g, "VAT/GST"], [/\bdial 911\b/g, "call emergency services"],
+  [/\bphysical therapy\b/g, "physiotherapy"], [/\bmed spa\b/g, "aesthetics clinic"], [/\bHousecall Pro\b/g, "Tradify"], [/\bServiceTitan\b/g, "Fergus"],
+  [/Patient data runs only on services that have signed a business associate agreement \(BAA\)[^.]*\./g, "Patient data is special-category data under data-protection law: it runs only on services covered by a data processing agreement, chosen with your data-protection lead — not on our standard cloud setup."],
 ];
-const AU: [RegExp, string][] = [[/\bTrades & home services\b/g, "Tradies & home services"], [/\bPlumbers, electricians, builders, cleaners\b/g, "Tradies: plumbers, sparkies, builders, cleaners"], [/\bVAT\/GST\b/g, "GST"]];
+const AU: [RegExp, string][] = [[/\bTrades & home services\b/g, "Tradies & home services"], [/\bPlumbers, electricians, builders, cleaners\b/g, "Plumbers, sparkies, builders, cleaners"], [/\bVAT\/GST\b/g, "GST"]];
 const UK: [RegExp, string][] = [[/\bVAT\/GST\b/g, "VAT"]];
 export const loc = (text: string, c: Country) => {
   if (c !== "uk" && c !== "au") return text;

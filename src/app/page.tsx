@@ -9,6 +9,7 @@ import { PAYMENTS_LIVE } from "@/lib/launch";
 import AppChecker from "@/components/AppChecker";
 import { APP_GROUPS } from "@/lib/apps";
 import { PRODUCTS, byId, fmt } from "@/lib/catalogue";
+import { SRCSET } from "@/lib/srcset";
 
 const RUN_LOG = [
   ["03:45", "Bank reconciliation — lines matched", "ok"],
@@ -43,7 +44,7 @@ const FAQ = [
 
 export const metadata: Metadata = {
   title: "Done-for-you business automation for small businesses | TaskAutopilot",
-  description: "Fixed-price automations that get small businesses paid, booked and followed up: missed-call text-back, invoice reminders, reviews. Live in 2–3 weeks.",
+  description: "Fixed-price automations that get small businesses paid, booked and followed up: missed-call text-back, invoice reminders, reviews. Most live in 1–3 weeks.",
   alternates: alternates("/", "us"),
 };
 
@@ -59,10 +60,10 @@ export default function Home() {
             Things get done — without you doing them.
           </h1>
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
-            We set up the automations that get you paid, booked and followed up — fixed price, tested with you, live in 2–3 weeks. No sales call.
+            We set up the automations that get you paid, booked and followed up — fixed price, tested with you, most live in 1–3 weeks. No sales call.
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={heroImg.src} alt="" aria-hidden="true" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:hidden" />
+          <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:hidden" />
           <div className="flex flex-wrap items-center gap-4">
             <Link href="#trades" className="btn btn-primary text-[17px]">Show me fixes for my business →</Link>
           </div>
@@ -77,7 +78,7 @@ export default function Home() {
         </div>
         <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={heroImg.src} width={heroImg.width} height={heroImg.height} alt="A business owner at his child's soccer game sees 'Invoice paid' on his phone" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:aspect-[4/3] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
+          <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A business owner at his child's soccer game sees 'Invoice paid' on his phone" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:aspect-[4/3] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
           <div className="mt-2 text-[13px] text-muted">The idea: the invoice goes out, gets chased and gets paid — while you're at the game.</div>
         </div>
       </div>
@@ -113,7 +114,7 @@ export default function Home() {
       {/* Try it live */}
       <section className="wrap flex flex-wrap items-center gap-8 pt-16">
         <Link href="/demo/" className="flex min-w-0 flex-[1_1_460px] flex-col gap-2 rounded-2xl bg-ink p-6 text-paper no-underline">
-          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Do you have a mini digger free Saturday?</span>
+          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Can someone fix a leaking water heater tomorrow?</span>
           <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Yes — it&apos;s free Saturday. Want me to book it?</span>
           <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Yes please</span>
           <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Booked ✓ I&apos;ve texted you the details.</span>
@@ -191,7 +192,7 @@ export default function Home() {
         <div className="wrap flex flex-wrap items-center justify-between gap-8 py-16">
           <div className="flex flex-[1_1_480px] flex-col gap-3">
             <h2 className="font-display m-0 text-[clamp(28px,4vw,40px)] font-bold">Ready to get your week back?</h2>
-            <p className="m-0 text-[17px] text-[#C9C7C0]">Pick your fix, pay online, approve the test run — live in 2–3 weeks.</p>
+            <p className="m-0 text-[17px] text-[#C9C7C0]">Pick your fix, pay online, approve the test run — most live in 1–3 weeks.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="#trades" className="btn btn-primary text-lg">See fixes for my business</Link>

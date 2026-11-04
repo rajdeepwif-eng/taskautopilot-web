@@ -1,6 +1,6 @@
 import Link from "next/link";
 import AddToCart from "@/components/AddToCart";
-import { byId, fmt, priceLabel, defaultHours, exampleYearly } from "@/lib/catalogue";
+import { byId, fmt, priceLabel, defaultHours, exampleYearly, exampleRate , runLow } from "@/lib/catalogue";
 
 export type IndustryContent = {
   kicker: string;
@@ -48,12 +48,12 @@ export default function IndustryPage({ c }: { c: IndustryContent }) {
               {p.replaces && <p className="m-0 border-l-2 border-clay pl-2.5 text-[14px] font-medium leading-snug">{p.replaces}</p>}
               {p.wage && (
                 <p className="m-0 rounded-md bg-paper px-2.5 py-1.5 text-[13px] text-ink-2">
-                  Example: {defaultHours(p)} hrs/week of a {p.role}&apos;s time ≈ <b>{fmt(exampleYearly(p))}/yr</b>
+                  Example: {defaultHours(p)} hrs/week of a {p.role}&apos;s time at ${exampleRate(p)}/hr ≈ <b>{fmt(exampleYearly(p))}/yr</b>
                 </p>
               )}
               <div className="mt-auto flex items-baseline justify-between border-t border-line pt-2">
                 <span className="font-display text-2xl font-bold">{priceLabel(p)}</span>
-                <span className="text-[13px] text-muted">{p.run ? `then ${p.run}` : `live in ${p.days} days`}</span>
+                <span className="text-[13px] text-muted">{p.run ? `then optional support ${fmt(runLow(p))}/mo` : `live in about ${p.days} business days`}</span>
               </div>
               <AddToCart ids={[p.id]} />
               <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>

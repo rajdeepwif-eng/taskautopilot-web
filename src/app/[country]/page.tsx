@@ -5,6 +5,7 @@ import TradeGrid from "@/components/TradeGrid";
 import HeroSearch from "@/components/HeroSearch";
 import heroImg from "@/assets/hero.jpg";
 import { COUNTRIES, Country, EDITIONS, alternates, money, loc } from "@/lib/geo";
+import { SRCSET } from "@/lib/srcset";
 
 export function generateStaticParams() {
   return EDITIONS.map((country) => ({ country }));
@@ -30,9 +31,9 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
           <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
             <div className="kicker">Done-for-you automation · {C.name}</div>
             <h1 className="m-0 font-display text-[clamp(34px,6vw,56px)] font-bold leading-[1.04] tracking-tight">Things get done — without you doing them.</h1>
-            <p className="m-0 max-w-[620px] text-xl leading-normal text-ink-2">We set up the automations that get you paid, booked and followed up — fixed price in {C.sym} ({C.tax}), tested with you, live in 2–3 weeks. No sales call.</p>
+            <p className="m-0 max-w-[620px] text-xl leading-normal text-ink-2">We set up the automations that get you paid, booked and followed up — fixed price in {C.sym} ({C.tax}), tested with you, most live in 1–3 weeks. No sales call.</p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={heroImg.src} alt="" aria-hidden="true" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:hidden" />
+            <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:hidden" />
             <div className="flex flex-wrap gap-3">
               <Link href="#trades" className="btn btn-primary text-[17px]">Show me fixes for my business →</Link>
               <Link href="/starter/" className="btn btn-outline">Try one automation for {money(99, c)}</Link>
@@ -42,7 +43,7 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
           </div>
           <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={heroImg.src} width={heroImg.width} height={heroImg.height} alt="A business owner sees 'Invoice paid' on his phone while at his child's game" className="aspect-[4/3] w-full rounded-lg object-cover object-[70%_50%] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
+            <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A business owner sees 'Invoice paid' on his phone while at his child's game" className="aspect-[4/3] w-full rounded-lg object-cover object-[70%_50%] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
           </div>
         </div>
       </section>

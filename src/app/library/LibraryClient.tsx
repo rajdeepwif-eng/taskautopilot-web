@@ -18,7 +18,7 @@ import {
   howItWorks,
   priceLabel,
   roleHourly,
-  exampleYearly,
+  exampleYearly, exampleRate,
   runLow,
 } from "@/lib/catalogue";
 
@@ -59,7 +59,7 @@ export default function LibraryClient() {
     ? "Solo Care $49/mo — we keep it all running"
     : planItems.length >= 3
       ? "Run Full $1,500/mo — monitoring, fixes, a new workflow monthly, live results panel"
-      : "Run Lite $300/mo — monitoring, failure alerts and fixes";
+      : `Run Lite ${fmt(planItems.reduce((a, p) => a + runLow(p), 0))}/mo — monitoring, failure alerts and fixes`;
 
   return (
     <main>
@@ -130,7 +130,7 @@ export default function LibraryClient() {
                   {p.replaces && <p className="m-0 border-l-2 border-clay pl-2.5 text-[14px] font-medium leading-snug">{p.replaces}</p>}
                   {p.wage && (
                     <p className="m-0 rounded-md bg-paper px-2.5 py-1.5 text-[13px] text-ink-2">
-                      Example: {defaultHours(p)} hrs/week of a {p.role}&apos;s time ≈ <b>{fmt(exampleYearly(p))}/yr</b>
+                      Example: {defaultHours(p)} hrs/week of a {p.role}&apos;s time at ${exampleRate(p)}/hr ≈ <b>{fmt(exampleYearly(p))}/yr</b>
                     </p>
                   )}
                   <p className="m-0 text-[13px] text-muted">Works with: {p.apps}</p>
@@ -178,7 +178,7 @@ export default function LibraryClient() {
                   <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-3">
                     <span>
                       <b className="font-display text-[22px]">{fmt(full * 0.9)}</b>{" "}
-                      <span className="text-ok">save {fmt(full * 0.1)} vs buying separately</span>
+                      <span className="text-ok">save 10% vs buying separately</span>
                     </span>
                     <button
                       type="button"
@@ -306,11 +306,11 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
               <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
             </>)}
-            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund</span></>}</div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund of the build fee</span></>}</div>
             <div className="text-sm leading-relaxed text-ink-2">
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
               {!p.monthly && p.id !== 120 && <><br />✓ You own it — documented handover</>}
-              {p.run && (<><br />✓ Run &amp; support after launch: {p.run}</>)}
+              {p.run && (<><br />✓ Optional Run Lite support after launch: {fmt(runLow(p))}/mo (6-month minimum)</>)}
             </div>
             
             <div className="text-[12px] text-muted">{PAYMENTS_LIVE ? "🔒 Paid on Stripe's secure checkout — certified to PCI DSS Level 1, the top card-security standard. We never see your card, and card payments keep your card provider's dispute rights." : "🔒 Card payments open at launch on Stripe's secure checkout — reserve now, nothing charged today."}</div>

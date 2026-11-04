@@ -82,8 +82,10 @@ export function CurrencyApplier() {
     });
     // Watch the whole document: if React replaces <body> during hydration, conversion still follows.
     mo.observe(document.documentElement, { subtree: true, childList: true, characterData: true });
-    const late = window.setTimeout(() => apply(document.body, cur), 1500);
-    return () => { mo.disconnect(); window.clearTimeout(late); };
+    // Belt and braces: re-apply a few times while late hydration and client navigation settle.
+    let ticks = 0;
+    const iv = window.setInterval(() => { apply(document.body, cur); if (++ticks >= 12) window.clearInterval(iv); }, 400);
+    return () => { mo.disconnect(); window.clearInterval(iv); };
   }, [cur]);
   return null;
 }

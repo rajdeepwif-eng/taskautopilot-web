@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { BUNDLES, CATEGORIES, INDUSTRIES, PRODUCTS, Product, byId, fitsIndustry, fmt, priceLabel } from "@/lib/catalogue";
+import { BUNDLES, CATEGORIES, INDUSTRIES, PRODUCTS, Product, byId, fitsIndustry, fmt, priceLabel , runLow } from "@/lib/catalogue";
 import { ProductDetail } from "./LibraryClient";
 import { loadPlan, savePlan } from "@/lib/plan";
 import { CatArt } from "@/components/CatArt";
@@ -197,7 +197,7 @@ export default function MarketClient() {
           {results.length === 0 && (
             <div className="card flex flex-col gap-2 p-6">
               <div className="font-display text-xl font-bold">No ready-made match.</div>
-              <div className="text-ink-2">We build custom automations too. Describe the task and get a free yes/no and a fixed price within 1 business day.</div>
+              <div className="text-ink-2">We build custom automations too. Describe the task and get a free yes/no and a fixed price — replies start at launch.</div>
               <Link href="/ask/" className="btn btn-primary self-start">Can you automate it? Ask free</Link>
             </div>
           )}
@@ -226,7 +226,7 @@ export default function MarketClient() {
                       <span className="text-[28px] font-medium leading-none">{priceLabel(p)}</span>
                       {!p.monthly && <span className="text-[13px] text-muted">fixed price</span>}
                     </div>
-                    {p.run && <div className="text-[13px] text-muted">Ongoing support from {p.run}</div>}
+                    {p.run && <div className="text-[13px] text-muted">Optional support {fmt(runLow(p))}/mo</div>}
                     <div className="mt-1 text-[14px] text-ink">{p.cat === "Courses" ? "Founding enrollment open" : p.cat === "DIY kits" ? <>Instant <b>download</b></> : <LiveBy days={p.days} />}</div>
                     {p.cat !== "Courses" && p.cat !== "DIY kits" && !p.monthly && <div className="text-[13px] text-ok">Approve the test run or full refund</div>}
                   </div>
@@ -265,7 +265,7 @@ export default function MarketClient() {
                     <div className="font-display text-lg font-bold">{b.name}</div>
                     <div className="text-[13px] text-ink-2">{bi.map((p) => p.name).join(" → ")}</div>
                     <div className="mt-auto">
-                      <b className="font-display text-xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs separately</span>
+                      <b className="font-display text-xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save 10% vs buying separately</span>
                     </div>
                     <button type="button" onClick={() => addMany(b.ids)} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber text-sm font-semibold text-ink">
                       Add all {b.ids.length} to cart
@@ -345,7 +345,7 @@ export default function MarketClient() {
                   ))}
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs separately</span></span>
+                  <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save 10% vs buying separately</span></span>
                   <button type="button" onClick={() => { addMany(b.ids); setOpen(null); }} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber px-4 text-sm font-semibold text-ink">
                     Add all {b.ids.length} to cart
                   </button>

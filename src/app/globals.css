@@ -14,7 +14,7 @@
   --color-ink-2: #333333;
   --color-muted: #565959;
   --color-line: #D5D9D9;
-  --color-clay: #C7511F;
+  --color-clay: #B4461A;
   --color-clay-soft: #FEF8F2;
   --color-amber: #FEBD69;
   --color-ok: #007600;
@@ -44,6 +44,7 @@ body {
 }
 
 @layer components {
+main p a:not(.btn), main li a:not(.btn) { text-decoration: underline; text-underline-offset: 2px; }
 .kicker {
   font-size: 14px;
   font-weight: 700;

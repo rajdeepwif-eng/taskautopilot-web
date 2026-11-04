@@ -65,7 +65,10 @@ export const byId = (id: number) => PRODUCTS.find((p) => p.id === id)!;
 export const roleHourly = (p: Product) => (p.wage ? Math.round(p.wage / 2080) : 30);
 
 /** Example yearly cost of the manual work at the default hours and the role's median wage. */
-export const exampleYearly = (p: Product) => defaultHours(p) * 52 * (p.wage ? p.wage / 2080 : 30);
+/** Hourly cost used in examples: US median pay for the role (BLS), else $30. */
+export const exampleRate = (p: Product) => Math.round(p.wage ? p.wage / 2080 : 30);
+/** Yearly value of the example hours, rounded to the nearest $100 so it doesn't look falsely precise. */
+export const exampleYearly = (p: Product) => Math.round((defaultHours(p) * 52 * exampleRate(p)) / 100) * 100;
 
 /** Lowest monthly run & support fee in the product's run range (0 if none). */
 export const runLow = (p: Product) => {

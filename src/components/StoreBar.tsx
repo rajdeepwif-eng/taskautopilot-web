@@ -1,4 +1,5 @@
 "use client";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -54,6 +55,7 @@ export function PlanLink() {
 
 /** "Live by <date>" — like a delivery date. Shows business days until the browser works out the date. */
 export function LiveBy({ days, className = "" }: { days: number; className?: string }) {
+  if (!PAYMENTS_LIVE) return <span className={className}>Live about <b>{days} business days</b> after you order</span>;
   const [label, setLabel] = useState(`in ${days} business days`);
   useEffect(() => {
     const d = new Date();

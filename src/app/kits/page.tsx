@@ -27,7 +27,7 @@ export default function KitsPage() {
               <ul className="m-0 flex list-none flex-col gap-1 p-0 text-[14px]">
                 {items.map((p) => <li key={p.id}>✓ <Link href={`/p/${p.id}/`}>{p.name}</Link></li>)}
               </ul>
-              <div className="mt-auto"><b className="font-display text-2xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save {fmt(full * 0.1)} vs buying separately</span></div>
+              <div className="mt-auto"><b className="font-display text-2xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save 10% vs buying separately</span></div>
               <Link href={`/checkout/?plan=${k.ids.join(",")}`} className="btn btn-primary">Buy the kit</Link>
               <AddToCart ids={k.ids} label="Add kit to cart" />
             </div>
