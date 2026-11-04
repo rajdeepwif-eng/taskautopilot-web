@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { loadPlan } from "@/lib/plan";
 import CheckoutClient from "./CheckoutClient";
 import { PRODUCTS, Product } from "@/lib/catalogue";
 
@@ -10,7 +12,11 @@ const AUDIT: Product = { id: 0, cat: "Get started", name: "Paid automation audit
 
 export default function CheckoutFromQuery() {
   const sp = useSearchParams();
-  const raw = (sp.get("plan") ?? "").split(",").filter(Boolean);
+  const fromUrl = (sp.get("plan") ?? "").split(",").filter(Boolean);
+  // No ?plan= in the link: fall back to the cart saved in this browser.
+  const [saved, setSaved] = useState<string[]>([]);
+  useEffect(() => { if (!fromUrl.length) setSaved(loadPlan().map(String)); }, [fromUrl.length]);
+  const raw = fromUrl.length ? fromUrl : saved;
   const pick = sp.get("pick");
   const PICKS: Record<string, string> = { "missed-calls": "Missed-call text-back", reviews: "Review requests", "invoices-excel": "Invoices into Excel", "email-sort": "Email sorting", "forms-sheet": "Form to sheet + alert" };
   const ids = raw.length === 1 && PACKAGE_IDS[raw[0]] ? PACKAGE_IDS[raw[0]] : raw.map(Number);

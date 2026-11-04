@@ -43,7 +43,7 @@ export default function Startups() {
       </section>
       <section id="hybrid" className="flex scroll-mt-20 flex-col gap-3">
         <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">Work out a stake</h2>
-        <DealCalculator start={EQUITY.minBuildValue} />
+        <DealCalculator start={15000} initialTab="equity" />
       </section>
       <section className="flex flex-col gap-2">
         <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">Questions</h2>

@@ -41,6 +41,9 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   useEffect(() => { const { first, last } = readTouches(); const t = last || first; if (t) { setRefCode(t.ref || first?.ref || ""); setHeard(guessHeard(t.source, t.medium, t.ref || first?.ref || "")); } }, []);
   useEffect(() => { try { setCur(localStorage.getItem("ta-currency") || "USD"); } catch { /* storage blocked */ } }, []);
   const total = oneOff - discount + monthly + t.price;
+  // On a monthly plan only the deposit (plus any first-month services) is due at the start.
+  const planX = payPlan > 0 ? planFor(oneOff - discount, payPlan) : null;
+  const dueNow = planX ? planX.deposit + monthly + t.price : total;
 
   const pay = () => {
     if (!items.length) return setErr("Your cart is empty — add something from the shop first.");
@@ -118,7 +121,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         {discount > 0 && <div className="flex justify-between text-ok"><span>Bundle saving (3+ items)</span><span>−{fmt(discount)}</span></div>}
         {monthly > 0 && <div className="flex justify-between"><span>Monthly services, first month</span><span>{fmt(monthly)}</span></div>}
         {t.price > 0 && <div className="flex justify-between"><span>{t.name}, first month</span><span>{fmt(t.price)}</span></div>}
-        <div className="flex items-baseline justify-between border-t border-line pt-3"><span className="text-muted">{PAYMENTS_LIVE ? "Due today" : "Total — you confirm and pay when checkout opens"}</span><span className="text-4xl font-bold text-[#B12704]">{fmt(total)}</span></div>
+        <div className="flex items-baseline justify-between border-t border-line pt-3"><span className="text-muted">{planX ? (PAYMENTS_LIVE ? "Deposit due today" : "Deposit — you pay when checkout opens") : PAYMENTS_LIVE ? "Due today" : "Total — you confirm and pay when checkout opens"}</span><span className="text-4xl font-bold text-[#B12704]" data-testid="due-now">{fmt(dueNow)}</span></div>
+        {planX && <div className="text-[13px] text-ink-2" data-testid="due-later">Then {payPlan} monthly payments of {fmt(planX.monthly)} — {fmt(planX.total + monthly + t.price)} in total.</div>}
         <div className="text-[13px] text-muted">{TAX[cur] ?? TAX.USD} Usage-based costs (call minutes, AI usage) are billed at cost.</div>
         <label className="flex flex-col gap-1.5 text-sm text-ink-2">
           {PAYMENTS_LIVE ? "Email for your receipt and setup form" : "Email to reserve your build"}
@@ -138,7 +142,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
           <span>I agree to the <Link href="/legal/terms">terms of service</Link>, scope and <Link href="/legal/refunds">refund policy</Link>.</span>
         </label>
         {err && <div role="alert" className="text-sm text-[#B12704]">{err}</div>}
-        <button type="button" onClick={pay} className="btn btn-primary text-lg">{PAYMENTS_LIVE ? `Pay ${fmt(total)} securely →` : "Reserve — no charge today"}</button>
+        <button type="button" onClick={pay} className="btn btn-primary text-lg">{PAYMENTS_LIVE ? `Pay ${fmt(dueNow)} securely →` : "Reserve — no charge today"}</button>
         <div className="rounded-lg bg-[#F0F8F3] px-3 py-2.5 text-sm"><b className="text-ok">✓ Approve the test run or get the build fee back in full</b><span className="block text-ink-2">If you don&apos;t approve the test run of a build, we refund its build fee in full.</span></div>
         <div className="text-xs leading-normal text-muted">{PAYMENTS_LIVE ? "🔒 Paid on Stripe's secure checkout — certified to PCI DSS Level 1, the top card-security standard. We never see your card, and card payments keep your card provider's dispute rights." : "🔒 At launch, payment is taken on Stripe's secure checkout — we never see your card."}</div>
         <div className="flex flex-col gap-2 text-sm">
@@ -149,7 +153,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
       </aside>
       {items.length > 0 && (
         <div className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-3 border-t border-line bg-white p-3 lg:hidden">
-          <span className="text-xl font-bold">{fmt(total)}</span>
+          <span className="text-xl font-bold">{fmt(dueNow)}</span>
           <a href="#pay-box" className="btn btn-primary !min-h-[44px] flex-1">{PAYMENTS_LIVE ? "Continue to pay →" : "Continue →"}</a>
         </div>
       )}

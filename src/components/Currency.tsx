@@ -63,6 +63,26 @@ function read(): Cur {
 
 const EVT = "ta-currency-change";
 
+export type { Cur };
+export const CUR_RATES = RATES;
+export const CUR_SYM = SYM;
+/** The visitor's currency for components that compute prices themselves (mark them data-nocurrency). */
+export function useCurrency() {
+  const [cur, setCur] = useState<Cur>("USD");
+  useEffect(() => {
+    setCur(read());
+    const on = (e: Event) => setCur((e as CustomEvent<Cur>).detail);
+    window.addEventListener(EVT, on);
+    return () => window.removeEventListener(EVT, on);
+  }, []);
+  const rate = RATES[cur], sym = SYM[cur];
+  /** Format an amount already in local currency. */
+  const local = (n: number) => sym + Math.round(n).toLocaleString("en-GB");
+  /** Convert a US$ amount to a rounded local amount (same rounding as the rest of the site). */
+  const fromUsd = (usd: number) => (cur === "USD" ? usd : nice(usd * rate));
+  return { cur, rate, sym, local, fromUsd };
+}
+
 /** Mounted once (in the layout): converts prices on the page and keeps them converted. */
 export function CurrencyApplier() {
   const [cur, setCur] = useState<Cur>("USD");
@@ -73,19 +93,23 @@ export function CurrencyApplier() {
     return () => window.removeEventListener(EVT, on);
   }, []);
   useEffect(() => {
+    // `alive` stops a callback queued before cleanup from re-attaching an observer for the old
+    // currency (that stale observer fought the new one and flipped prices back to US$).
+    let alive = true;
     apply(document.body, cur);
     let busy = false;
+    const opts = { subtree: true, childList: true, characterData: true };
     const mo = new MutationObserver(() => {
-      if (busy) return;
+      if (busy || !alive) return;
       busy = true;
-      requestAnimationFrame(() => { mo.disconnect(); apply(document.body, cur); mo.observe(document.documentElement, { subtree: true, childList: true, characterData: true }); busy = false; });
+      requestAnimationFrame(() => { if (!alive) return; mo.disconnect(); apply(document.body, cur); mo.observe(document.documentElement, opts); busy = false; });
     });
     // Watch the whole document: if React replaces <body> during hydration, conversion still follows.
-    mo.observe(document.documentElement, { subtree: true, childList: true, characterData: true });
-    // Belt and braces: re-apply a few times while late hydration and client navigation settle.
+    mo.observe(document.documentElement, opts);
+    // Re-apply a few times while late hydration and client navigation settle.
     let ticks = 0;
-    const iv = window.setInterval(() => { apply(document.body, cur); if (++ticks >= 12) window.clearInterval(iv); }, 400);
-    return () => { mo.disconnect(); window.clearInterval(iv); };
+    const iv = window.setInterval(() => { if (!alive) return; apply(document.body, cur); if (++ticks >= 12) window.clearInterval(iv); }, 400);
+    return () => { alive = false; mo.disconnect(); window.clearInterval(iv); };
   }, [cur]);
   return null;
 }

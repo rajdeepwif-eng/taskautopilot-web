@@ -4,7 +4,7 @@ import { seoTitle } from "@/lib/geo";
 
 export const metadata: Metadata = {
   title: seoTitle("Selling or retiring? Automate first"),
-  description: "Planning to step back or sell? We automate your business so it runs without you — then you sell for more, sell part to us, or sell it to us over time. Confidential.",
+  description: "Planning to step back or sell? We automate your business so it runs without you — then sell for more, sell part to us, sell it to us over time, or let us run it and pay you from profits. Confidential.",
   alternates: { canonical: "./" },
 };
 
@@ -19,7 +19,7 @@ const STEPS = [
   ["Free automation & readiness review", "Where the business depends on you, and what can run without you."],
   ["A written plan", "Which path fits, the work, and indicative terms."],
   ["Automate", "Built and tested with you; the business runs on its own."],
-  ["Exit", "Sell, sell part, or sell to us — on the agreed terms."],
+  ["Exit", "Sell, sell part, sell to us, or be paid from profits — on the agreed terms."],
 ];
 const LOOK: string[] = [
   "Profitable, trading 3+ years",
@@ -30,9 +30,9 @@ const LOOK: string[] = [
 const FAQ: [string, string][] = [
   ["Is this confidential?", "Yes. We don't contact your staff, customers or suppliers without your permission, and we'll sign a confidentiality agreement before you share figures."],
   ["Why does automation matter when selling?", "Buyers pay less for a business that depends on its owner. Showing that bookings, invoicing and follow-ups run without you makes it easier to sell and to hand over."],
-  ["Do you buy every business?", "No — only selected businesses after review. The other two paths are open to more owners."],
+  ["Do you buy every business?", "No — only selected businesses after review. Selling for more on the open market is open to every owner; the other paths are for selected businesses."],
   ["What happens to my staff?", "That's part of the plan from the start. Many owners care about this most, and we agree it in writing."],
-  ["Is being paid over time better for tax?", "It can spread the tax over the years you're paid — for example, US installment-sale rules tax the gain as payments arrive — but it doesn't make it tax-free, and rules differ by country. In the UK, selling to an Employee Ownership Trust can qualify for capital gains relief. Your accountant should confirm before you agree anything."],
+  ["Is being paid over time better for tax?", "It can spread the tax over the years you're paid — for example, US installment-sale rules tax the gain as payments arrive — but it doesn't make it tax-free, and rules differ by country. In the UK, selling to an Employee Ownership Trust gets capital gains relief on half the gain (cut from full relief to 50% from 26 November 2025, per HMRC) — the rest is taxed when you sell. Your accountant should confirm before you agree anything."],
   ["Do I need a broker or advisor?", "We recommend your own accountant and solicitor for any sale. We'll work alongside them."],
 ];
 
@@ -42,7 +42,7 @@ export default function Selling() {
       <section className="flex flex-col gap-3">
         <div className="kicker">For owners planning to step back</div>
         <h1 className="m-0 max-w-[900px] font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-tight">Selling or retiring? Make the business run without you first.</h1>
-        <p className="m-0 max-w-[760px] text-lg text-ink-2">Buyers pay less for a business that depends on its owner. We automate the work that sits on your desk — then you choose: sell for more, sell part to us, or sell it to us over time.</p>
+        <p className="m-0 max-w-[760px] text-lg text-ink-2">Buyers pay less for a business that depends on its owner. We automate the work that sits on your desk — then you choose one of four paths: sell for more, sell part to us, sell it to us over time, or keep it while we run it and pay you from the profits.</p>
         <div className="flex flex-wrap gap-3 pt-1"><Link href="/apply/?deal=succession" className="btn btn-primary">Start a confidential conversation</Link></div>
         <p className="m-0 text-[13px] text-muted">🔒 Confidential. Nothing up front for selected businesses.</p>
       </section>

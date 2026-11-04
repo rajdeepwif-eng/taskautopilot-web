@@ -38,6 +38,22 @@ export const STAGES: { id: string; name: string; risk: number; cap: number }[] =
   { id: "established", name: "Established (over $1M a year)", risk: 1, cap: 5 },
 ];
 
+/** Revenue bands written in round local amounts (so £ visitors don't see "£187k"). */
+export const BANDS: Record<"USD" | "GBP" | "AUD" | "CAD", [string, string, string, string]> = {
+  USD: ["$250k", "$1M", "$5M", "$20M"],
+  GBP: ["£200k", "£750k", "£4M", "£15M"],
+  AUD: ["A$350k", "A$1.5M", "A$7M", "A$30M"],
+  CAD: ["C$350k", "C$1.4M", "C$7M", "C$27M"],
+};
+export const stageName = (id: string, cur: keyof typeof BANDS = "USD") => {
+  const [a, b] = BANDS[cur];
+  return ({ idea: "Idea / pre-revenue", early: `Early revenue (under ${a} a year)`, growing: `Growing (${a}–${b} a year)`, established: `Established (over ${b} a year)` } as Record<string, string>)[id] ?? id;
+};
+export const revenueBands = (cur: keyof typeof BANDS = "USD") => {
+  const [a, b, c, d] = BANDS[cur];
+  return ["Idea / pre-revenue", `Under ${a} a year`, `${a}–${b}`, `${b}–${c}`, `${c}–${d}`, `Over ${d}`];
+};
+
 /** Smallest cash part of a hybrid deal. */
 export const HYBRID_MIN_CASH = 0.5;
 
@@ -46,8 +62,8 @@ export const DEALS: Deal[] = [
   { id: "monthly", name: "Pay monthly", forWho: "Owners who'd rather not pay in one go", how: "20% deposit, the rest spread over 6, 12 or 24 months.", youPay: "List price + 5–20% for spreading it", bestWhen: "Cash flow matters more than the last 10%", href: "/ways-to-pay/#monthly" },
   { id: "finance", name: "Finance it", forWho: "Owners who want to pay later with a finance partner", how: "Apply in minutes at checkout through a business finance partner. We're paid up front; you repay them over 3–12 months. Short terms can be interest-free.", youPay: "The list price, over time (partner terms)", bestWhen: "You want a decision in minutes and to keep cash in the business", href: "/ways-to-pay/#finance" },
   { id: "results", name: "Pay from results", forWho: "Owners who want proof before paying in full", how: "A small setup fee, then a share of the gains we measure (recovered invoices, extra booked jobs) for 12 months — capped.", youPay: "25% setup + 20% of measured gains, capped at 2× list price", bestWhen: "The gain is easy to measure (money chased, calls answered)", href: "/ways-to-pay/#results" },
-  { id: "hybrid", name: "Part cash, part shares", forWho: "Growing companies keeping cash for hiring", how: "At least half in cash; the rest as a small minority stake.", youPay: "≥50% cash + a small stake", bestWhen: "You'd rather share upside than pay full price now", href: "/startups/#hybrid" },
-  { id: "equity", name: "Automation for equity", forWho: "Startup founders with a strong team and idea", how: "We build your automations for a stake that vests as milestones are hit — larger the earlier you are (usually 2–20%).", youPay: "No cash — a vesting minority stake", bestWhen: "You're pre-revenue or early, and want a tech partner", href: "/startups/" },
+  { id: "hybrid", name: "Part cash, part shares", forWho: "Growing or established companies with a strong trading record", how: "At least half in cash; the rest as a small minority stake.", youPay: "≥50% cash + a small stake", bestWhen: "You'd rather share upside than pay full price now", href: "/startups/#hybrid" },
+  { id: "equity", name: "Automation for equity", forWho: "Startups with a strong team — or companies with a strong trading record", how: "We build your automations for a stake that vests as milestones are hit — usually 2–20%: larger the earlier you are, smaller for companies with a strong trading record.", youPay: "No cash — a vesting minority stake", bestWhen: "You want a tech partner and would rather share upside than pay cash", href: "/startups/" },
   { id: "succession", name: "Selling or retiring", forWho: "Owners planning to step back or sell", how: "We automate the business so it runs without you — then you sell for more, sell part to us, or sell it to us over time.", youPay: "Nothing up front for selected businesses", bestWhen: "You want out in 1–5 years and want the best price", href: "/selling-or-retiring/" },
 ];
 

@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { DEALS, DealId, dealById } from "@/lib/deals";
+import { DEALS, DealId, dealById, revenueBands } from "@/lib/deals";
+import { useCurrency } from "@/components/Currency";
 import { FORMS_LIVE, FORM_NOT_SENT } from "@/lib/launch";
 import { sendLead } from "@/lib/attribution";
 
-const STAGES = ["Idea / pre-revenue", "Under $250k a year", "$250k–$1M", "$1M–$5M", "$5M–$20M", "Over $20M"];
 const COUNTRIES = ["United States", "United Kingdom", "Australia", "Canada", "Other"];
 
 /** One application for every way of working with us; the questions change with the deal picked. */
@@ -14,6 +14,10 @@ export default function ApplyClient() {
   const [deal, setDeal] = useState<DealId>("monthly");
   const [f, setF] = useState<Record<string, string>>({ name: "", email: "", company: "", website: "", country: "United States", stage: "", goal: "", timeline: "", team: "", stakeOk: "", exitYears: "", ownership: "", reason: "" });
   const [sent, setSent] = useState(false);
+  const { cur } = useCurrency();
+  const STAGES = revenueBands(cur);
+  // Preselect the visitor's country from their currency (they can still change it).
+  useEffect(() => { const c = ({ GBP: "United Kingdom", AUD: "Australia", CAD: "Canada" } as Record<string, string>)[cur]; if (c) setF((x) => (x.country === "United States" ? { ...x, country: c } : x)); }, [cur]);
   const [err, setErr] = useState("");
   useEffect(() => { try { const d = new URLSearchParams(window.location.search).get("deal") || ""; if (dealById(d)) setDeal(d as DealId); } catch { /* ignore */ } }, []);
   const set = (k: string, v: string) => { setF({ ...f, [k]: v }); setErr(""); };
@@ -34,7 +38,8 @@ export default function ApplyClient() {
     <main className="wrap flex max-w-[860px] flex-col gap-6 pb-16 pt-10">
       <div className="kicker">Apply · about 3 minutes</div>
       <h1 className="m-0 font-display text-[clamp(28px,4vw,40px)] font-bold">Tell us about your business — we&apos;ll suggest the best deal.</h1>
-      <form className="flex flex-col gap-5" onSubmit={(e) => {
+      {!FORMS_LIVE && <div className="rounded-lg bg-[#FFF4E5] px-3 py-2 text-[14px] text-ink-2"><b>Pre-launch:</b> applications open at launch, so this form can&apos;t be sent yet. You can still see the questions; to talk now, email the address in the footer.</div>}
+      <form className="flex flex-col gap-5" data-nocurrency onSubmit={(e) => {
         e.preventDefault();
         if (!f.name.trim() || !f.company.trim()) return setErr("Please add your name and company.");
         if (!/.+@.+\..+/.test(f.email)) return setErr("Please add an email we can reply to.");
@@ -57,12 +62,12 @@ export default function ApplyClient() {
 
         <fieldset className="card flex flex-col gap-3 p-5"><legend className="px-1 font-bold">2 · About you and the company</legend>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <label className={label}>Your name<input name="name" type="text" value={f.name} onChange={(e) => set("name", e.target.value)} /></label>
-            <label className={label}>Email<input name="email" type="email" value={f.email} onChange={(e) => set("email", e.target.value)} /></label>
-            <label className={label}>Company<input name="company" type="text" value={f.company} onChange={(e) => set("company", e.target.value)} /></label>
+            <label className={label}>Your name *<input name="name" type="text" value={f.name} onChange={(e) => set("name", e.target.value)} /></label>
+            <label className={label}>Email *<input name="email" type="email" value={f.email} onChange={(e) => set("email", e.target.value)} /></label>
+            <label className={label}>Company *<input name="company" type="text" value={f.company} onChange={(e) => set("company", e.target.value)} /></label>
             <label className={label}>Website <span className="text-muted">(optional)</span><input name="website" type="text" value={f.website} onChange={(e) => set("website", e.target.value)} /></label>
             <label className={label}>Country<select name="country" value={f.country} onChange={(e) => set("country", e.target.value)}>{COUNTRIES.map((c) => <option key={c}>{c}</option>)}</select></label>
-            <label className={label}>Annual revenue<select name="stage" value={f.stage} onChange={(e) => set("stage", e.target.value)}><option value="">Choose one</option>{STAGES.map((s) => <option key={s}>{s}</option>)}</select></label>
+            <label className={label}>Annual revenue *<select name="stage" value={f.stage} onChange={(e) => set("stage", e.target.value)}><option value="">Choose one</option>{STAGES.map((s) => <option key={s}>{s}</option>)}</select></label>
           </div>
           <label className={label}>What would you like automated, or what&apos;s the goal?<textarea name="goal" rows={3} value={f.goal} onChange={(e) => set("goal", e.target.value)} placeholder="e.g. we lose calls while on jobs, invoices go out late, I do all the admin myself" /></label>
         </fieldset>
@@ -91,7 +96,6 @@ export default function ApplyClient() {
           </fieldset>
         )}
 
-        {!FORMS_LIVE && <div className="rounded-lg bg-[#FFF4E5] px-3 py-2 text-[14px] text-ink-2">Heads up: applications open at launch, so this can&apos;t be sent just yet.</div>}
         {err && <div role="alert" className="text-sm text-[#B12704]">{err}</div>}
         <button type="submit" className="btn btn-primary self-start">Send my application</button>
         <p className="m-0 text-[12px] text-muted">No obligation. Indicative terms only until a written agreement is signed; plans and stakes are subject to approval. This isn&apos;t financial or legal advice — take your own advice before agreeing to any deal.</p>

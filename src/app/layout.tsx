@@ -7,6 +7,7 @@ import FooterFixes from "@/components/FooterFixes";
 import Attribution from "@/components/Attribution";
 import Analytics from "@/components/Analytics";
 import { SITE } from "@/lib/geo";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE + "/"),
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutoMode", slogan: "Everyday tasks, automated for you", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
           { "@type": "WebSite", name: "TaskAutoMode", url: `${SITE}/`, potentialAction: { "@type": "SearchAction", target: `${SITE}/library/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
         ] }) }} />
+        {!PAYMENTS_LIVE && <div className="bg-[#232F3E] px-4 py-1.5 text-center text-[13px] text-white" data-testid="prelaunch">Opening soon — browse and reserve your build today. Nothing is charged until secure checkout opens.</div>}
         <header>
           <div className="bg-[#131921] text-white">
             <div className="mx-auto flex max-w-[1500px] items-center gap-3 px-3 py-2 sm:gap-4 sm:px-4">

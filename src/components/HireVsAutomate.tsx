@@ -1,11 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { COUNTRIES, Country, money } from "@/lib/geo";
 import { HIRE_COST } from "@/lib/hireCost";
 import { BUNDLES, byId } from "@/lib/catalogue";
 import { fromMonthly } from "@/lib/deals";
+import { useCurrency } from "@/components/Currency";
 
 /** Side-by-side: what one admin hire costs a year vs our biggest-selling kit, in the visitor's country. */
-export default function HireVsAutomate({ country = "us" }: { country?: Country }) {
+export default function HireVsAutomate({ country: page = "us" }: { country?: Country }) {
+  // On the global pages, follow the visitor's chosen currency so both sides use the same country.
+  const { cur } = useCurrency();
+  const country: Country = page === "us" ? (({ GBP: "uk", AUD: "au", CAD: "ca" } as Record<string, Country>)[cur] ?? "us") : page;
   const h = HIRE_COST[country];
   const C = COUNTRIES[country];
   const kit = BUNDLES.find((b) => b.name === "Trades starter kit")!;
@@ -16,7 +22,7 @@ export default function HireVsAutomate({ country = "us" }: { country?: Country }
   const kitLocal = country === "us" ? kitPrice : Math.round(kitPrice * C.rate);
   const pct = Math.round((kitLocal / h.total) * 100);
   return (
-    <section className="wrap flex flex-col gap-4 pt-16" data-testid="hire-vs">
+    <section className="wrap flex flex-col gap-4 pt-16" data-testid="hire-vs" data-nocurrency>
       <div className="kicker">What it saves</div>
       <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Hiring for this work costs every year. Automation is a one-off.</h2>
       <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-[1fr_auto_1fr]">

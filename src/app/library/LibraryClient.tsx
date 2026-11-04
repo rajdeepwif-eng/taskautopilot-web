@@ -280,7 +280,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
                   <input type="number" min={0} value={hours} onChange={(e) => setHours(Number(e.target.value))} />
                 </label>
                 <label className="flex flex-[1_1_160px] flex-col gap-1.5 text-sm">
-                  Their cost per hour ($)
+                  Their cost per hour (in your currency)
                   <input type="number" min={0} value={rate} onChange={(e) => setRate(Number(e.target.value))} />
                 </label>
               </div>
@@ -291,7 +291,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               <div className={`font-semibold ${/more than|costs more/.test(payback) ? "text-[#B12704]" : "text-ok"}`}>{payback}</div>
               <div className="text-[13px] leading-normal text-ink-2">
                 Also: works nights and weekends, replies in seconds not hours, never forgets a step, and frees your people for work that needs a human.{" "}
-                <span className="text-muted">{p.wage ? `Starting rate is the US median for a ${p.role} (BLS, May 2025) — change it to yours.` : "Starting numbers are estimates — change them to yours."}</span>
+                <span className="text-muted">{p.wage ? `Starting rate is based on the US median for a ${p.role} (BLS, May 2025), converted — change it to your local rate.` : "Starting numbers are estimates — change them to yours."}</span>
               </div>
             </div>
             <div className="text-sm text-muted">Works with: {p.apps}</div>

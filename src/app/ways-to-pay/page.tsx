@@ -26,6 +26,7 @@ function HireCompare() {
   return (
     <section className="flex flex-col gap-3" data-testid="hire-table" data-nocurrency>
       <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">What hiring for this work costs, per year</h2>
+      <p className="m-0 text-[12.5px] text-muted md:hidden">Swipe the table sideways to see every column →</p>
       <div className="overflow-x-auto rounded-xl border border-line bg-white">
         <table className="w-full min-w-[640px] border-collapse text-left text-[15px]">
           <thead><tr className="bg-[#F7F8F8] text-[13px] text-muted"><th className="px-4 py-3">Country</th><th className="px-4 py-3">Pay</th><th className="px-4 py-3">Employer costs</th><th className="px-4 py-3">Total a year</th><th className="px-4 py-3">Based on</th></tr></thead>
@@ -71,7 +72,8 @@ export default function WaysToPay() {
 
       <section id="monthly" className="flex scroll-mt-20 flex-col gap-3">
         <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">Pay monthly: examples</h2>
-        <div className="overflow-x-auto rounded-xl border border-line bg-white">
+        <p className="m-0 text-[12.5px] text-muted md:hidden">Swipe the table sideways to see every column →</p>
+      <div className="overflow-x-auto rounded-xl border border-line bg-white">
           <table className="w-full min-w-[620px] border-collapse text-left text-[15px]">
             <thead><tr className="bg-[#F7F8F8] text-[13px] text-muted"><th className="px-4 py-3">Automation</th><th className="px-4 py-3">Up front</th>{PLAN_TERMS.map((t) => <th key={t.months} className="px-4 py-3">{t.months} months</th>)}</tr></thead>
             <tbody>
