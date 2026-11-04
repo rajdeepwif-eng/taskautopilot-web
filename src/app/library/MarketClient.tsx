@@ -319,7 +319,7 @@ export default function MarketClient() {
                   <div className="flex items-baseline justify-between"><span className="text-muted">Monthly</span><span className="font-display text-xl font-bold">{fmt(monthly)}/mo</span></div>
                 )}
                 {items.length < 3 && oneOff > 0 && <div className="text-[13px] text-ink-2">Add {3 - items.length} more for 10% off the build.</div>}
-                <Link href={`/checkout/?plan=${plan.join(",")}`} className="btn btn-primary">Proceed to secure checkout</Link>
+                <Link href={`/checkout/?plan=${plan.join(",")}`} className="btn btn-primary">Proceed to checkout</Link>
               </>
             )}
             <button type="button" onClick={() => setCartOpen(false)} className="btn btn-outline">Keep browsing</button>

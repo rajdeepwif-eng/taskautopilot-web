@@ -219,7 +219,7 @@ export default function LibraryClient() {
             </div>
           )}
           <div className="text-sm text-[#C9C7C0]">+ Suggested: <b className="text-white">{runText}</b></div>
-          <Link href={`/checkout?plan=${plan.join(",")}`} className="btn btn-primary">Go to secure checkout →</Link>
+          <Link href={`/checkout?plan=${plan.join(",")}`} className="btn btn-primary">Go to checkout →</Link>
           <button type="button" className="btn border border-paper bg-transparent text-paper">Email me this as a quote</button>
           <div className="text-xs text-[#A9ADB4]">Placeholder prices. Final scope confirmed on your setup form.</div>
           <div className="flex flex-col gap-2 border-t border-[#2B2E33] pt-3.5">
