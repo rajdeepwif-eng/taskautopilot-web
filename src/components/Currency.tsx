@@ -13,13 +13,14 @@ type Cur = keyof typeof RATES;
 const SYM: Record<Cur, string> = { USD: "$", GBP: "£", AUD: "A$", CAD: "C$" };
 const LABEL: Record<Cur, string> = { USD: "US $", GBP: "UK £", AUD: "AU $", CAD: "CA $" };
 const KEY = "ta-currency";
-const PRICE = /\$([\d,]+(?:\.\d+)?)/g;
+const PRICE = /\$([\d,]+(?:\.\d+)?)(?:–([\d,]+))?/g;
 const seen = new WeakMap<Text, { orig: string; shown: string }>();
 
 
 function convertText(t: string, cur: Cur) {
   if (cur === "USD" || /BLS|median|US\$/.test(t)) return t;
-  return t.replace(PRICE, (_, v: string) => SYM[cur] + nice(Number(v.replace(/,/g, "")) * RATES[cur]).toLocaleString("en-GB"));
+  const cv = (v: string) => nice(Number(v.replace(/,/g, "")) * RATES[cur]).toLocaleString("en-GB");
+  return t.replace(PRICE, (_, v: string, hi?: string) => SYM[cur] + cv(v) + (hi ? "–" + cv(hi) : ""));
 }
 
 function apply(root: Node, cur: Cur) {

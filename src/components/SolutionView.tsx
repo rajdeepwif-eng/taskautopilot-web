@@ -1,12 +1,22 @@
 import Link from "next/link";
 import { byId, howItWorks } from "@/lib/catalogue";
-import { COUNTRIES, Country, loc, money } from "@/lib/geo";
+import { COUNTRIES, Country, localPrices, loc, money } from "@/lib/geo";
 import { solutionBySlug } from "@/lib/solutions";
 import { tradeBySlug } from "@/lib/trades";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import AddToCart from "@/components/AddToCart";
 import MissedCallCalc from "@/components/MissedCallCalc";
 
+const SHORT: Record<string, Partial<Record<Country, string>>> = {
+  "get-paid-faster": { us: "Automated invoice reminders & AR automation", ca: "Automated invoice reminders for Canadian firms", uk: "Credit control automation for Xero & QuickBooks", au: "Automatic invoice reminders for tradies (Xero)" },
+  "missed-calls": { us: "Missed call text back service for contractors", ca: "Missed call text back & AI receptionist Canada", uk: "Missed call text back & AI receptionist UK", au: "Missed call text back & AI receptionist for tradies" },
+  "quote-follow-up": { us: "Quote follow up automation + email templates", ca: "Quote follow up automation + templates (Canada)", uk: "Quote follow up automation for UK trades", au: "Quote follow up for tradies + email templates" },
+  "google-reviews": { us: "Automate Google review requests", ca: "Automate Google review requests in Canada", uk: "Automate Google review requests (UK)", au: "Automate Google reviews for tradies" },
+  "admin-hours": { us: "QuickBooks & Xero bank reconciliation automation", ca: "Xero bank reconciliation automation (Canada)", uk: "Invoice processing & Xero bank reconciliation", au: "Xero bank reconciliation automation (Australia)" },
+  "profit-dashboard": { us: "Small business profit dashboard & monthly reports", ca: "Profit dashboard for Canadian small businesses", uk: "Management accounts pack & profit dashboard", au: "Monthly management reports & profit dashboard" },
+};
+/** Search-result title: ≤60 characters so Google doesn't cut it; brand added only when it fits. */
+export const solutionMetaTitle = (slug: string, c: Country) => { const t = SHORT[slug]?.[c] ?? solutionTitle(slug, c); return t.length <= 45 ? `${t} | TaskAutopilot` : t; };
 export const solutionTitle = (slug: string, c: Country) => { const s = solutionBySlug(slug); return s.local[c] ?? s.title; };
 
 export default function SolutionView({ slug, country }: { slug: string; country: Country }) {
@@ -84,7 +94,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
               <Link href={`/p/${p.id}/`} className="text-[17px] font-bold text-ink">{L(p.name)}</Link>
               <p className="m-0 text-[14px] text-ink-2">{L(p.desc)}</p>
               <div className="mt-auto text-2xl font-bold">{fmt(p.price)}{p.monthly ? "/mo" : ""}</div>
-              {p.run && <div className="text-[13px] text-muted">then optional support from {p.run}</div>}
+              {p.run && <div className="text-[13px] text-muted">then optional support from {localPrices(p.run, country)}</div>}
               <AddToCart ids={[p.id]} className="!min-h-[40px]" />
             </div>
           ))}

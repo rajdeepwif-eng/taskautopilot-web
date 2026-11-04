@@ -27,7 +27,7 @@ export const SOLUTIONS: Solution[] = [
       "Late payment is the most common money problem for owner-run businesses. Chasing feels awkward, so it slips — and every week an invoice sits unpaid is cash you can't use for wages, materials or growth.",
       "The fix isn't a tougher tone. It's consistency: every invoice sent on time, every customer reminded before and after the due date, every payment matched without anyone typing.",
     ],
-    stat: { text: "56% of US small businesses are owed money from unpaid invoices — about $17,500 each on average.", source: "QuickBooks Small Business Late Payments Report, 2025 (2,487 firms)", url: "https://quickbooks.intuit.com/r/small-business-data/small-business-late-payments-report-2025/" },
+    stat: { text: "56% of US small businesses are owed money from unpaid invoices — about US$17,500 each on average.", source: "QuickBooks Small Business Late Payments Report, 2025 (2,487 firms)", url: "https://quickbooks.intuit.com/r/small-business-data/small-business-late-payments-report-2025/" },
     fixes: [22, 125, 123],
     trades: [
       ["trades", "Invoice goes out the day the job is signed off; reminders follow until it's paid."],

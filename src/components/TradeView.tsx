@@ -3,7 +3,7 @@ import { PAYMENTS_LIVE } from "@/lib/launch";
 import { BUNDLES, byId, defaultHours, exampleYearly } from "@/lib/catalogue";
 import { tradeBySlug } from "@/lib/trades";
 import { CatArt } from "@/components/CatArt";
-import { COUNTRIES, Country, money, loc } from "@/lib/geo";
+import { COUNTRIES, Country, localPrices, money, loc } from "@/lib/geo";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import AddToCart from "@/components/AddToCart";
 import { runLow } from "@/lib/catalogue";
@@ -109,7 +109,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
                 <p className="m-0 line-clamp-2 text-[13.5px] text-ink-2">{L(p.desc)}</p>
                 {p.wage && country === "us" && <p className="m-0 text-[12.5px] text-muted">Example: {defaultHours(p)} hrs/week ≈ {fmt(exampleYearly(p))}/yr of a {p.role}&apos;s time</p>}
                 <div className="mt-auto pt-2 font-display text-2xl font-bold">{priceLabel(p)}</div>
-                {p.run && <span className="text-[13px] text-muted">then optional support from {p.run}</span>}
+                {p.run && <span className="text-[13px] text-muted">then optional support from {localPrices(p.run, country)}</span>}
                 <AddToCart ids={[p.id]} className="!min-h-[40px]" />
                 <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary !min-h-[40px]">Buy now</Link>
               </div>

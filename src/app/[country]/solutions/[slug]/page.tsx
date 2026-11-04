@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SolutionView, { solutionTitle } from "@/components/SolutionView";
+import SolutionView, { solutionMetaTitle } from "@/components/SolutionView";
 import { SOLUTIONS, solutionBySlug } from "@/lib/solutions";
 import { Country, EDITIONS, alternates, loc } from "@/lib/geo";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ country: 
   const { country, slug } = await params;
   const s = solutionBySlug(slug);
   const img = TRADE_PHOTOS[s.trades[0][0]];
-  return { title: `${solutionTitle(slug, country as Country)} | TaskAutopilot`, description: loc(s.metaDescription, country as Country), alternates: alternates(`/solutions/${slug}/`, country as Country), openGraph: img ? { images: [img.src] } : undefined };
+  return { title: { absolute: solutionMetaTitle(slug, country as Country) }, description: loc(s.metaDescription, country as Country), alternates: alternates(`/solutions/${slug}/`, country as Country), openGraph: img ? { images: [img.src] } : undefined };
 }
 
 export default async function Page({ params }: { params: Promise<{ country: string; slug: string }> }) {
