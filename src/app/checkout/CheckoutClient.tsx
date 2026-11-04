@@ -56,8 +56,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         <h1 className="font-display m-0 text-4xl font-bold">Reserved — card payments open soon.</h1>
         <p className="m-0 text-lg text-ink-2">We&apos;re finishing our secure Stripe checkout. <b>Nothing has been charged.</b> Here&apos;s exactly what will happen once you pay — nobody needs to call you.</p>
         {[
-          ["01", "Now — 10-minute setup form.", "Tell us your apps and connect them with secure logins (no passwords shared)."],
-          ["02", "Day 1 — build starts.", "You get a project page with progress you can check any time."],
+          ["01", "Now — 10-minute setup form.", "Tell us your apps and who signs off. You connect apps later with their own secure logins — no passwords shared."],
+          ["02", "Build starts.", "You get a progress update at each step, and one point of contact."],
           ["03", "Before go-live — approve a test run", "in one click. Nothing goes live until you do."],
           ["04", "Go-live", "plus your live results panel and handover document."],
         ].map(([n, b, r], i) => (
@@ -66,6 +66,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
             <span><b>{b}</b> {r}</span>
           </div>
         ))}
+        <Link href={`/setup/?plan=${items.map((p) => p.id).join(",")}`} className="btn btn-primary">Start my 10-minute setup form →</Link>
         <Link href="/" className="btn btn-outline">Back to the shop</Link>
       </main>
     );

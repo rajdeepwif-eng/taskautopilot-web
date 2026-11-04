@@ -8,6 +8,10 @@ export type Touch = { source: string; medium: string; campaign: string; ref: str
 const FIRST = "ta-first-touch";
 const LAST = "ta-last-touch";
 
+/** Marketing data persists only after cookie consent; otherwise it lasts for this visit only. */
+const store = () => { try { return localStorage.getItem("ta-consent") === "yes" ? localStorage : sessionStorage; } catch { return sessionStorage; } };
+const REF = "ta-ref";
+
 export function captureTouch() {
   try {
     const q = new URLSearchParams(window.location.search);
@@ -21,8 +25,11 @@ export function captureTouch() {
       landing: window.location.pathname,
       at: new Date().toISOString(),
     };
-    if (!localStorage.getItem(FIRST)) localStorage.setItem(FIRST, JSON.stringify(t));
-    if (has || !localStorage.getItem(LAST)) localStorage.setItem(LAST, JSON.stringify(t));
+    const st = store();
+    if (!st.getItem(FIRST)) st.setItem(FIRST, JSON.stringify(t));
+    if (has || !st.getItem(LAST)) st.setItem(LAST, JSON.stringify(t));
+    // The partner code alone is kept so the referrer can be credited if the visitor buys on a later visit.
+    if (t.ref) localStorage.setItem(REF, t.ref);
   } catch { /* storage blocked — attribution is best-effort */ }
 }
 
@@ -41,18 +48,19 @@ function referrerSource() {
 
 export function readTouches(): { first: Touch | null; last: Touch | null } {
   try {
-    return { first: JSON.parse(localStorage.getItem(FIRST) || "null"), last: JSON.parse(localStorage.getItem(LAST) || "null") };
+    const st = store();
+    const first = JSON.parse(st.getItem(FIRST) || localStorage.getItem(FIRST) || "null");
+    const last = JSON.parse(st.getItem(LAST) || localStorage.getItem(LAST) || "null");
+    const ref = localStorage.getItem(REF) || "";
+    if (ref && last && !last.ref) last.ref = ref;
+    return { first, last: last ?? (ref ? { source: "", medium: "referral", campaign: "", ref, gclid: "", landing: "", at: "" } : null) };
   } catch { return { first: null, last: null }; }
 }
 
 /** Sends a lead or reservation with its attribution. Returns true only if it really went out. */
 export async function sendLead(kind: string, data: Record<string, unknown>): Promise<boolean> {
   const payload = { kind, data, attribution: readTouches(), page: typeof window !== "undefined" ? window.location.pathname : "", sentAt: new Date().toISOString() };
-  try {
-    const log = JSON.parse(localStorage.getItem("ta-leads") || "[]");
-    log.push(payload);
-    localStorage.setItem("ta-leads", JSON.stringify(log.slice(-20)));
-  } catch { /* ignore */ }
+  try { (window as unknown as { __taLastLead?: unknown }).__taLastLead = payload; } catch { /* ignore */ }
   if (!FORMS_LIVE || !LEAD_ENDPOINT) return false;
   try {
     const r = await fetch(LEAD_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });

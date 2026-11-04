@@ -323,7 +323,7 @@ export default function MarketClient() {
               </>
             )}
             <button type="button" onClick={() => setCartOpen(false)} className="btn btn-outline">Keep browsing</button>
-            <div className="mt-2 text-[12px] text-muted">Prices set in US$ and shown in your chosen currency. Final scope confirmed on your setup form.</div>
+            <div className="mt-2 text-[12px] text-muted">UK, Australian and Canadian prices are fixed local prices; other currencies are shown for guidance. Final scope confirmed on your setup form.</div>
           </aside>
         </div>
       )}

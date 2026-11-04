@@ -10,9 +10,9 @@ type Item = { step: string; who: string; how: string; done: boolean | null };
 /** Internal: what's left before launch. Ticks come from the live site settings; null = can't be checked from the site. */
 const ITEMS: [string, Item[]][] = [
   ["1 · Foundations", [
-    { step: "Custom domain live", who: "You → me", how: "Buy the domain, add DNS records, then I set NEXT_PUBLIC_SITE_URL and the base path in the deploy workflow.", done: !ON_TEMP_DOMAIN },
+    { step: "Custom domain live", who: "You → me", how: "Buy the domain, add DNS records, then I set NEXT_PUBLIC_SITE_URL and remove the /taskautopilot-web base path in the deploy workflow.", done: !ON_TEMP_DOMAIN },
     { step: "Google Search Console + sitemap submitted", who: "You", how: `Verify the domain, then submit ${SITE}/sitemap.xml.`, done: null },
-    { step: "Legal pages signed off by attorney", who: "You + attorney", how: "Terms, refunds (incl. 6-month minimum and how the $99 starter is treated), privacy (incl. cookies), partner and referral terms.", done: null },
+    { step: "Legal pages signed off by attorney", who: "You + attorney", how: "Terms, refunds (incl. 6-month minimum and how the $99 starter is treated), privacy (incl. cookies, and the partner-code we keep in the browser to credit referrers), partner and referral terms.", done: null },
     { step: "Company details on the site", who: "You → me", how: "Legal name, address, phone and support email — and a local address/phone per country if you have them.", done: null },
   ]],
   ["2 · Taking leads and money", [
@@ -22,6 +22,7 @@ const ITEMS: [string, Item[]][] = [
     { step: "Forms switched on (after an end-to-end test)", who: "Me", how: "FORMS_LIVE = true. Forms then promise a reply within 1 business day.", done: Launch.FORMS_LIVE },
     { step: "Lead owner: Raj replies within 1 business day from day one", who: "You", how: "Slack alerts tag you.", done: null },
     { step: "Stripe connected, card payments on", who: "You → me", how: "Create the Stripe account; I connect Stripe Checkout and set PAYMENTS_LIVE = true.", done: Launch.PAYMENTS_LIVE },
+    { step: "Client progress updates process", who: "You", how: "Checkout promises an update at each step: decide who sends them (email or Slack) before payments go live.", done: null },
     { step: "Next build start date set (capacity)", who: "You", how: "Tell me the first free start date; it shows on checkout and offer pages. Update it weekly.", done: !!Launch.NEXT_BUILD_START },
   ]],
   ["3 · Marketing switches", [

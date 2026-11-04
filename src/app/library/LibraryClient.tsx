@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CatArt } from "@/components/CatArt";
 import { PAYMENTS_LIVE } from "@/lib/launch";
 import { LiveBy } from "@/components/StoreBar";
+import { SITE } from "@/lib/geo";
 import {
   BUNDLES,
   CATEGORIES,
@@ -220,8 +221,8 @@ export default function LibraryClient() {
           )}
           <div className="text-sm text-[#C9C7C0]">+ Suggested: <b className="text-white">{runText}</b></div>
           <Link href={`/checkout?plan=${plan.join(",")}`} className="btn btn-primary">Go to checkout →</Link>
-          <button type="button" className="btn border border-paper bg-transparent text-paper">Email me this as a quote</button>
-          <div className="text-xs text-[#A9ADB4]">Placeholder prices. Final scope confirmed on your setup form.</div>
+          <a href={`mailto:?subject=${encodeURIComponent("Automation quote — TaskAutopilot")}&body=${encodeURIComponent(planItems.map((p) => `• ${p.name} — ${p.monthly ? fmt(p.price) + "/mo" : fmt(p.price)}`).join("\n") + `\n\nOne-off total: ${fmt(oneOff - discount)}${monthly ? ` + ${fmt(monthly)}/mo` : ""}\nCheckout: ${SITE}/checkout/?plan=${plan.join(",")}`)}`} className="btn border border-paper bg-transparent text-paper no-underline">Email me this as a quote</a>
+          <div className="text-xs text-[#A9ADB4]">Fixed prices. Final scope confirmed on your setup form.</div>
           <div className="flex flex-col gap-2 border-t border-[#2B2E33] pt-3.5">
             <div className="font-semibold">Need something custom?</div>
             <div className="text-sm text-[#C9C7C0]">Build your brief in 5 minutes and get a fixed quote in 48 hours.</div>
