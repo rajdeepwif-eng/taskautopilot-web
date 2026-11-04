@@ -6,6 +6,7 @@ import HeroSearch from "@/components/HeroSearch";
 import heroImg from "@/assets/hero.jpg";
 import { COUNTRIES, Country, EDITIONS, alternates, money, loc, seoTitle } from "@/lib/geo";
 import { SRCSET } from "@/lib/srcset";
+import SwitchOn from "@/components/SwitchOn";
 
 export function generateStaticParams() {
   return EDITIONS.map((country) => ({ country }));
@@ -30,7 +31,9 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
         <div className="wrap flex flex-wrap items-center gap-10 pb-12 pt-10">
           <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
             <div className="kicker">Everyday tasks, automated for you · {C.name}</div>
-            <h1 className="m-0 font-display text-[clamp(34px,6vw,56px)] font-bold leading-[1.04] tracking-tight">Things get done — without you doing them.</h1>
+            <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
+            <span className="inline-flex items-center gap-3"><SwitchOn size={44} />Switch on.</span><br />Get your time back.
+          </h1>
             <p className="m-0 max-w-[620px] text-xl leading-normal text-ink-2">We set up the automations that get you paid, booked and followed up — fixed price in {C.sym} ({C.tax}), tested with you, most live in 1–3 weeks. No sales call.</p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:hidden" />

@@ -10,6 +10,7 @@ import AppChecker from "@/components/AppChecker";
 import { APP_GROUPS } from "@/lib/apps";
 import { PRODUCTS, byId, fmt } from "@/lib/catalogue";
 import { SRCSET } from "@/lib/srcset";
+import SwitchOn from "@/components/SwitchOn";
 
 const RUN_LOG = [
   ["03:45", "Bank reconciliation — lines matched", "ok"],
@@ -56,8 +57,8 @@ export default function Home() {
       <div className="wrap relative flex flex-wrap items-center gap-10 pt-10 pb-12">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
           <div className="kicker">Everyday tasks, automated for you · built by business owners</div>
-          <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
-            Things get done — without you doing them.
+<h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
+            <span className="inline-flex items-center gap-3"><SwitchOn size={44} />Switch on.</span><br />Get your time back.
           </h1>
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
             We set up the automations that get you paid, booked and followed up — fixed price, tested with you, most live in 1–3 weeks. No sales call.

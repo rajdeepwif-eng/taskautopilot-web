@@ -6,12 +6,11 @@ import "./globals.css";
 import FooterFixes from "@/components/FooterFixes";
 import Attribution from "@/components/Attribution";
 import Analytics from "@/components/Analytics";
-import heroImg from "@/assets/hero.jpg";
 import { SITE } from "@/lib/geo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE + "/"),
-  openGraph: { type: "website", siteName: "TaskAutoMode", images: [heroImg.src] },
+  openGraph: { type: "website", siteName: "TaskAutoMode", images: [{ url: `${SITE}/og.png`, width: 1200, height: 630, alt: "TaskAutoMode — Switch on. Get your time back." }] },
   alternates: { canonical: "./" },
   twitter: { card: "summary_large_image" },
   title: "TaskAutoMode — everyday tasks, automated for you",
