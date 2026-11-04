@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Logo } from "@/components/CatArt";
 import CurrencySwitch, { CurrencyApplier } from "@/components/Currency";
 import { HeaderSearch, PlanLink } from "@/components/StoreBar";
 import "./globals.css";
@@ -25,15 +24,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-sans antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [
-          { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutoMode", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
+          { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutoMode", slogan: "Everyday tasks, automated for you", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
           { "@type": "WebSite", name: "TaskAutoMode", url: `${SITE}/`, potentialAction: { "@type": "SearchAction", target: `${SITE}/library/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
         ] }) }} />
         <header>
           <div className="bg-[#131921] text-white">
             <div className="mx-auto flex max-w-[1500px] items-center gap-3 px-3 py-2 sm:gap-4 sm:px-4">
               <Link href="/" className="flex shrink-0 items-center gap-2 rounded px-1 py-1 text-white no-underline hover:outline hover:outline-1 hover:outline-white">
-                <Logo size={26} />
-                <span className="text-[17px] font-extrabold tracking-tight sm:text-[20px]">Task<span className="text-[#FF9900]">AutoMode</span></span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${process.env.PAGES_BASE_PATH || ""}/logo-header.svg`} alt="TaskAutoMode — everyday tasks, automated for you" width={190} height={30} className="h-[26px] w-auto sm:h-[34px]" />
               </Link>
               <div className="hidden min-w-0 flex-1 md:flex"><HeaderSearch /></div>
               <div className="shrink-0 [&_select]:!border-0 [&_select]:!bg-transparent [&_select]:!text-white [&_select]:!py-1 [&_option]:text-black"><CurrencySwitch /></div>

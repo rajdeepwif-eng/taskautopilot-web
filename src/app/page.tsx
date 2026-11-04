@@ -55,7 +55,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-white">
       <div className="wrap relative flex flex-wrap items-center gap-10 pt-10 pb-12">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
-          <div className="kicker">Done-for-you automation · built by business owners</div>
+          <div className="kicker">Everyday tasks, automated for you · built by business owners</div>
           <h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
             Things get done — without you doing them.
           </h1>

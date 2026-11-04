@@ -29,7 +29,7 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
       <section className="bg-white">
         <div className="wrap flex flex-wrap items-center gap-10 pb-12 pt-10">
           <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
-            <div className="kicker">Done-for-you automation · {C.name}</div>
+            <div className="kicker">Everyday tasks, automated for you · {C.name}</div>
             <h1 className="m-0 font-display text-[clamp(34px,6vw,56px)] font-bold leading-[1.04] tracking-tight">Things get done — without you doing them.</h1>
             <p className="m-0 max-w-[620px] text-xl leading-normal text-ink-2">We set up the automations that get you paid, booked and followed up — fixed price in {C.sym} ({C.tax}), tested with you, most live in 1–3 weeks. No sales call.</p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
