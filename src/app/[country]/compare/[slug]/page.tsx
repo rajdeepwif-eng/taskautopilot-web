@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ country: 
   const c = compareBySlug(slug);
   const k = country as Country;
   const t = `${loc(c.metaTitle, k)} (${k === "uk" ? "UK" : k === "au" ? "Australia" : "Canada"})`;
-  return { title: { absolute: t.length <= 45 ? `${t} | TaskAutopilot` : t }, description: metaDesc(localPrices(loc(c.metaDescription, k), k)), alternates: alternates(`/compare/${slug}/`, k) };
+  return { title: { absolute: t.length <= 45 ? `${t} | TaskAutoMode` : t }, description: metaDesc(localPrices(loc(c.metaDescription, k), k)), alternates: alternates(`/compare/${slug}/`, k) };
 }
 
 export default async function Page({ params }: { params: Promise<{ country: string; slug: string }> }) {

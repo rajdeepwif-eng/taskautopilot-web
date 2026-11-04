@@ -3,7 +3,7 @@ import Link from "next/link";
 import { byId } from "@/lib/catalogue";
 import { CatArt } from "@/components/CatArt";
 
-export const metadata: Metadata = { title: "Try one automation for $99 — TaskAutopilot", description: "Pick one starter automation. We set it up in your accounts and it runs for 30 days. $99 credited if you upgrade." };
+export const metadata: Metadata = { title: "Try one automation for $99 — TaskAutoMode", description: "Pick one starter automation. We set it up in your accounts and it runs for 30 days. $99 credited if you upgrade." };
 
 const OPTIONS: { key: string; name: string; what: string; full: number }[] = [
   { key: "missed-calls", name: "Missed-call text-back", what: "Every call you miss gets a text within a minute with your booking link.", full: 11 },

@@ -221,7 +221,7 @@ export default function LibraryClient() {
           )}
           <div className="text-sm text-[#C9C7C0]">+ Suggested: <b className="text-white">{runText}</b></div>
           <Link href={`/checkout?plan=${plan.join(",")}`} className="btn btn-primary">Go to checkout →</Link>
-          <a href={`mailto:?subject=${encodeURIComponent("Automation quote — TaskAutopilot")}&body=${encodeURIComponent(planItems.map((p) => `• ${p.name} — ${p.monthly ? fmt(p.price) + "/mo" : fmt(p.price)}`).join("\n") + `\n\nOne-off total: ${fmt(oneOff - discount)}${monthly ? ` + ${fmt(monthly)}/mo` : ""}\nCheckout: ${SITE}/checkout/?plan=${plan.join(",")}`)}`} className="btn border border-paper bg-transparent text-paper no-underline">Email me this as a quote</a>
+          <a href={`mailto:?subject=${encodeURIComponent("Automation quote — TaskAutoMode")}&body=${encodeURIComponent(planItems.map((p) => `• ${p.name} — ${p.monthly ? fmt(p.price) + "/mo" : fmt(p.price)}`).join("\n") + `\n\nOne-off total: ${fmt(oneOff - discount)}${monthly ? ` + ${fmt(monthly)}/mo` : ""}\nCheckout: ${SITE}/checkout/?plan=${plan.join(",")}`)}`} className="btn border border-paper bg-transparent text-paper no-underline">Email me this as a quote</a>
           <div className="text-xs text-[#A9ADB4]">Fixed prices. Final scope confirmed on your setup form.</div>
           <div className="flex flex-col gap-2 border-t border-[#2B2E33] pt-3.5">
             <div className="font-semibold">Need something custom?</div>
@@ -307,7 +307,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
               <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
             </>)}
-            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund of the build fee</span></>}</div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutoMode</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund of the build fee</span></>}</div>
             <div className="text-sm leading-relaxed text-ink-2">
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
               {!p.monthly && p.id !== 120 && <><br />✓ You own it — documented handover</>}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import KitClient from "./KitClient";
 
 export const metadata: Metadata = {
-  title: { absolute: "Sales kit | TaskAutopilot" },
+  title: { absolute: "Sales kit | TaskAutoMode" },
   robots: { index: false, follow: false },
 };
 

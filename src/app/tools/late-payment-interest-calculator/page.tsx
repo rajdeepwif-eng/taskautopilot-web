@@ -7,7 +7,7 @@ import { REFERENCE_RATE } from "./rate";
 const URL = `${SITE}/tools/late-payment-interest-calculator/`;
 
 export const metadata: Metadata = {
-  title: { absolute: "Late payment interest calculator (UK) | TaskAutopilot" },
+  title: { absolute: "Late payment interest calculator (UK) | TaskAutoMode" },
   description: `Work out statutory interest (8% + ${REFERENCE_RATE}% Bank of England reference rate) and fixed compensation on a late business invoice. Free, UK.`,
   alternates: { canonical: "./", languages: { "en-GB": URL } },
 };

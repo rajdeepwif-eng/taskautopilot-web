@@ -12,10 +12,10 @@ import { SITE } from "@/lib/geo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE + "/"),
-  openGraph: { type: "website", siteName: "TaskAutopilot", images: [heroImg.src] },
+  openGraph: { type: "website", siteName: "TaskAutoMode", images: [heroImg.src] },
   alternates: { canonical: "./" },
   twitter: { card: "summary_large_image" },
-  title: "TaskAutopilot — things get done without you doing them",
+  title: "TaskAutoMode — everyday tasks, automated for you",
   description:
     "Ready-made AI automations, booking websites and local SEO for every kind of business. See how each one works, see the price, pay online.",
 };
@@ -25,15 +25,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-sans antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [
-          { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutopilot", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
-          { "@type": "WebSite", name: "TaskAutopilot", url: `${SITE}/`, potentialAction: { "@type": "SearchAction", target: `${SITE}/library/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
+          { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutoMode", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
+          { "@type": "WebSite", name: "TaskAutoMode", url: `${SITE}/`, potentialAction: { "@type": "SearchAction", target: `${SITE}/library/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
         ] }) }} />
         <header>
           <div className="bg-[#131921] text-white">
             <div className="mx-auto flex max-w-[1500px] items-center gap-3 px-3 py-2 sm:gap-4 sm:px-4">
               <Link href="/" className="flex shrink-0 items-center gap-2 rounded px-1 py-1 text-white no-underline hover:outline hover:outline-1 hover:outline-white">
-                <Logo />
-                <span className="text-[16px] font-bold tracking-tight sm:text-[19px]">TaskAutopilot</span>
+                <Logo size={26} />
+                <span className="text-[17px] font-extrabold tracking-tight sm:text-[20px]">Task<span className="text-[#FF9900]">AutoMode</span></span>
               </Link>
               <div className="hidden min-w-0 flex-1 md:flex"><HeaderSearch /></div>
               <div className="shrink-0 [&_select]:!border-0 [&_select]:!bg-transparent [&_select]:!text-white [&_select]:!py-1 [&_option]:text-black"><CurrencySwitch /></div>
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex flex-col gap-2"><b className="text-white">Industries</b><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/integrations/xero/">Xero</Link><Link href="/integrations/quickbooks/">QuickBooks</Link><Link href="/integrations/jobber/">Jobber</Link><Link href="/integrations/servicem8/">ServiceM8</Link><span className="flex gap-3"><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link></span></div>
             <div className="flex flex-col gap-2"><b className="text-white">Policies</b><Link href="/legal/terms/">Terms</Link><Link href="/legal/refunds/">Refunds</Link><Link href="/legal/privacy/">Privacy</Link><Link href="/legal/dpa/">Data processing</Link><Link href="/#security">Security</Link></div>
           </div>
-          <div className="wrap border-t border-[#3A4553] py-4 text-[13px]">© 2026 TaskAutopilot · UK, Australian and Canadian pages show fixed local prices; other pages convert from US$ for guidance</div>
+          <div className="wrap border-t border-[#3A4553] py-4 text-[13px]">© 2026 TaskAutoMode · UK, Australian and Canadian pages show fixed local prices; other pages convert from US$ for guidance</div>
         </footer>
       </body>
     </html>

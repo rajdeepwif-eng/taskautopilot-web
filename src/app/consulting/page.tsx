@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AuditForm from "./AuditForm";
 
-export const metadata: Metadata = { title: "Consulting for larger teams — TaskAutopilot" };
+export const metadata: Metadata = { title: "Consulting for larger teams — TaskAutoMode" };
 
 const STEPS = [
   { n: "Step 1 · Audit & roadmap", t: "Find the hours", d: "Interviews with each team, process maps, and every task ranked by hours saved and payback — with a fixed quote for each build.", m: "1–3 weeks · report, roadmap, quotes", p: "$7,500–20,000", s: "Credited against the build if you go ahead", hl: true },

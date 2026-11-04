@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ trade: st
   const line = s.trades.find(([k]) => k === trade)?.[1] ?? "";
   const t = tradeFixTitle(trade, fix);
   return {
-    title: { absolute: t.length <= 45 ? `${t} | TaskAutopilot` : t },
+    title: { absolute: t.length <= 45 ? `${t} | TaskAutoMode` : t },
     description: metaDesc(`${line} Fixed price, tested with you, live in days. Approve the test run or get the build fee back.`),
     alternates: { canonical: "./" },
     openGraph: TRADE_PHOTOS[trade] ? { images: [TRADE_PHOTOS[trade].src] } : undefined,

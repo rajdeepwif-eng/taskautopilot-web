@@ -186,7 +186,7 @@ export default function PlannerClient() {
   const hasLead = s.picked.some((id) => TASKS.find((t) => t.id === id)?.lead);
 
   const summary = () => [
-    `My automation plan (TaskAutopilot planner)`,
+    `My automation plan (TaskAutoMode planner)`,
     ...chosen.map((r) => `• ${r.p.name} — ${r.p.monthly ? fmt(r.p.price) + "/mo" : fmt(r.p.price)} (pays back in ${r.paybackWeeks} wks)`),
     `Build total: ${fmt(oneOff - discount)}${monthly ? ` + ${fmt(monthly)}/mo` : ""}`,
     `Estimated value: ${fmt(yearly)}/yr · ${Math.round(hoursBack)} hrs back a week · pays back in ${payback} wks`,

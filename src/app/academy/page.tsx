@@ -5,7 +5,7 @@ import { CatArt } from "@/components/CatArt";
 import { LIVE_WORKFLOWS } from "@/components/OwnAutomations";
 
 export const metadata: Metadata = {
-  title: "TaskAutopilot Academy — automation courses for owners and teams",
+  title: "TaskAutoMode Academy — automation courses for owners and teams",
   description: "Learn to automate your own business from owners who run 43 live automations. Self-paced courses, a live cohort and team workshops.",
 };
 
@@ -14,7 +14,7 @@ export default function AcademyPage() {
   return (
     <main>
       <section className="wrap flex flex-col gap-4 pb-8 pt-14">
-        <div className="kicker">TaskAutopilot Academy</div>
+        <div className="kicker">TaskAutoMode Academy</div>
         <h1 className="m-0 max-w-[900px] font-display text-[clamp(34px,5vw,54px)] font-bold leading-[1.04] tracking-tight">Learn to automate your own business — from owners who run {LIVE_WORKFLOWS} live automations.</h1>
         <p className="m-0 max-w-[720px] text-lg text-ink-2">Free tutorials teach the tool. Ours teach the business: what to automate first, how to keep it reliable, and how to make your team use it. Each lesson is built to end with something working.</p>
         <div className="flex flex-wrap gap-4 text-sm text-ink-2"><span>✓ Real workflows we run ourselves</span><span>✓ Templates you keep</span><span>✓ Approval steps built in — nothing runs without your yes</span></div>

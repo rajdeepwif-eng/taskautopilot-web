@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Your results panel — TaskAutopilot", description: "Every build includes a results panel showing hours saved, inquiries answered and money collected." };
+export const metadata: Metadata = { title: "Your results panel — TaskAutoMode", description: "Every build includes a results panel showing hours saved, inquiries answered and money collected." };
 
 const TILES = [
   ["Hours handed back this month", "62"], ["Inquiries answered in under 1 minute", "214"],

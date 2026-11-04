@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PartnerForm from "./PartnerForm";
 import PartnerKit from "./PartnerKit";
 
-export const metadata: Metadata = { title: { absolute: "Referral partner program for accountants | TaskAutopilot" }, description: "Introduce clients who are drowning in admin. They get automations; you get a referral fee." };
+export const metadata: Metadata = { title: { absolute: "Referral partner program for accountants | TaskAutoMode" }, description: "Introduce clients who are drowning in admin. They get automations; you get a referral fee." };
 
 export default function PartnersPage() {
   return (

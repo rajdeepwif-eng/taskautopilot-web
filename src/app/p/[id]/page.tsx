@@ -21,7 +21,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     "@type": "Product",
     name: p.name,
     description: p.desc,
-    brand: { "@type": "Brand", name: "TaskAutopilot" },
+    brand: { "@type": "Brand", name: "TaskAutoMode" },
     category: p.cat,
     offers: {
       "@type": "Offer",

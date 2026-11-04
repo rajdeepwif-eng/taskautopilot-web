@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import CheckoutFromQuery from "./CheckoutFromQuery";
 
-export const metadata: Metadata = { title: "Secure checkout — TaskAutopilot" };
+export const metadata: Metadata = { title: "Secure checkout — TaskAutoMode" };
 
 export default function CheckoutPage() {
   return (

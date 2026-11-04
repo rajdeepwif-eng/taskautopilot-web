@@ -13,7 +13,7 @@ const TRADES: [string, string, string][] = [
 const SOURCES: [string, string][] = [["visit", "Door-to-door visit"], ["call", "Phone call follow-up"], ["event", "Trade show or event"], ["partner", "Partner (accountant / bookkeeper)"], ["mail", "Letter or postcard"]];
 
 const SCRIPT: [string, string][] = [
-  ["Open (10 sec)", "\"Hi, I'm ___ from TaskAutopilot. Quick one — when you're on a job and the phone rings, what happens to that call?\""],
+  ["Open (10 sec)", "\"Hi, I'm ___ from TaskAutoMode. Quick one — when you're on a job and the phone rings, what happens to that call?\""],
   ["Listen", "Let them answer. Most say it goes to voicemail or they call back later. Ask: \"How many of those do you think never call back?\""],
   ["Show (30 sec)", "Open the demo on your phone (scan the flyer QR) and press play: missed call → text back → booked."],
   ["Offer", "\"We'll set that up for you for $99. It runs for 30 days, and if you keep going the $99 comes off the price.\""],
@@ -72,7 +72,7 @@ export default function KitClient() {
 
       {/* The flyer (A5-friendly). Only this prints. */}
       <section className="print-sheet mx-auto flex w-full max-w-[560px] flex-col gap-4 rounded-xl border-2 border-ink bg-white p-7 text-ink">
-        <div className="text-[13px] font-bold uppercase tracking-wide text-clay">TaskAutopilot · for {trade[1].toLowerCase()}</div>
+        <div className="text-[13px] font-bold uppercase tracking-wide text-clay">TaskAutoMode · for {trade[1].toLowerCase()}</div>
         <div className="font-display text-[30px] font-bold leading-tight">Stop losing jobs to missed calls.</div>
         <p className="m-0 text-[17px]">{trade[2]}</p>
         <ul className="m-0 flex list-none flex-col gap-1 p-0 text-[16px]">

@@ -17,7 +17,7 @@ export default function PartnerKit() {
 
 Hi {client name},
 
-You mentioned how much time goes on chasing invoices and calls. A team we work with, TaskAutopilot, sets up fixed-price automations for exactly this — reminders that go out on their own, calls texted back, bills booked into the accounts.
+You mentioned how much time goes on chasing invoices and calls. A team we work with, TaskAutoMode, sets up fixed-price automations for exactly this — reminders that go out on their own, calls texted back, bills booked into the accounts.
 
 You can try one for $99 (set up for you, credited if you carry on). Have a look here — there's a 30-second demo:
 ${url}

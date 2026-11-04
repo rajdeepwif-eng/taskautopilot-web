@@ -38,7 +38,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ doc: string }> }): Promise<Metadata> {
   const { doc } = await params;
-  return { title: `${TITLES[doc] ?? "Legal"} — TaskAutopilot`, robots: { index: false } };
+  return { title: `${TITLES[doc] ?? "Legal"} — TaskAutoMode`, robots: { index: false } };
 }
 
 export default async function LegalPage({ params }: { params: Promise<{ doc: string }> }) {

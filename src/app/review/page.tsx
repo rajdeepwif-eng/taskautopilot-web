@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { GOOGLE_REVIEW_URL } from "@/lib/launch";
 
-export const metadata: Metadata = { title: { absolute: "Leave us a review | TaskAutopilot" }, robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: { absolute: "Leave us a review | TaskAutoMode" }, robots: { index: false, follow: false } };
 
 /** One short link for clients (e.g. in the handover email) that goes to the Google review form. */
 export default function ReviewPage() {

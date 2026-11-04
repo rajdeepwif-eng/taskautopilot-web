@@ -4,7 +4,7 @@ import AddToCart from "@/components/AddToCart";
 import { BUNDLES, PRODUCTS, byId, fmt, priceLabel } from "@/lib/catalogue";
 import { CatArt } from "@/components/CatArt";
 
-export const metadata: Metadata = { title: "Industry kits & DIY kits — TaskAutopilot", description: "One-price industry kits for your industry, or do-it-yourself kits from $99." };
+export const metadata: Metadata = { title: "Industry kits & DIY kits — TaskAutoMode", description: "One-price industry kits for your industry, or do-it-yourself kits from $99." };
 
 export default function KitsPage() {
   const kits = BUNDLES.filter((b) => b.kit);

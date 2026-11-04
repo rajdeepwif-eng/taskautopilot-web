@@ -3,7 +3,7 @@ import * as Launch from "@/lib/launch";
 import { ON_TEMP_DOMAIN, SITE } from "@/lib/geo";
 import { PARTNERS } from "@/data/partners";
 
-export const metadata: Metadata = { title: { absolute: "Launch checklist | TaskAutopilot" }, robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: { absolute: "Launch checklist | TaskAutoMode" }, robots: { index: false, follow: false } };
 
 type Item = { step: string; who: string; how: string; done: boolean | null };
 
@@ -17,7 +17,7 @@ const ITEMS: [string, Item[]][] = [
     { step: "Company details on the site", who: "You → me", how: "Legal name, address, phone and support email — and a local address/phone per country if you have them.", done: null },
   ]],
   ["2 · Taking leads and money", [
-    { step: "Lead storage: Airtable base 'TaskAutopilot Leads'", who: "You", how: "One table: type, name, email, items, total, heard-about-us, partner code, source, campaign, date.", done: null },
+    { step: "Lead storage: Airtable base 'TaskAutoMode Leads'", who: "You", how: "One table: type, name, email, items, total, heard-about-us, partner code, source, campaign, date.", done: null },
     { step: "Slack alert channel", who: "You", how: "e.g. #taskautopilot-leads — every new lead and reservation posts here.", done: null },
     { step: "Form webhook (n8n) connected", who: "Me, after you approve", how: "Webhook → validate → Airtable → Slack. Then set LEAD_ENDPOINT.", done: !!Launch.LEAD_ENDPOINT },
     { step: "Forms switched on (after an end-to-end test)", who: "Me", how: "FORMS_LIVE = true. Forms then promise a reply within 1 business day.", done: Launch.FORMS_LIVE },

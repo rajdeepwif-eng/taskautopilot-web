@@ -20,7 +20,7 @@ const SHORT: Record<string, Partial<Record<Country, string>>> = {
   "profit-dashboard": { us: "Small business profit dashboard & monthly reports", ca: "Profit dashboard for Canadian small businesses", uk: "Management accounts pack & profit dashboard", au: "Monthly management reports & profit dashboard" },
 };
 /** Search-result title: ≤60 characters so Google doesn't cut it; brand added only when it fits. */
-export const solutionMetaTitle = (slug: string, c: Country) => { const t = SHORT[slug]?.[c] ?? solutionTitle(slug, c); return t.length <= 45 ? `${t} | TaskAutopilot` : t; };
+export const solutionMetaTitle = (slug: string, c: Country) => { const t = SHORT[slug]?.[c] ?? solutionTitle(slug, c); return t.length <= 45 ? `${t} | TaskAutoMode` : t; };
 export const solutionTitle = (slug: string, c: Country) => { const s = solutionBySlug(slug); return s.local[c] ?? s.title; };
 
 export default function SolutionView({ slug, country }: { slug: string; country: Country }) {
@@ -40,7 +40,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
         { "@type": "ListItem", position: 2, name: s.short, item: `${base}/solutions/${s.slug}/` },
       ] },
       { "@type": "FAQPage", mainEntity: s.faq.map(([q, a]) => ({ "@type": "Question", name: L(q), acceptedAnswer: { "@type": "Answer", text: L(a) } })) },
-      { "@type": "Service", name: L(main.name), provider: { "@type": "Organization", name: "TaskAutopilot" }, areaServed: country === "us" ? "US" : country === "uk" ? "GB" : country.toUpperCase(), offers: { "@type": "Offer", price: main.price, priceCurrency: "USD" } },
+      { "@type": "Service", name: L(main.name), provider: { "@type": "Organization", name: "TaskAutoMode" }, areaServed: country === "us" ? "US" : country === "uk" ? "GB" : country.toUpperCase(), offers: { "@type": "Offer", price: main.price, priceCurrency: "USD" } },
     ],
   };
   return (

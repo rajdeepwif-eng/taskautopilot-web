@@ -10,7 +10,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const c = compareBySlug(slug);
-  return { title: { absolute: c.metaTitle.length <= 45 ? `${c.metaTitle} | TaskAutopilot` : c.metaTitle }, description: metaDesc(c.metaDescription), alternates: alternates(`/compare/${slug}/`, "us") };
+  return { title: { absolute: c.metaTitle.length <= 45 ? `${c.metaTitle} | TaskAutoMode` : c.metaTitle }, description: metaDesc(c.metaDescription), alternates: alternates(`/compare/${slug}/`, "us") };
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

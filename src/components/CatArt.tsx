@@ -46,14 +46,17 @@ export function CatArt({ cat, size = 56 }: { cat: string; size?: number }) {
   );
 }
 
-/** TaskAutopilot mark: a task path that ends in a tick, inside a rounded square. Original design. */
+/** TaskAutoMode mark: a switch turned ON — task lines go in, a tick comes out. */
 export function Logo({ size = 30 }: { size?: number }) {
+  const w = Math.round(size * 1.82);
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill="#15171A" />
-      <circle cx="8" cy="22" r="2.2" fill="#F2B36B" />
-      <path d="M10 21c4-1 5-9 9-10" fill="none" stroke="#F4F3EE" strokeWidth="2.2" strokeLinecap="round" strokeDasharray="0.1 3.6" />
-      <path d="M17.5 12.5l3 3 6-7" fill="none" stroke="#B23A0B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width={w} height={size} viewBox="0 0 200 110" aria-hidden="true">
+      <rect width="200" height="110" rx="55" fill="#FF9900" />
+      <rect x="30" y="26" width="48" height="10" rx="5" fill="#FFFFFF" opacity="0.95" />
+      <rect x="30" y="50" width="40" height="10" rx="5" fill="#FFFFFF" opacity="0.7" />
+      <rect x="30" y="74" width="32" height="10" rx="5" fill="#FFFFFF" opacity="0.45" />
+      <circle cx="145" cy="55" r="43" fill="#FFFFFF" />
+      <path d="M121 57 L138 74 L171 39" fill="none" stroke="#131921" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import IndustryPage from "@/components/IndustryPage";
 
-export const metadata: Metadata = { title: "Automation for law firms — TaskAutopilot" };
+export const metadata: Metadata = { title: "Automation for law firms — TaskAutoMode" };
 
 export default function LegalFirmsPage() {
   return (
