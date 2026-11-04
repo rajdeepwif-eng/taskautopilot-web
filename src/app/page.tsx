@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { alternates } from "@/lib/geo";
+import { alternates, seoTitle } from "@/lib/geo";
 import HeroSearch from "@/components/HeroSearch";
 import TradeGrid from "@/components/TradeGrid";
 import heroImg from "@/assets/hero.jpg";
@@ -43,7 +43,7 @@ const FAQ = [
 ];
 
 export const metadata: Metadata = {
-  title: "Done-for-you business automation for small businesses | TaskAutopilot",
+  title: seoTitle("Done-for-you automation for small businesses"),
   description: "Fixed-price automations that get small businesses paid, booked and followed up: missed-call text-back, invoice reminders, reviews. Most live in 1–3 weeks.",
   alternates: alternates("/", "us"),
 };
@@ -90,9 +90,9 @@ export default function Home() {
       <section id="packages" className="wrap flex flex-col gap-5 pt-16">
         <div className="kicker">Skip the sales call</div>
         <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Start small. Fixed price. Pay online.</h2>
-        <div className="flex flex-wrap gap-4">
+        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
           {PACKAGES.map((p) => (
-            <div key={p.name} className={`flex flex-[1_1_280px] flex-col gap-3 rounded-[14px] p-6 ${p.popular ? "bg-ink text-paper" : "card"}`}>
+            <div key={p.name} className={`flex min-w-[82%] shrink-0 snap-center flex-[1_1_280px] flex-col sm:min-w-0 sm:shrink ${p.popular ? "order-first sm:order-none" : ""} gap-3 rounded-[14px] p-6 ${p.popular ? "bg-ink text-paper" : "card"}`}>
               <div className="flex items-center justify-between">
                 <div className="text-[19px] font-semibold">{p.name}</div>
                 {p.popular && <span className="rounded-xl bg-clay px-2.5 py-1 text-xs text-white">Our pick</span>}
@@ -137,8 +137,8 @@ export default function Home() {
             <div className="flex-[1_1_220px] px-4 py-3">A PERSON DOING IT BY HAND</div>
             <div className="flex-[1_1_220px] bg-clay-soft px-4 py-3 text-clay">AN AUTOMATION</div>
           </div>
-          {PERSON_VS_AUTOMATION.map(([a, b, c]) => (
-            <div key={a} className="flex flex-wrap border-t border-line">
+          {PERSON_VS_AUTOMATION.map(([a, b, c], i) => (
+            <div key={a} className={`${i >= 3 ? "hidden sm:flex" : "flex"} flex-wrap border-t border-line`}>
               <div className="flex-[1_1_200px] px-4 py-3.5 font-semibold">{a}</div>
               <div className="flex-[1_1_220px] px-4 py-3.5 text-ink-2">{b}</div>
               <div className="flex-[1_1_220px] bg-clay-soft px-4 py-3.5">{c}</div>
@@ -166,10 +166,10 @@ export default function Home() {
         <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Questions owners ask us</h2>
         <div className="flex flex-wrap gap-3">
           {FAQ.map(([q, a]) => (
-            <div key={q} className="card flex flex-[1_1_340px] flex-col gap-1.5 px-5 py-4.5">
-              <div className="font-semibold">{q}</div>
-              <div className="text-[15px] leading-normal text-ink-2">{a}</div>
-            </div>
+            <details key={q} className="card flex-[1_1_340px] self-start px-5 py-4">
+              <summary className="cursor-pointer font-semibold">{q}</summary>
+              <div className="mt-1.5 text-[15px] leading-normal text-ink-2">{a}</div>
+            </details>
           ))}
         </div>
         <div id="security" className="flex flex-col gap-2 rounded-2xl bg-ink p-6 text-paper">

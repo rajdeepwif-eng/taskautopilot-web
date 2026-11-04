@@ -4,7 +4,7 @@ import { PAYMENTS_LIVE } from "@/lib/launch";
 import TradeGrid from "@/components/TradeGrid";
 import HeroSearch from "@/components/HeroSearch";
 import heroImg from "@/assets/hero.jpg";
-import { COUNTRIES, Country, EDITIONS, alternates, money, loc } from "@/lib/geo";
+import { COUNTRIES, Country, EDITIONS, alternates, money, loc, seoTitle } from "@/lib/geo";
 import { SRCSET } from "@/lib/srcset";
 
 export function generateStaticParams() {
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ country: 
   const c = (await params).country as Country;
   const C = COUNTRIES[c];
   return {
-    title: `Business automation for ${C.adj === "UK" ? "UK" : C.adj} small businesses | TaskAutopilot`,
+    title: seoTitle(`Automation for ${C.adj === "UK" ? "UK" : C.adj} small businesses`),
     description: `Fixed-price automations for ${C.name} businesses: missed calls, bookings, invoices and reviews. Prices in ${C.sym}. Approve the test run or get a full refund.`,
     alternates: alternates("/", c),
   };

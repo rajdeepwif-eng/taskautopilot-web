@@ -7,6 +7,8 @@ import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import AddToCart from "@/components/AddToCart";
 import MissedCallCalc from "@/components/MissedCallCalc";
 import { SRCSET } from "@/lib/srcset";
+import FixDemo from "@/components/FixDemo";
+import { AUDIENCE } from "@/components/TradeFixView";
 
 const SHORT: Record<string, Partial<Record<Country, string>>> = {
   "get-paid-faster": { us: "Invoice reminder automation + free email templates", ca: "Automated invoice reminders for Canadian firms", uk: "Credit control automation for Xero & QuickBooks", au: "Automatic invoice reminders for tradies (Xero)" },
@@ -73,6 +75,8 @@ export default function SolutionView({ slug, country }: { slug: string; country:
             <li key={h} className="card flex list-none gap-3 p-5 text-[15px]"><b className="text-muted">0{i + 1}</b><span>{L(h)}</span></li>
           ))}
         </ol>
+        <div className="max-w-[640px]"><FixDemo slug={slug} country={country} /></div>
+        {(slug === "missed-calls" || slug === "ai-receptionist") && <p className="m-0 text-ink-2">Not sure which you need? <Link href={`${C.path}/compare/missed-call-text-back-vs-ai-receptionist/`}>Compare text-back vs an AI receptionist →</Link></p>}
         {slug === "missed-calls" && country === "us" && <MissedCallCalc />}
       </section>
 
@@ -110,7 +114,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
           <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">What it looks like in your business</h2>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {s.trades.map(([t, how]) => (
-              <Link key={t} href={`${C.path}/for/${t}/`} className="card flex flex-col gap-1 p-4 text-ink no-underline hover:border-[#007185]">
+              <Link key={t} href={country === "us" && AUDIENCE[t] ? `/for/${t}/${slug}/` : `${C.path}/for/${t}/`} className="card flex flex-col gap-1 p-4 text-ink no-underline hover:border-[#007185]">
                 <b className="text-[#007185]">{L(tradeBySlug(t).name)} →</b>
                 <span className="text-[15px] text-ink-2">{L(how)}</span>
               </Link>

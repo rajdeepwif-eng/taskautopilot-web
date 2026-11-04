@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { seoTitle } from "@/lib/geo";
 import IndustryPage from "@/components/IndustryPage";
 
-export const metadata: Metadata = { title: "Automation for insurance agencies & claims teams — TaskAutopilot" };
+export const metadata: Metadata = { title: seoTitle("Automation for insurance agencies & claims teams") };
 
 export default function InsurancePage() {
   return (

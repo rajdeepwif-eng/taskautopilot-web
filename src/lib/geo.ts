@@ -65,3 +65,6 @@ export const metaDesc = (t: string, max = 155) => {
   const dot = cut.lastIndexOf(". ");
   return dot > 90 ? cut.slice(0, dot + 1) : cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:—–-]+$/, "") + "…";
 };
+
+/** Search title ≤60 characters: adds the brand only when it fits. */
+export const seoTitle = (core: string) => ({ absolute: core.length <= 45 ? `${core} | TaskAutopilot` : core });

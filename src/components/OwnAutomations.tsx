@@ -74,8 +74,8 @@ export default function OwnAutomations() {
         </h2>
         <p className="m-0 max-w-[720px] text-ink-2">We built these for our own equipment rental, food, farming and property businesses first. Here are six you can buy, adapted to your apps.</p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {HIGHLIGHTS.map(([t, d]) => (
-            <div key={t} className="card flex flex-col gap-1.5 p-5">
+          {HIGHLIGHTS.map(([t, d], i) => (
+            <div key={t} className={`card ${i >= 3 ? "hidden sm:flex" : "flex"} flex-col gap-1.5 p-5`}>
               <div className="flex items-center gap-2 text-[17px] font-bold"><span className="text-ok">●</span>{t}</div>
               <div className="text-[15px] leading-snug text-ink-2">{d}</div>
             </div>

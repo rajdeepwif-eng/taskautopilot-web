@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { seoTitle } from "@/lib/geo";
 import AskClient from "./AskClient";
 
-export const metadata: Metadata = { title: "Can we automate it? Free answer in 1 business day — TaskAutopilot", description: "Describe any task. We tell you free whether we can automate it, the fixed price and how long it takes." };
+export const metadata: Metadata = { title: seoTitle("Can we automate it? Ask free"), description: "Describe any task. We tell you free whether we can automate it, the fixed price and how long it takes." };
 
 export default function AskPage() {
   return (

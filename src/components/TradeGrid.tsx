@@ -7,7 +7,7 @@ import { COUNTRIES, Country, money , loc } from "@/lib/geo";
 import { SRCSET } from "@/lib/srcset";
 
 /** Lowest one-off price in a trade's top picks — the cheapest way in. */
-const fromPrice = (ids: number[]) => Math.min(...ids.map(byId).filter((p) => p && !p.monthly).map((p) => p.price));
+const fromPrice = (ids: number[], kit?: string) => Math.min(...[...ids, ...(BUNDLES.find((b) => b.name === kit)?.ids ?? [])].map(byId).filter((p) => p && !p.monthly).map((p) => p.price));
 const kitPrice = (name: string) => { const k = BUNDLES.find((b) => b.name === name); return k ? Math.round(k.ids.map(byId).filter((p) => !p.monthly).reduce((a, p) => a + p.price, 0) * 0.9) : 0; };
 
 // Lead with the owner groups that earn the most (IRS-based study: Smith, Yagan, Zidar & Zwick, QJE 2019)
@@ -22,8 +22,8 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
       <div className="kicker">Start here</div>
       <h2 className="m-0 font-display text-[clamp(28px,4vw,40px)] font-bold">What&apos;s your business?</h2>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-        {ORDER.slice(0, 8).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t) => (
-          <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
+        {ORDER.slice(0, 8).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t, i) => (
+          <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className={`${i >= 4 ? "hidden md:flex" : "flex"} group flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink`}>
             <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
@@ -33,7 +33,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             <div className="flex flex-col gap-0.5 p-3.5">
               <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{loc(t.name, country)}</span>
               <span className="text-[12.5px] text-muted">{loc(t.short, country)}</span>
-              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
+              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top, t.kit))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
             </div>
           </Link>
         ))}
@@ -41,8 +41,8 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
       <details className="group/more">
         <summary className="btn btn-outline cursor-pointer list-none self-start [&::-webkit-details-marker]:hidden">See all {ORDER.length + 1} business types</summary>
         <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-          {ORDER.slice(8).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t) => (
-          <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
+          {ORDER.slice(4).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t, i) => (
+          <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className={`${i < 4 ? "flex md:hidden" : "flex"} group overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink`}>
             <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
@@ -52,7 +52,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             <div className="flex flex-col gap-0.5 p-3.5">
               <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{loc(t.name, country)}</span>
               <span className="text-[12.5px] text-muted">{loc(t.short, country)}</span>
-              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
+              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top, t.kit))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
             </div>
           </Link>
         ))}
