@@ -24,7 +24,7 @@ const GROUPS: { dept: string; items: string[] }[] = [
     "Live delivery slots shown at checkout",
     "Customers look up and change their own booking",
     "Daily run sheets and checklists sent to the driver",
-    "Off-hire collections scheduled with return checks",
+    "Off-rent collections scheduled with return checks",
   ]},
   { dept: "Safety & compliance", items: [
     "Failed inspection items turned into owned tasks until fixed",
@@ -34,7 +34,7 @@ const GROUPS: { dept: string; items: string[] }[] = [
   { dept: "Stock & yard", items: [
     "QR stock take, deliveries and new items logged from a phone",
     "Items taken out or put back logged by shelf QR",
-    "Diesel tank logged litre by litre, with a weekly meter check",
+    "Diesel tank logged gallon by gallon, with a weekly meter check",
     "Diesel price change alert with the new price to charge",
     "Low-stock alerts with approval to reorder",
     "Printable QR shelf labels",

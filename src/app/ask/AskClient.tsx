@@ -12,7 +12,7 @@ export default function AskClient() {
   if (sent)
     return (
       <div className="flex flex-col gap-3">
-        <div className="font-display text-3xl font-bold">Got it — we&apos;ll reply within 1 working day.</div>
+        <div className="font-display text-3xl font-bold">Got it — we&apos;ll reply within 1 business day.</div>
         <p className="m-0 text-ink-2">You&apos;ll hear from us at {f.email} with a clear yes or no, a fixed price if it&apos;s a yes, and how long it takes. No call needed, no charge for the answer.</p>
         <Link href="/library/" className="btn btn-outline self-start">Keep browsing</Link>
       </div>

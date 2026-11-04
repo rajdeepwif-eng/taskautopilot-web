@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function PartnerForm() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
-  if (sent) return <div className="flex flex-col gap-2"><div className="font-display text-2xl font-bold">Thanks — we&apos;ll be in touch.</div><div className="text-ink-2">Partner terms go to {email} within one working day.</div></div>;
+  if (sent) return <div className="flex flex-col gap-2"><div className="font-display text-2xl font-bold">Thanks — we&apos;ll be in touch.</div><div className="text-ink-2">Partner terms go to {email} within one business day.</div></div>;
   return (
     <form className="flex flex-col gap-3" onSubmit={(e) => { e.preventDefault(); if (/.+@.+\..+/.test(email)) setSent(true); }}>
       <div className="font-display text-xl font-bold">Apply to partner</div>

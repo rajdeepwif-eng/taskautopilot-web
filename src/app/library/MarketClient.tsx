@@ -147,9 +147,9 @@ export default function MarketClient() {
             type="button"
             onClick={() => { setJustAdded(null); setCartOpen(true); }}
             className="ml-auto flex min-h-[36px] cursor-pointer items-center gap-2 rounded-full border border-line bg-white px-3 text-ink"
-            aria-label={`Your plan, ${plan.length} items`}
+            aria-label={`Your cart, ${plan.length} items`}
           >
-            <span>Your plan</span>
+            <span>Your cart</span>
             <span className="rounded-full bg-[#FFD814] px-2 text-sm font-bold text-ink">{plan.length}</span>
           </button>
         </div>
@@ -194,7 +194,7 @@ export default function MarketClient() {
           {results.length === 0 && (
             <div className="card flex flex-col gap-2 p-6">
               <div className="font-display text-xl font-bold">No ready-made match.</div>
-              <div className="text-ink-2">We build custom automations too. Describe the task and get a free yes/no and a fixed price within 1 working day.</div>
+              <div className="text-ink-2">We build custom automations too. Describe the task and get a free yes/no and a fixed price within 1 business day.</div>
               <Link href="/ask/" className="btn btn-primary self-start">Can you automate it? Ask free</Link>
             </div>
           )}
@@ -233,7 +233,7 @@ export default function MarketClient() {
                       onClick={() => (inPlan(p.id) ? remove(p.id) : add(p))}
                       className={`min-h-[36px] cursor-pointer rounded-full text-[14px] ${inPlan(p.id) ? "border border-line bg-white text-ink" : "border border-[#FCD200] bg-[#FFD814] text-ink hover:bg-[#F7CA00]"}`}
                     >
-                      {inPlan(p.id) ? "✓ In plan — remove" : "Add to plan"}
+                      {inPlan(p.id) ? "✓ In cart — remove" : "Add to cart"}
                     </button>
                     <Link href={`/checkout/?plan=${p.id}`} className="flex min-h-[36px] items-center justify-center rounded-full border border-[#FF8F00] bg-[#FFA41C] text-[14px] text-ink no-underline hover:bg-[#FA8900] hover:text-ink">
                       Buy now
@@ -280,18 +280,18 @@ export default function MarketClient() {
         <div className="fixed inset-0 z-50 flex justify-end bg-[rgba(21,23,26,0.5)]" onClick={() => setCartOpen(false)}>
           <aside
             role="dialog"
-            aria-label="Your plan"
+            aria-label="Your cart"
             className="flex h-full w-full max-w-[400px] flex-col gap-3 overflow-y-auto bg-white p-5"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between">
-              <div className="font-display text-2xl font-bold">Your plan</div>
+              <div className="font-display text-2xl font-bold">Your cart</div>
               <button type="button" onClick={() => setCartOpen(false)} aria-label="Close" className="min-h-[44px] min-w-[44px] cursor-pointer border-0 bg-transparent text-2xl">×</button>
             </div>
             {justAdded && (
               <div className="rounded-lg bg-[#E5F4E4] px-3 py-2 text-[14px] font-semibold text-ok">✓ Added: {justAdded.name}</div>
             )}
-            {items.length === 0 && <div className="text-ink-2">Nothing in your plan yet.</div>}
+            {items.length === 0 && <div className="text-ink-2">Your cart is empty.</div>}
             {items.map((p) => (
               <div key={p.id} className="flex items-start justify-between gap-3 border-b border-line pb-2.5">
                 <div className="flex flex-col">

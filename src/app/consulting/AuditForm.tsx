@@ -11,7 +11,7 @@ export default function AuditForm() {
     return (
       <div className="flex flex-col gap-3" aria-live="polite">
         <div className="font-display text-[28px] font-bold">Thanks — your proposal is on its way.</div>
-        <div className="text-ink-2">We&apos;ll reply to {email} within one working day with scope, a fixed audit price and call times.</div>
+        <div className="text-ink-2">We&apos;ll reply to {email} within one business day with scope, a fixed audit price and call times.</div>
       </div>
     );
 

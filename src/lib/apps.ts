@@ -13,8 +13,8 @@ export const APP_GROUPS: [string, string[]][] = [
 
 export const INDUSTRY_APPS: [string, string[]][] = [
   ["Trades & field service", ["Jobber", "ServiceTitan", "SafetyCulture"]],
-  ["Restaurants & food", ["Toast", "Square POS", "Deliveroo", "Uber Eats"]],
+  ["Restaurants & food", ["Toast", "Square POS", "DoorDash", "Uber Eats"]],
   ["Retail & e-commerce", ["Shopify", "WooCommerce", "Amazon Seller Central"]],
   ["Manufacturing", ["Odoo", "SAP Business One", "Tally"]],
-  ["Property", ["Rightmove", "Zoopla", "Xero"]],
+  ["Property", ["Zillow", "AppFolio", "Buildium", "Xero"]],
 ];

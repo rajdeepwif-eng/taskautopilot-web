@@ -420,7 +420,7 @@
       "cat": "Operations",
       "name": "Orders sync",
       "desc": "Online and phone orders flow into your kitchen, warehouse and accounts without retyping.",
-      "apps": "Shopify, Square, Toast, Deliveroo, Xero",
+      "apps": "Shopify, Square, Toast, DoorDash, Xero",
       "price": 3600,
       "days": 15,
       "ind": [
@@ -1532,7 +1532,7 @@
       "price": 4600,
       "days": 15,
       "run": "$200–400/mo + AI usage",
-      "desc": "Job ad out, every CV summarised against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organised on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own. You stay responsible for your hiring criteria and local rules on AI in hiring (for example NYC Local Law 144, UK GDPR Article 22).",
+      "desc": "Job ad out, every CV summarised against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organized on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own. You stay responsible for your hiring criteria and local rules on AI in hiring (for example NYC Local Law 144, UK GDPR Article 22).",
       "apps": "Indeed, LinkedIn, your careers page, Gmail or Outlook, Google or Outlook Calendar, Asana or Airtable",
       "replaces": "Turns days of reading CVs and emailing candidates into a short review and a full interview diary.",
       "ind": [
@@ -1634,7 +1634,7 @@
         "Real estate & property"
       ],
       "run": "$100–250/mo + AI usage",
-      "desc": "Listing descriptions drafted from your notes and photos (checked for fair-housing wording), photos organised, listings prepared for the portals you use, and every inquiry answered with viewing slots that book themselves.",
+      "desc": "Listing descriptions drafted from your notes and photos (checked for fair-housing wording), photos organized, listings prepared for the portals you use, and every inquiry answered with viewing slots that book themselves.",
       "apps": "The portals you list on, Google Drive, Gmail or Outlook, calendar, WhatsApp",
       "replaces": "Gets a property listed and viewings booked in an hour, not a day."
     },
@@ -2381,7 +2381,7 @@
     ],
     "120": [
       "Pay $99 and pick one starter automation from the list.",
-      "We set it up in your own accounts within 5 working days.",
+      "We set it up in your own accounts within 5 business days.",
       "It runs for 30 days; upgrade with your $99 credited, or stop — no further charge."
     ],
     "121": [
@@ -2467,7 +2467,7 @@
     "137": [
       "Your accounting app and sales systems are connected.",
       "Each month the pack and dashboard rebuild with notes on what changed.",
-      "You get it on the 3rd working day; questions go to the owner of each number."
+      "You get it on the 3rd business day; questions go to the owner of each number."
     ],
     "138": [
       "Costs, photos, certificates and tenancy evidence are gathered from the project as it runs.",

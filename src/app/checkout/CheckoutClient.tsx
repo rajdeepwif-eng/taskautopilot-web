@@ -26,7 +26,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const total = oneOff - discount + monthly + t.price;
 
   const pay = () => {
-    if (!items.length) return setErr("Your plan is empty — add something from the library first.");
+    if (!items.length) return setErr("Your cart is empty — add something from the shop first.");
     if (!/.+@.+\..+/.test(form.email)) return setErr("Please add a valid work email.");
     if (!terms) return setErr("Please accept the terms to continue.");
     // TODO: create a Stripe Checkout Session (test mode) via an API route, then redirect.
@@ -61,7 +61,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         <div className="text-[15px] text-ink-2">Pay now; tell us about your apps and team on a 10-minute setup form afterwards.</div>
 
         <div className="card flex flex-col gap-3 p-5">
-          <div className="font-semibold">1 · Your plan</div>
+          <div className="font-semibold">1 · Your order</div>
           {items.length === 0 && <div className="text-ink-2">Nothing selected. <Link href="/library">Browse the library →</Link></div>}
           {items.map((p) => (
             <div key={p.id} className="flex justify-between border-b border-[#EDEAE1] pb-2"><span>{p.name}</span><span className="font-mono">{priceLabel(p)}</span></div>

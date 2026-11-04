@@ -145,7 +145,7 @@ export default function LibraryClient() {
                     onClick={() => toggle(p.id)}
                     className={`min-h-[44px] cursor-pointer rounded-lg font-semibold ${inPlan(p.id) ? "border-0 bg-ink text-white" : "border border-clay bg-white text-clay"}`}
                   >
-                    {inPlan(p.id) ? "✓ In your plan — remove" : "+ Add to plan"}
+                    {inPlan(p.id) ? "✓ In your cart — remove" : "+ Add to cart"}
                   </button>
                 </div>
               </article>
@@ -193,7 +193,7 @@ export default function LibraryClient() {
         </div>
 
         <aside className="flex min-w-0 flex-[1_1_320px] flex-col gap-3.5 rounded-2xl bg-ink p-6 text-paper lg:sticky lg:top-6">
-          <div className="font-display text-[22px] font-bold">Your plan</div>
+          <div className="font-display text-[22px] font-bold">Your cart</div>
           {planItems.length === 0 && <div className="text-[15px] text-[#A9ADB4]">Nothing yet. Add automations from the library.</div>}
           {planItems.map((p) => (
             <div key={p.id} className="flex justify-between gap-3 border-b border-[#2B2E33] pb-2.5 text-[15px]">
@@ -299,7 +299,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
             {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[15px]"><LiveBy days={p.days} /></div>}
             <div className="text-[18px] text-ok">Ready to start</div>
-            <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your plan" : "Add to plan"}</button>
+            <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
             <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
             <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutopilot</span><span className="text-muted">Payment</span><span>Secure transaction · Stripe</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund</span></>}</div>
             <div className="text-sm leading-relaxed text-ink-2">

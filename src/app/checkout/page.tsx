@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Secure checkout — TaskAutopilot" }
 
 export default function CheckoutPage() {
   return (
-    <Suspense fallback={<main className="wrap py-16 text-ink-2">Loading your plan…</main>}>
+    <Suspense fallback={<main className="wrap py-16 text-ink-2">Loading your order…</main>}>
       <CheckoutFromQuery />
     </Suspense>
   );

@@ -30,7 +30,7 @@ export function HeaderSearch() {
   );
 }
 
-/** "Your plan" with a live count, like a basket. */
+/** "Your cart" with a live count, like a basket. */
 export function PlanLink() {
   const [ids, setIds] = useState<number[]>([]);
   useEffect(() => {
@@ -42,22 +42,22 @@ export function PlanLink() {
   }, []);
   const href = ids.length ? `/checkout/?plan=${ids.join(",")}` : "/library/";
   return (
-    <Link href={href} className="flex items-end gap-1 rounded px-1.5 py-1 text-white no-underline hover:outline hover:outline-1 hover:outline-white" aria-label={`Your plan, ${ids.length} items`}>
+    <Link href={href} className="flex items-end gap-1 rounded px-1.5 py-1 text-white no-underline hover:outline hover:outline-1 hover:outline-white" aria-label={`Your cart, ${ids.length} items`}>
       <span className="relative">
         <svg width="34" height="28" viewBox="0 0 34 28" fill="none" stroke="#fff" strokeWidth="2" aria-hidden="true"><path d="M2 3h5l4 16h16l4-11H9" /><circle cx="13" cy="24" r="2" /><circle cx="25" cy="24" r="2" /></svg>
         <span className="absolute -top-1.5 left-[15px] text-[15px] font-bold text-[#F08804]">{ids.length}</span>
       </span>
-      <span className="hidden text-[14px] font-bold sm:inline">Plan</span>
+      <span className="hidden text-[14px] font-bold sm:inline">Cart</span>
     </Link>
   );
 }
 
-/** "Live by <date>" — like a delivery date. Shows working days until the browser works out the date. */
+/** "Live by <date>" — like a delivery date. Shows business days until the browser works out the date. */
 export function LiveBy({ days, className = "" }: { days: number; className?: string }) {
-  const [label, setLabel] = useState(`in ${days} working days`);
+  const [label, setLabel] = useState(`in ${days} business days`);
   useEffect(() => {
     const d = new Date();
-    let left = days + 2; // build starts within 2 working days
+    let left = days + 2; // build starts within 2 business days
     while (left > 0) { d.setDate(d.getDate() + 1); const w = d.getDay(); if (w !== 0 && w !== 6) left--; }
     setLabel(d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }));
   }, [days]);

@@ -19,7 +19,7 @@ export default function StarterPage() {
       <div className="flex flex-col gap-3">
         <div className="kicker">Starter · $99 · 30 days</div>
         <h1 className="m-0 max-w-[860px] font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-tight">Pick the one task you want gone first.</h1>
-        <p className="m-0 max-w-[700px] text-lg text-ink-2">We set it up in your own accounts within 5 working days and it runs for 30 days. Upgrade and your $99 is credited; stop and there&apos;s nothing more to pay.</p>
+        <p className="m-0 max-w-[700px] text-lg text-ink-2">We set it up in your own accounts within 5 business days and it runs for 30 days. Upgrade and your $99 is credited; stop and there&apos;s nothing more to pay.</p>
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
         {OPTIONS.map((o) => (

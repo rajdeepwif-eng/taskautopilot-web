@@ -19,7 +19,7 @@ export default function LegalFirmsPage() {
         apps: "Clio, MyCase, PracticePanther, Lawmatics, Microsoft 365, Google Workspace, DocuSign",
         ctaNote: "Client confidentiality comes first. We agree in writing what data the automation touches and where it is stored, and your firm's rules on conflicts and privilege stay with your lawyers.",
         care: [
-          { t: "No legal judgement automated", d: "Automation collects and organises. Conflict checks, advice and engagement decisions stay with your lawyers." },
+          { t: "No legal judgement automated", d: "Automation collects and organizes. Conflict checks, advice and engagement decisions stay with your lawyers." },
           { t: "Your accounts, your data", d: "Built inside your practice-management and document systems, with only the access the workflow needs." },
           { t: "Written data agreement", d: "A data processing agreement and sub-processor list before go-live, for your firm to review." },
         ],

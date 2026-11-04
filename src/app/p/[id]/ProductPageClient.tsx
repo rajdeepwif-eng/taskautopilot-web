@@ -22,7 +22,7 @@ export default function ProductPageClient({ id }: { id: number }) {
         <Link href="/library/">← All automations</Link>
         {plan.length > 0 && (
           <Link href={`/checkout/?plan=${plan.join(",")}`} className="font-semibold">
-            Your plan ({plan.length}) — checkout →
+            Your cart ({plan.length}) — checkout →
           </Link>
         )}
       </div>

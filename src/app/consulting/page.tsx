@@ -56,7 +56,7 @@ export default function ConsultingPage() {
       <section id="audit" className="wrap flex flex-wrap gap-10 py-16">
         <div className="flex flex-[1_1_340px] flex-col gap-3.5">
           <h2 className="m-0 font-display text-[38px] leading-tight">Book an audit</h2>
-          <p className="m-0 text-[17px] text-ink-2">Tell us about your business. We reply within one working day with a proposed scope, fixed audit price and a call time.</p>
+          <p className="m-0 text-[17px] text-ink-2">Tell us about your business. We reply within one business day with a proposed scope, fixed audit price and a call time.</p>
           <div className="text-sm text-muted">Prefer to start small? <Link href="/library/">Browse ready-made automations</Link> or <Link href="/bespoke/">send a bespoke brief</Link>.</div>
         </div>
         <div className="card min-w-0 flex-[1_1_460px] p-7">

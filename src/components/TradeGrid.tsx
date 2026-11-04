@@ -2,7 +2,8 @@ import Link from "next/link";
 import { TRADES } from "@/lib/trades";
 import TradeIcon from "@/components/TradeIcon";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
-import { BUNDLES, byId, fmt } from "@/lib/catalogue";
+import { BUNDLES, byId } from "@/lib/catalogue";
+import { COUNTRIES, Country, money } from "@/lib/geo";
 
 /** Lowest one-off price in a trade's top picks — the cheapest way in. */
 const fromPrice = (ids: number[]) => Math.min(...ids.map(byId).filter((p) => p && !p.monthly).map((p) => p.price));
@@ -12,14 +13,16 @@ const kitPrice = (name: string) => { const k = BUNDLES.find((b) => b.name === na
 // and need the most admin automated; the rest follow.
 const ORDER = ["trades", "clinics", "professional", "busy-professionals", "property", "equipment-hire", "manufacturing", "food-production", "restaurants", "logistics", "retail", "farming", "office-teams"];
 
-export default function TradeGrid() {
+export default function TradeGrid({ country = "us" }: { country?: Country } = {}) {
+  const fmt = (n: number) => money(n, country);
+  const pre = COUNTRIES[country].path;
   return (
     <section id="trades" className="wrap flex flex-col gap-5 pt-16">
       <div className="kicker">Start here</div>
       <h2 className="m-0 font-display text-[clamp(28px,4vw,40px)] font-bold">What&apos;s your business?</h2>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {ORDER.slice(0, 8).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t) => (
-          <Link key={t.slug} href={`/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
+          <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
             <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
@@ -38,7 +41,7 @@ export default function TradeGrid() {
         <summary className="btn btn-outline cursor-pointer list-none self-start [&::-webkit-details-marker]:hidden">See all {ORDER.length + 1} business types</summary>
         <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {ORDER.slice(8).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t) => (
-          <Link key={t.slug} href={`/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
+          <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink">
             <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
@@ -52,9 +55,9 @@ export default function TradeGrid() {
             </div>
           </Link>
         ))}
-        <Link href="/for/solo/" className="flex flex-col justify-center gap-0.5 rounded-xl border border-dashed border-[#C9C5B9] p-4 text-ink no-underline hover:border-ink">
+        <Link href={`${pre}/for/solo/`} className="flex flex-col justify-center gap-0.5 rounded-xl border border-dashed border-[#C9C5B9] p-4 text-ink no-underline hover:border-ink">
           <span className="font-display text-[17px] font-bold">Just me</span>
-          <span className="text-[12.5px] text-muted">Self-employed — Solo versions from $300</span>
+          <span className="text-[12.5px] text-muted">Self-employed — Solo versions from {fmt(300)}</span>
         </Link>
         </div>
       </details>
