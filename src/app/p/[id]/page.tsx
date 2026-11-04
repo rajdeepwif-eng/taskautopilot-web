@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metaDesc } from "@/lib/geo";
 import { PRODUCTS, byId, priceLabel } from "@/lib/catalogue";
 import ProductPageClient from "./ProductPageClient";
 import { PAYMENTS_LIVE } from "@/lib/launch";
@@ -9,7 +10,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const p = byId(Number((await params).id));
-  return { title: `${p.name} — ${priceLabel(p)} | TaskAutopilot`, description: p.desc, alternates: { canonical: `/p/${p.id}/` } };
+  return { title: `${p.name} — ${priceLabel(p)} | TaskAutopilot`, description: metaDesc(p.desc), alternates: { canonical: `/p/${p.id}/` } };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {

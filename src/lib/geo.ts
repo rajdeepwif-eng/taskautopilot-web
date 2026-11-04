@@ -55,3 +55,11 @@ export const localPrices = (text: string, c: Country) =>
     const cv = (v: string) => nice(Number(v.replace(/,/g, "")) * COUNTRIES[c].rate).toLocaleString("en-US");
     return COUNTRIES[c].sym + cv(a) + (b ? "–" + cv(b) : "");
   });
+
+/** Meta description ≤155 characters (Google cuts longer ones), trimmed at a sentence or word. */
+export const metaDesc = (t: string, max = 155) => {
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const dot = cut.lastIndexOf(". ");
+  return dot > 90 ? cut.slice(0, dot + 1) : cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:—–-]+$/, "") + "…";
+};

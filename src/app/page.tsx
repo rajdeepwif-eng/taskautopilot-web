@@ -43,7 +43,7 @@ const FAQ = [
 
 export const metadata: Metadata = {
   title: "Done-for-you business automation for small businesses | TaskAutopilot",
-  description: "Fixed-price automations that get owner-run businesses paid, booked and followed up: missed-call text-back, invoice reminders, quote follow-up, reviews. Tested with you, live in 2–3 weeks.",
+  description: "Fixed-price automations that get small businesses paid, booked and followed up: missed-call text-back, invoice reminders, reviews. Live in 2–3 weeks.",
   alternates: alternates("/", "us"),
 };
 

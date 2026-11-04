@@ -22,7 +22,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "get-paid-faster",
     title: "Get paid faster: automatic invoice reminders for small businesses",
     short: "Get paid faster",
-    metaDescription: "Stop chasing late payers by hand. Invoices go out when the job is done, polite reminders follow automatically, and payments are matched for you. Fixed price.",
+    metaDescription: "Stop chasing late payers. Invoices go out when the job's done, polite reminders follow automatically and payments are matched. Fixed price.",
     problem: [
       "Late payment is the most common money problem for owner-run businesses. Chasing feels awkward, so it slips — and every week an invoice sits unpaid is cash you can't use for wages, materials or growth.",
       "The fix isn't a tougher tone. It's consistency: every invoice sent on time, every customer reminded before and after the due date, every payment matched without anyone typing.",
@@ -53,7 +53,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "missed-calls",
     title: "Never miss a lead: missed-call text-back and instant replies",
     short: "Never miss a lead",
-    metaDescription: "Every missed call gets a text back within a minute with your booking link, and every web or WhatsApp inquiry gets an instant reply. From $600, fixed price.",
+    metaDescription: "Every missed call gets a text back within a minute with your booking link; web and WhatsApp inquiries get an instant reply. From $600, fixed price.",
     problem: [
       "When you're on a job, with a patient or driving, the phone rings out. Most callers don't leave a voicemail — they ring the next business on the list.",
       "A missed-call text-back answers for you: the caller gets a friendly text within a minute with your booking link, and you get the details to call back when you're free.",
@@ -84,7 +84,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "quote-follow-up",
     title: "Quote follow-up on autopilot: win more of the jobs you price",
     short: "Follow up every quote",
-    metaDescription: "Polite, timed follow-ups go out on every quote until the customer decides, so fewer jobs go quiet. Works with your existing quoting tool. From $1,200.",
+    metaDescription: "Polite, timed follow-ups go out on every quote until the customer decides, so fewer jobs go quiet. Works with your quoting tool. From $1,200.",
     problem: [
       "Pricing a job takes time, then the quote sits in someone's inbox. Most owners mean to follow up and don't — not because they don't care, but because the next job is already waiting.",
       "Automated follow-up sends a short, friendly nudge on a schedule you choose, stops the moment the customer replies, and tells you which quotes are going cold.",
@@ -117,7 +117,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "google-reviews",
     title: "Get more 5-star Google reviews automatically",
     short: "More 5-star reviews",
-    metaDescription: "A review request goes to every happy customer at the right moment, and every review gets a reply. Builds your Google profile without you remembering to ask. From $1,100.",
+    metaDescription: "Every happy customer is asked for a Google review at the right moment, and every review gets a reply — no remembering to ask. From $1,100.",
     problem: [
       "Most happy customers would leave a review — they just aren't asked at the right moment. Asking by hand is easy to forget when the day is busy.",
       "Automatic review requests go out after a job is paid or an appointment ends, with a direct link to your Google profile. Replies to new reviews are drafted for you to approve.",
@@ -146,7 +146,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "admin-hours",
     title: "Cut admin time: inbox, bills and bank matching done for you",
     short: "Get admin hours back",
-    metaDescription: "Emails sorted with replies drafted, supplier bills read and booked, bank lines matched overnight. Hand back the hours you spend on admin each week. Fixed prices.",
+    metaDescription: "Emails sorted with replies drafted, supplier bills booked, bank lines matched overnight. Get back the hours admin takes each week. Fixed prices.",
     problem: [
       "Admin grows quietly: sorting email, typing bills into the accounts, matching the bank, copying details between apps. None of it is hard; all of it takes time away from customers.",
       "Automation takes the repetitive parts: email is sorted with replies drafted for one-tap approval, supplier bills are read and booked, and the bank is matched overnight with a short list of anything that needs you.",
@@ -174,7 +174,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "profit-dashboard",
     title: "Know your real profit: a monthly management pack that builds itself",
     short: "Know your real profit",
-    metaDescription: "Profit and loss, cash, who owes you and margin by product or service — built automatically each month with plain-English notes on what changed. From $3,000.",
+    metaDescription: "Profit, cash, who owes you and margin by product — built automatically each month with plain-English notes on what changed. From $3,000.",
     problem: [
       "Many owners only see their numbers when the accountant sends year-end accounts — too late to change anything. Costs creep up and margins shrink without anyone noticing.",
       "An automated management pack pulls from your accounts every month: profit and loss, cash, debtors and margin by product or service, with a short note on what changed and why.",

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ country: 
   const C = COUNTRIES[c];
   return {
     title: `Business automation for ${C.adj === "UK" ? "UK" : C.adj} small businesses | TaskAutopilot`,
-    description: `Fixed-price automations for ${C.name} trades and teams: missed calls, bookings, invoices, staff and compliance. Prices in ${C.sym}. Approve the test run or get a full refund.`,
+    description: `Fixed-price automations for ${C.name} businesses: missed calls, bookings, invoices and reviews. Prices in ${C.sym}. Approve the test run or get a full refund.`,
     alternates: alternates("/", c),
   };
 }
