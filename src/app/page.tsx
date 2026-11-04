@@ -50,7 +50,7 @@ export default function Home() {
             Things get done — without you doing them.
           </h1>
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
-            Calls answered, jobs booked, invoices paid and staff on track. We set it up for you, test it with you, and it&apos;s live in 10–15 working days.
+            Calls answered, quotes followed up, invoices chased and paid. We set it up for you, test it with you, and it&apos;s live in 10–15 working days.
           </p>
           <HeroSearch />
           <div className="flex flex-wrap items-center gap-4">
