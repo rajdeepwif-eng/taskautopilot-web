@@ -2,6 +2,11 @@ import Link from "next/link";
 import { TRADES } from "@/lib/trades";
 import TradeIcon from "@/components/TradeIcon";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
+import { BUNDLES, byId, fmt } from "@/lib/catalogue";
+
+/** Lowest one-off price in a trade's top picks — the cheapest way in. */
+const fromPrice = (ids: number[]) => Math.min(...ids.map(byId).filter((p) => p && !p.monthly).map((p) => p.price));
+const kitPrice = (name: string) => { const k = BUNDLES.find((b) => b.name === name); return k ? Math.round(k.ids.map(byId).filter((p) => !p.monthly).reduce((a, p) => a + p.price, 0) * 0.9) : 0; };
 
 // Lead with the owner groups that earn the most (IRS-based study: Smith, Yagan, Zidar & Zwick, QJE 2019)
 // and need the most admin automated; the rest follow.
@@ -24,6 +29,7 @@ export default function TradeGrid() {
             <div className="flex flex-col gap-0.5 p-3.5">
               <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{t.name}</span>
               <span className="text-[12.5px] text-muted">{t.short}</span>
+              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
             </div>
           </Link>
         ))}
