@@ -132,7 +132,7 @@ export default function Home() {
       {/* Try it live */}
       <section className="wrap flex flex-wrap items-center gap-8 pt-16">
         <Link href="/demo/" className="flex min-w-0 flex-[1_1_460px] flex-col gap-2 rounded-2xl bg-ink p-6 text-paper no-underline">
-          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Can someone fix a leaking water heater tomorrow?</span>
+          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Can someone fix a burst pipe tomorrow?</span>
           <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Yes — it&apos;s free Saturday. Want me to book it?</span>
           <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Yes please</span>
           <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Booked ✓ I&apos;ve texted you the details.</span>

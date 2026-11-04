@@ -9,7 +9,7 @@ import { NEXT_BUILD_START } from "@/lib/launch";
 
 /** What each trade's owner hears first. Keys match the ?t= value on flyers and QR codes. */
 const PITCH: Record<string, { who: string; line: string; demo: string; ask: string; picks: number[] }> = {
-  trades: { who: "plumbers, electricians & builders", line: "Every call you miss while you're on a job gets a text back in a minute — with your booking link.", demo: "missed-calls", ask: "Can someone fix a leaking water heater this week?", picks: [11, 13, 22] },
+  trades: { who: "plumbers, electricians & builders", line: "Every call you miss while you're on a job gets a text back in a minute — with your booking link.", demo: "missed-calls", ask: "Can someone fix a burst pipe this week?", picks: [11, 13, 22] },
   clinics: { who: "clinics & dental practices", line: "Patients who call after hours get a booking link straight away, and reminders cut no-shows.", demo: "missed-calls", ask: "Do you have an appointment on Thursday?", picks: [11, 33, 15] },
   property: { who: "landlords & property managers", line: "Maintenance requests are logged and acknowledged at any hour, and rent reminders go out on time.", demo: "ai-receptionist", ask: "The heating in my unit isn't working.", picks: [117, 22, 11] },
   professional: { who: "accountants, lawyers & advisors", line: "New enquiries get a reply in a minute and a consultation booked — without you chasing.", demo: "missed-calls", ask: "I need help reviewing a contract.", picks: [10, 11, 96] },

@@ -94,7 +94,7 @@ const WHO: Record<Step["from"], string> = { them: "Customer", auto: "Automation"
 
 export default function FixDemo({ slug, country = "us", biz = "Northside Services", ask = "Can someone come out this week?", job = "the new patio", owner = "the team" }: { slug: string; country?: Country; biz?: string; ask?: string; job?: string; owner?: string }) {
   const demo = DEMOS[slug];
-  const [shown, setShown] = useState(0);
+  const [shown, setShown] = useState(1); // first step shows as a still frame before play
   const [playing, setPlaying] = useState(false);
   const box = useRef<HTMLDivElement>(null);
 
@@ -118,7 +118,6 @@ export default function FixDemo({ slug, country = "us", biz = "Northside Service
         <span className="whitespace-nowrap rounded bg-[#232F3E] px-2 py-0.5 text-[11px] text-[#A9ADB4]">Demo · sample data</span>
       </div>
       <div ref={box} className="flex max-h-[380px] min-h-[200px] flex-col gap-2 overflow-y-auto rounded-xl bg-[#1B232E] p-3" aria-live="polite">
-        {shown === 0 && <div className="m-auto text-center text-[14px] text-[#A9ADB4]">Press play to watch what happens — step by step.</div>}
         {demo.steps.slice(0, shown).map((s, i) => (
           <div key={i} className={`flex max-w-[88%] flex-col gap-0.5 rounded-2xl px-3.5 py-2 text-[14.5px] leading-snug ${BUBBLE[s.from]}`}>
             {s.from !== "system" && <span className="text-[11px] font-semibold opacity-70">{WHO[s.from]} · {s.time}</span>}
@@ -128,7 +127,7 @@ export default function FixDemo({ slug, country = "us", biz = "Northside Service
         ))}
       </div>
       <div className="flex flex-wrap gap-3">
-        <button type="button" onClick={() => { if (done) setShown(0); setPlaying(true); }} className="btn btn-primary !min-h-[44px]">{done ? "Replay ↺" : playing ? "Playing…" : shown ? "Continue ▶" : "Play the demo ▶"}</button>
+        <button type="button" onClick={() => { if (done) setShown(0); setPlaying(true); }} className="btn btn-primary !min-h-[44px]">{done ? "Replay ↺" : playing ? "Playing…" : shown > 1 ? "Continue ▶" : "Play the demo ▶"}</button>
         {!done && <button type="button" onClick={() => { setPlaying(false); setShown(demo.steps.length); }} className="min-h-[44px] cursor-pointer border-0 bg-transparent px-1 text-[14px] text-[#C9C7C0] underline">Show all steps</button>}
       </div>
     </div>

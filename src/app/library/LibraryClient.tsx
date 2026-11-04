@@ -288,7 +288,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
                 <div className="flex-[1_1_140px]"><div className="text-[13px] text-muted">Hours handed back a year</div><div className="font-display text-[26px] font-bold">{Math.round((Number(hours) || 0) * 52).toLocaleString("en-US")}</div></div>
                 <div className="flex-[1_1_140px]"><div className="text-[13px] text-muted">Cost of doing it by hand a year</div><div className="font-display text-[26px] font-bold">{fmt(weekly * 52)}</div></div>
               </div>
-              <div className={`font-semibold ${/more than|costs more/.test(payback) ? "text-[#B12704]" : "text-ok"}`}>{payback}</div>
+              <div className={`font-semibold ${/more than|costs more/.test(payback) ? "text-[#B12704]" : /about (\d+) week/.test(payback) && Number(payback.match(/about (\d+) week/)![1]) > 26 ? "text-ink-2" : "text-ok"}`}>{payback}</div>
               <div className="text-[13px] leading-normal text-ink-2">
                 Also: works nights and weekends, replies in seconds not hours, never forgets a step, and frees your people for work that needs a human.{" "}
                 <span className="text-muted">{p.wage ? `Starting rate is based on the US median for a ${p.role} (BLS, May 2025), converted — change it to your local rate.` : "Starting numbers are estimates — change them to yours."}</span>

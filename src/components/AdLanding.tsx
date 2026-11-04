@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PAYMENTS_LIVE } from "@/lib/launch";
+import StickyBuy from "@/components/StickyBuy";
 import { solutionBySlug } from "@/lib/solutions";
 import { solutionTitle } from "@/components/SolutionView";
 import { byId, runLow } from "@/lib/catalogue";
@@ -48,10 +49,10 @@ export default function AdLanding({ slug, country }: { slug: string; country: Co
           <Link href={`${C.path}/solutions/${slug}/`} className="text-[14px]">Read the full guide →</Link>
         </div>
       </section>
-      <div className="fixed inset-x-0 bottom-0 z-30 flex items-center gap-3 border-t border-line bg-white p-3 lg:hidden">
+      <StickyBuy>
         <span className="text-lg font-bold">{fmt(main.price)}</span>
-        <Link href={`/checkout/?plan=${main.id}`} className="btn btn-primary !min-h-[44px] flex-1">Get it set up</Link>
-      </div>
+        <Link href={`/checkout/?plan=${main.id}`} className="btn btn-primary !min-h-[44px] flex-1">{PAYMENTS_LIVE ? "Get it set up" : "Reserve now"}</Link>
+      </StickyBuy>
     </main>
   );
 }

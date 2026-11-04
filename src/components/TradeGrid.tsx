@@ -27,7 +27,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             <div className="relative aspect-[16/9] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
-                ? <img src={TRADE_PHOTOS[t.slug].src} srcSet={SRCSET[t.slug]} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
+                ? <img src={TRADE_PHOTOS[t.slug].src} srcSet={SRCSET[t.slug]} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading={i < 4 ? "eager" : "lazy"} decoding="async" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
                 : <TradeIcon slug={t.slug} size={38} />}
             </div>
             <div className="flex flex-col gap-0.5 p-3.5">

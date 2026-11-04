@@ -29,7 +29,7 @@ export const AUDIENCE: Record<string, string> = {
 };
 /** What a customer typically asks in that trade (sample data for the demo). */
 const ASK: Record<string, string> = {
-  trades: "Can someone fix a leaking water heater this week?",
+  trades: "Can someone fix a burst pipe this week?",
   clinics: "Do you have an appointment on Thursday?",
   "equipment-hire": "Is a mini excavator free this Saturday?",
   property: "The heating in my unit isn't working.",
