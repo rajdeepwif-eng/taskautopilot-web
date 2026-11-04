@@ -10,6 +10,7 @@ type Item = { step: string; who: string; how: string; done: boolean | null };
 /** Internal: what's left before launch. Ticks come from the live site settings; null = can't be checked from the site. */
 const ITEMS: [string, Item[]][] = [
   ["1 · Foundations", [
+    { step: "Name cleared: can we use TaskAutoMode?", who: "You + trademark attorney", how: "Before buying the domain or printing anything: (1) trademark search in the US (USPTO), UK (UKIPO), Australia (IP Australia) and Canada (CIPO) for software/IT services, including the risk from Kaseya's 'Autotask'; (2) confirm taskautomode .com/.co.uk/.com.au/.ca are free (.com and .ca looked unregistered on 4 Nov 2026); (3) company name free in each country. Backups if it fails: PaidAndBooked, then AdminGone (getadmingone.com).", done: null },
     { step: "Custom domain live", who: "You → me", how: "Buy the domain, add DNS records, then I set NEXT_PUBLIC_SITE_URL and remove the /taskautopilot-web base path in the deploy workflow.", done: !ON_TEMP_DOMAIN },
     { step: "Google Search Console + sitemap submitted", who: "You", how: `Verify the domain, then submit ${SITE}/sitemap.xml.`, done: null },
     { step: "Legal pages signed off by attorney", who: "You + attorney", how: "Terms, refunds (incl. 6-month minimum and how the $99 starter is treated), privacy (incl. cookies, and the partner-code we keep in the browser to credit referrers), partner and referral terms.", done: null },
