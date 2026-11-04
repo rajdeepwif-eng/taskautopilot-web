@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FORMS_LIVE, FORM_NOT_SENT } from "@/lib/launch";
+import { sendLead } from "@/lib/attribution";
 
 export default function AuditForm() {
   const [email, setEmail] = useState("");
@@ -21,8 +22,7 @@ export default function AuditForm() {
       className="flex flex-col gap-3.5"
       onSubmit={(e) => {
         e.preventDefault();
-        // TODO: POST to n8n webhook
-        if (/.+@.+\..+/.test(email)) setSent(true);
+        if (/.+@.+\..+/.test(email)) { void sendLead("audit", { email, form: Object.fromEntries(new FormData(e.currentTarget)) }); setSent(true); }
         else setErr(true);
       }}
     >

@@ -5,6 +5,7 @@ import CurrencySwitch, { CurrencyApplier } from "@/components/Currency";
 import { HeaderSearch, PlanLink } from "@/components/StoreBar";
 import "./globals.css";
 import FooterFixes from "@/components/FooterFixes";
+import Attribution from "@/components/Attribution";
 import heroImg from "@/assets/hero.jpg";
 
 export const metadata: Metadata = {
@@ -57,12 +58,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         {children}
         <CurrencyApplier />
+        <Attribution />
         <footer className="bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD] [&_a:hover]:text-white">
           <div className="wrap grid grid-cols-2 gap-6 py-10 text-sm md:grid-cols-5">
             <div className="flex flex-col gap-2"><b className="text-white">Shop</b><Link href="/library/">All automations</Link><Link href="/#trades">Shop by business type</Link><Link href="/starter/">Starter offer</Link><Link href="/kits/">Industry & DIY kits</Link><Link href="/academy/">Courses</Link></div>
             <FooterFixes />
-            <div className="flex flex-col gap-2"><b className="text-white">Not sure yet?</b><Link href="/ask/">Ask us free</Link><Link href="/planner/">Build my plan</Link><Link href="/scan/">Free leak scan</Link><Link href="/demo/">Sample conversation</Link><Link href="/consulting/">Consulting for teams</Link><Link href="/compare/automation-vs-hiring/">Automation vs hiring</Link><Link href="/compare/done-for-you-vs-diy-automation/">Done-for-you vs DIY</Link><Link href="/compare/missed-call-text-back-vs-ai-receptionist/">Text-back vs AI receptionist</Link></div>
-            <div className="flex flex-col gap-2"><b className="text-white">Industries</b><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><span className="flex gap-3"><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link></span></div>
+            <div className="flex flex-col gap-2"><b className="text-white">Not sure yet?</b><Link href="/ask/">Ask us free</Link><Link href="/planner/">Build my plan</Link><Link href="/scan/">Free leak scan</Link><Link href="/demos/">See it run (demos)</Link><Link href="/consulting/">Consulting for teams</Link><Link href="/compare/automation-vs-hiring/">Automation vs hiring</Link><Link href="/compare/done-for-you-vs-diy-automation/">Done-for-you vs DIY</Link><Link href="/compare/missed-call-text-back-vs-ai-receptionist/">Text-back vs AI receptionist</Link></div>
+            <div className="flex flex-col gap-2"><b className="text-white">Industries</b><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/integrations/xero/">Xero</Link><Link href="/integrations/quickbooks/">QuickBooks</Link><Link href="/integrations/jobber/">Jobber</Link><Link href="/integrations/servicem8/">ServiceM8</Link><span className="flex gap-3"><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link></span></div>
             <div className="flex flex-col gap-2"><b className="text-white">Policies</b><Link href="/legal/terms/">Terms</Link><Link href="/legal/refunds/">Refunds</Link><Link href="/legal/privacy/">Privacy</Link><Link href="/legal/dpa/">Data processing</Link><Link href="/#security">Security</Link></div>
           </div>
           <div className="wrap border-t border-[#3A4553] py-4 text-[13px]">© 2026 TaskAutopilot · UK, Australian and Canadian pages show fixed local prices; other pages convert from US$ for guidance</div>

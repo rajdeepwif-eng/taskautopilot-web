@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
 import { FORMS_LIVE, FORM_NOT_SENT } from "@/lib/launch";
+import { sendLead } from "@/lib/attribution";
 
 export default function PartnerForm() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   if (sent) return <div className="flex flex-col gap-2"><div className="font-display text-2xl font-bold">{FORMS_LIVE ? "Thanks — we\u2019ll be in touch." : "Thanks — almost there."}</div><div className="text-ink-2">{FORMS_LIVE ? `Partner terms go to ${email} within one business day.` : FORM_NOT_SENT}</div></div>;
   return (
-    <form className="flex flex-col gap-3" onSubmit={(e) => { e.preventDefault(); if (/.+@.+\..+/.test(email)) setSent(true); }}>
+    <form className="flex flex-col gap-3" onSubmit={(e) => { e.preventDefault(); if (/.+@.+\..+/.test(email)) { void sendLead("partner", { email, form: Object.fromEntries(new FormData(e.currentTarget)) }); setSent(true); } }}>
       <div className="font-display text-xl font-bold">Apply to partner</div>
       <label className="flex flex-col gap-1.5 text-sm">Firm name<input type="text" name="firm" /></label>
       <label className="flex flex-col gap-1.5 text-sm">Work email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} /></label>

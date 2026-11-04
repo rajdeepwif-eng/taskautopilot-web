@@ -5,6 +5,10 @@ import Link from "next/link";
 import { Product, fmt, priceLabel, runLow } from "@/lib/catalogue";
 import { useEffect } from "react";
 import { PAYMENTS_LIVE } from "@/lib/launch";
+import { readTouches, sendLead } from "@/lib/attribution";
+
+const HEARD = ["Google search", "Google ad", "My accountant or bookkeeper", "A friend or another business owner", "You called or visited us", "Trade show or event", "YouTube or Facebook", "Other"];
+const guessHeard = (src: string, med: string, ref: string) => ref ? "My accountant or bookkeeper" : med === "cpc" ? "Google ad" : /organic/.test(src) ? "Google search" : /flyer|visit|call|door/.test(src) ? "You called or visited us" : /event|show/.test(src) ? "Trade show or event" : /meta|youtube/.test(src) ? "YouTube or Facebook" : "";
 
 const TAX: Record<string, string> = { USD: "Plus sales tax where it applies.", GBP: "Plus VAT at 20% where it applies.", AUD: "Plus GST where it applies.", CAD: "Plus GST/HST where it applies." };
 const APPS = ["Gmail", "Outlook", "Slack", "Teams", "WhatsApp", "Xero", "QuickBooks", "Sage", "Zoho Books", "HubSpot", "Shopify", "Other"];
@@ -28,6 +32,9 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   ];
   const t = items.some((p) => p.run) ? TIERS.find((x) => x.id === tier)! : TIERS[0];
   const [cur, setCur] = useState("USD");
+  const [heard, setHeard] = useState("");
+  const [refCode, setRefCode] = useState("");
+  useEffect(() => { const { first, last } = readTouches(); const t = last || first; if (t) { setRefCode(t.ref || first?.ref || ""); setHeard(guessHeard(t.source, t.medium, t.ref || first?.ref || "")); } }, []);
   useEffect(() => { try { setCur(localStorage.getItem("ta-currency") || "USD"); } catch { /* storage blocked */ } }, []);
   const total = oneOff - discount + monthly + t.price;
 
@@ -36,6 +43,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
     if (!/.+@.+\..+/.test(form.email)) return setErr("Please add a valid work email.");
     if (!terms) return setErr("Please accept the terms to continue.");
     // TODO: create a Stripe Checkout Session (test mode) via an API route, then redirect.
+    void sendLead("reservation", { items: items.map((p) => p.id), tier, total, currency: cur, email: form.email, heard, refCode });
     setPaid(true);
   };
 
@@ -98,6 +106,14 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
           {PAYMENTS_LIVE ? "Email for your receipt and setup form" : "Email to reserve your build"}
           <input type="email" value={form.email} onChange={(e) => { setForm({ ...form, email: e.target.value }); setErr(""); }} placeholder="you@company.com" />
         </label>
+        <label className="flex flex-col gap-1.5 text-sm text-ink-2">
+          How did you hear about us? <span className="text-muted">(optional)</span>
+          <select value={heard} onChange={(e) => setHeard(e.target.value)}>
+            <option value="">Choose one</option>
+            {HEARD.map((h) => <option key={h}>{h}</option>)}
+          </select>
+        </label>
+        {refCode && <div className="rounded-lg bg-[#F0F8F3] px-3 py-2 text-[13px] text-ink-2">✓ Referral code <b>{refCode}</b> applied — your referrer will be credited.</div>}
         <label className="flex cursor-pointer items-start gap-2.5 text-sm text-ink-2">
           <input type="checkbox" checked={terms} onChange={() => { setTerms(!terms); setErr(""); }} className="mt-0.5 h-5 w-5 accent-[#007185]" />
           <span>I agree to the <Link href="/legal/terms">terms of service</Link>, scope and <Link href="/legal/refunds">refund policy</Link>.</span>

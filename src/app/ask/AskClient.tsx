@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FORMS_LIVE, FORM_NOT_SENT } from "@/lib/launch";
 import Link from "next/link";
+import { sendLead } from "@/lib/attribution";
 
 export default function AskClient() {
   const [f, setF] = useState({ task: "", often: "Every day", apps: "", link: "", email: "" });
@@ -24,7 +25,7 @@ export default function AskClient() {
       e.preventDefault();
       if (f.task.trim().length < 15) return setErr("Tell us a little more about the task — a sentence or two is perfect.");
       if (!/.+@.+\..+/.test(f.email)) return setErr("Please add your email so we can reply.");
-      // TODO: post to n8n webhook (bespoke triage) once the form endpoint is live.
+      void sendLead("ask", { ...f });
       setSent(true);
     }}>
       <label className="flex flex-col gap-1.5 text-sm font-semibold">1 · What task do you want to stop doing by hand?

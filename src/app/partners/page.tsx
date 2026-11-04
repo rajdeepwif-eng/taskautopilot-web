@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import PartnerForm from "./PartnerForm";
+import PartnerKit from "./PartnerKit";
 
-export const metadata: Metadata = { title: "Partner program for accountants & advisors — TaskAutopilot", description: "Introduce clients who are drowning in admin. They get automations; you get a referral fee." };
+export const metadata: Metadata = { title: { absolute: "Referral partner program for accountants | TaskAutopilot" }, description: "Introduce clients who are drowning in admin. They get automations; you get a referral fee." };
 
 export default function PartnersPage() {
   return (
@@ -19,6 +20,18 @@ export default function PartnersPage() {
           </ul>
         </div>
         <div className="card min-w-0 flex-[1_1_380px] p-6"><PartnerForm /></div>
+      </section>
+      <section className="wrap flex flex-col gap-4 pb-10">
+        <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">How it works</h2>
+        <ol className="m-0 grid grid-cols-1 gap-3 p-0 md:grid-cols-3">
+          {["Make your link below and send it to a client (or print the QR for your office).", "Your client tries a $99 starter or buys a fix online — no sales call, nothing for you to manage.", "We credit you on every client who buys through your link, under the partner terms we send when you apply."].map((x, i) => (
+            <li key={x} className="card flex list-none gap-3 p-5 text-[15px]"><b className="text-muted">0{i + 1}</b><span>{x}</span></li>
+          ))}
+        </ol>
+      </section>
+      <section className="wrap flex flex-col gap-3 pb-16">
+        <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">Your partner toolkit</h2>
+        <div className="card p-5"><PartnerKit /></div>
       </section>
     </main>
   );

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FORMS_LIVE, FORM_NOT_SENT } from "@/lib/launch";
 import Link from "next/link";
 import { fmt } from "@/lib/catalogue";
+import { sendLead } from "@/lib/attribution";
 
 type Leak = { id: string; label: string; yearly: number; fix: string; fixId: number };
 
@@ -83,7 +84,7 @@ export default function ScanClient() {
             {joined ? (
               <div className="text-[14px] font-semibold text-ok">{FORMS_LIVE ? "✓ You\u2019re on the early-access list." : FORM_NOT_SENT}</div>
             ) : (
-              <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); if (/.+@.+\..+/.test(email)) setJoined(true); }}>
+              <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); if (/.+@.+\..+/.test(email)) { void sendLead("scan", { email }); setJoined(true); } }}>
                 <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Work email" className="min-w-0 flex-1" aria-label="Work email" />
                 <button type="submit" className="btn btn-dark">Get early access</button>
               </form>

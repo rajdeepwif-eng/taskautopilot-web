@@ -1,0 +1,61 @@
+/**
+ * Marketing attribution: remembers where a visitor came from (ad, partner code, flyer QR, event)
+ * so every reservation and lead says which strategy produced it. Stored only in this browser.
+ */
+import { FORMS_LIVE, LEAD_ENDPOINT } from "@/lib/launch";
+
+export type Touch = { source: string; medium: string; campaign: string; ref: string; gclid: string; landing: string; at: string };
+const FIRST = "ta-first-touch";
+const LAST = "ta-last-touch";
+
+export function captureTouch() {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const has = ["utm_source", "utm_medium", "utm_campaign", "ref", "gclid", "src"].some((k) => q.get(k));
+    const t: Touch = {
+      source: q.get("utm_source") || q.get("src") || (q.get("gclid") ? "google" : "") || referrerSource(),
+      medium: q.get("utm_medium") || (q.get("gclid") ? "cpc" : q.get("ref") ? "referral" : ""),
+      campaign: q.get("utm_campaign") || "",
+      ref: (q.get("ref") || "").replace(/[^A-Za-z0-9_-]/g, "").slice(0, 32),
+      gclid: (q.get("gclid") || "").slice(0, 200),
+      landing: window.location.pathname,
+      at: new Date().toISOString(),
+    };
+    if (!localStorage.getItem(FIRST)) localStorage.setItem(FIRST, JSON.stringify(t));
+    if (has || !localStorage.getItem(LAST)) localStorage.setItem(LAST, JSON.stringify(t));
+  } catch { /* storage blocked — attribution is best-effort */ }
+}
+
+function referrerSource() {
+  try {
+    const r = document.referrer ? new URL(document.referrer).hostname : "";
+    if (!r || r === window.location.hostname) return "direct";
+    if (/google\./.test(r)) return "google-organic";
+    if (/bing\./.test(r)) return "bing-organic";
+    if (/facebook|instagram/.test(r)) return "meta";
+    if (/youtube/.test(r)) return "youtube";
+    if (/linkedin/.test(r)) return "linkedin";
+    return r;
+  } catch { return ""; }
+}
+
+export function readTouches(): { first: Touch | null; last: Touch | null } {
+  try {
+    return { first: JSON.parse(localStorage.getItem(FIRST) || "null"), last: JSON.parse(localStorage.getItem(LAST) || "null") };
+  } catch { return { first: null, last: null }; }
+}
+
+/** Sends a lead or reservation with its attribution. Returns true only if it really went out. */
+export async function sendLead(kind: string, data: Record<string, unknown>): Promise<boolean> {
+  const payload = { kind, data, attribution: readTouches(), page: typeof window !== "undefined" ? window.location.pathname : "", sentAt: new Date().toISOString() };
+  try {
+    const log = JSON.parse(localStorage.getItem("ta-leads") || "[]");
+    log.push(payload);
+    localStorage.setItem("ta-leads", JSON.stringify(log.slice(-20)));
+  } catch { /* ignore */ }
+  if (!FORMS_LIVE || !LEAD_ENDPOINT) return false;
+  try {
+    const r = await fetch(LEAD_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    return r.ok;
+  } catch { return false; }
+}

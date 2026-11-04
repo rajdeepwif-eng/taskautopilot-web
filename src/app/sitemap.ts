@@ -3,6 +3,7 @@ import { PRODUCTS } from "@/lib/catalogue";
 import { TRADES } from "@/lib/trades";
 import { SOLUTIONS } from "@/lib/solutions";
 import { COMPARES } from "@/lib/compare";
+import { INTEGRATIONS } from "@/lib/integrations";
 import { AUDIENCE } from "@/components/TradeFixView";
 import { EDITIONS, SITE } from "@/lib/geo";
 
@@ -15,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...core.map((p) => `${SITE}${p}`),
     ...SOLUTIONS.map((s) => `${SITE}/solutions/${s.slug}/`),
     ...COMPARES.map((c) => `${SITE}/compare/${c.slug}/`),
+    ...INTEGRATIONS.map((i) => `${SITE}/integrations/${i.slug}/`),
+    `${SITE}/demos/`,
     ...SOLUTIONS.flatMap((s) => s.trades.filter(([t]) => AUDIENCE[t]).map(([t]) => `${SITE}/for/${t}/${s.slug}/`)),
     ...TRADES.map((t) => `${SITE}/for/${t.slug}/`),
     ...EDITIONS.flatMap((c) => [`${SITE}/${c}/`, ...TRADES.map((t) => `${SITE}/${c}/for/${t.slug}/`), ...SOLUTIONS.map((s) => `${SITE}/${c}/solutions/${s.slug}/`), ...COMPARES.map((x) => `${SITE}/${c}/compare/${x.slug}/`)]),
