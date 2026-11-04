@@ -70,7 +70,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
       {t.journey && (
         <section className="wrap pb-12">
           <h2 className="m-0 pb-1 font-display text-[30px]">Covered end to end</h2>
-          <p className="m-0 pb-5 text-ink-2">Every step from the first enquiry to the office work afterwards — tap a step to see the automation.</p>
+          <p className="m-0 pb-5 text-ink-2">Every step from the first inquiry to the office work afterwards — tap a step to see the automation.</p>
           <ol className="m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {t.journey.map(([stage, ids], i) => (
               <li key={stage} className="flex gap-3 rounded-xl border border-line bg-white p-3.5">

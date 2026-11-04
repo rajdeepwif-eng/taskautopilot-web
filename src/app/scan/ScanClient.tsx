@@ -16,7 +16,7 @@ export default function ScanClient() {
   const missed = v.calls * (v.missedPct / 100);
   const leaks: Leak[] = [
     { id: "calls", label: "Missed calls that ring someone else", yearly: missed * 52 * v.jobValue * (v.winPct / 100), fix: "Missed-call text-back", fixId: 11 },
-    { id: "slow", label: "Slow replies to enquiries", yearly: v.replyHrs > 1 ? v.calls * 52 * v.jobValue * (v.winPct / 100) * Math.min(0.25, v.replyHrs / 48) : 0, fix: "Instant lead reply & booking", fixId: 10 },
+    { id: "slow", label: "Slow replies to inquiries", yearly: v.replyHrs > 1 ? v.calls * 52 * v.jobValue * (v.winPct / 100) * Math.min(0.25, v.replyHrs / 48) : 0, fix: "Instant lead reply & booking", fixId: 10 },
     { id: "cash", label: "Cash stuck in overdue invoices (one-off)", yearly: v.overdue * v.invoiceValue, fix: "Automated credit control", fixId: 22 },
     { id: "admin", label: "Admin hours typing, chasing and copying", yearly: v.adminHrs * 52 * v.rate * 0.7, fix: "Supplier invoice reader", fixId: 21 },
     { id: "noshow", label: "No-shows and empty slots", yearly: v.noShows * 52 * v.jobValue * 0.5, fix: "Reservations & no-show reminders", fixId: 35 },
@@ -45,10 +45,10 @@ export default function ScanClient() {
       <div className="wrap flex flex-wrap items-start gap-8 pb-16">
         <div className="card flex min-w-0 flex-[999_1_520px] flex-col gap-4 p-6">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <Field k="calls" label="Calls & enquiries a week" />
+            <Field k="calls" label="Calls & inquiries a week" />
             <Field k="missedPct" label="% you can't answer at once" suffix="%" />
             <Field k="jobValue" label="Average job or order value" prefix="$" />
-            <Field k="winPct" label="% of answered enquiries that buy" suffix="%" />
+            <Field k="winPct" label="% of answered inquiries that buy" suffix="%" />
             <Field k="replyHrs" label="Typical hours before you reply" suffix="hrs" />
             <Field k="noShows" label="No-shows a week" />
             <Field k="overdue" label="Invoices overdue right now" />
@@ -57,7 +57,7 @@ export default function ScanClient() {
             <Field k="rate" label="Cost of that time per hour" prefix="$" />
           </div>
           <button type="button" onClick={() => setDone(true)} className="btn btn-primary">Show my leak report</button>
-          <div className="text-[12px] text-muted">Estimates from your numbers only. We assume slow replies lose up to a quarter of enquiries and automation takes on 70% of admin time — change your inputs to test it.</div>
+          <div className="text-[12px] text-muted">Estimates from your numbers only. We assume slow replies lose up to a quarter of inquiries and automation takes on 70% of admin time — change your inputs to test it.</div>
         </div>
 
         <aside className="flex min-w-0 flex-[1_1_380px] flex-col gap-4">

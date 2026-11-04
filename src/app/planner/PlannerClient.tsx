@@ -15,25 +15,25 @@ const SIZES = [
 type Size = (typeof SIZES)[number]["id"];
 
 const PRESETS: { id: string; label: string; tasks: string[] }[] = [
-  { id: "trades", label: "Trades & home services", tasks: ["calls", "enquiries", "quotes", "invoicing", "scheduling", "reviews"] },
-  { id: "hire", label: "Equipment hire", tasks: ["calls", "enquiries", "bookings", "invoicing", "safety", "bank"] },
+  { id: "trades", label: "Trades & home services", tasks: ["calls", "inquiries", "quotes", "invoicing", "scheduling", "reviews"] },
+  { id: "hire", label: "Equipment hire", tasks: ["calls", "inquiries", "bookings", "invoicing", "safety", "bank"] },
   { id: "clinic", label: "Clinic or dental", tasks: ["calls", "patients", "reviews", "bank"] },
   { id: "food", label: "Restaurant or food business", tasks: ["reservations", "bills", "staff", "safety", "reviews"] },
   { id: "insurance", label: "Insurance agency", tasks: ["quotesIns", "calls", "intake", "claims"] },
-  { id: "law", label: "Law or accounting firm", tasks: ["enquiries", "intake", "calls", "invoicing"] },
+  { id: "law", label: "Law or accounting firm", tasks: ["inquiries", "intake", "calls", "invoicing"] },
   { id: "property", label: "Property investing & management", tasks: ["deals", "refurb", "tenants", "calls", "invoicing", "bank"] },
   { id: "construction", label: "Construction or manufacturing", tasks: ["safety", "forms", "scheduling", "bills", "invoicing"] },
   { id: "foodfactory", label: "Food production (BRCGS)", tasks: ["haccp", "trace", "bills", "staff", "excel"] },
   { id: "farm", label: "Farm", tasks: ["assurance", "fieldtasks", "spray", "timesheets", "invoicing", "translate"] },
-  { id: "office", label: "Office / admin team", tasks: ["office", "enquiries", "invoicing", "delegate"] },
-  { id: "other", label: "Something else", tasks: ["enquiries", "invoicing", "forms"] },
+  { id: "office", label: "Office / admin team", tasks: ["office", "inquiries", "invoicing", "delegate"] },
+  { id: "other", label: "Something else", tasks: ["inquiries", "invoicing", "forms"] },
 ];
 
 /* ---------- Where the time goes: each task maps to the product that takes it on ---------- */
 type Task = { id: string; label: string; hours: number; rate: number; product: number; solo?: number; lead?: boolean };
 const TASKS: Task[] = [
   { id: "calls", label: "Answering the phone", hours: 8, rate: 18, product: 7, solo: 40, lead: true },
-  { id: "enquiries", label: "Replying to web, email & WhatsApp enquiries", hours: 5, rate: 18, product: 10, solo: 40, lead: true },
+  { id: "inquiries", label: "Replying to web, email & WhatsApp inquiries", hours: 5, rate: 18, product: 10, solo: 40, lead: true },
   { id: "quotes", label: "Chasing quotes that went quiet", hours: 3, rate: 35, product: 13 },
   { id: "bookings", label: "Taking bookings and payments", hours: 6, rate: 18, product: 4 },
   { id: "scheduling", label: "Scheduling jobs and staff", hours: 6, rate: 24, product: 26 },
@@ -98,7 +98,7 @@ type State = {
   hours: Record<string, number>;
   rate: Record<string, number>;
   share: number; // % of the task the automation takes on (estimate, editable)
-  missed: number; // missed calls/enquiries a week
+  missed: number; // missed calls/inquiries a week
   jobValue: number; // average job value
   winRate: number; // % of those that would have become a job
   budget: number;
@@ -260,10 +260,10 @@ export default function PlannerClient() {
 
           {hasLead && (
             <div className="card flex flex-col gap-3 border-2 border-amber p-5">
-              <div className="font-semibold">4 · The money you don&apos;t see: missed enquiries</div>
-              <div className="text-[14px] text-ink-2">Time saved is only half of it. Enquiries that go unanswered are jobs that go elsewhere.</div>
+              <div className="font-semibold">4 · The money you don&apos;t see: missed inquiries</div>
+              <div className="text-[14px] text-ink-2">Time saved is only half of it. Inquiries that go unanswered are jobs that go elsewhere.</div>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <Num label="Missed calls / enquiries a week" value={s.missed} onChange={(n) => set({ missed: n })} />
+                <Num label="Missed calls / inquiries a week" value={s.missed} onChange={(n) => set({ missed: n })} />
                 <Num label="Average job value" prefix="$" value={s.jobValue} onChange={(n) => set({ jobValue: n })} />
                 <Num label="% that would have booked" suffix="%" value={s.winRate} onChange={(n) => set({ winRate: Math.min(100, n) })} />
               </div>

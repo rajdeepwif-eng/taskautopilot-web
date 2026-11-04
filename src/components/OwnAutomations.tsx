@@ -17,7 +17,6 @@ const GROUPS: { dept: string; items: string[] }[] = [
   { dept: "Finance", items: [
     "Bank reconciliation overnight, with a checker the next morning",
     "Supplier invoices read and booked into the accounts",
-    "Supplier invoices read with document AI and filed (India)",
     "Weekly invoice sign-off list for the owner",
     "Quarterly backup of every invoice and receipt",
   ]},
@@ -55,28 +54,41 @@ export const LIVE_COUNT = GROUPS.reduce((a, g) => a + g.items.length, 0);
 /** Active workflows in the n8n account on 3 Nov 2026 (some jobs use several workflows). */
 export const LIVE_WORKFLOWS = 43;
 
+/** The six jobs closest to what buyers ask for. */
+const HIGHLIGHTS: [string, string][] = [
+  ["Every lead in one place", "Website, WhatsApp, Facebook and Instagram leads land in one channel with a suggested reply."],
+  ["Reviews on autopilot", "A Google review request goes out after every paid invoice."],
+  ["Bank matched overnight", "Bank lines matched to invoices while we sleep, checked the next morning."],
+  ["Bills booked for us", "Supplier invoices read from email and booked into the accounts."],
+  ["Nothing slips", "Failed inspections and maintenance due dates become owned tasks until they're fixed."],
+  ["Stock that reorders itself", "Low-stock alerts with one-tap approval to reorder."],
+];
+
 export default function OwnAutomations() {
   return (
-    <section className="border-y border-line bg-[#ECEAE2]">
-      <div className="wrap flex flex-col gap-5 py-16">
+    <section className="border-y border-line bg-white">
+      <div className="wrap flex flex-col gap-5 py-14">
         <div className="kicker">Proof, not promises</div>
-        <h2 className="m-0 max-w-[820px] font-display text-[clamp(28px,4vw,40px)] leading-tight">
-          {LIVE_COUNT} jobs run every day in our own businesses — equipment hire, food, farming and property.
+        <h2 className="m-0 max-w-[860px] font-display text-[clamp(28px,4vw,36px)] font-bold leading-tight">
+          We run our own companies on this — {LIVE_WORKFLOWS} automations, every day.
         </h2>
-        <p className="m-0 max-w-[720px] text-ink-2">{LIVE_WORKFLOWS} live workflows behind them. We built these for ourselves first — every one is something you can buy, adapted to your apps.</p>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
-          {GROUPS.map((g) => (
-            <div key={g.dept} className="card flex flex-col gap-2 p-5">
-              <div className="flex items-baseline justify-between">
-                <div className="font-display text-lg font-bold">{g.dept}</div>
-                <span className="font-mono text-xs text-ok">● {g.items.length} live</span>
-              </div>
-              <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-[14px] leading-snug text-ink-2">
-                {g.items.map((i) => <li key={i}>✓ {i}</li>)}
-              </ul>
+        <p className="m-0 max-w-[720px] text-ink-2">We built these for our own equipment rental, food, farming and property businesses first. Here are six you can buy, adapted to your apps.</p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {HIGHLIGHTS.map(([t, d]) => (
+            <div key={t} className="card flex flex-col gap-1.5 p-5">
+              <div className="flex items-center gap-2 text-[17px] font-bold"><span className="text-ok">●</span>{t}</div>
+              <div className="text-[15px] leading-snug text-ink-2">{d}</div>
             </div>
           ))}
         </div>
+        <details className="text-[14px] text-ink-2">
+          <summary className="cursor-pointer font-semibold text-[#007185]">See all {LIVE_COUNT} jobs we run</summary>
+          <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4">
+            {GROUPS.map((g) => (
+              <div key={g.dept}><div className="font-bold text-ink">{g.dept}</div><ul className="m-0 list-none p-0 leading-snug">{g.items.map((i) => <li key={i}>✓ {i}</li>)}</ul></div>
+            ))}
+          </div>
+        </details>
       </div>
     </section>
   );

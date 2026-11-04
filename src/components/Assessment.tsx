@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const QUESTIONS = [
   { text: "How many hours a week does your team spend retyping, chasing or matching?", opts: [["Under 5", 5], ["5–15", 15], ["15–40", 30], ["Over 40", 40]] },
-  { text: "How fast does a new enquiry get a reply?", opts: [["Under 5 minutes", 0], ["Within the hour", 10], ["Same day", 20], ["Next day or later", 30]] },
+  { text: "How fast does a new inquiry get a reply?", opts: [["Under 5 minutes", 0], ["Within the hour", 10], ["Same day", 20], ["Next day or later", 30]] },
   { text: "Which tools hold your work today?", opts: [["Spreadsheets and email", 30], ["A CRM, little else", 20], ["Several apps, not connected", 25], ["Connected, but breaking", 15]] },
 ] as const;
 

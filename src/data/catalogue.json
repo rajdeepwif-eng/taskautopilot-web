@@ -153,7 +153,7 @@
       "id": 10,
       "cat": "Sales",
       "name": "Instant lead reply & booking",
-      "desc": "Every web, WhatsApp and social enquiry gets a personal reply and booking link within a minute.",
+      "desc": "Every web, WhatsApp and social inquiry gets a personal reply and booking link within a minute.",
       "apps": "Website forms, WhatsApp, Meta, Gmail/Outlook, Salesforce",
       "price": 1800,
       "days": 10,
@@ -164,7 +164,7 @@
       "grade": "Moderate",
       "wage": 38010,
       "role": "receptionist",
-      "replaces": "Replies to every enquiry within a minute, day or night — work that otherwise falls to a receptionist ($38,010/yr (US median, BLS May 2025))."
+      "replaces": "Replies to every inquiry within a minute, day or night — work that otherwise falls to a receptionist ($38,010/yr (US median, BLS May 2025))."
     },
     {
       "id": 11,
@@ -599,7 +599,7 @@
       "id": 40,
       "cat": "Solo (self-employed)",
       "name": "Never miss a job — Solo",
-      "desc": "Every enquiry gets an instant reply and your booking link, even when you are busy working.",
+      "desc": "Every inquiry gets an instant reply and your booking link, even when you are busy working.",
       "apps": "Website form, WhatsApp, calendar",
       "price": 600,
       "days": 5,
@@ -1015,7 +1015,7 @@
       "id": 70,
       "cat": "Courses",
       "name": "Automate your business in 30 days (self-paced)",
-      "desc": "For owners. Short lessons, each ending with a working automation in your own business: missed calls, enquiries, invoices, bank matching, reviews. Includes 10 ready-made workflow templates and checklists. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
+      "desc": "For owners. Short lessons, each ending with a working automation in your own business: missed calls, inquiries, invoices, bank matching, reviews. Includes 10 ready-made workflow templates and checklists. Founding enrolment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "30 days · 20 lessons · 10 templates",
       "price": 299,
       "days": 1,
@@ -1509,19 +1509,19 @@
       "run": "$300–700/mo + AI usage & Meta fees",
       "desc": "An AI sales agent on your website chat and WhatsApp that answers product and price questions from your own information, qualifies the lead, sends quotes, books calls or appointments and can send a secure Stripe payment link — day and night. Anything it can't answer goes to a person.",
       "apps": "WhatsApp Business Platform, your website, your CRM, calendar, Stripe payment links",
-      "replaces": "Sells while you sleep — every enquiry answered and moved towards a sale in seconds."
+      "replaces": "Sells while you sleep — every inquiry answered and moved towards a sale in seconds."
     },
     {
       "id": 109,
       "cat": "Sales",
-      "name": "Full CRM — from first enquiry to paid invoice",
+      "name": "Full CRM — from first inquiry to paid invoice",
       "price": 7750,
       "days": 20,
       "ind": [
         "all"
       ],
       "run": "$300–600/mo",
-      "desc": "One CRM for the whole customer journey: every enquiry from web, phone, email, WhatsApp and social captured automatically, a clear sales pipeline, follow-ups that run themselves, quotes, bookings and invoices linked to each customer, and a dashboard of sales and cash. We move your old spreadsheets in.",
+      "desc": "One CRM for the whole customer journey: every inquiry from web, phone, email, WhatsApp and social captured automatically, a clear sales pipeline, follow-ups that run themselves, quotes, bookings and invoices linked to each customer, and a dashboard of sales and cash. We move your old spreadsheets in.",
       "apps": "Salesforce, HubSpot, GoHighLevel, Airtable, Zoho CRM or Pipedrive; Xero, QuickBooks or Zoho Books; WhatsApp, Gmail, Outlook",
       "replaces": "Replaces spreadsheets, sticky notes and memory with one place your whole team works from."
     },
@@ -1634,7 +1634,7 @@
         "Real estate & property"
       ],
       "run": "$100–250/mo + AI usage",
-      "desc": "Listing descriptions drafted from your notes and photos (checked for fair-housing wording), photos organised, listings prepared for the portals you use, and every enquiry answered with viewing slots that book themselves.",
+      "desc": "Listing descriptions drafted from your notes and photos (checked for fair-housing wording), photos organised, listings prepared for the portals you use, and every inquiry answered with viewing slots that book themselves.",
       "apps": "The portals you list on, Google Drive, Gmail or Outlook, calendar, WhatsApp",
       "replaces": "Gets a property listed and viewings booked in an hour, not a day."
     },
@@ -2372,7 +2372,7 @@
     "118": [
       "Send notes and photos for the property.",
       "A listing is drafted, checked for fair-housing wording and prepared for your portals.",
-      "Enquiries are answered and viewings book themselves into your calendar."
+      "Inquiries are answered and viewings book themselves into your calendar."
     ],
     "119": [
       "We set up the schedule of works and budget for the property.",
@@ -2638,7 +2638,7 @@
     {
       "name": "Lead to cash kit",
       "depts": "SALES → FINANCE",
-      "desc": "From first enquiry to money in the bank: instant replies, contract and deposit, client welcome, chasing and payments matched.",
+      "desc": "From first inquiry to money in the bank: instant replies, contract and deposit, client welcome, chasing and payments matched.",
       "ids": [
         10,
         121,
@@ -2651,7 +2651,7 @@
     {
       "name": "24/7 sales kit",
       "depts": "SALES · ANY INDUSTRY",
-      "desc": "An AI sales agent on WhatsApp and your website, instant replies to every enquiry and missed calls texted back.",
+      "desc": "An AI sales agent on WhatsApp and your website, instant replies to every inquiry and missed calls texted back.",
       "ids": [
         108,
         10,
@@ -2701,7 +2701,7 @@
     {
       "name": "Never lose a lead",
       "depts": "SALES → MARKETING",
-      "desc": "Every enquiry and missed call answered in a minute, quotes followed up, happy customers asked for reviews.",
+      "desc": "Every inquiry and missed call answered in a minute, quotes followed up, happy customers asked for reviews.",
       "ids": [
         10,
         11,
@@ -2777,7 +2777,7 @@
     {
       "name": "Equipment hire starter kit",
       "depts": "EQUIPMENT HIRE",
-      "desc": "Never miss an enquiry, chase every invoice and keep safety checks closed out.",
+      "desc": "Never miss an inquiry, chase every invoice and keep safety checks closed out.",
       "ids": [
         11,
         10,
@@ -2824,7 +2824,7 @@
     {
       "name": "Professional firm starter kit",
       "depts": "LAW, ACCOUNTING & INSURANCE",
-      "desc": "Enquiries answered in a minute and client documents collected without chasing.",
+      "desc": "Inquiries answered in a minute and client documents collected without chasing.",
       "ids": [
         10,
         32,
@@ -2871,7 +2871,7 @@
     {
       "name": "Property starter kit",
       "depts": "REAL ESTATE & PROPERTY",
-      "desc": "Maintenance requests handled, enquiries answered fast and rent chased politely.",
+      "desc": "Maintenance requests handled, inquiries answered fast and rent chased politely.",
       "ids": [
         34,
         10,

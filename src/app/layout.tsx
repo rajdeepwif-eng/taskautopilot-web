@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         {children}
         <CurrencyApplier />
-        <footer className="mt-10 bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD]"><div className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm">
+        <footer className="bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD]"><div className="wrap flex flex-wrap justify-between gap-3 py-8 text-sm">
           <span>© 2026 TaskAutopilot · Prices set in US$, shown in your chosen currency</span>
           <span className="flex flex-wrap gap-4"><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/scan/">Free leak scan</Link><Link href="/kits/">Starter kits</Link><Link href="/demo/">Try it live</Link><Link href="/library/">All automations</Link><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link><Link href="/#security">Security</Link></span>
           <span>
