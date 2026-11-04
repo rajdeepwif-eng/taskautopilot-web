@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import QR from "@/components/QR";
-import { SITE } from "@/lib/geo";
+import { ON_TEMP_DOMAIN, SITE } from "@/lib/geo";
 
 const TRADES: [string, string, string][] = [
   ["trades", "Plumbers, electricians & builders", "Missed a call on the job? Every caller gets a text back in a minute — with your booking link."],
@@ -49,6 +49,7 @@ export default function KitClient() {
         <p className="m-0 max-w-[760px] text-ink-2">Make a flyer for a street, an event or a partner. Each QR code carries its own tag, so every reservation shows which visit, event or partner it came from.</p>
       </section>
 
+      {ON_TEMP_DOMAIN && <div role="alert" className="no-print rounded-lg border-2 border-[#B12704] bg-[#FFF4E5] p-4 text-[15px]"><b>Don&apos;t print in bulk yet.</b> These QR codes point to the temporary github.io address. Once the custom domain is live they&apos;ll update automatically — print after that, or flyers already handed out will break.</div>}
       <section className="no-print card grid grid-cols-1 gap-4 p-5 md:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-sm font-semibold">Who is it for?
           <select value={t} onChange={(e) => setT(e.target.value)}>{TRADES.map(([k, n]) => <option key={k} value={k}>{n}</option>)}</select>

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import FixDemo from "@/components/FixDemo";
 import { byId, fmt } from "@/lib/catalogue";
+import { partnerName } from "@/data/partners";
+import { NEXT_BUILD_START } from "@/lib/launch";
 
 /** What each trade's owner hears first. Keys match the ?t= value on flyers and QR codes. */
 const PITCH: Record<string, { who: string; line: string; demo: string; ask: string; picks: number[] }> = {
@@ -15,13 +17,14 @@ const PITCH: Record<string, { who: string; line: string; demo: string; ask: stri
 
 export default function GoClient() {
   const [t, setT] = useState("trades");
-  useEffect(() => { try { const k = new URLSearchParams(window.location.search).get("t") || ""; if (PITCH[k]) setT(k); } catch { /* ignore */ } }, []);
+  const [by, setBy] = useState("");
+  useEffect(() => { try { const q = new URLSearchParams(window.location.search); const k = q.get("t") || ""; if (PITCH[k]) setT(k); setBy(partnerName(q.get("ref") || "")); } catch { /* ignore */ } }, []);
   const p = PITCH[t];
   const starter = byId(120);
   return (
     <main className="wrap flex flex-col gap-8 pb-16 pt-10">
       <section className="flex flex-col gap-3">
-        <div className="kicker">Nice to meet you · for {p.who}</div>
+        <div className="kicker">{by ? `Recommended by ${by}` : "Nice to meet you"} · for {p.who}</div>
         <h1 className="m-0 max-w-[860px] font-display text-[clamp(30px,5vw,48px)] font-bold leading-[1.05] tracking-tight">Try one automation for {fmt(starter.price)}. We set it up for you.</h1>
         <p className="m-0 max-w-[720px] text-lg text-ink-2">{p.line} Set up in your own accounts within 5 business days, runs for 30 days, and the {fmt(starter.price)} is credited if you upgrade.</p>
         <div className="flex flex-wrap gap-3 pt-1">
@@ -38,7 +41,7 @@ export default function GoClient() {
               <b>{x.name}</b><span className="text-[14px] text-ink-2">{x.desc}</span><span className="text-[15px] font-bold">{x.monthly ? `${fmt(x.price)}/mo` : fmt(x.price)}</span>
             </Link>
           ))}
-          <div className="text-[14px] text-ink-2">✓ Fixed prices · ✓ Approve the test run or get the build fee back · ✓ No sales call needed</div>
+          <div className="text-[14px] text-ink-2">✓ Fixed prices · ✓ Approve the test run or get the build fee back · ✓ No sales call needed{NEXT_BUILD_START ? ` · 📅 Next build start ${new Date(NEXT_BUILD_START + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long" })}` : ""}</div>
         </div>
       </section>
     </main>

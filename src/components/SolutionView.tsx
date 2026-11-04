@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { byId, howItWorks , runLow } from "@/lib/catalogue";
-import { COUNTRIES, Country, localPrices, loc, money } from "@/lib/geo";
+import { COUNTRIES, Country, localPrices, loc, money, SITE } from "@/lib/geo";
 import { solutionBySlug } from "@/lib/solutions";
 import { tradeBySlug } from "@/lib/trades";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
@@ -31,7 +31,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
   const main = byId(s.fixes[0]);
   const others = s.fixes.slice(1).map(byId);
   const photo = TRADE_PHOTOS[s.trades[0][0]];
-  const base = `https://rajdeepwif-eng.github.io/taskautopilot-web${C.path}`;
+  const base = `${SITE}${C.path}`;
   const ld = {
     "@context": "https://schema.org",
     "@graph": [

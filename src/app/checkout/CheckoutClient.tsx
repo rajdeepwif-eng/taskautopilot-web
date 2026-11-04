@@ -4,7 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { Product, fmt, priceLabel, runLow } from "@/lib/catalogue";
 import { useEffect } from "react";
-import { PAYMENTS_LIVE } from "@/lib/launch";
+import { NEXT_BUILD_START, PAYMENTS_LIVE } from "@/lib/launch";
+import { trackConversion } from "@/components/Analytics";
+import { partnerName } from "@/data/partners";
 import { readTouches, sendLead } from "@/lib/attribution";
 
 const HEARD = ["Google search", "Google ad", "My accountant or bookkeeper", "A friend or another business owner", "You called or visited us", "Trade show or event", "YouTube or Facebook", "Other"];
@@ -44,6 +46,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
     if (!terms) return setErr("Please accept the terms to continue.");
     // TODO: create a Stripe Checkout Session (test mode) via an API route, then redirect.
     void sendLead("reservation", { items: items.map((p) => p.id), tier, total, currency: cur, email: form.email, heard, refCode });
+    trackConversion(total, "USD");
     setPaid(true);
   };
 
@@ -113,7 +116,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
             {HEARD.map((h) => <option key={h}>{h}</option>)}
           </select>
         </label>
-        {refCode && <div className="rounded-lg bg-[#F0F8F3] px-3 py-2 text-[13px] text-ink-2">✓ Referral code <b>{refCode}</b> applied — your referrer will be credited.</div>}
+        {refCode && <div className="rounded-lg bg-[#F0F8F3] px-3 py-2 text-[13px] text-ink-2">✓ {partnerName(refCode) ? <>Referred by <b>{partnerName(refCode)}</b></> : <>Referral code <b>{refCode}</b> noted</>} — your referrer will be credited.</div>}
+        {NEXT_BUILD_START && <div className="text-[13px] text-ink-2">📅 Next build start: <b>{new Date(NEXT_BUILD_START + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long" })}</b></div>}
         <label className="flex cursor-pointer items-start gap-2.5 text-sm text-ink-2">
           <input type="checkbox" checked={terms} onChange={() => { setTerms(!terms); setErr(""); }} className="mt-0.5 h-5 w-5 accent-[#007185]" />
           <span>I agree to the <Link href="/legal/terms">terms of service</Link>, scope and <Link href="/legal/refunds">refund policy</Link>.</span>

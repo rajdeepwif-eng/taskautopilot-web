@@ -3,7 +3,7 @@ import { PAYMENTS_LIVE } from "@/lib/launch";
 import { BUNDLES, byId, defaultHours, exampleYearly, exampleRate } from "@/lib/catalogue";
 import { tradeBySlug } from "@/lib/trades";
 import { CatArt } from "@/components/CatArt";
-import { COUNTRIES, Country, localPrices, money, loc } from "@/lib/geo";
+import { COUNTRIES, Country, localPrices, money, loc, SITE } from "@/lib/geo";
 import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import AddToCart from "@/components/AddToCart";
 import { runLow } from "@/lib/catalogue";
@@ -25,7 +25,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
   return (
     <main className="pb-24 lg:pb-0" data-nocurrency={country !== "us" ? "" : undefined}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: t.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `https://rajdeepwif-eng.github.io/taskautopilot-web${C.path}/` }, { "@type": "ListItem", position: 2, name: t.name, item: `https://rajdeepwif-eng.github.io/taskautopilot-web${C.path}/for/${slug}/` }] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${SITE}${C.path}/` }, { "@type": "ListItem", position: 2, name: t.name, item: `${SITE}${C.path}/for/${slug}/` }] }) }} />
       <section className="wrap flex flex-wrap items-center gap-8 pb-8 pt-12">
         <div className="flex min-w-0 flex-[999_1_480px] flex-col gap-4">
           <Link href={`${C.path}/#trades`} className="text-sm">← All trades</Link>

@@ -6,10 +6,12 @@ import { HeaderSearch, PlanLink } from "@/components/StoreBar";
 import "./globals.css";
 import FooterFixes from "@/components/FooterFixes";
 import Attribution from "@/components/Attribution";
+import Analytics from "@/components/Analytics";
 import heroImg from "@/assets/hero.jpg";
+import { SITE } from "@/lib/geo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rajdeepwif-eng.github.io/taskautopilot-web/"),
+  metadataBase: new URL(SITE + "/"),
   openGraph: { type: "website", siteName: "TaskAutopilot", images: [heroImg.src] },
   alternates: { canonical: "./" },
   twitter: { card: "summary_large_image" },
@@ -23,8 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-sans antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [
-          { "@type": "Organization", "@id": "https://rajdeepwif-eng.github.io/taskautopilot-web/#org", name: "TaskAutopilot", url: "https://rajdeepwif-eng.github.io/taskautopilot-web/", logo: "https://rajdeepwif-eng.github.io/taskautopilot-web/icon.svg", areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
-          { "@type": "WebSite", name: "TaskAutopilot", url: "https://rajdeepwif-eng.github.io/taskautopilot-web/", potentialAction: { "@type": "SearchAction", target: "https://rajdeepwif-eng.github.io/taskautopilot-web/library/?q={search_term_string}", "query-input": "required name=search_term_string" } },
+          { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutopilot", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
+          { "@type": "WebSite", name: "TaskAutopilot", url: `${SITE}/`, potentialAction: { "@type": "SearchAction", target: `${SITE}/library/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
         ] }) }} />
         <header>
           <div className="bg-[#131921] text-white">
@@ -59,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <CurrencyApplier />
         <Attribution />
+        <Analytics />
         <footer className="bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD] [&_a:hover]:text-white">
           <div className="wrap grid grid-cols-2 gap-6 py-10 text-sm md:grid-cols-5">
             <div className="flex flex-col gap-2"><b className="text-white">Shop</b><Link href="/library/">All automations</Link><Link href="/#trades">Shop by business type</Link><Link href="/starter/">Starter offer</Link><Link href="/kits/">Industry & DIY kits</Link><Link href="/academy/">Courses</Link></div>

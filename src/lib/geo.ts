@@ -1,6 +1,9 @@
 /** Country editions for SEO. Prices are set list prices from US$ (ECB reference rates, 18 May 2026), rounded. */
 export type Country = "us" | "uk" | "au" | "ca";
-export const SITE = "https://rajdeepwif-eng.github.io/taskautopilot-web";
+/** The live address. Set NEXT_PUBLIC_SITE_URL in the deploy workflow when the custom domain is ready. */
+export const SITE = (process.env.NEXT_PUBLIC_SITE_URL || "https://rajdeepwif-eng.github.io/taskautopilot-web").replace(/\/$/, "");
+/** True while the site is still on the temporary github.io address — don't print QR codes yet. */
+export const ON_TEMP_DOMAIN = /github\.io/.test(SITE);
 export const COUNTRIES: Record<Country, { name: string; adj: string; locale: string; rate: number; sym: string; tax: string; path: string }> = {
   us: { name: "United States", adj: "US", locale: "en-US", rate: 1, sym: "$", tax: "plus sales tax where it applies", path: "" },
   uk: { name: "United Kingdom", adj: "UK", locale: "en-GB", rate: 0.747, sym: "£", tax: "plus VAT", path: "/uk" },

@@ -18,3 +18,18 @@ export const GOOGLE_REVIEW_URL = "";
  */
 export const REFERRALS_LIVE = false;
 export const REFERRAL_CREDIT_USD = 100; // ASSUMED — confirm before switching REFERRALS_LIVE on
+
+/**
+ * Capacity: the date the next build can start, e.g. "2026-11-18". Shown on checkout and offer pages
+ * so demand never outruns delivery. Empty = not shown.
+ */
+export const NEXT_BUILD_START = "";
+
+/**
+ * Tracking IDs. All empty = no tracking scripts and no cookie banner.
+ * Set them when the accounts exist; a consent banner then appears and nothing loads until a visitor accepts.
+ */
+export const GA4_ID = ""; // e.g. "G-XXXXXXX"
+export const GOOGLE_ADS_ID = ""; // e.g. "AW-123456789"
+export const GOOGLE_ADS_CONVERSION_LABEL = ""; // the reservation/purchase conversion label
+export const META_PIXEL_ID = ""; // e.g. "1234567890"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { metaDesc, seoTitle } from "@/lib/geo";
+import { metaDesc, seoTitle, SITE } from "@/lib/geo";
 import { PRODUCTS, byId, priceLabel } from "@/lib/catalogue";
 import ProductPageClient from "./ProductPageClient";
 import { PAYMENTS_LIVE } from "@/lib/launch";
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const p = byId(Number((await params).id));
-  const crumbs = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://rajdeepwif-eng.github.io/taskautopilot-web/" }, { "@type": "ListItem", position: 2, name: "All automations", item: "https://rajdeepwif-eng.github.io/taskautopilot-web/library/" }, { "@type": "ListItem", position: 3, name: p.name, item: `https://rajdeepwif-eng.github.io/taskautopilot-web/p/${p.id}/` }] };
+  const crumbs = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` }, { "@type": "ListItem", position: 2, name: "All automations", item: `${SITE}/library/` }, { "@type": "ListItem", position: 3, name: p.name, item: `${SITE}/p/${p.id}/` }] };
   const ld = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -28,7 +28,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
       price: p.price,
       priceCurrency: "USD",
       availability: PAYMENTS_LIVE ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
-      url: `https://rajdeepwif-eng.github.io/taskautopilot-web/p/${p.id}/`,
+      url: `${SITE}/p/${p.id}/`,
       ...(p.monthly ? { priceSpecification: { "@type": "UnitPriceSpecification", price: p.price, priceCurrency: "USD", unitCode: "MON" } } : {}),
     },
   };
