@@ -32,7 +32,7 @@ const PERSON_VS_AUTOMATION = [
 
 const PACKAGES = [
   { name: "Try one automation", price: "$99", href: "/starter/", cta: "Pick yours", points: ["Missed calls, reviews, invoices to Excel and more", "Set up for you, runs for 30 days", "$99 credited if you upgrade", "Live in 5 business days"] },
-  { name: "Never miss a lead", price: fmt(byId(10).price), href: "/checkout/?plan=10", cta: "Buy now", popular: true, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in about 2 weeks"] },
+  { name: "Never miss a lead", price: fmt(byId(10).price), href: "/checkout/?plan=10", cta: PAYMENTS_LIVE ? "Buy now" : "Reserve now", popular: true, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in about 2 weeks"] },
   { name: "Paid automation audit", price: "$499", href: "/checkout/?plan=0", cta: "Buy the audit", points: ["Recorded walkthrough of your tools", "Ranked plan: hours saved per workflow", "Fixed quotes for each build", "Fee credited if you build with us"] },
 ];
 

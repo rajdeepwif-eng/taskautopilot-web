@@ -112,7 +112,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
                 <div className="mt-auto pt-2 font-display text-2xl font-bold">{priceLabel(p)}</div>
                 {p.run && <span className="text-[13px] text-muted">then optional Run Lite support {fmt(runLow(p))}/mo</span>}
                 <AddToCart ids={[p.id]} className="!min-h-[40px]" />
-                <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary !min-h-[40px]">Buy now</Link>
+                <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary !min-h-[40px]">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link>
               </div>
             </article>
           ))}

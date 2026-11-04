@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import { solutionBySlug } from "@/lib/solutions";
 import { solutionTitle } from "@/components/SolutionView";
 import { byId, runLow } from "@/lib/catalogue";
@@ -41,7 +42,7 @@ export default function AdLanding({ slug, country }: { slug: string; country: Co
             <span className="text-[15px] text-ink-2">{L(main.desc)}</span>
             <span className="text-3xl font-bold">{fmt(main.price)}</span>
             {main.run && <span className="text-[13px] text-muted">then optional Run Lite support {fmt(runLow(main))}/mo</span>}
-            <div className="flex flex-wrap gap-3"><Link href={`/checkout/?plan=${main.id}`} className="btn btn-primary">Buy now</Link><AddToCart ids={[main.id]} /></div>
+            <div className="flex flex-wrap gap-3"><Link href={`/checkout/?plan=${main.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link><AddToCart ids={[main.id]} /></div>
           </div>
           {s.faq.slice(0, 3).map(([q, a]) => <details key={q} className="card p-4"><summary className="cursor-pointer font-semibold">{L(q)}</summary><p className="mb-0 mt-2 text-ink-2">{L(a)}</p></details>)}
           <Link href={`${C.path}/solutions/${slug}/`} className="text-[14px]">Read the full guide →</Link>

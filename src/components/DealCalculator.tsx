@@ -70,7 +70,7 @@ export default function DealCalculator({ start = 1800, initialTab = "monthly" }:
           </div>
           <div className="flex flex-col gap-1 rounded-xl bg-ink p-4 text-paper" aria-live="polite">
             <div className="text-[13px] text-[#A9ADB4]">Setup fee</div><div className="text-2xl font-bold" data-testid="res-setup">{money(res.setup)}</div>
-            <div className="text-[13px] text-[#A9ADB4]">Then {Math.round(RESULTS.gainShare * 100)}% of measured gains for {res.months} months (you keep {100 - Math.round(RESULTS.gainShare * 100)}%), against a baseline agreed in writing</div><div className="text-3xl font-bold text-amber" data-testid="res-month">{money(res.perMonth)}/mo</div>
+            <div className="text-[13px] text-[#A9ADB4]">Then {Math.round(RESULTS.gainShare * 100)}% of measured gains for {res.months} months (you keep {100 - Math.round(RESULTS.gainShare * 100)}%), against a baseline agreed in writing</div><div className="text-3xl font-bold text-amber" data-testid="res-month">{money(res.perMonth)}/mo</div><div className="text-[12.5px] text-[#A9ADB4]">Payments stop early if the cap is reached.</div>
             <div className="text-[13px] text-[#A9ADB4]">Most you&apos;d ever pay: {money(res.cap)} · on these numbers: {money(res.total)} vs {money(price)} up front</div>
           </div>
         </div>

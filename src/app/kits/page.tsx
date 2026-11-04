@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import Link from "next/link";
 import AddToCart from "@/components/AddToCart";
 import { BUNDLES, PRODUCTS, byId, fmt, priceLabel } from "@/lib/catalogue";
@@ -47,7 +48,7 @@ export default function KitsPage() {
                   <Link href={`/p/${p.id}/`} className="font-display text-[17px] font-bold text-ink">{p.name}</Link>
                   <div className="mt-auto font-display text-2xl font-bold">{priceLabel(p)}</div>
                   <AddToCart ids={[p.id]} />
-                  <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
+                  <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link>
                 </div>
               </div>
             ))}

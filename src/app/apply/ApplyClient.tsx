@@ -38,7 +38,7 @@ export default function ApplyClient() {
     <main className="wrap flex max-w-[860px] flex-col gap-6 pb-16 pt-10">
       <div className="kicker">Apply · about 3 minutes</div>
       <h1 className="m-0 font-display text-[clamp(28px,4vw,40px)] font-bold">Tell us about your business — we&apos;ll suggest the best deal.</h1>
-      {!FORMS_LIVE && <div className="rounded-lg bg-[#FFF4E5] px-3 py-2 text-[14px] text-ink-2"><b>Pre-launch:</b> applications open at launch, so this form can&apos;t be sent yet. You can still see the questions; to talk now, email the address in the footer.</div>}
+      {!FORMS_LIVE && <div className="rounded-lg bg-[#FFF4E5] px-3 py-2 text-[14px] text-ink-2"><b>Pre-launch:</b> applications open at launch, so this form can&apos;t be sent yet. You can still see the questions now; save this page and come back at launch.</div>}
       <form className="flex flex-col gap-5" data-nocurrency onSubmit={(e) => {
         e.preventDefault();
         if (!f.name.trim() || !f.company.trim()) return setErr("Please add your name and company.");

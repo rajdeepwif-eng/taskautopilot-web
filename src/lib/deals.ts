@@ -82,9 +82,10 @@ export const dealById = (id: string) => DEALS.find((d) => d.id === id);
 /** Monthly plan maths for a one-off price. */
 export const planFor = (price: number, months: number) => {
   const t = PLAN_TERMS.find((x) => x.months === months) ?? PLAN_TERMS[1];
-  const total = price * (1 + t.uplift);
-  const deposit = total * t.deposit;
-  return { months: t.months, total, deposit, monthly: (total - deposit) / t.months };
+  // Whole currency units, so deposit + monthly × months always equals the total shown.
+  const monthly = Math.round((price * (1 + t.uplift) * (1 - t.deposit)) / t.months);
+  const deposit = Math.round(price * (1 + t.uplift) * t.deposit);
+  return { months: t.months, total: deposit + monthly * t.months, deposit, monthly };
 };
 
 /** Lowest monthly figure we can show next to a price ("or from $X/mo"). */

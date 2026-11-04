@@ -1,5 +1,6 @@
 "use client";
 
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { BUNDLES, CATEGORIES, INDUSTRIES, PRODUCTS, Product, byId, fitsIndustry, fmt, priceLabel , runLow } from "@/lib/catalogue";
@@ -239,7 +240,7 @@ export default function MarketClient() {
                       {inPlan(p.id) ? "✓ In cart — remove" : "Add to cart"}
                     </button>
                     <Link href={`/checkout/?plan=${p.id}`} className="flex min-h-[36px] items-center justify-center rounded-full border border-[#FF8F00] bg-[#FFA41C] text-[14px] text-ink no-underline hover:bg-[#FA8900] hover:text-ink">
-                      Buy now
+                      {PAYMENTS_LIVE ? "Buy now" : "Reserve now"}
                     </Link>
                   </div>
                 </div>

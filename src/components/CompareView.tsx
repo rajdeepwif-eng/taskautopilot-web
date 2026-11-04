@@ -23,6 +23,7 @@ export default function CompareView({ slug, country }: { slug: string; country: 
       </section>
 
       <section className="wrap pb-8">
+        <p className="m-0 text-[12.5px] text-muted md:hidden">Swipe the table sideways to compare every column →</p>
         <div className="overflow-x-auto rounded-xl border border-line bg-white">
           <table className="w-full min-w-[640px] border-collapse text-left text-[15px]">
             <thead>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DEALS, PLAN_TERMS, RESULTS, fromMonthly, planFor } from "@/lib/deals";
 import { byId, fmt } from "@/lib/catalogue";
 import DealCalculator from "@/components/DealCalculator";
+import PlanTable from "@/components/PlanTable";
 import { HIRE_COST } from "@/lib/hireCost";
 import { COUNTRIES, Country } from "@/lib/geo";
 import { SITE, seoTitle } from "@/lib/geo";
@@ -74,15 +75,7 @@ export default function WaysToPay() {
         <h2 className="m-0 text-[clamp(24px,3.5vw,32px)] font-bold">Pay monthly: examples</h2>
         <p className="m-0 text-[12.5px] text-muted md:hidden">Swipe the table sideways to see every column →</p>
       <div className="overflow-x-auto rounded-xl border border-line bg-white">
-          <table className="w-full min-w-[620px] border-collapse text-left text-[15px]">
-            <thead><tr className="bg-[#F7F8F8] text-[13px] text-muted"><th className="px-4 py-3">Automation</th><th className="px-4 py-3">Up front</th>{PLAN_TERMS.map((t) => <th key={t.months} className="px-4 py-3">{t.months} months</th>)}</tr></thead>
-            <tbody>
-              {[missed, lead].map((p) => (
-                <tr key={p.id} className="border-t border-line"><td className="px-4 py-3"><Link href={`/p/${p.id}/`}>{p.name}</Link></td><td className="px-4 py-3">{fmt(p.price)}</td>
-                  {PLAN_TERMS.map((t) => { const x = planFor(p.price, t.months); return <td key={t.months} className="px-4 py-3">{fmt(x.deposit)} + {fmt(x.monthly)}/mo</td>; })}</tr>
-              ))}
-            </tbody>
-          </table>
+          <PlanTable items={[missed, lead].map((p) => ({ id: p.id, name: p.name, price: p.price }))} />
         </div>
         <p className="m-0 text-[13px] text-muted">Deposit + monthly payments. From {fmt(fromMonthly(missed.price))}/mo. Subject to approval.</p>
       </section>

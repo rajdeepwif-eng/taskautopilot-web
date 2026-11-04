@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import AddToCart from "@/components/AddToCart";
 import { byId, fmt, priceLabel, defaultHours, exampleYearly, exampleRate , runLow } from "@/lib/catalogue";
 
@@ -56,7 +57,7 @@ export default function IndustryPage({ c }: { c: IndustryContent }) {
                 <span className="text-[13px] text-muted">{p.run ? `then optional support ${fmt(runLow(p))}/mo` : `live in about ${p.days} business days`}</span>
               </div>
               <AddToCart ids={[p.id]} />
-              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
+              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link>
             </div>
           ))}
         </div>

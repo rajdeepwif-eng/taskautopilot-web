@@ -307,7 +307,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               <Link href="/starter/" className="btn btn-primary">Choose your starter automation →</Link>
             ) : (<>
               <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
-              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">Buy now</Link>
+              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link>
             </>)}
             <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutoMode</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund of the build fee</span></>}</div>
             <div className="text-sm leading-relaxed text-ink-2">
