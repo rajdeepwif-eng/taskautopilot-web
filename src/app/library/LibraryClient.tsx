@@ -1,5 +1,6 @@
 "use client";
 
+import { fromMonthly } from "@/lib/deals";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { CatArt } from "@/components/CatArt";
@@ -299,6 +300,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
           <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-lg border border-line bg-white p-5 md:order-none md:sticky md:top-4">
             <div className="text-xl leading-tight md:hidden">{p.name}</div>
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
+            {!p.monthly && p.price >= 500 && p.cat !== "Courses" && p.cat !== "DIY kits" && <Link href={`/ways-to-pay/#monthly`} className="text-[14px]" data-testid="from-monthly">or from {fmt(fromMonthly(p.price))}/mo · other ways to pay</Link>}
             {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[15px]"><LiveBy days={p.days} /></div>}
             <div className="text-[18px] text-ok">Ready to start</div>
             {p.id === 120 ? (

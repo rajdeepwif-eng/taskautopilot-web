@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DEALS } from "@/lib/deals";
 import { alternates, seoTitle } from "@/lib/geo";
 import HeroSearch from "@/components/HeroSearch";
 import TradeGrid from "@/components/TradeGrid";
@@ -109,6 +110,19 @@ export default function Home() {
         <div className="flex flex-wrap gap-3">
           <Link href="/library" className="btn btn-dark">Browse the full catalog ({PRODUCTS.length}) →</Link>
           <Link href="/planner/" className="btn btn-outline">Not sure? Build my plan in 2 minutes</Link>
+        </div>
+      </section>
+
+      {/* Ways to pay */}
+      <section className="wrap flex flex-col gap-4 pt-16" data-testid="home-deals">
+        <div className="kicker">Not ready to pay it all up front?</div>
+        <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Pick how you pay — or how we get paid.</h2>
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+          {DEALS.filter((d) => d.id !== "upfront").map((d) => (
+            <Link key={d.id} href={d.id === "equity" || d.id === "hybrid" ? "/startups/" : d.id === "succession" ? "/selling-or-retiring/" : `/ways-to-pay/#${d.id}`} className="card flex flex-col gap-1 p-4 text-ink no-underline hover:border-ink">
+              <b>{d.name}</b><span className="text-[13px] text-ink-2">{d.forWho}</span>
+            </Link>
+          ))}
         </div>
       </section>
 

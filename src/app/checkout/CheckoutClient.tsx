@@ -1,5 +1,6 @@
 "use client";
 
+import { PLAN_TERMS, planFor } from "@/lib/deals";
 import { useState } from "react";
 import Link from "next/link";
 import { Product, fmt, priceLabel, runLow } from "@/lib/catalogue";
@@ -35,6 +36,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const t = items.some((p) => p.run) ? TIERS.find((x) => x.id === tier)! : TIERS[0];
   const [cur, setCur] = useState("USD");
   const [heard, setHeard] = useState("");
+  const [payPlan, setPayPlan] = useState(0); // 0 = pay in full, else months
   const [refCode, setRefCode] = useState("");
   useEffect(() => { const { first, last } = readTouches(); const t = last || first; if (t) { setRefCode(t.ref || first?.ref || ""); setHeard(guessHeard(t.source, t.medium, t.ref || first?.ref || "")); } }, []);
   useEffect(() => { try { setCur(localStorage.getItem("ta-currency") || "USD"); } catch { /* storage blocked */ } }, []);
@@ -45,7 +47,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
     if (!/.+@.+\..+/.test(form.email)) return setErr("Please add a valid work email.");
     if (!terms) return setErr("Please accept the terms to continue.");
     // TODO: create a Stripe Checkout Session (test mode) via an API route, then redirect.
-    void sendLead("reservation", { items: items.map((p) => p.id), tier, total, currency: cur, email: form.email, heard, refCode });
+    void sendLead("reservation", { items: items.map((p) => p.id), tier, total, currency: cur, email: form.email, heard, refCode, payPlan });
     trackConversion(total, "USD");
     setPaid(true);
   };
@@ -101,6 +103,18 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
       <aside id="pay-box" className="flex min-w-0 flex-[1_1_320px] flex-col gap-3.5 rounded-lg border border-line bg-white p-6 text-ink">
         <div className="text-[22px] font-bold">Order summary</div>
         <div className="flex justify-between"><span>One-off build</span><span>{fmt(oneOff)}</span></div>
+        {oneOff - discount >= 500 && (
+          <div className="flex flex-col gap-1.5 rounded-lg border border-line p-3 text-sm" data-testid="pay-plan">
+            <b>How do you want to pay the build?</b>
+            <div className="flex flex-wrap gap-2">
+              {[0, ...PLAN_TERMS.map((x) => x.months)].map((m) => (
+                <button key={m} type="button" aria-pressed={payPlan === m} onClick={() => setPayPlan(m)} className={`min-h-[44px] cursor-pointer rounded-lg px-3 ${payPlan === m ? "border-2 border-[#007185] bg-[#EDFDFF]" : "border border-line bg-white"}`}>{m === 0 ? "In full" : `${m} months`}</button>
+              ))}
+            </div>
+            {payPlan > 0 && (() => { const x = planFor(oneOff - discount, payPlan); return <span className="text-ink-2" data-testid="plan-line">{fmt(x.deposit)} deposit, then {payPlan} × {fmt(x.monthly)} (total {fmt(x.total)}). Subject to approval.</span>; })()}
+            <Link href="/ways-to-pay/" className="text-[13px]">Other ways: finance, pay from results, shares →</Link>
+          </div>
+        )}
         {discount > 0 && <div className="flex justify-between text-ok"><span>Bundle saving (3+ items)</span><span>−{fmt(discount)}</span></div>}
         {monthly > 0 && <div className="flex justify-between"><span>Monthly services, first month</span><span>{fmt(monthly)}</span></div>}
         {t.price > 0 && <div className="flex justify-between"><span>{t.name}, first month</span><span>{fmt(t.price)}</span></div>}
