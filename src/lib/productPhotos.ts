@@ -1,7 +1,7 @@
 /**
  * Which photo each product page shows: products that do the same job share one photo, so every
  * image shows that product's actual result. Slugs are photos in src/assets (hero.jpg or trades/*.jpg).
- * A product whose photo isn't live yet shows none (never a picture of a different job).
+ * A product whose photo file is missing shows the category art instead (never a picture of a different job).
  */
 const JOBS: Record<string, number[]> = {
   hero: [7, 8, 10, 11, 40, 55, 56, 64, 66, 108, 120],
@@ -15,20 +15,33 @@ const JOBS: Record<string, number[]> = {
   manufacturing: [21, 36, 58, 68, 69, 115],
   "office-teams": [50, 53, 61, 62, 63, 93, 101, 107, 111],
   professional: [23, 24, 42, 59, 123, 31],
-  property: [34, 119],
+  property: [118, 34, 119],
   retail: [16, 20, 28, 131, 136],
   "busy-professionals": [92, 96, 140, 49],
   "job-reviews": [1, 2, 15, 43, 57, 65],
   "job-invoices": [22, 41, 124, 125],
   "job-dashboard": [25, 127, 128, 137, 141],
   "job-social": [17, 142, 143, 144, 145],
-  "job-inspections": [37, 47, 48, 60, 91, 97, 98, 113, 135, 139],
+  "job-inspections": [37, 47, 48, 60, 97, 113, 135, 139],
   "job-insurance": [45, 46, 38],
   "job-recruiting": [110],
   "job-courses": [70, 71, 72, 73, 74, 75, 76, 77, 78, 102, 103, 104, 105, 106, 100],
   "job-alerts": [39, 80, 44, 52, 134],
   "job-staff": [30, 79, 94, 112],
+  "job-ads": [18, 19],
+  "job-property-deals": [117, 138],
+  "job-knowledge": [9, 51, 54],
+  "job-stock": [27, 129],
+  "job-outbound": [12],
+  "job-clinical": [132],
+  "job-crop": [90],
+  "job-approvals": [95],
+  "job-intake": [32],
+  "job-translate": [67],
+  "job-landing": [3],
+  "job-credit": [126],
+  "job-trackers": [98, 91, 99],
 };
 /** Products still waiting for a photo of their own job (they show the category art meanwhile). */
-export const PHOTO_PENDING = [3, 9, 12, 18, 19, 27, 32, 51, 54, 67, 90, 95, 99, 117, 118, 126, 129, 132, 138];
+export const PHOTO_PENDING: number[] = [];
 export const PRODUCT_PHOTO: Record<number, string> = Object.fromEntries(Object.entries(JOBS).flatMap(([slug, ids]) => ids.map((id) => [id, slug])));

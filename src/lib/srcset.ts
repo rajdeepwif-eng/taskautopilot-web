@@ -11,18 +11,38 @@ import w_food_production_480 from "@/assets/web/food-production-480.webp";
 import w_food_production_960 from "@/assets/web/food-production-960.webp";
 import w_hero_480 from "@/assets/web/hero-480.webp";
 import w_hero_960 from "@/assets/web/hero-960.webp";
+import w_job_ads_480 from "@/assets/web/job-ads-480.webp";
+import w_job_ads_960 from "@/assets/web/job-ads-960.webp";
 import w_job_alerts_480 from "@/assets/web/job-alerts-480.webp";
 import w_job_alerts_960 from "@/assets/web/job-alerts-960.webp";
+import w_job_approvals_480 from "@/assets/web/job-approvals-480.webp";
+import w_job_approvals_960 from "@/assets/web/job-approvals-960.webp";
+import w_job_clinical_480 from "@/assets/web/job-clinical-480.webp";
+import w_job_clinical_960 from "@/assets/web/job-clinical-960.webp";
 import w_job_courses_480 from "@/assets/web/job-courses-480.webp";
 import w_job_courses_960 from "@/assets/web/job-courses-960.webp";
+import w_job_credit_480 from "@/assets/web/job-credit-480.webp";
+import w_job_credit_960 from "@/assets/web/job-credit-960.webp";
+import w_job_crop_480 from "@/assets/web/job-crop-480.webp";
+import w_job_crop_960 from "@/assets/web/job-crop-960.webp";
 import w_job_dashboard_480 from "@/assets/web/job-dashboard-480.webp";
 import w_job_dashboard_960 from "@/assets/web/job-dashboard-960.webp";
 import w_job_inspections_480 from "@/assets/web/job-inspections-480.webp";
 import w_job_inspections_960 from "@/assets/web/job-inspections-960.webp";
 import w_job_insurance_480 from "@/assets/web/job-insurance-480.webp";
 import w_job_insurance_960 from "@/assets/web/job-insurance-960.webp";
+import w_job_intake_480 from "@/assets/web/job-intake-480.webp";
+import w_job_intake_960 from "@/assets/web/job-intake-960.webp";
 import w_job_invoices_480 from "@/assets/web/job-invoices-480.webp";
 import w_job_invoices_960 from "@/assets/web/job-invoices-960.webp";
+import w_job_knowledge_480 from "@/assets/web/job-knowledge-480.webp";
+import w_job_knowledge_960 from "@/assets/web/job-knowledge-960.webp";
+import w_job_landing_480 from "@/assets/web/job-landing-480.webp";
+import w_job_landing_960 from "@/assets/web/job-landing-960.webp";
+import w_job_outbound_480 from "@/assets/web/job-outbound-480.webp";
+import w_job_outbound_960 from "@/assets/web/job-outbound-960.webp";
+import w_job_property_deals_480 from "@/assets/web/job-property-deals-480.webp";
+import w_job_property_deals_960 from "@/assets/web/job-property-deals-960.webp";
 import w_job_recruiting_480 from "@/assets/web/job-recruiting-480.webp";
 import w_job_recruiting_960 from "@/assets/web/job-recruiting-960.webp";
 import w_job_reviews_480 from "@/assets/web/job-reviews-480.webp";
@@ -31,6 +51,12 @@ import w_job_social_480 from "@/assets/web/job-social-480.webp";
 import w_job_social_960 from "@/assets/web/job-social-960.webp";
 import w_job_staff_480 from "@/assets/web/job-staff-480.webp";
 import w_job_staff_960 from "@/assets/web/job-staff-960.webp";
+import w_job_stock_480 from "@/assets/web/job-stock-480.webp";
+import w_job_stock_960 from "@/assets/web/job-stock-960.webp";
+import w_job_trackers_480 from "@/assets/web/job-trackers-480.webp";
+import w_job_trackers_960 from "@/assets/web/job-trackers-960.webp";
+import w_job_translate_480 from "@/assets/web/job-translate-480.webp";
+import w_job_translate_960 from "@/assets/web/job-translate-960.webp";
 import w_logistics_480 from "@/assets/web/logistics-480.webp";
 import w_logistics_960 from "@/assets/web/logistics-960.webp";
 import w_manufacturing_480 from "@/assets/web/manufacturing-480.webp";
@@ -55,16 +81,29 @@ export const SRCSET: Record<string, string> = {
   "farming": ss([[w_farming_480, 480], [w_farming_960, 960]]),
   "food-production": ss([[w_food_production_480, 480], [w_food_production_960, 960]]),
   "hero": ss([[w_hero_480, 480], [w_hero_960, 960]]),
+  "job-ads": ss([[w_job_ads_480, 480], [w_job_ads_960, 960]]),
   "job-alerts": ss([[w_job_alerts_480, 480], [w_job_alerts_960, 960]]),
+  "job-approvals": ss([[w_job_approvals_480, 480], [w_job_approvals_960, 960]]),
+  "job-clinical": ss([[w_job_clinical_480, 480], [w_job_clinical_960, 960]]),
   "job-courses": ss([[w_job_courses_480, 480], [w_job_courses_960, 960]]),
+  "job-credit": ss([[w_job_credit_480, 480], [w_job_credit_960, 960]]),
+  "job-crop": ss([[w_job_crop_480, 480], [w_job_crop_960, 960]]),
   "job-dashboard": ss([[w_job_dashboard_480, 480], [w_job_dashboard_960, 960]]),
   "job-inspections": ss([[w_job_inspections_480, 480], [w_job_inspections_960, 960]]),
   "job-insurance": ss([[w_job_insurance_480, 480], [w_job_insurance_960, 960]]),
+  "job-intake": ss([[w_job_intake_480, 480], [w_job_intake_960, 960]]),
   "job-invoices": ss([[w_job_invoices_480, 480], [w_job_invoices_960, 960]]),
+  "job-knowledge": ss([[w_job_knowledge_480, 480], [w_job_knowledge_960, 960]]),
+  "job-landing": ss([[w_job_landing_480, 480], [w_job_landing_960, 960]]),
+  "job-outbound": ss([[w_job_outbound_480, 480], [w_job_outbound_960, 960]]),
+  "job-property-deals": ss([[w_job_property_deals_480, 480], [w_job_property_deals_960, 960]]),
   "job-recruiting": ss([[w_job_recruiting_480, 480], [w_job_recruiting_960, 960]]),
   "job-reviews": ss([[w_job_reviews_480, 480], [w_job_reviews_960, 960]]),
   "job-social": ss([[w_job_social_480, 480], [w_job_social_960, 960]]),
   "job-staff": ss([[w_job_staff_480, 480], [w_job_staff_960, 960]]),
+  "job-stock": ss([[w_job_stock_480, 480], [w_job_stock_960, 960]]),
+  "job-trackers": ss([[w_job_trackers_480, 480], [w_job_trackers_960, 960]]),
+  "job-translate": ss([[w_job_translate_480, 480], [w_job_translate_960, 960]]),
   "logistics": ss([[w_logistics_480, 480], [w_logistics_960, 960]]),
   "manufacturing": ss([[w_manufacturing_480, 480], [w_manufacturing_960, 960]]),
   "office-teams": ss([[w_office_teams_480, 480], [w_office_teams_960, 960]]),

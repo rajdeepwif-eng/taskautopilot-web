@@ -5,16 +5,29 @@ import p_clinics from "@/assets/trades/clinics.jpg";
 import p_equipment_hire from "@/assets/trades/equipment-hire.jpg";
 import p_farming from "@/assets/trades/farming.jpg";
 import p_food_production from "@/assets/trades/food-production.jpg";
+import p_job_ads from "@/assets/trades/job-ads.jpg";
 import p_job_alerts from "@/assets/trades/job-alerts.jpg";
+import p_job_approvals from "@/assets/trades/job-approvals.jpg";
+import p_job_clinical from "@/assets/trades/job-clinical.jpg";
 import p_job_courses from "@/assets/trades/job-courses.jpg";
+import p_job_credit from "@/assets/trades/job-credit.jpg";
+import p_job_crop from "@/assets/trades/job-crop.jpg";
 import p_job_dashboard from "@/assets/trades/job-dashboard.jpg";
 import p_job_inspections from "@/assets/trades/job-inspections.jpg";
 import p_job_insurance from "@/assets/trades/job-insurance.jpg";
+import p_job_intake from "@/assets/trades/job-intake.jpg";
 import p_job_invoices from "@/assets/trades/job-invoices.jpg";
+import p_job_knowledge from "@/assets/trades/job-knowledge.jpg";
+import p_job_landing from "@/assets/trades/job-landing.jpg";
+import p_job_outbound from "@/assets/trades/job-outbound.jpg";
+import p_job_property_deals from "@/assets/trades/job-property-deals.jpg";
 import p_job_recruiting from "@/assets/trades/job-recruiting.jpg";
 import p_job_reviews from "@/assets/trades/job-reviews.jpg";
 import p_job_social from "@/assets/trades/job-social.jpg";
 import p_job_staff from "@/assets/trades/job-staff.jpg";
+import p_job_stock from "@/assets/trades/job-stock.jpg";
+import p_job_trackers from "@/assets/trades/job-trackers.jpg";
+import p_job_translate from "@/assets/trades/job-translate.jpg";
 import p_logistics from "@/assets/trades/logistics.jpg";
 import p_manufacturing from "@/assets/trades/manufacturing.jpg";
 import p_office_teams from "@/assets/trades/office-teams.jpg";
@@ -30,16 +43,29 @@ export const TRADE_PHOTOS: Record<string, StaticImageData> = {
   "equipment-hire": p_equipment_hire,
   "farming": p_farming,
   "food-production": p_food_production,
+  "job-ads": p_job_ads,
   "job-alerts": p_job_alerts,
+  "job-approvals": p_job_approvals,
+  "job-clinical": p_job_clinical,
   "job-courses": p_job_courses,
+  "job-credit": p_job_credit,
+  "job-crop": p_job_crop,
   "job-dashboard": p_job_dashboard,
   "job-inspections": p_job_inspections,
   "job-insurance": p_job_insurance,
+  "job-intake": p_job_intake,
   "job-invoices": p_job_invoices,
+  "job-knowledge": p_job_knowledge,
+  "job-landing": p_job_landing,
+  "job-outbound": p_job_outbound,
+  "job-property-deals": p_job_property_deals,
   "job-recruiting": p_job_recruiting,
   "job-reviews": p_job_reviews,
   "job-social": p_job_social,
   "job-staff": p_job_staff,
+  "job-stock": p_job_stock,
+  "job-trackers": p_job_trackers,
+  "job-translate": p_job_translate,
   "logistics": p_logistics,
   "manufacturing": p_manufacturing,
   "office-teams": p_office_teams,
