@@ -5,6 +5,16 @@ import p_clinics from "@/assets/trades/clinics.jpg";
 import p_equipment_hire from "@/assets/trades/equipment-hire.jpg";
 import p_farming from "@/assets/trades/farming.jpg";
 import p_food_production from "@/assets/trades/food-production.jpg";
+import p_job_alerts from "@/assets/trades/job-alerts.jpg";
+import p_job_courses from "@/assets/trades/job-courses.jpg";
+import p_job_dashboard from "@/assets/trades/job-dashboard.jpg";
+import p_job_inspections from "@/assets/trades/job-inspections.jpg";
+import p_job_insurance from "@/assets/trades/job-insurance.jpg";
+import p_job_invoices from "@/assets/trades/job-invoices.jpg";
+import p_job_recruiting from "@/assets/trades/job-recruiting.jpg";
+import p_job_reviews from "@/assets/trades/job-reviews.jpg";
+import p_job_social from "@/assets/trades/job-social.jpg";
+import p_job_staff from "@/assets/trades/job-staff.jpg";
 import p_logistics from "@/assets/trades/logistics.jpg";
 import p_manufacturing from "@/assets/trades/manufacturing.jpg";
 import p_office_teams from "@/assets/trades/office-teams.jpg";
@@ -20,6 +30,16 @@ export const TRADE_PHOTOS: Record<string, StaticImageData> = {
   "equipment-hire": p_equipment_hire,
   "farming": p_farming,
   "food-production": p_food_production,
+  "job-alerts": p_job_alerts,
+  "job-courses": p_job_courses,
+  "job-dashboard": p_job_dashboard,
+  "job-inspections": p_job_inspections,
+  "job-insurance": p_job_insurance,
+  "job-invoices": p_job_invoices,
+  "job-recruiting": p_job_recruiting,
+  "job-reviews": p_job_reviews,
+  "job-social": p_job_social,
+  "job-staff": p_job_staff,
   "logistics": p_logistics,
   "manufacturing": p_manufacturing,
   "office-teams": p_office_teams,

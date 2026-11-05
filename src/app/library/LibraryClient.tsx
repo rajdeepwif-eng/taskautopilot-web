@@ -1,5 +1,9 @@
 "use client";
 
+import { PRODUCT_PHOTO } from "@/lib/productPhotos";
+import { TRADE_PHOTOS } from "@/lib/tradePhotos";
+import { SRCSET } from "@/lib/srcset";
+import heroImg from "@/assets/hero.jpg";
 import { fromMonthly } from "@/lib/deals";
 import { useMemo, useState } from "react";
 import Link from "next/link";
@@ -258,13 +262,21 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
       }
     }
   }
+  const photoSlug = PRODUCT_PHOTO[p.id];
+  const photoImg = photoSlug === "hero" ? heroImg : photoSlug ? TRADE_PHOTOS[photoSlug] : undefined;
+  const photo = photoImg ? (
+    <figure className="m-0 flex flex-col gap-1" data-testid="product-photo">
+      <img src={photoImg.src} srcSet={SRCSET[photoSlug]} sizes="(min-width: 1024px) 620px, 100vw" width={photoImg.width} height={photoImg.height} alt={`Illustrative photo: the result of "${p.name}" showing in the software the business already uses, marked as done by the AI assistant`} className="aspect-[3/2] w-full rounded-lg object-cover" />
+      <figcaption className="px-1 text-[12px] text-muted">Illustrative image · the result shows up in the tools you already use</figcaption>
+    </figure>
+  ) : null;
   return (
     <div className={inline ? "wrap py-6" : "fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[rgba(21,23,26,0.62)] px-3 py-6"} onClick={inline ? undefined : onClose}>
       <div role={inline ? undefined : "dialog"} aria-modal={inline ? undefined : true} aria-label={p.name} className={inline ? "flex flex-col rounded-[18px] border border-line bg-white" : "relative flex w-full max-w-[1040px] flex-col overflow-hidden rounded-[18px] bg-white"} onClick={(e) => e.stopPropagation()}>
         {!inline && <button type="button" onClick={onClose} aria-label="Close" className="absolute right-3 top-3 z-10 h-10 w-10 cursor-pointer rounded-full border-0 bg-white text-2xl shadow">×</button>}
         <div className="flex flex-wrap items-start gap-7 p-5 md:p-7">
           <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-3.5">
-            <div className="relative aspect-[16/4] overflow-hidden rounded-lg"><CatArt cat={p.cat} /></div>
+            {photo ? <div className="hidden md:block">{photo}</div> : <div className="relative aspect-[16/4] overflow-hidden rounded-lg"><CatArt cat={p.cat} /></div>}
             <div className="font-mono text-xs text-muted">{p.cat} · ● ready-made</div>
             {inline ? <h1 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h1> : <h2 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h2>}
             <p className="m-0 text-[17px] leading-normal text-ink-2">{p.desc}</p>
@@ -301,6 +313,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             {children}
           </div>
           <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-lg border border-line bg-white p-5 md:order-none md:sticky md:top-4">
+            {photo && <div className="-mx-5 -mt-5 mb-1 md:hidden" data-testid="product-photo-mobile">{photo}</div>}
             <div className="text-xl leading-tight md:hidden">{p.name}</div>
             <p className="m-0 text-[15px] leading-snug text-ink-2 md:hidden">{p.desc}</p>
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
