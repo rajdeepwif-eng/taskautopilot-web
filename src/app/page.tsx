@@ -83,7 +83,7 @@ export default function Home() {
         <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A business owner at his child's soccer game sees 'Invoice paid' on his phone" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:aspect-[4/3] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
-          <div className="mt-2 text-[13px] text-muted">The idea: the invoice goes out, gets chased and gets paid — while you're at the game.</div>
+          <div className="mt-2 text-[13px] text-muted">Illustrative image. The idea: the invoice goes out, gets chased and gets paid — while you're at the game.</div>
         </div>
       </div>
       </section>

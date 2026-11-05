@@ -13,7 +13,7 @@ const SUGGEST: { label: string; href: string }[] = [
 ];
 
 /** Most-wanted outcomes as quick links (the site header holds the search box). */
-export default function HeroSearch({ showSource = true, prefix = "" }: { showSource?: boolean; prefix?: string } = {}) {
+export default function HeroSearch({ showSource = false, prefix = "" }: { showSource?: boolean; prefix?: string } = {}) {
   return (
     <div className="flex flex-col gap-2">
       <div className="text-[14px] font-bold text-ink">Where owners lose the most — fix one first:</div>

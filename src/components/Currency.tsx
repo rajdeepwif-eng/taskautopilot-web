@@ -58,6 +58,13 @@ function read(): Cur {
     if (/-AU$/i.test(l)) return "AUD";
     if (/-CA$/i.test(l)) return "CAD";
   } catch { /* ignore */ }
+  // Many UK and Australian browsers report en-US, so fall back to the time zone.
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    if (/^Europe\/(London|Belfast)$/.test(tz)) return "GBP";
+    if (/^Australia\//.test(tz)) return "AUD";
+    if (/^America\/(Toronto|Vancouver|Edmonton|Winnipeg|Halifax|St_Johns|Regina|Montreal)$/.test(tz)) return "CAD";
+  } catch { /* ignore */ }
   return "USD";
 }
 
