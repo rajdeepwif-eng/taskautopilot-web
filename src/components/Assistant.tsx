@@ -9,6 +9,8 @@ import { FORMS_LIVE, FORM_NOT_SENT } from "@/lib/launch";
 import { sendLead } from "@/lib/attribution";
 
 const POPULAR = ["reviews", "missed-calls", "invoice-chase", "lead-reply", "quote-chase", "social"];
+const STARTERS = ["admin", "invoice-chase", "missed-calls", "reviews", "lead-reply", "quote-build"];
+const WHEN = ["As soon as possible", "Within 1–3 months", "Just exploring"];
 const VOLUMES = ["Under 10 a week", "10–50 a week", "50–200 a week", "Over 200 a week", "Not sure"];
 const HIDE = /^\/(checkout|deal-review|apply|launch|ask)\//;
 
@@ -27,6 +29,10 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   const [tools, setTools] = useState("");
   const [volume, setVolume] = useState("");
   const [route, setRoute] = useState("");
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [when, setWhen] = useState("");
+  const [approver, setApprover] = useState("");
+  const [unsure, setUnsure] = useState(false);
   const [c, setC] = useState({ name: "", email: "", company: "" });
   const [err, setErr] = useState("");
   const [sent, setSent] = useState(false);
@@ -36,14 +42,14 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   useEffect(() => { if (!open || inline) return; const k = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); }; window.addEventListener("keydown", k); return () => window.removeEventListener("keydown", k); }, [open, inline]);
   if (!inline && HIDE.test(path)) return null;
 
-  const reset = () => { setStep(0); setSaid(""); setPick(null); setNow(""); setTools(""); setVolume(""); setRoute(""); setSent(false); setErr(""); };
+  const reset = () => { setStep(0); setSaid(""); setPick(null); setNow(""); setTools(""); setVolume(""); setRoute(""); setAnswers({}); setWhen(""); setApprover(""); setUnsure(false); setSent(false); setErr(""); };
   const choose = (b: Brief | null) => { setPick(b); setStep(2); };
   const demo = pick ? `/p/${pick.products[0]}/` : "/demos/";
   const send = () => {
     if (!c.name.trim()) return setErr("Add your name.");
     if (!/.+@.+\..+/.test(c.email)) return setErr("Add an email we can reply to.");
     const brief = pick ? { id: pick.id, outcome: pick.outcome, trigger: pick.trigger, inputs: pick.inputs, from: pick.from, steps: pick.steps, toConfirm: pick.ask, native: pick.native || "", products: pick.products, kit: pick.kit || null } : { id: "custom", outcome: said, toConfirm: ["What should happen, for whom, and when?", "Where does the information live today?", "Who approves it?"] };
-    void sendLead("automation-brief", { said, ...c, now, tools, volume, route, page: path, brief });
+    void sendLead("automation-brief", { said, ...c, now, tools, volume, route, when, approver, answers, page: path, brief });
     setSent(true); setErr("");
   };
 
@@ -69,17 +75,17 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
           <textarea id="as-said" rows={3} value={said} onChange={(e) => setSaid(e.target.value)} data-testid="assistant-input" />
           <div className="flex flex-wrap gap-1.5">{POPULAR.map((id) => { const b = BRIEFS.find((x) => x.id === id)!; return <button key={id} type="button" className={chip} onClick={() => { setSaid(b.outcome); choose(b); }}>{b.outcome.split(/[,—]/)[0]}</button>; })}</div>
           <button type="button" className="btn btn-primary self-start" disabled={!said.trim()} onClick={() => setStep(1)} data-testid="assistant-next">Show me how</button>
-          <button type="button" className="self-start border-0 bg-transparent p-0 text-[13px] text-clay underline" onClick={() => { setSaid("Not sure yet — show me ideas"); choose(null); }}>Not sure — just tell us your goal and we’ll suggest the options</button>
+          <button type="button" className="self-start border-0 bg-transparent p-0 text-[13px] text-clay underline" onClick={() => { setUnsure(true); setStep(1); }}>Not sure what to automate? Show me where owners usually start</button>
         </>
       ) : step === 1 ? (
         <>
-          <b className="text-[15px]">{matches.length ? "Here’s how we’d do it — pick the closest:" : "We’ll work this one out with you."}</b>
-          {matches.map((b) => (
+          <b className="text-[15px]">{unsure ? "Most owners start with one of these:" : matches.length ? "Closest jobs we build — pick one, or describe yours:" : "Nothing close in our list yet — that’s fine. Pick a starting point or send your words:"}</b>
+          {(unsure || !matches.length ? STARTERS.map((id) => BRIEFS.find((x) => x.id === id)!) : matches).map((b) => (
             <button key={b.id} type="button" className={opt(false)} onClick={() => choose(b)} data-testid="assistant-match">
               <b>{b.outcome}</b><span className="text-[12.5px] text-ink-2">Starts when: {b.trigger.toLowerCase()}</span>
             </button>
           ))}
-          <button type="button" className={opt(false)} onClick={() => choose(null)}><b>None of these — send my words as they are</b><span className="text-[12.5px] text-ink-2">We’ll come back with the input and processing for your exact case.</span></button>
+          <button type="button" className={opt(false)} onClick={() => choose(null)}><b>None of these — send my words as they are</b><span className="text-[12.5px] text-ink-2">We’ll reply with how the input and processing would work for your exact case.</span></button>
           <button type="button" className="self-start border-0 bg-transparent p-0 text-[13px] text-clay underline" onClick={() => setStep(0)}>← Change what I want</button>
         </>
       ) : step === 2 ? (
@@ -93,6 +99,14 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
               <ol className="m-0 flex list-decimal flex-col gap-0.5 pl-5">{pick.steps.map((s) => <li key={s}>{s}</li>)}</ol>
               {pick.native && <div className="rounded bg-white px-2 py-1 text-[12.5px]"><b>Honest tip:</b> {pick.native}</div>}
             </div>
+          ) : null}
+          {pick ? (
+            <div className="flex flex-col gap-2" data-testid="assistant-questions">
+              <b className="text-[14px]">Quick questions <span className="font-normal text-muted">(optional — saves a call)</span></b>
+              {pick.ask.slice(0, 2).map((q) => (
+                <label key={q} className="flex flex-col gap-1 text-[13px]">{q}<input type="text" value={answers[q] || ""} onChange={(e) => setAnswers({ ...answers, [q]: e.target.value })} /></label>
+              ))}
+            </div>
           ) : <p className="m-0 text-[14px] text-ink-2">No problem — tell us how it works today and we’ll design the input and processing for you.</p>}
           <b className="text-[14px]">How do you do it today?</b>
           <div role="radiogroup" aria-label="How you do it today" className="flex flex-col gap-1.5">{NOW.map((n) => <button key={n.id} type="button" role="radio" aria-checked={now === n.id} className={opt(now === n.id)} onClick={() => setNow(n.id)}><b>{n.label}</b>{now === n.id && <span className="text-[12.5px] text-ink-2">{n.path}</span>}</button>)}</div>
@@ -105,12 +119,17 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
           </label>
           <b className="text-[14px]">Roughly how many a week?</b>
           <div className="flex flex-wrap gap-1.5">{VOLUMES.map((v) => <button key={v} type="button" aria-pressed={volume === v} className={`${chip} ${volume === v ? "!border-2 !border-clay bg-clay-soft" : ""}`} onClick={() => setVolume(v)}>{v}</button>)}</div>
+          <b className="text-[14px]">When do you need it?</b>
+          <div className="flex flex-wrap gap-1.5">{WHEN.map((v) => <button key={v} type="button" aria-pressed={when === v} className={`${chip} ${when === v ? "!border-2 !border-clay bg-clay-soft" : ""}`} onClick={() => setWhen(v)}>{v}</button>)}</div>
+          <label className="flex flex-col gap-1.5 text-[14px] font-semibold">Who would sign off the test run? <span className="text-[12.5px] font-normal text-muted">Optional — name or role</span>
+            <input type="text" value={approver} onChange={(e) => setApprover(e.target.value)} className="font-normal" />
+          </label>
           <button type="button" className="btn btn-primary self-start" onClick={() => setStep(4)}>Next</button>
         </>
       ) : step === 4 ? (
         <>
           <b className="text-[14px]">How would you like it?</b>
-          <div role="radiogroup" aria-label="How you'd like it" className="flex flex-col gap-1.5">{ROUTES.filter((r) => r.id !== "diy" || !pick || pick.kit || pick.id === "learn").map((r) => <button key={r.id} type="button" role="radio" aria-checked={route === r.id} className={opt(route === r.id)} onClick={() => setRoute(r.id)}><b>{r.label}</b><span className="text-[12.5px] text-ink-2">{r.id === "diy" && pick?.kit ? `${byId(pick.kit).name} — ` : ""}{r.note}</span></button>)}</div>
+          <div role="radiogroup" aria-label="How you'd like it" className="flex flex-col gap-1.5">{ROUTES.map((r) => { const off = r.id === "diy" && !!pick && !pick.kit && pick.id !== "learn"; return <button key={r.id} type="button" role="radio" aria-checked={route === r.id} disabled={off} className={`${opt(route === r.id)} ${off ? "cursor-not-allowed opacity-60" : ""}`} onClick={() => setRoute(r.id)}><b>{r.label}</b><span className="text-[12.5px] text-ink-2">{off ? "No DIY kit for this one yet — the other two routes work." : `${r.id === "diy" && pick?.kit ? `${byId(pick.kit).name} — ` : ""}${r.note}`}</span></button>; })}</div>
           <button type="button" className="btn btn-primary self-start" disabled={!route} onClick={() => setStep(5)}>Next</button>
         </>
       ) : (
@@ -135,13 +154,13 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
     <>
       {!open && (
         <button type="button" onClick={() => setOpen(true)} data-testid="assistant-open" className="fixed bottom-[84px] right-4 z-40 flex min-h-[48px] cursor-pointer items-center gap-2 rounded-full border-0 bg-ink px-4 text-[14px] font-semibold text-white shadow-lg md:bottom-6">
-          <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-[#7FD1A8]" /> Automation assistant
+          <span aria-hidden>✦</span> Plan my automation
         </button>
       )}
       {open && (
         <div ref={panel} tabIndex={-1} role="dialog" aria-modal="false" aria-label="Automation assistant" data-testid="assistant-panel" className="fixed inset-x-0 bottom-0 z-50 flex max-h-[88vh] flex-col overflow-y-auto rounded-t-2xl border border-line bg-white p-4 shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:w-[400px] md:rounded-2xl">
           <div className="mb-2 flex items-start justify-between gap-2">
-            <div><b className="text-[16px]">Automation assistant</b><div className="text-[12px] text-muted">Tell us the result you want — a person checks every brief</div></div>
+            <div><b className="text-[16px]">Automation assistant</b><div className="text-[12px] text-muted">Quick brief · matched to the jobs we build · a person reads every one</div></div>
             <button type="button" aria-label="Close" onClick={() => setOpen(false)} className="h-9 w-9 cursor-pointer rounded-full border-0 bg-paper text-xl">×</button>
           </div>
           {body}
