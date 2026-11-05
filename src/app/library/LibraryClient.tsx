@@ -135,7 +135,7 @@ export default function LibraryClient() {
                       Example: {defaultHours(p)} hrs/week of a {p.role}&apos;s time at ${exampleRate(p)}/hr ≈ <b>{fmt(exampleYearly(p))}/yr</b>
                     </p>
                   )}
-                  <p className="m-0 text-[13px] text-muted">Works with: {p.apps}</p>
+
                   <button type="button" onClick={() => setOpen(p)} className="min-h-[44px] cursor-pointer border-0 bg-transparent p-0 text-left text-sm font-semibold text-clay">
                     Value vs doing it by hand →
                   </button>
@@ -251,7 +251,10 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
       if (net <= 0) payback = "At these numbers the monthly run plan costs more than the time saved — lower-cost options may suit you better.";
       else {
         const w = Math.ceil(p.price / net);
-        payback = `Pays back in about ${w} week${w === 1 ? "" : "s"}${runLow(p) ? ` after the run plan (from ${fmt(runLow(p))}/mo)` : ""} — illustrative, on your numbers.`;
+        // Over a year, a week count reads as risk to a first-time buyer; show the yearly saving instead.
+        payback = w <= 52
+          ? `Pays for itself in about ${w} week${w === 1 ? "" : "s"} on these numbers${runLow(p) ? ` — even with optional support (from ${fmt(runLow(p))}/mo)` : ""}.`
+          : `Saves about ${fmt(net * 52)} a year on these numbers — try your own hours and rate above.`;
       }
     }
   }
@@ -290,15 +293,16 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               </div>
               <div className={`font-semibold ${/more than|costs more/.test(payback) ? "text-[#B12704]" : /about (\d+) week/.test(payback) && Number(payback.match(/about (\d+) week/)![1]) > 26 ? "text-ink-2" : "text-ok"}`}>{payback}</div>
               <div className="text-[13px] leading-normal text-ink-2">
-                Also: works nights and weekends, replies in seconds not hours, never forgets a step, and frees your people for work that needs a human.{" "}
+                {p.cat === "Marketing" ? (p.replaces ? p.replaces + " " : "") : "Also: works nights and weekends, replies in seconds not hours, never forgets a step, and frees your people for work that needs a human. "}
                 <span className="text-muted">{p.wage ? `Starting rate is based on the US median for a ${p.role} (BLS, May 2025), converted — change it to your local rate.` : "Starting numbers are estimates — change them to yours."}</span>
               </div>
             </div>
-            <div className="text-sm text-muted">Works with: {p.apps}</div>
+            <div className="text-sm text-muted">Works with what you already use — for example {p.apps}. Not sure yours fits? We check for free before you pay.</div>
             {children}
           </div>
           <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-lg border border-line bg-white p-5 md:order-none md:sticky md:top-4">
             <div className="text-xl leading-tight md:hidden">{p.name}</div>
+            <p className="m-0 text-[15px] leading-snug text-ink-2 md:hidden">{p.desc}</p>
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
             {!p.monthly && p.price >= 500 && p.cat !== "Courses" && p.cat !== "DIY kits" && <Link href={`/ways-to-pay/#monthly`} className="text-[14px]" data-testid="from-monthly">or from {fmt(fromMonthly(p.price))}/mo · other ways to pay</Link>}
             {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[15px]"><LiveBy days={p.days} /></div>}
@@ -309,11 +313,12 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
               <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link>
             </>)}
-            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutoMode</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund of the build fee</span></>}</div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutoMode</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund of the build fee</span></>}{p.monthly && <><span className="text-muted">Guarantee</span><span>Not right? We redo it free</span></>}</div>
+            {p.cat !== "Courses" && p.cat !== "DIY kits" && p.id !== 120 && <ol className="m-0 flex flex-col gap-0.5 rounded-lg bg-paper px-4 py-3 text-[13px] text-ink-2" data-testid="what-next"><b className="text-ink">What happens after you reserve</b><li>10-minute setup form — no call needed</li><li>We build it in your own accounts</li><li>You approve a test run before go-live</li><li>Live, with a handover and results panel</li></ol>}
             <div className="text-sm leading-relaxed text-ink-2">
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
               {!p.monthly && p.id !== 120 && <><br />✓ You own it — documented handover</>}
-              {p.run && (<><br />✓ Optional Run Lite support after launch: {fmt(runLow(p))}/mo (6-month minimum)</>)}
+              {p.run && (<><br />✓ Optional support after launch, from {fmt(runLow(p))}/mo — it runs without it</>)}
             </div>
             
             <div className="text-[12px] text-muted">{PAYMENTS_LIVE ? "🔒 Paid on Stripe's secure checkout — certified to PCI DSS Level 1, the top card-security standard. We never see your card, and card payments keep your card provider's dispute rights." : "🔒 Card payments open at launch on Stripe's secure checkout — reserve now, nothing charged today."}</div>

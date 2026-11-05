@@ -32,7 +32,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const TIERS = [
     { id: "none", name: "No plan", sub: "You maintain it; fixes later at $150/hour", price: 0 },
     { id: "lite", name: "Run Lite", sub: "Monitoring, failure alerts and fixes for these automations", price: lite },
-    { id: "full", name: "Run Full", sub: "Run Lite + a new workflow monthly + live results panel", price: Math.max(1500, lite) },
+    { id: "full", name: "Run Full", sub: "Run Lite + one new time-saver each month + live results panel", price: Math.max(1500, lite) },
   ];
   const t = items.some((p) => p.run) ? TIERS.find((x) => x.id === tier)! : TIERS[0];
   const [cur, setCur] = useState("USD");
