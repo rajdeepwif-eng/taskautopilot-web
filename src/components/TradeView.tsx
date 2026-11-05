@@ -40,7 +40,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
         </div>
         {TRADE_PHOTOS[slug] && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={TRADE_PHOTOS[slug].src} srcSet={SRCSET[slug]} sizes="(min-width: 1024px) 560px, 100vw" fetchPriority="high" width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt={`Illustrative photo: a ${t.name.toLowerCase()} owner sees a job done on their phone`} className="aspect-[4/3] w-full min-w-0 flex-[1_1_380px] rounded-2xl object-cover" />
+          <img src={TRADE_PHOTOS[slug].src} srcSet={SRCSET[slug]} sizes="(min-width: 1024px) 560px, 100vw" fetchPriority="high" width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt={`Illustrative photo: in ${t.name.toLowerCase()}, the result appears in the software the business already uses, marked as done by the AI assistant`} className="aspect-[3/2] w-full min-w-0 flex-[1_1_380px] rounded-2xl object-cover" />
         )}
       </section>
 

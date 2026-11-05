@@ -67,7 +67,7 @@ export default function Home() {
             We set up the automations that get you paid, booked and followed up — fixed price, tested with you, most live in 1–3 weeks. No sales call.
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:hidden" />
+          <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />
           <div className="flex flex-wrap items-center gap-4">
             <Link href="#trades" className="btn btn-primary text-[17px]">Show me fixes for my business →</Link>
           </div>
@@ -82,8 +82,8 @@ export default function Home() {
         </div>
         <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A business owner at his child's soccer game sees 'Invoice paid' on his phone" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:aspect-[4/3] shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
-          <div className="mt-2 text-[13px] text-muted">Illustrative image. The idea: the invoice goes out, gets chased and gets paid — while you're at the game.</div>
+          <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A plumber works under a sink while his phone shows tomorrow's diary: Dave's 9:00 job, added by the AI assistant after a missed call" className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
+          <div className="mt-2 text-[13px] text-muted">Illustrative image. Dave called at 9:02 while the plumber was under a sink — the AI assistant answered and booked him into tomorrow's diary. Works with the job apps trades already use, like Jobber, ServiceM8 and Tradify.</div>
         </div>
       </div>
       </section>

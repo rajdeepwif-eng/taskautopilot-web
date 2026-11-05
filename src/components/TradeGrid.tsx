@@ -24,7 +24,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
         {ORDER.slice(0, 8).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t, i) => (
           <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className={`${i >= 4 ? "hidden md:flex" : "flex"} group flex-col overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink`}>
-            <div className="relative aspect-[16/9] overflow-hidden">
+            <div className="relative aspect-[3/2] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
                 ? <img src={TRADE_PHOTOS[t.slug].src} srcSet={SRCSET[t.slug]} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading={i < 4 ? "eager" : "lazy"} decoding="async" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
@@ -43,7 +43,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
         <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {ORDER.slice(4).map((slug) => TRADES.find((t) => t.slug === slug)!).filter(Boolean).map((t, i) => (
           <Link key={t.slug} href={`${pre}/for/${t.slug}/`} className={`${i < 4 ? "flex md:hidden" : "flex"} group overflow-hidden rounded-xl border border-line bg-white text-ink no-underline hover:border-ink`}>
-            <div className="relative aspect-[16/9] overflow-hidden">
+            <div className="relative aspect-[3/2] overflow-hidden">
               {TRADE_PHOTOS[t.slug]
                 // eslint-disable-next-line @next/next/no-img-element
                 ? <img src={TRADE_PHOTOS[t.slug].src} srcSet={SRCSET[t.slug]} sizes="(min-width: 1024px) 300px, 50vw" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
