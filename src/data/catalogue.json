@@ -1941,6 +1941,63 @@
         "all"
       ],
       "run": "$100–200/mo"
+    },
+    {
+      "id": 142,
+      "cat": "Marketing",
+      "name": "Short videos made for you",
+      "desc": "Eight branded short videos a month from your job photos, clips and FAQs — captioned, approved by you in one tap and posted to two channels.",
+      "apps": "Instagram Reels, TikTok, YouTube Shorts, Facebook",
+      "price": 290,
+      "days": 7,
+      "ind": [
+        "all"
+      ],
+      "monthly": true,
+      "replaces": "Turns the photos already on your phone into regular videos, so your page never goes quiet."
+    },
+    {
+      "id": 143,
+      "cat": "Marketing",
+      "name": "Video auto-creator",
+      "desc": "Your own video engine: drop photos or clips in a folder and branded short videos are made from your templates, sent for approval and posted on schedule. You own it.",
+      "apps": "Google Drive or Dropbox, Creatomate, Canva, Instagram, TikTok, YouTube, Facebook",
+      "price": 1950,
+      "days": 10,
+      "ind": [
+        "all"
+      ],
+      "run": "$150–300/mo",
+      "replaces": "Makes and posts short videos without hiring an editor or paying per video."
+    },
+    {
+      "id": 144,
+      "cat": "Marketing",
+      "name": "Job photos to social posts",
+      "desc": "Snap a before-and-after on site; it becomes a captioned post in your voice, approved in one tap and published to Facebook, Instagram and your Google profile.",
+      "apps": "Phone camera, WhatsApp or Google Drive, Facebook, Instagram, Google Business Profile",
+      "price": 1250,
+      "days": 7,
+      "ind": [
+        "Trades & home services",
+        "Construction & equipment hire",
+        "Real estate & property",
+        "Restaurants & hospitality"
+      ],
+      "run": "$150–300/mo",
+      "replaces": "Shows off every finished job online without anyone sitting down to write a post."
+    },
+    {
+      "id": 145,
+      "cat": "DIY kits",
+      "name": "Social auto-posting — DIY kit",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist to post from a content sheet to your social channels on schedule. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
+      "price": 49,
+      "days": 1,
+      "ind": [
+        "all"
+      ]
     }
   ],
   "how": {
@@ -2490,6 +2547,21 @@
       "Spending is categorized and upcoming bills are listed automatically.",
       "Balances roll up into a cash and net-worth view that updates itself.",
       "At year end your accountant gets a tidy pack of statements and receipts."
+    ],
+    "142": [
+      "Send us photos, clips or questions customers ask — or let us pull them from your folder.",
+      "We turn them into eight branded short videos a month with captions.",
+      "You approve each one in a tap; they post on schedule to two channels."
+    ],
+    "143": [
+      "We build branded video templates for your business.",
+      "Anything dropped in your folder becomes a short video and waits for your approval.",
+      "Approved videos post to the channels you choose, on your schedule."
+    ],
+    "144": [
+      "Take a before-and-after photo on the job.",
+      "A caption is written in your voice and sent to you to approve.",
+      "It posts to Facebook, Instagram and your Google profile."
     ]
   },
   "defaultHours": {
@@ -2632,7 +2704,10 @@
     "138": 4,
     "139": 6,
     "140": 4,
-    "141": 2
+    "141": 2,
+    "142": 3,
+    "143": 4,
+    "144": 2
   },
   "bundles": [
     {
