@@ -8,6 +8,7 @@ import p_food_production from "@/assets/trades/food-production.jpg";
 import p_job_ads from "@/assets/trades/job-ads.jpg";
 import p_job_alerts from "@/assets/trades/job-alerts.jpg";
 import p_job_approvals from "@/assets/trades/job-approvals.jpg";
+import p_job_claims from "@/assets/trades/job-claims.jpg";
 import p_job_clinical from "@/assets/trades/job-clinical.jpg";
 import p_job_courses from "@/assets/trades/job-courses.jpg";
 import p_job_credit from "@/assets/trades/job-credit.jpg";
@@ -20,14 +21,19 @@ import p_job_invoices from "@/assets/trades/job-invoices.jpg";
 import p_job_knowledge from "@/assets/trades/job-knowledge.jpg";
 import p_job_landing from "@/assets/trades/job-landing.jpg";
 import p_job_outbound from "@/assets/trades/job-outbound.jpg";
+import p_job_personal from "@/assets/trades/job-personal.jpg";
 import p_job_property_deals from "@/assets/trades/job-property-deals.jpg";
+import p_job_receipts from "@/assets/trades/job-receipts.jpg";
 import p_job_recruiting from "@/assets/trades/job-recruiting.jpg";
 import p_job_reviews from "@/assets/trades/job-reviews.jpg";
 import p_job_social from "@/assets/trades/job-social.jpg";
+import p_job_sop from "@/assets/trades/job-sop.jpg";
 import p_job_staff from "@/assets/trades/job-staff.jpg";
 import p_job_stock from "@/assets/trades/job-stock.jpg";
+import p_job_taxpack from "@/assets/trades/job-taxpack.jpg";
 import p_job_trackers from "@/assets/trades/job-trackers.jpg";
 import p_job_translate from "@/assets/trades/job-translate.jpg";
+import p_job_workshop from "@/assets/trades/job-workshop.jpg";
 import p_logistics from "@/assets/trades/logistics.jpg";
 import p_manufacturing from "@/assets/trades/manufacturing.jpg";
 import p_office_teams from "@/assets/trades/office-teams.jpg";
@@ -46,6 +52,7 @@ export const TRADE_PHOTOS: Record<string, StaticImageData> = {
   "job-ads": p_job_ads,
   "job-alerts": p_job_alerts,
   "job-approvals": p_job_approvals,
+  "job-claims": p_job_claims,
   "job-clinical": p_job_clinical,
   "job-courses": p_job_courses,
   "job-credit": p_job_credit,
@@ -58,14 +65,19 @@ export const TRADE_PHOTOS: Record<string, StaticImageData> = {
   "job-knowledge": p_job_knowledge,
   "job-landing": p_job_landing,
   "job-outbound": p_job_outbound,
+  "job-personal": p_job_personal,
   "job-property-deals": p_job_property_deals,
+  "job-receipts": p_job_receipts,
   "job-recruiting": p_job_recruiting,
   "job-reviews": p_job_reviews,
   "job-social": p_job_social,
+  "job-sop": p_job_sop,
   "job-staff": p_job_staff,
   "job-stock": p_job_stock,
+  "job-taxpack": p_job_taxpack,
   "job-trackers": p_job_trackers,
   "job-translate": p_job_translate,
+  "job-workshop": p_job_workshop,
   "logistics": p_logistics,
   "manufacturing": p_manufacturing,
   "office-teams": p_office_teams,

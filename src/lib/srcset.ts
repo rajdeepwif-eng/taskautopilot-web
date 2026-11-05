@@ -17,6 +17,8 @@ import w_job_alerts_480 from "@/assets/web/job-alerts-480.webp";
 import w_job_alerts_960 from "@/assets/web/job-alerts-960.webp";
 import w_job_approvals_480 from "@/assets/web/job-approvals-480.webp";
 import w_job_approvals_960 from "@/assets/web/job-approvals-960.webp";
+import w_job_claims_480 from "@/assets/web/job-claims-480.webp";
+import w_job_claims_960 from "@/assets/web/job-claims-960.webp";
 import w_job_clinical_480 from "@/assets/web/job-clinical-480.webp";
 import w_job_clinical_960 from "@/assets/web/job-clinical-960.webp";
 import w_job_courses_480 from "@/assets/web/job-courses-480.webp";
@@ -41,22 +43,32 @@ import w_job_landing_480 from "@/assets/web/job-landing-480.webp";
 import w_job_landing_960 from "@/assets/web/job-landing-960.webp";
 import w_job_outbound_480 from "@/assets/web/job-outbound-480.webp";
 import w_job_outbound_960 from "@/assets/web/job-outbound-960.webp";
+import w_job_personal_480 from "@/assets/web/job-personal-480.webp";
+import w_job_personal_960 from "@/assets/web/job-personal-960.webp";
 import w_job_property_deals_480 from "@/assets/web/job-property-deals-480.webp";
 import w_job_property_deals_960 from "@/assets/web/job-property-deals-960.webp";
+import w_job_receipts_480 from "@/assets/web/job-receipts-480.webp";
+import w_job_receipts_960 from "@/assets/web/job-receipts-960.webp";
 import w_job_recruiting_480 from "@/assets/web/job-recruiting-480.webp";
 import w_job_recruiting_960 from "@/assets/web/job-recruiting-960.webp";
 import w_job_reviews_480 from "@/assets/web/job-reviews-480.webp";
 import w_job_reviews_960 from "@/assets/web/job-reviews-960.webp";
 import w_job_social_480 from "@/assets/web/job-social-480.webp";
 import w_job_social_960 from "@/assets/web/job-social-960.webp";
+import w_job_sop_480 from "@/assets/web/job-sop-480.webp";
+import w_job_sop_960 from "@/assets/web/job-sop-960.webp";
 import w_job_staff_480 from "@/assets/web/job-staff-480.webp";
 import w_job_staff_960 from "@/assets/web/job-staff-960.webp";
 import w_job_stock_480 from "@/assets/web/job-stock-480.webp";
 import w_job_stock_960 from "@/assets/web/job-stock-960.webp";
+import w_job_taxpack_480 from "@/assets/web/job-taxpack-480.webp";
+import w_job_taxpack_960 from "@/assets/web/job-taxpack-960.webp";
 import w_job_trackers_480 from "@/assets/web/job-trackers-480.webp";
 import w_job_trackers_960 from "@/assets/web/job-trackers-960.webp";
 import w_job_translate_480 from "@/assets/web/job-translate-480.webp";
 import w_job_translate_960 from "@/assets/web/job-translate-960.webp";
+import w_job_workshop_480 from "@/assets/web/job-workshop-480.webp";
+import w_job_workshop_960 from "@/assets/web/job-workshop-960.webp";
 import w_logistics_480 from "@/assets/web/logistics-480.webp";
 import w_logistics_960 from "@/assets/web/logistics-960.webp";
 import w_manufacturing_480 from "@/assets/web/manufacturing-480.webp";
@@ -84,6 +96,7 @@ export const SRCSET: Record<string, string> = {
   "job-ads": ss([[w_job_ads_480, 480], [w_job_ads_960, 960]]),
   "job-alerts": ss([[w_job_alerts_480, 480], [w_job_alerts_960, 960]]),
   "job-approvals": ss([[w_job_approvals_480, 480], [w_job_approvals_960, 960]]),
+  "job-claims": ss([[w_job_claims_480, 480], [w_job_claims_960, 960]]),
   "job-clinical": ss([[w_job_clinical_480, 480], [w_job_clinical_960, 960]]),
   "job-courses": ss([[w_job_courses_480, 480], [w_job_courses_960, 960]]),
   "job-credit": ss([[w_job_credit_480, 480], [w_job_credit_960, 960]]),
@@ -96,14 +109,19 @@ export const SRCSET: Record<string, string> = {
   "job-knowledge": ss([[w_job_knowledge_480, 480], [w_job_knowledge_960, 960]]),
   "job-landing": ss([[w_job_landing_480, 480], [w_job_landing_960, 960]]),
   "job-outbound": ss([[w_job_outbound_480, 480], [w_job_outbound_960, 960]]),
+  "job-personal": ss([[w_job_personal_480, 480], [w_job_personal_960, 960]]),
   "job-property-deals": ss([[w_job_property_deals_480, 480], [w_job_property_deals_960, 960]]),
+  "job-receipts": ss([[w_job_receipts_480, 480], [w_job_receipts_960, 960]]),
   "job-recruiting": ss([[w_job_recruiting_480, 480], [w_job_recruiting_960, 960]]),
   "job-reviews": ss([[w_job_reviews_480, 480], [w_job_reviews_960, 960]]),
   "job-social": ss([[w_job_social_480, 480], [w_job_social_960, 960]]),
+  "job-sop": ss([[w_job_sop_480, 480], [w_job_sop_960, 960]]),
   "job-staff": ss([[w_job_staff_480, 480], [w_job_staff_960, 960]]),
   "job-stock": ss([[w_job_stock_480, 480], [w_job_stock_960, 960]]),
+  "job-taxpack": ss([[w_job_taxpack_480, 480], [w_job_taxpack_960, 960]]),
   "job-trackers": ss([[w_job_trackers_480, 480], [w_job_trackers_960, 960]]),
   "job-translate": ss([[w_job_translate_480, 480], [w_job_translate_960, 960]]),
+  "job-workshop": ss([[w_job_workshop_480, 480], [w_job_workshop_960, 960]]),
   "logistics": ss([[w_logistics_480, 480], [w_logistics_960, 960]]),
   "manufacturing": ss([[w_manufacturing_480, 480], [w_manufacturing_960, 960]]),
   "office-teams": ss([[w_office_teams_480, 480], [w_office_teams_960, 960]]),
