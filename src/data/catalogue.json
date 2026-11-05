@@ -21,7 +21,7 @@
       "name": "Local SEO Lite",
       "desc": "Google Business Profile kept sharp, directory listings checked, review requests automated, monthly report.",
       "apps": "Google Business Profile, directories",
-      "price": 450,
+      "price": 490,
       "days": 10,
       "ind": [
         "all"
@@ -321,7 +321,7 @@
       "name": "Supplier invoice reader",
       "desc": "Bills arriving by email are read, checked and booked into your accounts with the PDF attached.",
       "apps": "Xero, QuickBooks, Sage, Zoho Books",
-      "price": 3000,
+      "price": 2700,
       "days": 10,
       "ind": [
         "all"
@@ -333,7 +333,7 @@
       "name": "Automated invoice reminders & collections",
       "desc": "Polite reminders before and after due dates, pay-now links, statements and escalation.",
       "apps": "Xero, QuickBooks, Sage, Stripe, GoCardless",
-      "price": 2400,
+      "price": 1800,
       "days": 10,
       "ind": [
         "Trades & home services",
@@ -351,7 +351,7 @@
       "name": "Nightly bank reconciliation",
       "desc": "Bank lines matched to invoices overnight, with a checker and a short list of anything left.",
       "apps": "Xero, QuickBooks, Zoho, Stripe",
-      "price": 3600,
+      "price": 2900,
       "days": 15,
       "ind": [
         "all"
@@ -375,7 +375,7 @@
       "name": "Owner dashboard",
       "desc": "Leads, sales, cash and overdue work on one screen, updated automatically.",
       "apps": "Your accounts, CRM, spreadsheets",
-      "price": 3000,
+      "price": 2400,
       "days": 10,
       "ind": [
         "all"
@@ -589,7 +589,7 @@
       "name": "Failure alerts & daily watchdog",
       "desc": "Any failed or missed automation is reported with a link to fix it.",
       "apps": "Slack/Teams, email",
-      "price": 950,
+      "price": 1250,
       "days": 3,
       "ind": [
         "all"
@@ -716,7 +716,7 @@
       "name": "Forms to workflow (Google Forms, Microsoft Forms, Jotform)",
       "desc": "Every form submission is checked, saved to the right sheet, turned into a PDF if needed, sent for approval and assigned as a task — no copying and pasting.",
       "apps": "Google Forms, Microsoft Forms, Jotform, Typeform, Google Sheets, Gmail, Outlook",
-      "price": 1100,
+      "price": 1250,
       "days": 7,
       "ind": [
         "all"
@@ -857,7 +857,7 @@
       "name": "Supplier invoice reader — DIY kit",
       "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Supplier invoice reader'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
-      "price": 199,
+      "price": 99,
       "days": 1,
       "ind": [
         "all"
@@ -869,7 +869,7 @@
       "name": "Nightly bank reconciliation — DIY kit",
       "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Nightly bank reconciliation'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
-      "price": 299,
+      "price": 149,
       "days": 1,
       "ind": [
         "all"
@@ -1005,7 +1005,7 @@
       "name": "Invoices to Excel — DIY kit",
       "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Invoices & documents to Excel'. Includes 30 days of email help. Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
-      "price": 99,
+      "price": 49,
       "days": 1,
       "ind": [
         "all"
@@ -1309,7 +1309,7 @@
       "name": "Meeting notes to tasks",
       "desc": "Record or upload a meeting; you get short notes, decisions and a task for every action with an owner and due date — sent to your task app after you approve.",
       "apps": "Google Sheets or Excel, phone forms, Asana or Slack, your existing systems",
-      "price": 1300,
+      "price": 900,
       "days": 10,
       "ind": [
         "all"
@@ -1362,7 +1362,7 @@
       "name": "Checklist control & defect close-out",
       "desc": "Every daily and weekly checklist — opening, closing, vehicle, PPE, machine pre-use — scheduled by site and person. Missed checklists are flagged the same day, failed items become defects with an owner and photo proof, and repeat defects escalate to the manager.",
       "apps": "Airtable or Google Sheets, SafetyCulture or phone forms, Asana, Slack or Teams",
-      "price": 3300,
+      "price": 2600,
       "days": 10,
       "ind": [
         "all"
@@ -1439,7 +1439,7 @@
       "id": 103,
       "cat": "Courses",
       "name": "Practical AI at work — team license (up to 25 staff)",
-      "price": 1990,
+      "price": 2990,
       "days": 1,
       "desc": "Short, role-based lessons that get every employee using AI safely for writing, research, analysis and admin — with a company AI policy template and a manager progress view. Renew yearly. Founding enrollment: the course opens soon; full refund if you change your mind before it opens.",
       "apps": "Per year · up to 25 learners · progress dashboard",
@@ -1571,7 +1571,7 @@
       "id": 113,
       "cat": "Compliance",
       "name": "Vehicle & machinery daily checks",
-      "price": 2300,
+      "price": 1800,
       "days": 10,
       "run": "$100–250/mo",
       "desc": "A QR code on every vehicle and machine opens its pre-use walkaround check on the driver's or operator's phone. Pass, and it's logged; fail, and the defect goes to the workshop with photos, and the vehicle can be marked off the road until fixed — with a full record for audits and driver vehicle inspection reports.",
@@ -1855,7 +1855,7 @@
       "name": "Systemise any document — form, checklist or SOP",
       "desc": "Send a paper form, spreadsheet, checklist or Word document. It comes back as a working digital form or checklist on phones, with answers saved to a sheet, the right person alerted, and an SOP task so it gets done on time.",
       "apps": "Google Forms, Microsoft Forms, SafetyCulture, Google Sheets, Excel, Asana",
-      "price": 1100,
+      "price": 1250,
       "days": 10,
       "ind": [
         "all"
@@ -1935,7 +1935,7 @@
       "name": "Money at a glance — spending, bills & net-worth dashboard",
       "desc": "A read-only dashboard across your accounts: monthly spending by category, upcoming bills, cash and net worth from your balances, and a year-end pack of statements and receipts for your accountant. It reports; it never moves money, trades or gives investment advice.",
       "apps": "Bank exports or a read-only bank feed (Plaid / open banking), Google Sheets or Excel, your accountant",
-      "price": 2400,
+      "price": 1800,
       "days": 10,
       "ind": [
         "all"
