@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServicesView from "@/components/ServicesView";
 import HireVsAutomate from "@/components/HireVsAutomate";
 import { DEALS, fromMonthly } from "@/lib/deals";
 import { alternates, seoTitle } from "@/lib/geo";
@@ -88,6 +89,8 @@ export default function Home() {
       </section>
 
       <TradeGrid />
+
+      <ServicesView compact />
 
       {/* Packages */}
       <section id="packages" className="wrap flex flex-col gap-5 pt-16">
