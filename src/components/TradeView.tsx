@@ -43,7 +43,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
           <div className="flex min-w-0 flex-[1_1_380px] flex-col">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={TRADE_PHOTOS[slug].src} srcSet={SRCSET[slug]} sizes="(min-width: 1024px) 560px, 100vw" fetchPriority="high" width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt={`Illustrative photo: in ${t.name.toLowerCase()}, the result appears in the software the business already uses, marked as done by the AI assistant`} className="aspect-[3/2] w-full rounded-2xl object-cover" />
-          <PhotoStory slug={slug} prefix={C.path} />
+          <PhotoStory slug={slug} />
           </div>
         )}
       </section>
