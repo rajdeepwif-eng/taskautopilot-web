@@ -6,6 +6,7 @@ import "./globals.css";
 import FooterFixes from "@/components/FooterFixes";
 import Attribution from "@/components/Attribution";
 import Analytics from "@/components/Analytics";
+import Assistant from "@/components/Assistant";
 import { SITE } from "@/lib/geo";
 import { PAYMENTS_LIVE } from "@/lib/launch";
 
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CurrencyApplier />
         <Attribution />
         <Analytics />
+        <Assistant />
         <footer className="mt-auto bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD] [&_a:hover]:text-white">
           <div className="wrap grid grid-cols-2 gap-6 py-10 text-sm md:grid-cols-5">
             <div className="flex flex-col gap-2"><b className="text-white">Shop</b><Link href="/library/">All automations</Link><Link href="/#trades">Shop by business type</Link><Link href="/starter/">Starter offer</Link><Link href="/kits/">Industry & DIY kits</Link><Link href="/academy/">Courses</Link></div>
