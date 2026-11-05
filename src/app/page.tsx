@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PhotoStory from "@/components/PhotoStory";
 import ServicesView from "@/components/ServicesView";
 import HireVsAutomate from "@/components/HireVsAutomate";
 import { DEALS, fromMonthly } from "@/lib/deals";
@@ -68,6 +69,7 @@ export default function Home() {
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />
+          <div className="-mt-3 lg:hidden"><PhotoStory slug="hero" /></div>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="#trades" className="btn btn-primary text-[17px]">Show me fixes for my business →</Link>
           </div>
@@ -83,7 +85,7 @@ export default function Home() {
         <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A plumber works under a sink while his phone shows tomorrow's diary: Dave's 9:00 job, added by the AI assistant after a missed call" className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
-          <div className="mt-2 text-[13px] text-muted">Illustrative image. Dave called at 9:02 while the plumber was under a sink — the AI assistant answered and booked him into tomorrow's diary. Works with the job apps trades already use, like Jobber, ServiceM8 and Tradify.</div>
+          <PhotoStory slug="hero" />
         </div>
       </div>
       </section>

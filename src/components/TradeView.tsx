@@ -8,6 +8,7 @@ import { TRADE_PHOTOS } from "@/lib/tradePhotos";
 import AddToCart from "@/components/AddToCart";
 import { runLow } from "@/lib/catalogue";
 import { SRCSET } from "@/lib/srcset";
+import PhotoStory from "@/components/PhotoStory";
 
 export default function TradeView({ slug, country }: { slug: string; country: Country }) {
   const raw = tradeBySlug(slug);
@@ -39,8 +40,11 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
           <div className="flex flex-wrap gap-4 text-sm text-ink-2"><span>✓ Fixed price</span><span>✓ Approve the test run or full refund</span>{PAYMENTS_LIVE && <span>✓ Secure Stripe checkout</span>}</div>
         </div>
         {TRADE_PHOTOS[slug] && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={TRADE_PHOTOS[slug].src} srcSet={SRCSET[slug]} sizes="(min-width: 1024px) 560px, 100vw" fetchPriority="high" width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt={`Illustrative photo: in ${t.name.toLowerCase()}, the result appears in the software the business already uses, marked as done by the AI assistant`} className="aspect-[3/2] w-full min-w-0 flex-[1_1_380px] rounded-2xl object-cover" />
+          <div className="flex min-w-0 flex-[1_1_380px] flex-col">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={TRADE_PHOTOS[slug].src} srcSet={SRCSET[slug]} sizes="(min-width: 1024px) 560px, 100vw" fetchPriority="high" width={TRADE_PHOTOS[slug].width} height={TRADE_PHOTOS[slug].height} alt={`Illustrative photo: in ${t.name.toLowerCase()}, the result appears in the software the business already uses, marked as done by the AI assistant`} className="aspect-[3/2] w-full rounded-2xl object-cover" />
+          <PhotoStory slug={slug} prefix={C.path} />
+          </div>
         )}
       </section>
 
