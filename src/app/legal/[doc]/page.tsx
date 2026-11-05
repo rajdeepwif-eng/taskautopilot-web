@@ -25,6 +25,8 @@ const SUMMARY: Record<string, string[]> = {
     "Card details are handled by Stripe; we never see or store them.",
     "Workflows run on n8n Cloud with data stored in the EU (Frankfurt, Germany), encrypted in transit and at rest.",
     "Sub-processors: n8n (hosting), Anthropic, OpenAI, Google or Mistral (only the AI models your workflows use), Airtable (where used), Stripe (payments).",
+    "Applications for payment plans, results-based or equity deals are used only to assess that application. Business credit searches go to a credit reference agency; a finance partner sees your details only if you choose finance and agree.",
+    "Applications are kept 12 months if no deal goes ahead, then deleted; for the life of the contract plus 6 years if it does. You can ask to see, correct or delete your information at any time, and complain to the ICO.",
   ],
   dpa: [
     "A data-processing agreement will be available to sign before any build starts.",
