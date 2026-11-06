@@ -171,7 +171,7 @@
       "cat": "Sales",
       "name": "Missed-call text-back",
       "desc": "Any call you miss gets a text within a minute with a link to book or reply.",
-      "apps": "Your phone line, SMS, calendar",
+      "apps": "A mobile or VoIP number (UK landlines can't text — we can forward yours), SMS, calendar",
       "price": 600,
       "days": 5,
       "ind": [
@@ -243,7 +243,7 @@
       "id": 15,
       "cat": "Marketing",
       "name": "Review requests & replies",
-      "desc": "Happy customers are asked for a review; every new review gets a drafted reply you approve.",
+      "desc": "Every customer is asked for a review (Google bans asking only happy ones); every new review gets a drafted reply you approve, and complaints are flagged to you.",
       "apps": "Google Business Profile, email, SMS",
       "price": 1100,
       "days": 5,
@@ -269,7 +269,7 @@
       "cat": "Marketing",
       "name": "Social media on autopilot",
       "desc": "Your photos and news turned into posts, approved in one tap and published on schedule.",
-      "apps": "Facebook, Instagram, LinkedIn, TikTok",
+      "apps": "Facebook, Instagram, LinkedIn, TikTok (TikTok auto-posting needs TikTok's app approval; until then posts are sent to you to publish)",
       "price": 600,
       "days": 10,
       "ind": [
@@ -348,8 +348,8 @@
     {
       "id": 23,
       "cat": "Finance",
-      "name": "Nightly bank reconciliation",
-      "desc": "Bank lines matched to invoices overnight, with a checker and a short list of anything left.",
+      "name": "Nightly bank matching",
+      "desc": "Bank lines matched to invoices and payouts overnight — posted where your accounts software allows, suggested where it doesn't — with a checker and a short list of anything left.",
       "apps": "Xero, QuickBooks, Zoho, Stripe",
       "price": 2900,
       "days": 15,
@@ -362,7 +362,7 @@
       "cat": "Finance",
       "name": "Receipts & expenses",
       "desc": "Staff snap receipts; they are read, categorized and filed in your accounts.",
-      "apps": "Dext, Xero, QuickBooks",
+      "apps": "Phone photo or email, Xero, QuickBooks, Sage",
       "price": 1400,
       "days": 5,
       "ind": [
@@ -420,7 +420,7 @@
       "cat": "Operations",
       "name": "Orders sync",
       "desc": "Online and phone orders flow into your kitchen, warehouse and accounts without retyping.",
-      "apps": "Shopify, Square, Toast, DoorDash, Xero",
+      "apps": "Shopify, Square, WooCommerce, Xero; Toast and DoorDash through their approved partner integrations",
       "price": 3600,
       "days": 15,
       "ind": [
@@ -624,7 +624,7 @@
       "cat": "Solo (self-employed)",
       "name": "Receipts to tidy books — Solo",
       "desc": "Snap a receipt; it is read, categorized and filed ready for your accountant.",
-      "apps": "Dext, Xero, Sage",
+      "apps": "Phone photo or email, Xero, Sage",
       "price": 500,
       "days": 5,
       "ind": [
@@ -635,7 +635,7 @@
       "id": 43,
       "cat": "Solo (self-employed)",
       "name": "Reviews & repeat work — Solo",
-      "desc": "Happy customers are asked for a review and reminded when it is time to book again.",
+      "desc": "Every customer is asked for a review and reminded when it is time to book again; complaints come straight to you.",
       "apps": "Google, email, SMS",
       "price": 300,
       "days": 3,
@@ -661,7 +661,7 @@
       "cat": "Industry",
       "name": "Insurance quote intake, follow-up & renewals",
       "desc": "Quote requests captured and pre-filled, every quote followed up until the customer decides, and renewals contacted 60, 30 and 7 days out.",
-      "apps": "AgencyZoom, EZLynx, Applied Epic, HawkSoft, your email and phone",
+      "apps": "Your email and phone, plus AgencyZoom, EZLynx, Applied Epic or HawkSoft where the vendor grants API access",
       "price": 6500,
       "days": 20,
       "ind": [
@@ -678,7 +678,7 @@
       "cat": "Industry",
       "name": "Claims intake (FNOL) & document triage",
       "desc": "First notice of loss captured by web, phone or email; photos, reports and policy documents read and filed; each claim triaged and routed to the right handler.",
-      "apps": "Guidewire, Duck Creek, Snapsheet, your claims inbox and document store",
+      "apps": "Your claims inbox and document store; Guidewire, Duck Creek or Snapsheet only where your insurer or vendor grants API access",
       "price": 19500,
       "days": 30,
       "ind": [
@@ -866,8 +866,8 @@
     {
       "id": 59,
       "cat": "DIY kits",
-      "name": "Nightly bank reconciliation — DIY kit",
-      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Nightly bank reconciliation'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
+      "name": "Nightly bank matching — DIY kit",
+      "desc": "Set it up yourself: the ready-made n8n workflow file, a step-by-step written guide and a setup checklist for 'Nightly bank matching'. Includes 30 days of email help. Want us to do it? Your kit price is credited if you upgrade within 30 days.",
       "apps": "n8n (free self-hosted or n8n Cloud) plus your own apps",
       "price": 149,
       "days": 1,
@@ -947,7 +947,7 @@
       "id": 65,
       "cat": "Get found (SEO)",
       "name": "Google Business Profile & reviews — managed",
-      "desc": "Your Google profile kept accurate and active: hours, photos, posts and Q&A. Every happy customer is asked for a review and every review gets a reply drafted for your approval.",
+      "desc": "Your Google profile kept accurate and active: hours, photos, posts and Q&A. Every customer is asked for a review and every review gets a reply drafted for your approval.",
       "apps": "Google Business Profile, your CRM or invoicing app, Gmail or SMS",
       "price": 350,
       "days": 7,
@@ -1125,7 +1125,7 @@
       "name": "GPS clock in & clock out",
       "price": 3000,
       "desc": "Staff clock in and out on their phone only when they are on site (GPS fence, optional photo). Timesheets build themselves, late or missed shifts alert the manager, and hours go to payroll.",
-      "apps": "Deputy, Homebase or Connecteam, or a simple phone form; Xero, QuickBooks or Gusto payroll",
+      "apps": "Deputy or Connecteam (Homebase API is Enterprise-only), or a simple phone form; Xero or your payroll",
       "run": "$150–300/mo",
       "replaces": "Ends paper timesheets and 'what time did you start?' arguments. Staff are told what is recorded and why.",
       "days": 15,
@@ -1139,7 +1139,7 @@
       "name": "CCTV watch — alerts that matter",
       "price": 4200,
       "desc": "AI watches your existing cameras for the events you choose — movement in the yard after hours, a gate left open, a vehicle at the depot — and sends a short clip to your phone, plus a morning summary. No face recognition.",
-      "apps": "Most IP cameras (ONVIF/RTSP) and cloud camera systems with an API; WhatsApp, Slack or Teams for alerts",
+      "apps": "Cameras or cloud camera systems that send motion events or have an API (most ONVIF/RTSP cameras need a small video box on site); WhatsApp, Slack or Teams for alerts",
       "run": "$300–600/mo + AI usage",
       "replaces": "Stops someone scrolling hours of footage — you only see the moments that matter.",
       "days": 15,
@@ -1533,7 +1533,7 @@
       "days": 15,
       "run": "$200–400/mo + AI usage",
       "desc": "Job ad out, every resume summarized against the criteria you set, an interview pack for each role (questions and scorecard), shortlisted candidates emailed to book their own slot with reminders, and every candidate organized on one board. A person decides who is shortlisted, interviewed and hired — AI never rejects anyone on its own. You stay responsible for your hiring criteria and local rules on AI in hiring (for example NYC Local Law 144, UK GDPR Article 22).",
-      "apps": "Indeed, LinkedIn, your careers page, Gmail or Outlook, Google or Outlook Calendar, Asana or Airtable",
+      "apps": "Applications by email, your careers page or your ATS (Indeed's own API needs partner approval); Gmail or Outlook, Google or Outlook Calendar",
       "replaces": "Turns days of reading resumes and emailing candidates into a short review and a full interview calendar.",
       "ind": [
         "all"
@@ -1564,7 +1564,7 @@
       ],
       "run": "$150–300/mo",
       "desc": "Every pay period, hours from clock-in or timesheets, overtime, leave, sickness and expenses are gathered, checked against the shift schedule and flagged where they don't match — then sent into your payroll software or to your accountant ready to approve. Your payroll provider runs the pay and the tax filings; we never move money.",
-      "apps": "Gusto, ADP, QuickBooks Payroll, Xero Payroll, Deputy, Homebase, Connecteam",
+      "apps": "Clock-in or timesheet app; Xero Payroll, QuickBooks Payroll, Gusto or ADP (Gusto and ADP connect through their partner approval)",
       "replaces": "Ends the payday scramble of chasing timesheets and fixing hours by hand."
     },
     {
@@ -1736,7 +1736,7 @@
       "cat": "Finance",
       "name": "New-customer credit check & limits",
       "desc": "Before a new customer gets credit, their company details and available credit information are checked and a suggested limit and payment terms are prepared for you to approve.",
-      "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp",
+      "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp; Companies House (free) and a credit-data subscription such as Creditsafe or Experian",
       "price": 1100,
       "days": 10,
       "ind": [
@@ -1934,7 +1934,7 @@
       "cat": "Owner & management",
       "name": "Money at a glance — spending, bills & net-worth dashboard",
       "desc": "A read-only dashboard across your accounts: monthly spending by category, upcoming bills, cash and net worth from your balances, and a year-end pack of statements and receipts for your accountant. It reports; it never moves money, trades or gives investment advice.",
-      "apps": "Bank exports or a read-only bank feed (Plaid / open banking), Google Sheets or Excel, your accountant",
+      "apps": "Instagram Reels, YouTube Shorts, Facebook, TikTok (after TikTok app approval)",
       "price": 1800,
       "days": 10,
       "ind": [
@@ -1947,7 +1947,7 @@
       "cat": "Marketing",
       "name": "Short videos made for you",
       "desc": "Eight branded short videos a month from your job photos, clips and FAQs — captioned, approved by you in one tap and posted to two channels.",
-      "apps": "Instagram Reels, TikTok, YouTube Shorts, Facebook",
+      "apps": "Instagram Reels, TikTok (after app approval), YouTube Shorts, Facebook",
       "price": 290,
       "days": 7,
       "ind": [
