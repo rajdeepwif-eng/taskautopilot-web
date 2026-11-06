@@ -30,7 +30,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const discount = items.length >= 3 ? oneOff * 0.1 : 0;
   const lite = items.reduce((a, p) => a + runLow(p), 0);
   const TIERS = [
-    { id: "none", name: "No plan", sub: "You maintain it; fixes later at $150/hour", price: 0 },
+    { id: "none", name: "No plan", sub: "Free fixes for 90 days and free small changes for 14 days; after that, changes from $150 (fixed price) and fixes need a plan", price: 0 },
     { id: "lite", name: "Run Lite", sub: "Monitoring, failure alerts, fixes after the free 90 days, and one small change a month", price: lite },
     { id: "full", name: "Run Full", sub: "Run Lite + one new time-saver each month + live results panel", price: Math.max(1500, lite) },
   ];
@@ -128,7 +128,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         {t.price > 0 && <div className="flex justify-between"><span>{t.name}, first month</span><span>{fmt(t.price)}</span></div>}
         <div className="flex items-baseline justify-between border-t border-line pt-3"><span className="text-muted">{planX ? (PAYMENTS_LIVE ? "Deposit due today" : "Deposit — you pay when checkout opens") : PAYMENTS_LIVE ? "Due today" : "Total — you confirm and pay when checkout opens"}</span><span className="text-4xl font-bold text-[#B12704]" data-testid="due-now" data-nocurrency={planX ? true : undefined}>{fmtDue(dueNow)}</span></div>
         {planX && <div className="text-[13px] text-ink-2" data-testid="due-later" data-nocurrency>Then {payPlan} monthly payments of {cx.local(planX.monthly)} — {cx.local(planX.total + extrasLocal)} in total.</div>}
-        <div className="text-[13px] text-muted">{TAX[cur] ?? TAX.USD} Usage-based costs (call minutes, AI usage) are billed at cost.</div>
+        <div className="text-[13px] text-muted">{TAX[cur] ?? TAX.USD} Running costs are paid by you directly, at cost: n8n from about €20/mo (roughly $22), plus call minutes, texts or AI use where a build uses them.</div>
         <label className="flex flex-col gap-1.5 text-sm text-ink-2">
           {PAYMENTS_LIVE ? "Email for your receipt and setup form" : "Email to reserve your build"}
           <input type="email" value={form.email} onChange={(e) => { setForm({ ...form, email: e.target.value }); setErr(""); }} placeholder="you@company.com" />

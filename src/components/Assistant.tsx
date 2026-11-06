@@ -67,7 +67,7 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   };
   const reset = () => { setTalk(false); setTimes(""); setPhone(""); setStep(0); setSaid(""); setPick(null); setNow(""); setTools(""); setVolume(""); setRoute(""); setAnswers({}); setWhen(""); setApprover(""); setUnsure(false); setSent(false); setErr(""); };
   const choose = (b: Brief | null) => { setPick(b); setStep(2); };
-  const demo = pick ? `/p/${pick.products[0]}/` : "/demos/";
+  const demo = pick?.products[0] ? `/p/${pick.products[0]}/` : "/demos/";
   const send = () => {
     if (!c.name.trim()) return setErr("Add your name.");
     if (!/.+@.+\..+/.test(c.email)) return setErr("Add an email we can reply to.");

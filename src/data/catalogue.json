@@ -54,7 +54,8 @@
       "ind": [
         "all"
       ],
-      "run": "$100–200/mo"
+      "run": "$100–200/mo",
+      "usage": "none"
     },
     {
       "id": 4,
@@ -110,7 +111,7 @@
       "ind": [
         "all"
       ],
-      "run": "$500–1,000/mo incl. minutes cap",
+      "run": "$500–1,000/mo + call minutes at cost",
       "grade": "Strong",
       "wage": 38010,
       "role": "receptionist",
@@ -226,7 +227,8 @@
         "Agencies & creative"
       ],
       "run": "$100–250/mo",
-      "grade": "Lead"
+      "grade": "Lead",
+      "usage": "sms"
     },
     {
       "id": 14,
@@ -255,7 +257,8 @@
       "ind": [
         "all"
       ],
-      "run": "$100–200/mo"
+      "run": "$100–200/mo",
+      "usage": "sms"
     },
     {
       "id": 16,
@@ -335,7 +338,8 @@
       "ind": [
         "all"
       ],
-      "run": "$100–200/mo"
+      "run": "$100–200/mo",
+      "usage": "ai"
     },
     {
       "id": 22,
@@ -459,7 +463,8 @@
         "Trades & home services",
         "Construction & equipment hire"
       ],
-      "run": "$100–200/mo"
+      "run": "$100–200/mo",
+      "usage": "none"
     },
     {
       "id": 30,
@@ -529,7 +534,8 @@
       "grade": "Moderate",
       "wage": 45930,
       "role": "medical secretary",
-      "replaces": "Takes on front-desk booking and intake work of a medical secretary ($45,930/yr (US median, BLS May 2025))."
+      "replaces": "Takes on front-desk booking and intake work of a medical secretary ($45,930/yr (US median, BLS May 2025)).",
+      "usage": "sms"
     },
     {
       "id": 34,
@@ -543,7 +549,8 @@
         "Real estate & property"
       ],
       "run": "$300–600/mo",
-      "grade": "Lead"
+      "grade": "Lead",
+      "usage": "none"
     },
     {
       "id": 35,
@@ -556,7 +563,8 @@
       "ind": [
         "Restaurants & hospitality"
       ],
-      "run": "$100–200/mo"
+      "run": "$100–200/mo",
+      "usage": "sms"
     },
     {
       "id": 36,
@@ -572,7 +580,8 @@
         "Professional services",
         "Construction & equipment hire"
       ],
-      "run": "$150–300/mo"
+      "run": "$150–300/mo",
+      "usage": "ai"
     },
     {
       "id": 37,
@@ -668,7 +677,8 @@
       "ind": [
         "all"
       ],
-      "run": "$50–100/mo"
+      "run": "$50–100/mo",
+      "usage": "sms"
     },
     {
       "id": 44,
@@ -826,7 +836,8 @@
       ],
       "replaces": "Turns a goal into owned, dated work in days, not weeks of meetings.",
       "grade": "Lead",
-      "run": "$150–300/mo"
+      "run": "$150–300/mo",
+      "usage": "ai"
     },
     {
       "id": 54,
@@ -841,7 +852,8 @@
       ],
       "run": "$100–200/mo",
       "replaces": "Gets know-how out of your head and into tasks someone else can run.",
-      "grade": "Lead"
+      "grade": "Lead",
+      "usage": "ai"
     },
     {
       "id": 55,
@@ -927,7 +939,8 @@
         "all"
       ],
       "run": "$150–300/mo + AI usage",
-      "replaces": "Turns 'can someone sort this' into an owned, dated task in seconds."
+      "replaces": "Turns 'can someone sort this' into an owned, dated task in seconds.",
+      "usage": "ai"
     },
     {
       "id": 62,
@@ -969,7 +982,8 @@
         "all"
       ],
       "run": "$150–300/mo + Meta message fees at cost",
-      "replaces": "Answers WhatsApp in seconds, day or night — no one glued to the phone."
+      "replaces": "Answers WhatsApp in seconds, day or night — no one glued to the phone.",
+      "usage": "sms"
     },
     {
       "id": 65,
@@ -996,7 +1010,7 @@
       "ind": [
         "all"
       ],
-      "run": "$300–700/mo incl. minutes cap",
+      "run": "$300–700/mo + call minutes at cost",
       "replaces": "Makes the routine calls your team never gets round to — only to customers who said yes to calls."
     },
     {
@@ -1159,7 +1173,8 @@
       "days": 15,
       "ind": [
         "all"
-      ]
+      ],
+      "usage": "none"
     },
     {
       "id": 80,
@@ -1238,7 +1253,8 @@
       "ind": [
         "Food production & processing"
       ],
-      "run": "$100–200/mo"
+      "run": "$100–200/mo",
+      "usage": "none"
     },
     {
       "id": 86,
@@ -1264,7 +1280,8 @@
       "ind": [
         "Farming & agriculture"
       ],
-      "run": "$150–300/mo"
+      "run": "$150–300/mo",
+      "usage": "none"
     },
     {
       "id": 88,
@@ -1329,7 +1346,8 @@
       "ind": [
         "all"
       ],
-      "run": "$200–400/mo"
+      "run": "$200–400/mo",
+      "usage": "ai"
     },
     {
       "id": 93,
@@ -1382,7 +1400,8 @@
         "all"
       ],
       "run": "$100–200/mo + AI usage",
-      "replaces": "Gets you to inbox zero without reading every email — we run this on our own inboxes every minute."
+      "replaces": "Gets you to inbox zero without reading every email — we run this on our own inboxes every minute.",
+      "usage": "ai"
     },
     {
       "id": 97,
@@ -1395,7 +1414,8 @@
       "ind": [
         "all"
       ],
-      "run": "$200–400/mo"
+      "run": "$200–400/mo",
+      "usage": "none"
     },
     {
       "id": 98,
@@ -1408,7 +1428,8 @@
       "ind": [
         "all"
       ],
-      "run": "$200–400/mo"
+      "run": "$200–400/mo",
+      "usage": "none"
     },
     {
       "id": 99,
@@ -1607,7 +1628,8 @@
       "replaces": "Replaces paper check sheets nobody reads — every defect seen and fixed, with proof.",
       "ind": [
         "all"
-      ]
+      ],
+      "usage": "none"
     },
     {
       "id": 115,
@@ -1621,7 +1643,8 @@
       "replaces": "Stops paying for goods you didn't order or never received — every invoice checked three ways.",
       "ind": [
         "all"
-      ]
+      ],
+      "usage": "ai"
     },
     {
       "id": 116,
@@ -1680,7 +1703,8 @@
       "run": "$200–400/mo",
       "desc": "A schedule of works for each property — houses, flats or commercial units, trades booked and reminded, daily photo updates from site, budget against actual spend, a snag list chased to closed, and a handover pack at the end.",
       "apps": "Asana or ClickUp, Google Sheets, WhatsApp, Gmail, Xero or QuickBooks",
-      "replaces": "Keeps every refurb on time and on budget without you visiting site daily."
+      "replaces": "Keeps every refurb on time and on budget without you visiting site daily.",
+      "usage": "none"
     },
     {
       "id": 120,
@@ -1825,7 +1849,8 @@
       "ind": [
         "all"
       ],
-      "run": "$100–250/mo"
+      "run": "$100–250/mo",
+      "usage": "ai"
     },
     {
       "id": 130,
@@ -1943,7 +1968,8 @@
       ],
       "run": "$100–200/mo",
       "desc": "When the works finish, everything the lender and valuer will ask for is gathered and checked: costs and invoices, before-and-after photos, certificates and sign-offs, tenancy and rent evidence, comparable sales — packed for your broker, with valuation and offer dates chased. Your broker and lender decide; this is not financial advice.",
-      "apps": "Google Drive or OneDrive, Google Sheets, Gmail or Outlook, WhatsApp"
+      "apps": "Google Drive or OneDrive, Google Sheets, Gmail or Outlook, WhatsApp",
+      "usage": "none"
     },
     {
       "id": 139,
@@ -1986,7 +2012,8 @@
       "ind": [
         "all"
       ],
-      "run": "$100–200/mo"
+      "run": "$100–200/mo",
+      "usage": "data"
     },
     {
       "id": 142,
@@ -2031,7 +2058,8 @@
         "Restaurants & hospitality"
       ],
       "run": "$150–300/mo",
-      "replaces": "Shows off every finished job online without anyone sitting down to write a post."
+      "replaces": "Shows off every finished job online without anyone sitting down to write a post.",
+      "usage": "ai"
     },
     {
       "id": 145,
@@ -2638,6 +2666,16 @@
       "A customer or staff member logs in to the portal.",
       "They see their own bookings, documents, invoices or jobs, and can request, upload or pay.",
       "Every request lands in your systems and the right person is alerted."
+    ],
+    "3": [
+      "You tell us the areas you serve and the jobs you do there.",
+      "We build one genuinely useful page per area, with real local jobs, photos and prices.",
+      "Each page is linked from your Google profile and checked monthly for new jobs to add."
+    ],
+    "14": [
+      "A new lead arrives from your website, ads or email.",
+      "It is scored on fit and intent — size, service, budget, urgency.",
+      "Hot leads go straight to the right person; cold ones get a follow-up sequence."
     ]
   },
   "defaultHours": {

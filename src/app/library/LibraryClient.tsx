@@ -10,7 +10,7 @@ import Link from "next/link";
 import { CatArt } from "@/components/CatArt";
 import { PAYMENTS_LIVE } from "@/lib/launch";
 import { LiveBy } from "@/components/StoreBar";
-import { BuyingGuide, FlowPicture, QuickRead, StartFrom } from "@/components/BuyingGuide";
+import { BuyingGuide, FlowPicture, KitGuide, QuickRead, StartFrom } from "@/components/BuyingGuide";
 import { BUG_DAYS, TWEAK_DAYS, usageShort } from "@/lib/buying";
 import { SITE } from "@/lib/geo";
 import {
@@ -244,6 +244,7 @@ export default function LibraryClient() {
 }
 
 export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = false }: { p: Product; inPlan: boolean; onAdd: () => void; onClose: () => void; children?: React.ReactNode; inline?: boolean }) {
+  const isBuild = p.cat !== "Courses" && p.cat !== "DIY kits" && p.id !== 120;
   const [hours, setHours] = useState(defaultHours(p));
   const [rate, setRate] = useState(roleHourly(p));
   const weekly = (Number(hours) || 0) * (Number(rate) || 0);
@@ -261,12 +262,11 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
         // Same formula everywhere: build fee paid back from time saved, after optional support. Running costs are shown separately (see runs).
         const months = Math.ceil(w / 4.33);
         payback = w <= 26
-          ? `Pays back the ${fmt(p.price)}${p.cat === "DIY kits" ? "" : " build"} in about ${w} week${w === 1 ? "" : "s"} on these numbers${runLow(p) ? `, even with optional support (from ${fmt(runLow(p))}/mo)` : ""}. Running costs not included — see below.`
-          : `Pays back the ${fmt(p.price)}${p.cat === "DIY kits" ? "" : " build"} in about ${months} months on these numbers${runLow(p) ? `, after optional support (from ${fmt(runLow(p))}/mo)` : ""} — try your own hours and rate above.`;
+          ? `Pays back the ${fmt(p.price)}${isBuild ? " build" : ""} in about ${w} week${w === 1 ? "" : "s"} on these numbers${runLow(p) ? `, even with optional support (from ${fmt(runLow(p))}/mo)` : ""}. ${isBuild ? "Running costs not included — see below." : ""}`
+          : `Pays back the ${fmt(p.price)}${isBuild ? " build" : ""} in about ${months} months on these numbers${runLow(p) ? `, after optional support (from ${fmt(runLow(p))}/mo)` : ""} — try your own hours and rate above.`;
       }
     }
   }
-  const isBuild = p.cat !== "Courses" && p.cat !== "DIY kits" && p.id !== 120;
   const photoSlug = PRODUCT_PHOTO[p.id];
   const photoImg = photoSlug === "hero" ? heroImg : photoSlug ? TRADE_PHOTOS[photoSlug] : undefined;
   const photo = photoImg ? (
@@ -281,11 +281,11 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
         {!inline && <button type="button" onClick={onClose} aria-label="Close" className="absolute right-3 top-3 z-10 h-10 w-10 cursor-pointer rounded-full border-0 bg-white text-2xl shadow">×</button>}
         <div className="flex flex-wrap items-start gap-7 p-5 md:p-7">
           <div className="flex min-w-0 flex-[999_1_420px] flex-col gap-3.5">
-            {photo ? <div className="hidden md:block">{photo}</div> : <div className="relative aspect-[16/4] overflow-hidden rounded-lg"><CatArt cat={p.cat} /></div>}
             <div className="font-mono text-xs text-muted">{p.cat} · ● ready-made</div>
             {inline ? <h1 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h1> : <h2 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h2>}
             <p className="m-0 text-[17px] leading-normal text-ink-2">{p.desc}</p>
-            {p.cat !== "Courses" && <QuickRead p={p} />}
+            {p.cat !== "Courses" && <div className="hidden md:block"><QuickRead p={p} /></div>}
+            {photo ? <div className="hidden md:block">{photo}</div> : <div className="relative aspect-[16/4] overflow-hidden rounded-lg"><CatArt cat={p.cat} /></div>}
             {isBuild && <StartFrom p={p} />}
             <div className="mt-1 text-[18px] font-bold">How it works</div>
             {p.cat === "Courses" ? howItWorks(p).map((t, i) => (
@@ -316,16 +316,18 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
                 <span className="text-muted">{p.wage ? `Starting rate is based on the US median for a ${p.role} (BLS, May 2025), converted — change it to your local rate.` : "Starting numbers are estimates — change them to yours."}</span>
               </div>
             </div>
-            <div className="text-sm text-muted">Works with what you already use — for example {p.apps}. Not sure yours fits? We check for free before you pay.</div>
+            {p.cat !== "Courses" && <div className="text-sm text-muted">Works with what you already use — for example {p.apps}. Not sure yours fits? We check for free before you pay.</div>}
             {isBuild && <BuyingGuide p={p} />}
+            {p.cat === "DIY kits" && <KitGuide p={p} />}
             {children}
           </div>
           <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-lg border border-line bg-white p-5 md:order-none md:sticky md:top-4">
             {photo && <div className="-mx-5 -mt-5 mb-1 md:hidden" data-testid="product-photo-mobile">{photo}</div>}
             <div className="text-xl leading-tight md:hidden">{p.name}</div>
             <p className="m-0 text-[15px] leading-snug text-ink-2 md:hidden">{p.desc}</p>
+            {p.cat !== "Courses" && <div className="md:hidden"><QuickRead p={p} /></div>}
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
-            {isBuild && <div className="text-[13.5px] leading-snug text-ink-2" data-testid="all-in">{p.monthly ? "per month" : "once"} + about $23/mo to n8n{usageShort(p) ? <> + {usageShort(p)}</> : null} (paid by you, at cost){p.run && !p.monthly ? <> + optional support from {fmt(runLow(p))}/mo</> : null}</div>}
+            {isBuild && <div className="text-[13.5px] leading-snug text-ink-2" data-testid="all-in">{p.monthly ? "per month" : "once"} + about $22/mo to n8n{usageShort(p) ? <> + {usageShort(p)}</> : null} (paid by you, at cost){p.run && !p.monthly ? <> + optional support from {fmt(runLow(p))}/mo</> : null}</div>}
             {!p.monthly && p.price >= 500 && p.cat !== "Courses" && p.cat !== "DIY kits" && <Link href={`/ways-to-pay/#monthly`} className="text-[14px]" data-testid="from-monthly">or pay in instalments from {fmt(fromMonthly(p.price))}/mo · other ways to pay</Link>}
             {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[15px]"><LiveBy days={p.days} /></div>}
             <div className="text-[18px] text-ok">Ready to start</div>

@@ -18,6 +18,8 @@ export type Product = {
   wage?: number;
   role?: string;
   replaces?: string;
+  /** Extra usage cost beyond n8n runs: voice / ai / sms / data / none. Overrides text detection. */
+  usage?: string;
 };
 
 export type Bundle = { name: string; depts: string; desc: string; ids: number[]; kit?: boolean };

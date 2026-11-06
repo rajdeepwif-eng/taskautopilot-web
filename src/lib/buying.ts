@@ -46,7 +46,7 @@ export const runsPerMonth = (freq: FreqId, eventsPerMonth: number) => {
 export const planFor = (runs: number) => {
   const p = N8N_PLANS.find((x) => runs <= x.runs);
   return p
-    ? { name: `n8n ${p.name}`, cost: `about €${p.eur}/mo (roughly $${Math.round(p.eur * 1.15)}), paid to n8n`, fits: true }
+    ? { name: `n8n ${p.name}`, cost: `about €${p.eur}/mo (roughly $${Math.round(p.eur * 1.12)}), paid to n8n`, fits: true }
     : { name: "A larger n8n plan", cost: "quoted — we'll also show you how to cut the runs", fits: false };
 };
 
@@ -56,12 +56,13 @@ const APPROVAL = /approv|sign-off|sign off|for you to|you check|you click|review
 
 /** Kind of extra usage cost a build has, if any (drives the "other running costs" note and the buy box). */
 export function usageKind(p: Product): "voice" | "ai" | "sms" | "data" | "" {
+  if (p.usage) return (p.usage === "none" ? "" : p.usage) as "voice" | "ai" | "sms" | "data";
   const words = `${p.name} ${p.desc}`;
   const run = p.run ?? "";
   if (/photo/i.test(p.apps) && /receipt|invoice|document/i.test(words)) return "ai";
-  if (/receptionist|\bvoice\b/i.test(words) || /minutes/i.test(run)) return "voice";
+  if (/receptionist|voice AI|AI voice|voice call/i.test(words) || /minutes/i.test(run)) return "voice";
   if (/\bAI\b/.test(run) || p.cat === "AI agents" || /\bAI\b|chatbot|assistant|reads? (the|each|your)|photo/i.test(words)) return "ai";
-  if (/\b(texts?|SMS|WhatsApp)\b/i.test(words)) return "sms";
+  if (/\b(texts?|SMS|WhatsApp)\b/i.test(words + " " + p.apps)) return "sms";
   if (/data|tool costs/i.test(run)) return "data";
   return "";
 }
@@ -82,7 +83,7 @@ export function flowFor(p: Product) {
   const live = liveAI(p);
   const approves = !live && APPROVAL.test(text);
   const check = live
-    ? "It follows rules you set and hands over to a person when it isn't confident. You see every conversation"
+    ? "It follows rules you set and hands over to a person when it isn't confident. Conversations are logged so you can review them"
     : approves
       ? "You approve or edit anything it isn't sure about — nothing unusual goes out without you"
       : "You see every result; anything unusual is flagged to you, not guessed";
