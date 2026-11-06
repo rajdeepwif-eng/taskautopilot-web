@@ -326,8 +326,8 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   return (
     <>
       {!open && (
-        <button type="button" onClick={() => setOpen(true)} data-testid="assistant-open" className="fixed bottom-[84px] right-4 z-40 flex min-h-[48px] cursor-pointer items-center gap-2 rounded-full border-0 bg-ink px-4 text-[14px] font-semibold text-white shadow-lg md:bottom-6">
-          <span aria-hidden>✦</span><span className="hidden sm:inline"> Plan my automation</span><span className="sr-only sm:hidden">Plan my automation</span>
+        <button type="button" onClick={() => setOpen(true)} data-testid="assistant-open" aria-label="Chat with us — plan my automation" className="fixed bottom-[84px] right-4 z-40 flex min-h-[52px] cursor-pointer items-center gap-2 rounded-full border-2 border-white bg-clay px-5 text-[15px] font-bold text-white shadow-[0_6px_24px_rgba(0,0,0,0.35)] md:bottom-6">
+          <span aria-hidden className="text-[18px]">💬</span><span className="sm:hidden">Chat with us</span><span className="hidden sm:inline">Chat with us — get a price</span>
         </button>
       )}
       {open && (

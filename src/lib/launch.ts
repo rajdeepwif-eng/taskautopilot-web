@@ -47,4 +47,4 @@ export const BOOKING_URL = "";
 export const ASSISTANT_ENDPOINT = "https://westindiafood.app.n8n.cloud/webhook/taskautomode-interview";
 
 /** Home-page hero video (MP4/WebM URL, e.g. the Higgsfield film). Empty = the photo is shown. */
-export const HERO_VIDEO_URL = "";
+export const HERO_VIDEO_URL = `${process.env.PAGES_BASE_PATH || ""}/hero-film.mp4`;

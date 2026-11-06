@@ -78,7 +78,7 @@ export default function Home() {
         </div>
         <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
           {HERO_VIDEO_URL ? (
-            <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" data-testid="hero-video" />
+            <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-label="Short animation: AI agents travel from a data centre to your business, run the workflow, update your spreadsheet and send a paid notification to the owner's phone" className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" data-testid="hero-video" />
           ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A plumber works under a sink while his phone shows tomorrow's diary: Dave's 9:00 job, added by the AI assistant after a missed call" className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
