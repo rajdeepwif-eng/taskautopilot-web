@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { byId, priceLabel } from "@/lib/catalogue";
+import { byId, fmt, priceLabel } from "@/lib/catalogue";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import { sendLead } from "@/lib/attribution";
 
-type Msg = { role: "user" | "assistant"; content: string; products?: number[] };
+type Cta = { type: string; product_id?: number };
+type Msg = { role: "user" | "assistant"; content: string; products?: number[]; cta?: Cta };
 
 const MAX_TURNS = 16;
 const OPENER = "Hi — I'm the TaskAutoMode assistant. What would you like to stop doing by hand, or start happening automatically? Plain words are perfect.";
@@ -34,7 +36,8 @@ export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: {
       if (!r.ok) throw new Error(String(r.status));
       const d = await r.json();
       const ids = Array.isArray(d.products) ? d.products.map(Number).filter((n: number) => byId(n)).slice(0, 3) : [];
-      setMsgs([...next, { role: "assistant", content: String(d.reply || "Sorry — could you say that another way?"), products: ids }]);
+      const cta: Cta | undefined = d.cta && typeof d.cta === "object" && d.cta.type && d.cta.type !== "none" ? { type: String(d.cta.type), product_id: Number(d.cta.product_id) || undefined } : undefined;
+      setMsgs([...next, { role: "assistant", content: String(d.reply || "Sorry — could you say that another way?"), products: ids, cta }]);
       if (d.brief && typeof d.brief === "object") setBrief(d.brief);
     } catch {
       onFallback();
@@ -44,6 +47,19 @@ export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: {
     void sendLead("ai-brief", { sessionId: sid, page, brief, transcript: msgs.map(({ role, content }) => ({ role, content })) });
     onDone();
   };
+
+  /** The one next step the sales lead recommends, as a real button. */
+  const ctaButton = (c: Cta) => {
+    const p = c.product_id && byId(c.product_id) ? byId(c.product_id) : undefined;
+    const cls = "btn btn-primary !min-h-[38px] !text-[13.5px] self-start";
+    if (c.type === "buy" && p) return <Link href={`/checkout/?plan=${p.id}`} className={cls} data-testid="ai-cta">{PAYMENTS_LIVE ? `Buy ${p.name} — ${priceLabel(p)}` : `Reserve ${p.name} — nothing charged today`}</Link>;
+    if (c.type === "starter") return <Link href="/starter/" className={cls} data-testid="ai-cta">Start with the {fmt(99)} starter</Link>;
+    if (c.type === "audit") return <Link href="/checkout/?plan=0" className={cls} data-testid="ai-cta">Book the {fmt(499)} audit (credited if you build)</Link>;
+    if (c.type === "call") return <button type="button" className={cls} onClick={onTalk} data-testid="ai-cta">Book a free 20-minute call</button>;
+    if (c.type === "send_brief") return <button type="button" className={cls} onClick={finish} data-testid="ai-cta">Send me the fixed price</button>;
+    return null;
+  };
+  const lastCta = [...msgs].reverse().find((m) => m.role === "assistant")?.cta;
 
   return (
     <div className="flex flex-col gap-2" data-testid="ai-chat">
@@ -58,6 +74,7 @@ export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: {
             ); })}
           </div>
         ))}
+        {!busy && lastCta && ctaButton(lastCta)}
         {busy && <div className="self-start rounded-2xl bg-paper px-3 py-2 text-[14px] text-muted">Thinking…</div>}
         <div ref={end} />
       </div>
