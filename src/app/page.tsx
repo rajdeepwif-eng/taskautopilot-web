@@ -62,7 +62,7 @@ export default function Home() {
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           {HERO_VIDEO_URL ? <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" /> : <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />}
-          <div className="-mt-3 lg:hidden"><PhotoStory slug="hero" /></div>
+          {HERO_VIDEO_URL ? <div className="lg:hidden"><p className="m-0 mt-2 text-[12px] leading-snug text-muted" data-testid="hero-sources">Figures in the film are industry benchmarks, not promises. Sources: <a href="https://scholarsarchive.byu.edu/facpub/9711" rel="noopener">Harvard Business Review, 2011</a> · <a href="https://payablesplace.ardentpartners.com/?p=9521" rel="noopener">Ardent Partners, 2024</a> · <a href="https://www.mckinsey.com/capabilities/operations/our-insights/harnessing-automation-for-a-future-that-works" rel="noopener">McKinsey Global Institute, 2017</a></p></div> : <div className="-mt-3 lg:hidden"><PhotoStory slug="hero" /></div>}
           <div className="flex flex-wrap items-center gap-4">
             <AskButton />
             <Link href="#trades" className="btn btn-outline">Show me fixes for my business</Link>
@@ -78,12 +78,12 @@ export default function Home() {
         </div>
         <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
           {HERO_VIDEO_URL ? (
-            <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-label="Short animation: 24 hours in a business. AI agents check vans on site at dawn, chase invoices in the office, reorder stock on the factory floor, and answer a missed call while the owner is at home" className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" data-testid="hero-video" />
+            <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-label="Short film: the old way versus automated. A new enquiry answered in 60 seconds instead of the next morning; a supplier invoice processed the same day instead of over nine days; repeat work handed to AI agents so people focus on customers. Figures shown with sources." className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" data-testid="hero-video" />
           ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A plumber works under a sink while his phone shows tomorrow's diary: Dave's 9:00 job, added by the AI assistant after a missed call" className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
           )}
-          {!HERO_VIDEO_URL && <PhotoStory slug="hero" />}
+          {HERO_VIDEO_URL ? <p className="m-0 mt-2 text-[12px] leading-snug text-muted" data-testid="hero-sources">Figures in the film are industry benchmarks, not promises. Sources: <a href="https://scholarsarchive.byu.edu/facpub/9711" rel="noopener">Harvard Business Review, 2011</a> · <a href="https://payablesplace.ardentpartners.com/?p=9521" rel="noopener">Ardent Partners, 2024</a> · <a href="https://www.mckinsey.com/capabilities/operations/our-insights/harnessing-automation-for-a-future-that-works" rel="noopener">McKinsey Global Institute, 2017</a></p> : <PhotoStory slug="hero" />}
         </div>
       </div>
       </section>
