@@ -84,7 +84,7 @@ export default function MarketClient() {
     const max = SPEED.find((x) => x.id === speed)!.max;
     const r = PRODUCTS.filter(
       (p) =>
-        (dept === "All" || p.cat === dept) &&
+        (dept === "All" ? (query ? true : p.cat !== "Courses" && p.cat !== "DIY kits") : p.cat === dept) &&
         fitsIndustry(p, industry) &&
         b.test(p) &&
         p.days <= max &&

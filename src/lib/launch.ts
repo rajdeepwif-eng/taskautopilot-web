@@ -39,3 +39,12 @@ export const META_PIXEL_ID = ""; // e.g. "1234567890"
  * the assistant and product pages then take a call request with preferred times instead.
  */
 export const BOOKING_URL = "";
+
+/**
+ * Live AI interviewer: the n8n webhook URL of the "TaskAutoMode · Website interview assistant" workflow.
+ * Empty = the guided (no-AI) assistant is used. Set it only after the workflow is tested and switched on.
+ */
+export const ASSISTANT_ENDPOINT = "";
+
+/** Home-page hero video (MP4/WebM URL, e.g. the Higgsfield film). Empty = the photo is shown. */
+export const HERO_VIDEO_URL = "";

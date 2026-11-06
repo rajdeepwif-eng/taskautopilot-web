@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import PhotoStory from "@/components/PhotoStory";
 import ServicesView from "@/components/ServicesView";
-import HireVsAutomate from "@/components/HireVsAutomate";
-import { DEALS, fromMonthly } from "@/lib/deals";
 import { alternates, seoTitle } from "@/lib/geo";
 import HeroSearch from "@/components/HeroSearch";
 import TradeGrid from "@/components/TradeGrid";
 import heroImg from "@/assets/hero.jpg";
 import OwnAutomations from "@/components/OwnAutomations";
 import Link from "next/link";
-import { PAYMENTS_LIVE } from "@/lib/launch";
+import { HERO_VIDEO_URL, PAYMENTS_LIVE } from "@/lib/launch";
+import { AskButton, ProblemButtons } from "@/components/FrontDoor";
 import AppChecker from "@/components/AppChecker";
 import { APP_GROUPS } from "@/lib/apps";
 import { PRODUCTS, byId, fmt } from "@/lib/catalogue";
@@ -24,14 +23,6 @@ const RUN_LOG = [
   ["09:12", "Inbound inquiry → reply drafted", "review"],
 ];
 
-const PERSON_VS_AUTOMATION = [
-  ["Answers a new inquiry", "Within hours, if free", "In under a minute, 24/7"],
-  ["Works", "Office hours, holidays off", "Nights, weekends, every day"],
-  ["Follows the process", "Usually — steps get missed when busy", "Every step, every time, with a log"],
-  ["Typical cost", "$25–40 an hour, every hour", "One fixed build + optional monthly plan"],
-  ["Best at", "Judgement, relationships, tricky cases", "Repetitive, rules-based, high-volume work"],
-];
-
 const PACKAGES = [
   { name: "Try one automation", price: "$99", href: "/starter/", cta: "Pick yours", points: ["Missed calls, reviews, invoices to Excel and more", "Set up for you, runs for 30 days", "$99 credited if you upgrade", "Live in 5 business days"] },
   { name: "Never miss a lead", price: fmt(byId(10).price), href: "/checkout/?plan=10", cta: PAYMENTS_LIVE ? "Buy now" : "Reserve now", popular: true, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in about 2 weeks"] },
@@ -44,7 +35,9 @@ const FAQ = [
   ["Do you need our passwords?", "No. You connect each app with its own secure login that you can switch off at any time."],
   ["What happens if you disappear?", "You keep everything: the workflows, the data and a written handover document. Another builder can pick it up."],
   ["Can a person approve things first?", "Yes. Anything that moves money or messages customers can wait for a one-tap approval."],
-  ["What if it breaks?", "Failures alert us straight away. On a Run plan we fix them; without one, fixes are billed at $150/hour."],
+  ["What if it breaks?", "Anything we built that breaks is fixed free for 90 days. After that, fixes and monitoring come with a support plan; small changes are free for 14 days, then fixed-price from $150."],
+  ["Who pays for running it?", "You do, directly and at cost — the automation platform (usually about €20 a month), plus texts, AI or call minutes where a build uses them. The accounts are in your name; we never mark them up."],
+  ["What if my business works differently?", "Every product is an example. We tailor the steps, rules and apps to how you already work — tell the assistant or book a free 20-minute call."],
 ];
 
 export const metadata: Metadata = {
@@ -65,13 +58,14 @@ export default function Home() {
             <span className="inline-flex items-center gap-3"><SwitchOn size={44} />Switch on.</span><br />Get your time back.
           </h1>
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
-            We set up the automations that get you paid, booked and followed up — fixed price, tested with you, most live in 1–3 weeks. No sales call.
+            Tell us what you want to stop doing by hand. We show you how it would work, the fixed price, and build it around the way you already work — most live in 1–3 weeks.
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />
+          {HERO_VIDEO_URL ? <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" /> : <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />}
           <div className="-mt-3 lg:hidden"><PhotoStory slug="hero" /></div>
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="#trades" className="btn btn-primary text-[17px]">Show me fixes for my business →</Link>
+            <AskButton />
+            <Link href="#trades" className="btn btn-outline">Show me fixes for my business</Link>
           </div>
           <HeroSearch />
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
@@ -83,12 +77,18 @@ export default function Home() {
           </Link>
         </div>
         <div className="hidden min-w-0 flex-[1_1_380px] lg:block">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {HERO_VIDEO_URL ? (
+            <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" data-testid="hero-video" />
+          ) : (
+          /* eslint-disable-next-line @next/next/no-img-element */
           <img src={heroImg.src} srcSet={SRCSET.hero} sizes="(min-width: 1024px) 560px, 1px" width={heroImg.width} height={heroImg.height} alt="A plumber works under a sink while his phone shows tomorrow's diary: Dave's 9:00 job, added by the AI assistant after a missed call" className="aspect-[3/2] w-full rounded-lg object-cover shadow-[0_2px_10px_rgba(15,17,17,0.15)]" />
-          <PhotoStory slug="hero" />
+          )}
+          {!HERO_VIDEO_URL && <PhotoStory slug="hero" />}
         </div>
       </div>
       </section>
+
+      <ProblemButtons />
 
       <TradeGrid />
 
@@ -115,66 +115,11 @@ export default function Home() {
         </div>
         <div className="flex flex-wrap gap-3">
           <Link href="/library" className="btn btn-dark">Browse the full catalog ({PRODUCTS.length}) →</Link>
-          <Link href="/planner/" className="btn btn-outline">Not sure? Build my plan in 2 minutes</Link>
+          <AskButton label="Not sure? Tell us what you need" className="btn btn-outline" />
         </div>
       </section>
 
-      {/* Ways to pay */}
-      <section className="wrap flex flex-col gap-4 pt-16" data-testid="home-deals">
-        <div className="kicker">Not ready to pay it all up front?</div>
-        <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Pick how you pay — or how we get paid.</h2>
-        <p className="m-0 max-w-[720px] text-ink-2">Most owners pay up front. If that doesn&apos;t suit, spread it, finance it, pay from results — or, for startups and owners planning an exit, pay in shares.</p>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
-          {DEALS.filter((d) => d.id !== "upfront").map((d) => (
-            <Link key={d.id} href={d.id === "equity" || d.id === "hybrid" ? "/startups/" : d.id === "succession" ? "/selling-or-retiring/" : `/ways-to-pay/#${d.id}`} className="card flex flex-col gap-1 p-4 text-ink no-underline hover:border-ink">
-              <span className="text-[12px] font-bold uppercase tracking-wide text-clay">{({ monthly: `From ${fmt(fromMonthly(byId(11).price))}/mo`, finance: "Decision in minutes", results: "25% to start", hybrid: "Half cash, half shares", equity: "0.5–10% stake", succession: "Confidential" } as Record<string, string>)[d.id]}</span>
-              <b>{d.name}</b><span className="text-[13px] text-ink-2">{d.forWho}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Try it live */}
-      <section className="wrap flex flex-wrap items-center gap-8 pt-16">
-        <Link href="/demo/" className="flex min-w-0 flex-[1_1_460px] flex-col gap-2 rounded-2xl bg-ink p-6 text-paper no-underline">
-          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Can someone fix a burst pipe tomorrow?</span>
-          <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Yes — it&apos;s free Saturday. Want me to book it?</span>
-          <span className="self-end rounded-2xl bg-[#DCF3D9] px-3.5 py-2 text-[15px] text-ink">Yes please</span>
-          <span className="self-start rounded-2xl bg-white px-3.5 py-2 text-[15px] text-ink">Booked ✓ I&apos;ve texted you the details.</span>
-          <span className="mt-2 font-semibold text-amber">Try it yourself →</span>
-        </Link>
-        <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-3">
-          <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold leading-tight">Watch a customer get booked at 9pm — with nobody typing.</h2>
-          <Link href="/demo/" className="btn btn-primary self-start">Try the live demo →</Link>
-          <Link href="#packages" className="font-semibold">Seen enough? Buy a fixed package</Link>
-        </div>
-      </section>
-
-
-      <HireVsAutomate country="us" />
-
-      {/* Person vs automation */}
-      <section className="wrap flex flex-col gap-4 pt-16">
-        <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">What it does that a person can&apos;t — and what stays human</h2>
-        <div className="card overflow-hidden">
-          <div className="flex flex-wrap font-mono text-xs text-muted">
-            <div className="flex-[1_1_200px] px-4 py-3" />
-            <div className="flex-[1_1_220px] px-4 py-3">A PERSON DOING IT BY HAND</div>
-            <div className="flex-[1_1_220px] bg-clay-soft px-4 py-3 text-clay">AN AUTOMATION</div>
-          </div>
-          {PERSON_VS_AUTOMATION.map(([a, b, c], i) => (
-            <div key={a} className={`${i >= 3 ? "hidden sm:flex" : "flex"} flex-wrap border-t border-line`}>
-              <div className="flex-[1_1_200px] px-4 py-3.5 font-semibold">{a}</div>
-              <div className="flex-[1_1_220px] px-4 py-3.5 text-ink-2">{b}</div>
-              <div className="flex-[1_1_220px] bg-clay-soft px-4 py-3.5">{c}</div>
-            </div>
-          ))}
-        </div>
-        <p className="m-0 text-[15px] text-ink-2">Automation doesn&apos;t replace your team — it takes the repetitive work so they spend their time on customers and decisions. Every product page shows the value using <b>your</b> hours and costs.</p>
-      </section>
-
-
-      
+      <p className="wrap m-0 pt-6 text-[15px] text-ink-2">Prefer to spread the cost? <Link href="/ways-to-pay/">Monthly, finance and other ways to pay →</Link></p>
 
       <div className="pt-16"><OwnAutomations /></div>
 
@@ -221,7 +166,7 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="#trades" className="btn btn-primary text-lg">See fixes for my business</Link>
-            <Link href="/planner/" className="btn border border-paper text-lg text-paper">Not sure? Build my plan</Link>
+            <AskButton label="Not sure? Tell us what you need" className="btn border border-paper text-lg text-paper" />
           </div>
         </div>
       </section>

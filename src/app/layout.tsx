@@ -52,11 +52,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/starter/">Starter offer</Link>
               <Link href="/services/">How we work</Link>
               <Link href="/ways-to-pay/">Ways to pay</Link>
-              <Link href="/kits/">Industry kits</Link>
-              <Link href="/demo/">Sample chat</Link>
-              <Link href="/planner/">Planner</Link>
-              <Link href="/academy/">Courses</Link>
-              <Link href="/consulting/">Consulting</Link>
+              <Link href="/consulting/">Custom work & audit</Link>
+              <Link href="/learn/">Learn: courses & DIY kits</Link>
               <Link href="/ask/" className="lg:!hidden">Ask us free</Link>
             </div>
           </nav>

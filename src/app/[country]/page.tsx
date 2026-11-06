@@ -8,6 +8,7 @@ import heroImg from "@/assets/hero.jpg";
 import { COUNTRIES, Country, EDITIONS, alternates, money, loc, seoTitle } from "@/lib/geo";
 import { SRCSET } from "@/lib/srcset";
 import SwitchOn from "@/components/SwitchOn";
+import { AskButton, ProblemButtons } from "@/components/FrontDoor";
 
 export function generateStaticParams() {
   return EDITIONS.map((country) => ({ country }));
@@ -39,7 +40,8 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[16/9] w-full rounded-lg object-cover object-[70%_50%] lg:hidden" />
             <div className="flex flex-wrap gap-3">
-              <Link href="#trades" className="btn btn-primary text-[17px]">Show me fixes for my business →</Link>
+              <AskButton />
+              <Link href="#trades" className="btn btn-outline">Show me fixes for my business</Link>
               <Link href="/starter/" className="btn btn-outline">Try one automation for {money(99, c)}</Link>
             </div>
             <HeroSearch showSource={false} prefix={C.path} />
@@ -51,6 +53,7 @@ export default async function CountryHome({ params }: { params: Promise<{ countr
           </div>
         </div>
       </section>
+      <ProblemButtons />
       <HireVsAutomate country={c} />
       <div className="pb-16"><TradeGrid country={c} /></div>
     </main>
