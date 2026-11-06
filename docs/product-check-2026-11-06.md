@@ -1,154 +1,155 @@
-# Product check — every product (6 Nov 2026)
+# Product check — council review, every product (6 Nov 2026)
 
-Method: each product's apps checked against (1) n8n's own node registry (via n8n MCP — native node or HTTP API), (2) the vendor's API docs / policy, (3) an independent integration report where access looked restricted. Native n8n node = Primary.
+4 independent reviewers (n8n consultant + UK buyer) checked all 144 products against up to 3 sources each: n8n's integration docs / node registry, the vendor's own API docs, and a policy or independent source where access or rules apply.
 
-Result: 144 products · 125 correct · 19 fixed.
+Verdicts before fixes: {'Correct': 87, 'Fix wording': 53, 'Restricted': 4}. Evidence grades: {'Primary': 51, 'Moderate': 70, 'Lead': 19, 'Strong': 4}. Sources per product: {1: 38, 2: 59, 3: 47}.
+All non-Correct products were fixed on 6 Nov 2026 (wording, apps, consent and regulated-activity notes). Main themes: review gating (Google), Xero/QBO bank-rec API limits, SafetyCulture renamed Mitti (Aug 2026), WhatsApp templates/opt-in, TikTok/YouTube API audit, PECR consent for texts/calls/emails, partner-gated APIs (Toast, DoorDash, Indeed, insurers, Gusto/ADP), UK GDPR DPIAs (CCTV, GPS, CVs, health data), FCA-authorised open banking for personal money dashboards, kit/course cancellation rights.
 
-No native n8n node (use HTTP Request + vendor API): DocuSign, Zoho Books, Sage, Klaviyo, Search Console, Instagram (via Facebook Graph API), Jobber, Square, SafetyCulture, PandaDoc, GoCardless, Deputy, Connecteam, Canva, Power BI, GoHighLevel.
+Couldn't reach: LinkedIn Help Centre (blocked), business.whatsapp.com/policy, developer.mitti.com, two ICO pages — secondary sources used and graded down.
 
-| ID | Product | Verdict |
-|---|---|---|
-| 1 | Local SEO Lite | Correct |
-| 2 | Local SEO Growth | Correct |
-| 3 | Location landing pages | Correct |
-| 4 | Website that books & takes payment | Correct |
-| 5 | Booking platform Pro | Correct |
-| 6 | Customer & staff portal | Correct |
-| 7 | AI phone receptionist | Correct |
-| 8 | AI website & WhatsApp assistant | Correct |
-| 9 | Company knowledge assistant | Correct |
-| 10 | Instant lead reply & booking | Correct |
-| 11 | Missed-call text-back | Fixed: Landlines cannot text |
-| 12 | AI outbound prospecting | Correct |
-| 13 | Quote follow-up chaser | Correct |
-| 14 | Lead scoring & routing | Correct |
-| 15 | Review requests & replies | Fixed: Review gating removed |
-| 16 | Email follow-up & win-back | Correct |
-| 17 | Social media on autopilot | Fixed: TikTok needs app audit |
-| 18 | Google & Meta ads management | Correct |
-| 19 | Wasted ad spend audit | Correct |
-| 20 | Abandoned cart & post-purchase flows | Correct |
-| 21 | Supplier invoice reader | Correct |
-| 22 | Automated invoice reminders & collections | Correct |
-| 23 | Nightly bank matching | Fixed: Renamed bank matching; Xero API cannot reconcile |
-| 24 | Receipts & expenses | Fixed: Dext has no open API — removed |
-| 25 | Owner dashboard | Correct |
-| 26 | Job scheduling & dispatch | Correct |
-| 27 | Stock in & out by QR scan | Correct |
-| 28 | Orders sync | Fixed: Toast/DoorDash partner-gated |
-| 29 | Proof of delivery & job sign-off | Correct |
-| 30 | Staff onboarding & shift schedules | Correct |
-| 31 | CRM & accounts sync | Correct |
-| 32 | Client intake & document collection | Correct |
-| 33 | Patient booking, reminders & intake | Correct |
-| 34 | Tenant & maintenance requests | Correct |
-| 35 | Reservations & no-show reminders | Correct |
-| 36 | Documents to data | Correct |
-| 37 | Inspections & defect follow-up | Correct |
-| 38 | Expiry & renewal reminders | Correct |
-| 39 | Failure alerts & daily watchdog | Correct |
-| 40 | Never miss a job — Solo | Correct |
-| 41 | Invoice & chase — Solo | Correct |
-| 42 | Receipts to tidy books — Solo | Fixed: Same as 24 |
-| 43 | Reviews & repeat work — Solo | Fixed: Review gating removed |
-| 44 | Solo Care | Correct |
-| 45 | Insurance quote intake, follow-up & renewals | Fixed: Insurance systems vendor-gated |
-| 46 | Claims intake (FNOL) & document triage | Fixed: Claims systems vendor-gated |
-| 47 | SafetyCulture setup & automation | Correct |
-| 48 | Forms to workflow (Google Forms, Microsoft Forms, Jotform) | Correct |
-| 49 | AI Chief of Staff — one daily brief | Correct |
-| 50 | Assistant & team progress report | Correct |
-| 51 | Research on any task | Correct |
-| 52 | Ops engineer — weekly improvement ideas | Correct |
-| 53 | Strategy to action plan | Correct |
-| 54 | SOP writer — tasks your team can follow | Correct |
-| 55 | Missed-call text-back — DIY kit | Correct |
-| 56 | Instant lead reply — DIY kit | Correct |
-| 57 | Review requests — DIY kit | Correct |
-| 58 | Supplier invoice reader — DIY kit | Correct |
-| 59 | Nightly bank matching — DIY kit | Fixed: Same as 23 |
-| 60 | Forms to workflow — DIY kit | Correct |
-| 61 | Delegate from chat — message to Asana task | Correct |
-| 62 | Staff accountability system in Asana | Correct |
-| 63 | Weekly team review & scorecard | Correct |
-| 64 | WhatsApp Business setup & automations | Correct |
-| 65 | Google Business Profile & reviews — managed | Fixed: Review gating removed |
-| 66 | AI voice calls — confirmations & follow-ups | Correct |
-| 67 | Auto-translate messages & documents | Correct |
-| 68 | Invoices & documents to Excel | Correct |
-| 69 | Invoices to Excel — DIY kit | Correct |
-| 70 | Automate your business in 30 days (self-paced) | Correct |
-| 71 | Run your team from Asana & Slack (self-paced) | Correct |
-| 72 | Build your AI Chief of Staff (self-paced) | Correct |
-| 73 | n8n for operations managers (self-paced) | Correct |
-| 74 | Automation Builder — live cohort with 1-to-1 builds | Correct |
-| 75 | Team workshop — one day, your workflows | Correct |
-| 76 | Team license — any course for up to 10 staff | Correct |
-| 77 | Managing with AI — delegation & accountability (for managers) | Correct |
-| 78 | Safety & compliance automation | Correct |
-| 79 | GPS clock in & clock out | Fixed: Homebase API Enterprise-only |
-| 80 | CCTV watch — alerts that matter | Fixed: Cameras need events/API |
-| 81 | BRCGS & HACCP audit-ready records (factories) | Correct |
-| 82 | Batch records & traceability | Correct |
-| 83 | Supplier approval & certificate tracker | Correct |
-| 84 | Complaints, non-conformances & CAPA | Correct |
-| 85 | Cleaning & hygiene schedules with proof | Correct |
-| 86 | Production planning & daily line report | Correct |
-| 87 | Farm operations schedule & field tasks | Correct |
-| 88 | Spray & input records | Correct |
-| 89 | Harvest, yield & sales tracker | Correct |
-| 90 | Crop problem photo triage | Correct |
-| 91 | Machinery maintenance & fuel log | Correct |
-| 92 | Office admin autopilot | Correct |
-| 93 | Meeting notes to tasks | Correct |
-| 94 | Leave & holiday requests | Correct |
-| 95 | Purchase requests & approvals | Correct |
-| 96 | Email inbox autopilot | Correct |
-| 97 | Checklist control & defect close-out | Correct |
-| 98 | Site & machine planned maintenance | Correct |
-| 99 | Custom trackers — any process, one place | Correct |
-| 100 | Staff training on autopilot | Correct |
-| 101 | Goals & strategic planning system | Correct |
-| 102 | AI-powered strategy & goal planning (owners & leadership teams) | Correct |
-| 103 | Practical AI at work — team license (up to 25 staff) | Correct |
-| 104 | Data & dashboards for managers | Correct |
-| 105 | Certified Automation Practitioner | Correct |
-| 106 | Founder's Automation Mastermind — 12 weeks | Correct |
-| 107 | Employee performance reviews (EPRs) on autopilot | Correct |
-| 108 | 24/7 AI sales agent — WhatsApp & website | Correct |
-| 109 | Full CRM — from first inquiry to paid invoice | Correct |
-| 110 | Recruiting autopilot — resumes to booked interviews | Fixed: Indeed API partner-only |
-| 111 | AI executive assistant — calendar, agendas, notes & research | Correct |
-| 112 | Payroll prep — hours to payroll, checked | Fixed: Gusto/ADP partner-gated |
-| 113 | Vehicle & machinery daily checks | Correct |
-| 115 | Purchase to pay — PO, goods receipt, invoice match | Correct |
-| 116 | Farm audit-ready records (GLOBALG.A.P., PrimusGFS, USDA GAP, Red Tractor) | Correct |
-| 117 | Property deal finder & deal packs | Correct |
-| 118 | Property listing autopilot | Correct |
-| 119 | Renovation project management | Correct |
-| 120 | Starter — try one automation for $99 | Correct |
-| 121 | Contract, e-signature & deposit | Correct |
-| 122 | Client welcome & onboarding | Correct |
-| 123 | Payments received — matched, receipted, thanked | Correct |
-| 124 | Customer statements & aged-debt report | Correct |
-| 125 | Recurring & stage-payment billing | Correct |
-| 126 | New-customer credit check & limits | Fixed: Credit data needs a subscription |
-| 127 | 13-week cash-flow forecast | Correct |
-| 128 | Tax prep pack for your accountant | Correct |
-| 129 | Supplier price tracker & best-deal finder | Correct |
-| 130 | Equipment utilization & idle-asset alerts | Correct |
-| 131 | Returns & exchanges portal | Correct |
-| 132 | Clinical notes assistant | Correct |
-| 133 | Detention & extra-charge capture | Correct |
-| 134 | Company health checks & monthly internal audit | Correct |
-| 135 | Systemise any document — form, checklist or SOP | Correct |
-| 136 | Stock control, KPIs & cost per product | Correct |
-| 137 | Financial reporting & management dashboards | Correct |
-| 138 | Refinance pack — from finished works to new mortgage | Correct |
-| 139 | Commercial & industrial build project control | Correct |
-| 140 | Personal admin autopilot — bills, renewals, family & travel | Correct |
-| 141 | Money at a glance — spending, bills & net-worth dashboard | Fixed: TikTok needs app audit |
-| 142 | Short videos made for you | Fixed: TikTok needs app audit |
-| 143 | Video auto-creator | Correct |
-| 144 | Job photos to social posts | Correct |
-| 145 | Social auto-posting — DIY kit | Correct |
+| ID | Product | Verdict | Grade | Sources |
+|---|---|---|---|---|
+| 1 | Local SEO Lite | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile/ · https://developers.google.com/my-business/content/prereqs · https://support.google.com/contributionpolicy/answer/7400114?hl=en |
+| 2 | Local SEO Growth | Fix wording → fixed | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleanalytics/ · https://developers.google.com/google-ads/api/docs/access-levels?hl=en |
+| 3 | Location landing pages | Fix wording → fixed | Primary | https://developers.google.com/search/docs/essentials/spam-policies |
+| 4 | Website that books & takes payment | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stripe/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/ |
+| 5 | Booking platform Pro | Fix wording → fixed | Moderate | https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ |
+| 6 | Customer & staff portal | Fix wording → fixed | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftteams/ |
+| 7 | AI phone receptionist | Fix wording → fixed | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio/ · https://www.twilio.com/en-us/guidelines/gb/sms |
+| 8 | AI website & WhatsApp assistant | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ · https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform |
+| 9 | Company knowledge assistant | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftsharepoint/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack/ |
+| 10 | Instant lead reply & booking | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebookleadadstrigger/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.salesforce/ |
+| 11 | Missed-call text-back | Fix wording → fixed | Moderate | https://www.twilio.com/en-us/guidelines/gb/sms · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio/ · https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/ |
+| 12 | AI outbound prospecting | Restricted → fixed | Moderate | https://www.linkedin.com/help/linkedin/answer/a1341387 · https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linkedin/ |
+| 13 | Quote follow-up chaser | Correct | Primary | https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/ |
+| 14 | Lead scoring & routing | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hubspot/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.salesforce/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.pipedrive/ |
+| 15 | Review requests & replies | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile/ · https://support.google.com/contributionpolicy/answer/7400114?hl=en · https://developers.google.com/my-business/content/prereqs |
+| 16 | Email follow-up & win-back | Fix wording → fixed | Primary | https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mailchimp/ |
+| 17 | Social media on autopilot | Correct | Primary | https://developers.tiktok.com/doc/content-sharing-guidelines · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.facebookgraphapi/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linkedin/ |
+| 18 | Google & Meta ads management | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleads/ · https://developers.google.com/google-ads/api/docs/access-levels?hl=en |
+| 19 | Wasted ad spend audit | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleads/ · https://developers.google.com/google-ads/api/docs/access-levels?hl=en |
+| 20 | Abandoned cart & post-purchase flows | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.shopify/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.woocommerce/ · https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/ |
+| 21 | Supplier invoice reader | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks/ |
+| 22 | Automated invoice reminders & collections | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stripe/ |
+| 23 | Nightly bank matching | Fix wording → fixed | Moderate | https://productideas.xero.com/forums/967136-banking-chart-of-accounts/suggestions/51657982-api-allow-secure-auditable-bank-reconciliation · https://www.zoho.com/books/help/banking/match-categorize.html · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ |
+| 24 | Receipts & expenses | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks/ |
+| 25 | Owner dashboard | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/ |
+| 26 | Job scheduling & dispatch | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/ |
+| 27 | Stock in & out by QR scan | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.odoo/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.shopify/ |
+| 28 | Orders sync | Fix wording → fixed | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.shopify/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.woocommerce/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ |
+| 29 | Proof of delivery & job sign-off | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/ |
+| 30 | Staff onboarding & shift schedules | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gsuiteadmin/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftentra/ |
+| 31 | CRM & accounts sync | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hubspot/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.salesforce/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ |
+| 32 | Client intake & document collection | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/ |
+| 33 | Patient booking, reminders & intake | Fix wording → fixed | Moderate | https://www.digitalregulations.innovation.nhs.uk/regulations-and-guidance-for-developers/all-developers-guidance/how-to-comply-with-the-uk-gdpr-as-a-developer/step-2-do-a-data-protection-impact-assessment-dpia/ |
+| 34 | Tenant & maintenance requests | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio/ |
+| 35 | Reservations & no-show reminders | Restricted → fixed | Lead | https://docs.opentable.com/view/metadata/2sAXxTcWRy · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ · https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform |
+| 36 | Documents to data | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel/ |
+| 37 | Inspections & defect follow-up | Fix wording → fixed | Moderate | https://developer.safetyculture.com/reference/webhooks · https://fivetran.com/docs/connectors/applications/safetyculture/setup-guide · https://itbrief.com.au/story/safetyculture-rebrands-as-mitti-in-frontline-software-push |
+| 38 | Expiry & renewal reminders | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/ · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ |
+| 39 | Failure alerts & daily watchdog | Correct | Primary | https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger/ · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8n/ |
+| 40 | Never miss a job — Solo | Fix wording → fixed | Primary | https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ |
+| 41 | Invoice & chase — Solo | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks/ · https://www.zoho.com/invoice/api/v3/ |
+| 42 | Receipts to tidy books — Solo | Correct | Primary | https://developer.xero.com/changelog · https://developer.sage.com/accounting/guides/concepts/attachments · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero/ |
+| 43 | Reviews & repeat work — Solo | Fix wording → fixed | Primary | https://support.google.com/contributionpolicy/answer/7400114 · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile/ |
+| 44 | Solo Care | Correct | Lead | https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger/ |
+| 45 | Insurance quote intake, follow-up & renewals | Correct | Moderate | https://blog.hawksoft.com/partner-api-3.0 · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/ |
+| 46 | Claims intake (FNOL) & document triage | Correct | Lead | https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/ |
+| 47 | Mitti (formerly SafetyCulture) setup & automation | Fix wording → fixed | Moderate | https://developer.safetyculture.com/reference/webhooks · https://fivetran.com/docs/connectors/applications/safetyculture/setup-guide · https://itbrief.com.au/story/safetyculture-rebrands-as-mitti-in-frontline-software-push |
+| 48 | Forms to workflow (Google Forms, Microsoft Forms, Jotform) | Fix wording → fixed | Moderate | https://learn.microsoft.com/en-us/answers/a/12657652 · https://techcommunity.microsoft.com/discussions/microsoftforms/microsoft-forms-api/4480628 · https://developers.google.com/forms/api/guides/push-notifications |
+| 49 | AI Chief of Staff — one daily brief | Correct | Primary | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mondaycom/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.clickup/ |
+| 50 | Assistant & team progress report | Correct | Primary | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftteamstrigger/ |
+| 51 | Research on any task | Correct | Primary | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.clickup/ |
+| 52 | Ops engineer — weekly improvement ideas | Fix wording → fixed | Primary | https://docs.zapier.com/partner-solutions/workflow-api/list-zaps · https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8n/ |
+| 53 | Strategy to action plan | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledocs/ · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ |
+| 54 | SOP writer — tasks your team can follow | Fix wording → fixed | Primary | https://support.atlassian.com/loom/docs/does-loom-have-an-open-api · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledocs/ |
+| 55 | Missed-call text-back — DIY kit | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 · https://docs.n8n.io/sustainable-use-license/ |
+| 56 | Instant lead reply — DIY kit | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 · https://docs.n8n.io/sustainable-use-license/ |
+| 57 | Review requests — DIY kit | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 · https://docs.n8n.io/sustainable-use-license/ |
+| 58 | Supplier invoice reader — DIY kit | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 · https://docs.n8n.io/sustainable-use-license/ |
+| 59 | Nightly bank matching — DIY kit | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 · https://docs.n8n.io/sustainable-use-license/ |
+| 60 | Forms to workflow — DIY kit | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 · https://docs.n8n.io/sustainable-use-license/ |
+| 61 | Delegate from chat — message to Asana task | Correct | Moderate | https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack/ · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ |
+| 62 | Staff accountability system in Asana | Correct | Primary | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/ |
+| 63 | Weekly team review & scorecard | Correct | Primary | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/ |
+| 64 | WhatsApp Business setup & automations | Correct | Moderate | https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in · https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ |
+| 65 | Google Business Profile & reviews — managed | Fix wording → fixed | Moderate | https://ppc.land/google-discontinues-business-profile-q-a-api-effective-november-3/ · https://support.google.com/contributionpolicy/answer/7400114 · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile/ |
+| 66 | AI voice calls — confirmations & follow-ups | Fix wording → fixed | Moderate | https://dataprotectionpeople.com/resource-centre/pecr-and-phone-calls/ · https://huntonak.com/privacy-and-information-security-law/fcc-issues-declaratory-ruling-that-tcpa-applies-to-ai-generated-voice-calls · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio/ |
+| 67 | Auto-translate messages & documents | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googletranslate/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.deepl/ |
+| 68 | Invoices & documents to Excel | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/ |
+| 69 | Invoices to Excel — DIY kit | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 · https://docs.n8n.io/sustainable-use-license/ |
+| 70 | Automate your business in 30 days (self-paced) | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 |
+| 71 | Run your team from Asana & Slack (self-paced) | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 |
+| 72 | Build your AI Chief of Staff (self-paced) | Fix wording → fixed | Primary | https://www.legislation.gov.uk/uksi/2013/3134/regulation/37 |
+| 73 | n8n for operations managers (self-paced) | Fix wording → fixed | Primary | https://www.asa.org.uk/advice-online/substantiation.html · https://docs.n8n.io/integrations/builtin/node-types |
+| 74 | Automation Builder — live cohort with 1-to-1 builds | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 75 | Team workshop — one day, your workflows | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 76 | Team license — any course for up to 10 staff | Correct | Moderate | https://www.asa.org.uk/advice-online/substantiation.html |
+| 77 | Managing with AI — delegation & accountability (for managers) | Correct | Primary | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.clickuptrigger |
+| 78 | Safety & compliance automation | Fix wording → fixed | Strong | https://itbrief.com.au/story/safetyculture-rebrands-as-mitti-in-frontline-software-push · https://startlandnews.com/2026/08/safetyculture-mitti/ · https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/services/424747490562129 |
+| 79 | GPS clock in & clock out | Fix wording → fixed | Moderate | https://developer.connecteam.com/docs/api-access · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero · https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/employment/monitoring-workers/ |
+| 80 | CCTV watch — alerts that matter | Fix wording → fixed | Moderate | https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/cctv-and-video-surveillance/guidance-on-video-surveillance-including-cctv/ · https://docs.frigate.video/integrations/mqtt/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp |
+| 81 | BRCGS & HACCP audit-ready records (factories) | Correct | Moderate | https://www.brcgs.com/documents-resources/food-safety-issue-9-standard/ · https://www.fao.org/fao-who-codexalimentarius/ |
+| 82 | Batch records & traceability | Correct | Moderate | https://www.brcgs.com/documents-resources/food-safety-issue-9-standard/ |
+| 83 | Supplier approval & certificate tracker | Correct | Moderate | https://www.brcgs.com/documents-resources/food-safety-issue-9-standard/ |
+| 84 | Complaints, non-conformances & CAPA | Correct | Moderate | https://www.brcgs.com/documents-resources/food-safety-issue-9-standard/ |
+| 85 | Cleaning & hygiene schedules with proof | Correct | Moderate | https://www.brcgs.com/documents-resources/food-safety-issue-9-standard/ |
+| 86 | Production planning & daily line report | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 87 | Farm operations schedule & field tasks | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 88 | Spray & input records | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 89 | Harvest, yield & sales tracker | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 90 | Crop problem photo triage | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp |
+| 91 | Machinery maintenance & fuel log | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 92 | Office admin autopilot | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftoutlooktrigger · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 93 | Meeting notes to tasks | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations |
+| 94 | Leave & holiday requests | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 95 | Purchase requests & approvals | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 96 | Email inbox autopilot | Correct | Primary | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftoutlooktrigger · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftteamstrigger |
+| 97 | Checklist control & defect close-out | Fix wording → fixed | Strong | https://itbrief.com.au/story/safetyculture-rebrands-as-mitti-in-frontline-software-push · https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/services/424747490562129 · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftteamstrigger |
+| 98 | Site & machine planned maintenance | Fix wording → fixed | Strong | https://itbrief.com.au/story/safetyculture-rebrands-as-mitti-in-frontline-software-push · https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/services/424747490562129 · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftteamstrigger |
+| 99 | Custom trackers — any process, one place | Fix wording → fixed | Strong | https://itbrief.com.au/story/safetyculture-rebrands-as-mitti-in-frontline-software-push · https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/services/424747490562129 · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftteamstrigger |
+| 100 | Staff training on autopilot | Fix wording → fixed | Moderate | https://itbrief.com.au/story/safetyculture-rebrands-as-mitti-in-frontline-software-push · https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp |
+| 101 | Goals & strategic planning system | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger · https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.clickuptrigger |
+| 102 | AI-powered strategy & goal planning (owners & leadership teams) | Correct | Moderate | https://www.asa.org.uk/advice-online/substantiation.html |
+| 103 | Practical AI at work — team license (up to 25 staff) | Correct | Moderate | https://www.asa.org.uk/advice-online/substantiation.html |
+| 104 | Data & dashboards for managers | Correct | Moderate | https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger |
+| 105 | Certified Automation Practitioner | Correct | Moderate | https://www.asa.org.uk/advice-online/substantiation.html |
+| 106 | Founder's Automation Mastermind — 12 weeks | Correct | Moderate | https://www.asa.org.uk/advice-online/substantiation.html |
+| 107 | Employee performance reviews (EPRs) on autopilot | Correct | Primary | https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/employment/monitoring-workers/what-do-we-need-to-do-if-we-use-monitoring-tools-that-use-solely-automated-processes/ · https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/employment/monitoring-workers/ |
+| 108 | 24/7 AI sales agent — WhatsApp & website | Correct | Moderate | https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stripe · https://docs.stripe.com/api/payment-link/create |
+| 109 | Full CRM — from first inquiry to paid invoice | Fix wording → fixed | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hubspot/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero |
+| 110 | Recruiting autopilot — resumes to booked interviews | Fix wording → fixed | Moderate | https://www.perkinscoie.com/insights/update/new-york-city-adopts-final-rules-law-governing-automated-employment-decision-tools · https://privacymatters.dlapiper.com/2026/04/uk-ico-report-on-automated-decision-making-in-recruitment/ · https://www.legislation.gov.uk/eur/2016/679/article/22 |
+| 111 | AI executive assistant — calendar, agendas, notes & research | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zoom/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana/ |
+| 112 | Payroll prep — hours to payroll, checked | Fix wording → fixed | Primary | https://docs.gusto.com/app-integrations/docs/introduction · https://intuitdeveloper.github.io/intuit-api-docs/docs/faq/payroll · https://xeroapi.github.io/xero-php-oauth2/docs/v2/payroll_uk/index.html |
+| 113 | Vehicle & machinery daily checks | Fix wording → fixed | Primary | https://www.gov.uk/government/publications/guide-to-maintaining-roadworthiness · https://gov.uk/government/publications/van-drivers-daily-walkaround-check · https://developer.safetyculture.com/ |
+| 115 | Purchase to pay — PO, goods receipt, invoice match | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero · https://developer.xero.com/documentation/api/accounting/purchaseorders · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks |
+| 116 | Farm audit-ready records (GLOBALG.A.P., PrimusGFS, USDA GAP, Red Tractor) | Fix wording → fixed | Primary | https://documents.globalgap.org/documents/230523_GG_Trademarks_policy_v1_0-1_en.pdf · https://redtractor.org.uk/assurance/scheme-member-logo-rules/ |
+| 117 | Property deal finder & deal packs | Correct | Moderate | https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads · https://use-land-property-data.service.gov.uk/ |
+| 118 | Property listing autopilot | Fix wording → fixed | Moderate | https://www.nationaltradingstandards.uk/uploads/Material%20information%20-%20Part%20A%20-%20updated%20July%202022.pdf · https://support.zoopla.co.uk/hc/en-gb/articles/9478309980049 · https://www.nrla.org.uk/resources/pre-tenancy/material-information-in-adverts |
+| 119 | Renovation project management | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/ |
+| 120 | Starter — try one automation for $99 | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero |
+| 121 | Contract, e-signature & deposit | Correct | Moderate | https://developers.docusign.com/docs/esign-rest-api/ · https://docs.stripe.com/api/payment-link · https://community.n8n.io/t/pandadoc-node/7049 |
+| 122 | Client welcome & onboarding | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/ |
+| 123 | Payments received — matched, receipted, thanked | Fix wording → fixed | Primary | https://xero.uservoice.com/forums/5528-xero-api/suggestions/2884040-reconcile-via-the-api · https://developer.xero.com/documentation/api/accounting/payments · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero |
+| 124 | Customer statements & aged-debt report | Correct | Primary | https://developer.xero.com/documentation/api/accounting/reports · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks |
+| 125 | Recurring & stage-payment billing | Correct | Primary | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero · https://developer.xero.com/documentation/api/accounting/repeatinginvoices |
+| 126 | New-customer credit check & limits | Fix wording → fixed | Moderate | https://doc.creditsafe.com/ · https://forum.companieshouse.gov.uk/t/api-key-for-developers/5354 · https://legislation.gov.uk/uksi/2001/544/article/60F/data.html |
+| 127 | 13-week cash-flow forecast | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks |
+| 128 | Tax prep pack for your accountant | Correct | Primary | https://makingtaxdigital.campaign.gov.uk/quarterly-updates/ · https://www.gov.uk/government/publications/get-ready-for-making-tax-digital-for-income-tax/agent-toolkit-accessible-version |
+| 129 | Supplier price tracker & best-deal finder | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/ |
+| 130 | Equipment utilization & idle-asset alerts | Fix wording → fixed | Moderate | https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/ |
+| 131 | Returns & exchanges portal | Fix wording → fixed | Lead | https://shopify.dev/docs/api/admin-graphql/latest/mutations/returnCreate |
+| 132 | Clinical notes assistant | Restricted → fixed | Moderate | https://community.n8n.io/t/baa-agreement-for-n8n-cloud/219805 · https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html |
+| 133 | Detention & extra-charge capture | Correct | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero |
+| 134 | Company health checks & monthly internal audit | Correct | Moderate | https://forum.companieshouse.gov.uk/t/api-key-for-developers/5354 · https://developer.safetyculture.com/ |
+| 135 | Systemise any document — form, checklist or SOP | Fix wording → fixed | Moderate | https://learn.microsoft.com/en-us/answers/a/1439531 · https://developers.google.com/forms/api |
+| 136 | Stock control, KPIs & cost per product | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks |
+| 137 | Financial reporting & management dashboards | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.xero · https://learn.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming |
+| 138 | Refinance pack — from finished works to new mortgage | Fix wording → fixed | Lead | https://www.handbook.fca.org.uk/handbook/PERG/4/ |
+| 139 | Commercial & industrial build project control | Fix wording → fixed | Lead | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana/ |
+| 140 | Personal admin autopilot — bills, renewals, family & travel | Correct | Moderate | https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/ · https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/ |
+| 141 | Money at a glance — spending, bills & net-worth dashboard | Restricted → fixed | Primary | https://support.truelayer.com/hc/en-us/articles/360005555613-Do-I-need-to-be-regulated-to-provide-Account-Information-Services-AIS · https://support.truelayer.com/hc/en-us/articles/360016448777 · https://handbook.fca.org.uk/handbook/glossary/G3557r.html |
+| 142 | Short videos made for you | Fix wording → fixed | Primary | https://developers.google.com/youtube/v3/docs/videos/insert · https://developers.tiktok.com/doc/content-posting-api-reference-direct-post · https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/content-publishing |
+| 143 | Video auto-creator | Fix wording → fixed | Primary | https://creatomate.com/developers · https://canva.dev/docs/connect/autofill-guide · https://developers.google.com/youtube/v3/docs/videos/insert |
+| 144 | Job photos to social posts | Fix wording → fixed | Primary | https://developers.google.com/my-business/content/prereqs · https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/content-publishing |
+| 145 | Social auto-posting — DIY kit | Correct | Moderate | https://docs.n8n.io/sustainable-use-license/ · https://developers.tiktok.com/doc/content-posting-api-reference-direct-post · https://developers.google.com/youtube/v3/docs/videos/insert |

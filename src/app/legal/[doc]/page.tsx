@@ -18,6 +18,8 @@ const SUMMARY: Record<string, string[]> = {
   ],
   refunds: [
     "Approve the test run or get a full refund: if you don't approve the test run of a build, we refund that build's fee in full.",
+    "DIY kits: you can cancel for a full refund within 14 days, as long as you haven't downloaded the kit. At checkout you'll be asked to agree that downloading starts straight away and ends that right to cancel.",
+    "Courses: full refund at any time before the course opens, and within 14 days of it opening if you haven't started the lessons. Your statutory rights are not affected.",
     "The $99 starter is credited in full if you upgrade to a build.",
   ],
   privacy: [
