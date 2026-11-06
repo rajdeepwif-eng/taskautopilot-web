@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: seoTitle("Can we automate it? Ask fre
 
 export default function AskPage() {
   return (
-    <main className="wrap flex flex-wrap gap-10 pb-16 pt-12">
+    <main className="wrap flex w-full min-w-0 flex-wrap gap-10 pb-16 pt-12">
       <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-4">
         <div className="kicker">Free · no call · no obligation</div>
         <h1 className="m-0 font-display text-[clamp(32px,5vw,48px)] font-bold leading-[1.05] tracking-tight">Can we automate it? Ask — the answer is free.</h1>

@@ -44,7 +44,7 @@ export const BOOKING_URL = "";
  * Live AI interviewer: the n8n webhook URL of the "TaskAutoMode · Website interview assistant" workflow.
  * Empty = the guided (no-AI) assistant is used. Set it only after the workflow is tested and switched on.
  */
-export const ASSISTANT_ENDPOINT = "";
+export const ASSISTANT_ENDPOINT = "https://westindiafood.app.n8n.cloud/webhook/taskautomode-interview";
 
 /** Home-page hero video (MP4/WebM URL, e.g. the Higgsfield film). Empty = the photo is shown. */
 export const HERO_VIDEO_URL = "";

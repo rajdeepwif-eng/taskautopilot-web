@@ -70,7 +70,7 @@ export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: {
       <div className="flex flex-wrap gap-2">
         {(brief || turns >= 3) && <button type="button" className="btn btn-primary !min-h-[38px] !text-[13.5px]" onClick={finish} data-testid="ai-finish">Send this to the team for a fixed price</button>}
         <button type="button" className="rounded-full border border-line bg-white px-3 py-1.5 text-[13px] font-semibold" onClick={onTalk}>☎ Book a free call</button>
-        <button type="button" className="border-0 bg-transparent p-0 text-[12.5px] text-muted underline" onClick={onFallback}>Prefer quick-tap questions?</button>
+        <button type="button" className="border-0 bg-transparent p-0 text-[12.5px] text-muted underline" onClick={onFallback} data-testid="ai-fallback">Prefer quick-tap questions?</button>
       </div>
       <p className="m-0 text-[11.5px] text-muted">AI assistant — it can make mistakes; a person checks every brief before any price is final. Don&apos;t share passwords or card details here.</p>
     </div>
