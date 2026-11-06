@@ -31,7 +31,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const lite = items.reduce((a, p) => a + runLow(p), 0);
   const TIERS = [
     { id: "none", name: "No plan", sub: "You maintain it; fixes later at $150/hour", price: 0 },
-    { id: "lite", name: "Run Lite", sub: "Monitoring, failure alerts and fixes for these automations", price: lite },
+    { id: "lite", name: "Run Lite", sub: "Monitoring, failure alerts, fixes after the free 90 days, and one small change a month", price: lite },
     { id: "full", name: "Run Full", sub: "Run Lite + one new time-saver each month + live results panel", price: Math.max(1500, lite) },
   ];
   const t = items.some((p) => p.run) ? TIERS.find((x) => x.id === tier)! : TIERS[0];

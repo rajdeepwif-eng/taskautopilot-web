@@ -228,6 +228,7 @@ export default function MarketClient() {
                       {!p.monthly && <span className="text-[13px] text-muted">fixed price</span>}
                     </div>
                     {p.run && <div className="text-[13px] text-muted">Optional support {fmt(runLow(p))}/mo</div>}
+                    {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[12.5px] text-clay">Example — tailored to how you work</div>}
                     <div className="mt-1 text-[14px] text-ink">{p.cat === "Courses" ? "Founding enrollment open" : p.cat === "DIY kits" ? <>Instant <b>download</b></> : <LiveBy days={p.days} />}</div>
                     {p.cat !== "Courses" && p.cat !== "DIY kits" && !p.monthly && <div className="text-[13px] text-ok">Approve the test run or full refund</div>}
                   </div>

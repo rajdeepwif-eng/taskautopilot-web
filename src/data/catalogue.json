@@ -53,7 +53,8 @@
       "days": 10,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 4,
@@ -65,7 +66,8 @@
       "days": 15,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 5,
@@ -81,7 +83,8 @@
         "Clinics & healthcare",
         "Real estate & property",
         "Restaurants & hospitality"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 6,
@@ -93,7 +96,8 @@
       "days": 20,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 7,
@@ -237,7 +241,8 @@
         "Professional services",
         "Agencies & creative",
         "Retail & e-commerce"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 15,
@@ -249,7 +254,8 @@
       "days": 5,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 16,
@@ -262,7 +268,8 @@
       "ind": [
         "all"
       ],
-      "grade": "Moderate"
+      "grade": "Moderate",
+      "run": "$100–200/mo"
     },
     {
       "id": 17,
@@ -301,7 +308,8 @@
       "days": 5,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$50–100/mo"
     },
     {
       "id": 20,
@@ -313,7 +321,8 @@
       "days": 10,
       "ind": [
         "Retail & e-commerce"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 21,
@@ -325,7 +334,8 @@
       "days": 10,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 22,
@@ -343,7 +353,8 @@
         "Logistics & transport",
         "Agencies & creative",
         "Real estate & property"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 23,
@@ -355,7 +366,8 @@
       "days": 15,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 24,
@@ -367,7 +379,8 @@
       "days": 5,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 25,
@@ -379,7 +392,8 @@
       "days": 10,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 26,
@@ -413,7 +427,8 @@
         "Retail & e-commerce",
         "Manufacturing & wholesale",
         "Construction & equipment hire"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 28,
@@ -428,7 +443,8 @@
         "Retail & e-commerce",
         "Manufacturing & wholesale",
         "Logistics & transport"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 29,
@@ -442,7 +458,8 @@
         "Logistics & transport",
         "Trades & home services",
         "Construction & equipment hire"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 30,
@@ -475,7 +492,8 @@
       "days": 20,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 32,
@@ -537,7 +555,8 @@
       "days": 5,
       "ind": [
         "Restaurants & hospitality"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 36,
@@ -552,7 +571,8 @@
         "Logistics & transport",
         "Professional services",
         "Construction & equipment hire"
-      ]
+      ],
+      "run": "$150–300/mo"
     },
     {
       "id": 37,
@@ -569,7 +589,8 @@
         "Manufacturing & wholesale",
         "Restaurants & hospitality",
         "Real estate & property"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 38,
@@ -581,7 +602,8 @@
       "days": 5,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 39,
@@ -593,7 +615,8 @@
       "days": 3,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$100–200/mo"
     },
     {
       "id": 40,
@@ -605,7 +628,8 @@
       "days": 5,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$50–100/mo"
     },
     {
       "id": 41,
@@ -617,7 +641,8 @@
       "days": 5,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$50–100/mo"
     },
     {
       "id": 42,
@@ -629,7 +654,8 @@
       "days": 5,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$50–100/mo"
     },
     {
       "id": 43,
@@ -641,7 +667,8 @@
       "days": 3,
       "ind": [
         "all"
-      ]
+      ],
+      "run": "$50–100/mo"
     },
     {
       "id": 44,
@@ -798,7 +825,8 @@
         "all"
       ],
       "replaces": "Turns a goal into owned, dated work in days, not weeks of meetings.",
-      "grade": "Lead"
+      "grade": "Lead",
+      "run": "$150–300/mo"
     },
     {
       "id": 54,
@@ -1706,6 +1734,22 @@
       "run": "$100–200/mo"
     },
     {
+      "id": 146,
+      "cat": "Finance",
+      "name": "Payments to invoices — with your sign-off",
+      "desc": "Every payment gets its invoice automatically — card or bank transfer, dated the day the money came in. Prices are checked against your price list: matches are invoiced and emailed straight away, anything else waits for one tap of approval. A daily check lists any payment still without an invoice.",
+      "apps": "Stripe, your bank feed, Zoho Books, Xero or QuickBooks, your booking system or Airtable, Slack (or Teams or email)",
+      "price": 3900,
+      "days": 20,
+      "ind": [
+        "all"
+      ],
+      "run": "$150–300/mo",
+      "grade": "Lead",
+      "wage": 49210,
+      "role": "bookkeeping clerk"
+    },
+    {
       "id": 124,
       "cat": "Finance",
       "name": "Customer statements & aged-debt report",
@@ -2119,33 +2163,33 @@
       "On your approval it becomes a task in your system, ready to repeat."
     ],
     "55": [
-      "Pay and download the workflow file, video guide and checklist straight away.",
-      "Import the file into your n8n and connect your own apps by following the video.",
+      "Pay and download the workflow file, written guide and checklist straight away.",
+      "Import the file into your n8n and connect your own apps by following the guide.",
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "56": [
-      "Pay and download the workflow file, video guide and checklist straight away.",
-      "Import the file into your n8n and connect your own apps by following the video.",
+      "Pay and download the workflow file, written guide and checklist straight away.",
+      "Import the file into your n8n and connect your own apps by following the guide.",
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "57": [
-      "Pay and download the workflow file, video guide and checklist straight away.",
-      "Import the file into your n8n and connect your own apps by following the video.",
+      "Pay and download the workflow file, written guide and checklist straight away.",
+      "Import the file into your n8n and connect your own apps by following the guide.",
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "58": [
-      "Pay and download the workflow file, video guide and checklist straight away.",
-      "Import the file into your n8n and connect your own apps by following the video.",
+      "Pay and download the workflow file, written guide and checklist straight away.",
+      "Import the file into your n8n and connect your own apps by following the guide.",
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "59": [
-      "Pay and download the workflow file, video guide and checklist straight away.",
-      "Import the file into your n8n and connect your own apps by following the video.",
+      "Pay and download the workflow file, written guide and checklist straight away.",
+      "Import the file into your n8n and connect your own apps by following the guide.",
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "60": [
-      "Pay and download the workflow file, video guide and checklist straight away.",
-      "Import the file into your n8n and connect your own apps by following the video.",
+      "Pay and download the workflow file, written guide and checklist straight away.",
+      "Import the file into your n8n and connect your own apps by following the guide.",
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "61": [
@@ -2189,8 +2233,8 @@
       "A clean row lands in your Excel or Google Sheet with the file linked."
     ],
     "69": [
-      "Pay and download the workflow file, video guide and checklist straight away.",
-      "Import the file into your n8n and connect your own apps by following the video.",
+      "Pay and download the workflow file, written guide and checklist straight away.",
+      "Import the file into your n8n and connect your own apps by following the guide.",
       "Stuck? Email us within 30 days — or upgrade and your kit price is credited."
     ],
     "70": [
@@ -2564,6 +2608,36 @@
       "Take a before-and-after photo on the job.",
       "A caption is written in your voice and sent to you to approve.",
       "It posts to Facebook, Instagram and your Google profile."
+    ],
+    "146": [
+      "A customer pays by card or bank transfer.",
+      "The price is checked against your rate card; a match is invoiced, recorded as paid and emailed.",
+      "Anything that doesn't match comes to you as a message (Slack, Teams or email): approve, edit or reject with one tap."
+    ],
+    "12": [
+      "You set who your ideal customers are, once a week.",
+      "It finds matching businesses, researches each one and drafts a personal email — business addresses only, with an opt-out.",
+      "You approve every email before it is sent; replies come straight to you."
+    ],
+    "39": [
+      "Any of your automations fails, or misses its usual run.",
+      "It checks every workflow each day and spots failures, errors and silence.",
+      "You get one alert with what broke and a link to fix it."
+    ],
+    "44": [
+      "One of your apps changes, or an automation fails.",
+      "We get the alert, find the cause and fix it.",
+      "You get a short note of what was fixed; it keeps running."
+    ],
+    "145": [
+      "You add a post to your content sheet.",
+      "The workflow you set up picks it up at the time you chose.",
+      "It posts to your social accounts and marks the row as done."
+    ],
+    "6": [
+      "A customer or staff member logs in to the portal.",
+      "They see their own bookings, documents, invoices or jobs, and can request, upload or pay.",
+      "Every request lands in your systems and the right person is alerted."
     ]
   },
   "defaultHours": {
@@ -2709,7 +2783,8 @@
     "141": 2,
     "142": 3,
     "143": 4,
-    "144": 2
+    "144": 2,
+    "146": 4
   },
   "bundles": [
     {

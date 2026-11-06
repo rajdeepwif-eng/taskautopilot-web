@@ -33,3 +33,9 @@ export const GA4_ID = ""; // e.g. "G-XXXXXXX"
 export const GOOGLE_ADS_ID = ""; // e.g. "AW-123456789"
 export const GOOGLE_ADS_CONVERSION_LABEL = ""; // the reservation/purchase conversion label
 export const META_PIXEL_ID = ""; // e.g. "1234567890"
+
+/**
+ * Your meeting-booking link (e.g. Google Calendar appointment page or Calendly). Empty until set:
+ * the assistant and product pages then take a call request with preferred times instead.
+ */
+export const BOOKING_URL = "";

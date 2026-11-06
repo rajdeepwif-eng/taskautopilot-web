@@ -19,7 +19,7 @@ const JOBS: Record<string, number[]> = {
   retail: [16, 20, 28, 131, 136],
   "busy-professionals": [92, 96, 49],
   "job-reviews": [1, 2, 15, 43, 57, 65],
-  "job-invoices": [22, 41, 124, 125],
+  "job-invoices": [22, 41, 124, 125, 146],
   "job-dashboard": [25, 127, 137],
   "job-social": [17, 142, 143, 144, 145],
   "job-inspections": [37, 47, 48, 60, 97, 113, 135, 139],

@@ -14,7 +14,10 @@ const SUMMARY: Record<string, string[]> = {
     "Every build has a fixed price shown before you buy; scope is confirmed on a short setup form.",
     "We build in accounts you own. You keep the workflows, data and a written handover.",
     "Ongoing support is optional. Monthly services have a 6-month minimum, then run month to month.",
-    "Usage costs (call minutes, texts, AI usage) are billed at cost.",
+    "Running costs are paid by you directly, at cost: the automation platform (n8n, priced by runs a month, in your name), plus call minutes, texts and AI use where a build uses them. We size the plan before you buy.",
+    "Refunds: if you don't approve the test run of a build, its fee is refunded in full — see the refund policy for kits and courses.",
+    "After go-live: small changes are free for 14 days and fixes are free for 90 days. A fix is when it doesn't do what your setup form says; a new app, step or way of working is a change.",
+    "After that: fixes and monitoring need a support plan; changes are fixed-price — Small $150, Medium $450, Large quoted — agreed before any work. Support plans include one small change a month.",
   ],
   refunds: [
     "Approve the test run or get a full refund: if you don't approve the test run of a build, we refund that build's fee in full.",
