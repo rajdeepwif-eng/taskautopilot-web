@@ -46,7 +46,7 @@ export function PlanLink() {
     <Link href={href} className="flex items-end gap-1 rounded px-1.5 py-1 text-white no-underline hover:outline hover:outline-1 hover:outline-white" aria-label={`Your cart, ${ids.length} items`}>
       <span className="relative">
         <svg width="34" height="28" viewBox="0 0 34 28" fill="none" stroke="#fff" strokeWidth="2" aria-hidden="true"><path d="M2 3h5l4 16h16l4-11H9" /><circle cx="13" cy="24" r="2" /><circle cx="25" cy="24" r="2" /></svg>
-        <span className="absolute -top-1.5 left-[15px] text-[15px] font-bold text-[#F08804]">{ids.length}</span>
+        {ids.length > 0 && <span className="absolute -top-1.5 left-[15px] text-[15px] font-bold text-[#F08804]">{ids.length}</span>}
       </span>
       <span className="hidden text-[14px] font-bold sm:inline">Cart</span>
     </Link>

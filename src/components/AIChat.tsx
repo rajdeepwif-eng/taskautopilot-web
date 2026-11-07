@@ -4,6 +4,7 @@ import Link from "next/link";
 import { byId, fmt, priceLabel } from "@/lib/catalogue";
 import { PAYMENTS_LIVE } from "@/lib/launch";
 import { sendLead } from "@/lib/attribution";
+import { ConsentBox } from "@/components/LeadBits";
 
 type Cta = { type: string; product_id?: number };
 type Msg = { role: "user" | "assistant"; content: string; products?: number[]; cta?: Cta };
@@ -16,11 +17,15 @@ const OPENER = "Hi — I'm the TaskAutoMode assistant. What would you like to st
  * asks one question at a time, suggests products with prices, and returns a priceable brief.
  * Any error falls back to the guided assistant, so a visitor is never stuck.
  */
-export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: { endpoint: string; page: string; onFallback: () => void; onTalk: () => void; onDone: () => void }) {
+export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: { endpoint: string; page: string; onFallback: (lastTyped?: string) => void; onTalk: () => void; onDone: (email?: string, name?: string) => void }) {
   const [msgs, setMsgs] = useState<Msg[]>([{ role: "assistant", content: OPENER }]);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const [brief, setBrief] = useState<Record<string, unknown> | null>(null);
+  const [closing, setClosing] = useState(false);
+  const [who, setWho] = useState({ name: "", email: "", phone: "" });
+  const [consent, setConsent] = useState(false);
+  const [werr, setWerr] = useState("");
   const [sid] = useState(() => Math.random().toString(36).slice(2) + Date.now().toString(36));
   const end = useRef<HTMLDivElement>(null);
   useEffect(() => { end.current?.scrollIntoView({ block: "nearest" }); }, [msgs, busy]);
@@ -40,12 +45,20 @@ export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: {
       setMsgs([...next, { role: "assistant", content: String(d.reply || "Sorry — could you say that another way?"), products: ids, cta }]);
       if (d.brief && typeof d.brief === "object") setBrief(d.brief);
     } catch {
-      onFallback();
+      onFallback(next.filter((m) => m.role === "user").map((m) => m.content).join(" ").slice(0, 600));
     } finally { setBusy(false); }
   };
+  /** Ask for contact details first (prefilled from the chat if the visitor already gave them), then send. */
   const finish = () => {
-    void sendLead("ai-brief", { sessionId: sid, page, brief, transcript: msgs.map(({ role, content }) => ({ role, content })) });
-    onDone();
+    const b = (brief ?? {}) as Record<string, string>;
+    setWho((w) => ({ name: w.name || b.name || "", email: w.email || b.email || "", phone: w.phone }));
+    setClosing(true);
+  };
+  const sendBrief = () => {
+    if (!who.name.trim()) return setWerr("Add your name.");
+    if (!/.+@.+\..+/.test(who.email)) return setWerr("Add an email we can send the price to.");
+    void sendLead("ai-brief", { ...who, marketingConsent: consent, sessionId: sid, page, brief, transcript: msgs.map(({ role, content }) => ({ role, content })) });
+    onDone(who.email, who.name);
   };
 
   /** The one next step the sales lead recommends, as a real button. */
@@ -78,7 +91,19 @@ export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: {
         {busy && <div className="self-start rounded-2xl bg-paper px-3 py-2 text-[14px] text-muted">Thinking…</div>}
         <div ref={end} />
       </div>
-      {turns < MAX_TURNS ? (
+      {closing ? (
+        <div className="flex flex-col gap-2 rounded-xl border border-line bg-white p-3" data-testid="ai-close">
+          <b className="text-[14.5px]">Where should we send your fixed price?</b>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <label className="flex flex-col gap-1 text-[13px]">Your name<input type="text" autoComplete="name" value={who.name} onChange={(e) => setWho({ ...who, name: e.target.value })} data-testid="ai-name" /></label>
+            <label className="flex flex-col gap-1 text-[13px]">Email<input type="email" autoComplete="email" value={who.email} onChange={(e) => setWho({ ...who, email: e.target.value })} data-testid="ai-email" /></label>
+            <label className="flex flex-col gap-1 text-[13px] sm:col-span-2">Phone <span className="text-muted">(optional — for a quick call if anything's unclear)</span><input type="tel" autoComplete="tel" value={who.phone} onChange={(e) => setWho({ ...who, phone: e.target.value })} /></label>
+          </div>
+          <ConsentBox checked={consent} onChange={setConsent} id="consent-ai" />
+          {werr && <span role="alert" className="text-[12.5px] font-semibold text-[#B12704]">{werr}</span>}
+          <div className="flex flex-wrap gap-2"><button type="button" className="btn btn-primary !min-h-[38px] !text-[13.5px]" onClick={sendBrief} data-testid="ai-send">Send — reply within 1 working day</button><button type="button" className="border-0 bg-transparent p-0 text-[12.5px] text-muted underline" onClick={() => setClosing(false)}>Back to the chat</button></div>
+        </div>
+      ) : turns < MAX_TURNS ? (
         <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); void send(); }}>
           <input type="text" value={text} maxLength={1000} onChange={(e) => setText(e.target.value)} placeholder="Type your answer…" aria-label="Your message" className="min-w-0 flex-1" data-testid="ai-input" />
           <button type="submit" className="btn btn-primary !px-4" disabled={busy || !text.trim()}>Send</button>
@@ -87,7 +112,7 @@ export default function AIChat({ endpoint, page, onFallback, onTalk, onDone }: {
       <div className="flex flex-wrap gap-2">
         {(brief || turns >= 3) && <button type="button" className="btn btn-primary !min-h-[38px] !text-[13.5px]" onClick={finish} data-testid="ai-finish">Send this to the team for a fixed price</button>}
         <button type="button" className="rounded-full border border-line bg-white px-3 py-1.5 text-[13px] font-semibold" onClick={onTalk}>☎ Book a free call</button>
-        <button type="button" className="border-0 bg-transparent p-0 text-[12.5px] text-muted underline" onClick={onFallback} data-testid="ai-fallback">Prefer quick-tap questions?</button>
+        <button type="button" className="border-0 bg-transparent p-0 text-[12.5px] text-muted underline" onClick={() => onFallback(msgs.filter((m) => m.role === "user").map((m) => m.content).join(" ").slice(0, 600) || undefined)} data-testid="ai-fallback">Prefer quick-tap questions?</button>
       </div>
       <p className="m-0 text-[11.5px] text-muted">AI assistant — it can make mistakes; a person checks every brief before any price is final. Don&apos;t share passwords or card details here.</p>
     </div>

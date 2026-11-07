@@ -3,13 +3,13 @@
  * PAYMENTS_LIVE: Stripe Checkout connected. FORMS_LIVE: lead forms post to a real inbox (e.g. n8n webhook).
  */
 export const PAYMENTS_LIVE = false;
-export const FORMS_LIVE = false;
+export const FORMS_LIVE = true;
 
 /** Shown after a lead form is submitted while forms are not connected yet. */
 export const FORM_NOT_SENT = "Thanks — our inbox opens at launch, so this wasn't sent yet. Please check back soon.";
 
 /** Where lead forms post when FORMS_LIVE is true (e.g. an n8n webhook URL). Empty until set. */
-export const LEAD_ENDPOINT = "";
+export const LEAD_ENDPOINT = "https://westindiafood.app.n8n.cloud/webhook/taskautomode-lead";
 /** Your Google Business Profile "write a review" link. Empty until the profile exists. */
 export const GOOGLE_REVIEW_URL = "";
 /**
@@ -48,3 +48,9 @@ export const ASSISTANT_ENDPOINT = "https://westindiafood.app.n8n.cloud/webhook/t
 
 /** Home-page hero video (MP4/WebM URL, e.g. the Higgsfield film). Empty = the photo is shown. */
 export const HERO_VIDEO_URL = `${process.env.PAGES_BASE_PATH || ""}/hero-film.mp4`;
+
+/**
+ * Who's behind the site. Fill at launch — every field prints only when set, so nothing is invented.
+ * Legal name + registered address are also required on marketing email (PECR/CAN-SPAM/CASL).
+ */
+export const COMPANY = { legalName: "", regNumber: "", address: "", phone: "", email: "", founder: "" };

@@ -8,6 +8,7 @@ import { Product, byId, fmt, priceLabel } from "@/lib/catalogue";
 import { TRADES } from "@/lib/trades";
 import { flowFor } from "@/lib/buying";
 import AIChat from "@/components/AIChat";
+import { ConsentBox, PreCall } from "@/components/LeadBits";
 import { ASSISTANT_ENDPOINT, BOOKING_URL, FORMS_LIVE, FORM_NOT_SENT, PAYMENTS_LIVE } from "@/lib/launch";
 import { APP_GROUPS, INDUSTRY_APPS } from "@/lib/apps";
 import { sendLead } from "@/lib/attribution";
@@ -69,6 +70,8 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   const [talk, setTalk] = useState(false);
   const [times, setTimes] = useState("");
   const [phone, setPhone] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [callNow, setCallNow] = useState(false);
   const [industry, setIndustry] = useState("");
   const [pain, setPain] = useState("");
   const [staff, setStaff] = useState("");
@@ -101,10 +104,11 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   const bookCall = () => {
     if (!c.name.trim()) return setErr("Add your name.");
     if (!/.+@.+\..+/.test(c.email)) return setErr("Add an email we can reply to.");
-    void sendLead("call-request", { ...c, phone, times, said, tools, page: path, brief: pick?.id || "" });
+    if (callNow && phone.replace(/\D/g, "").length < 7) return setErr("Add a phone number so we can call you back.");
+    void sendLead(callNow ? "call-now" : "call-request", { ...c, phone, times: callNow ? "Call me back now" : times, said, tools, page: path, brief: pick?.id || "", marketingConsent: consent });
     setSent(true); setErr("");
   };
-  const reset = () => { setIndustry(""); setPain(""); setStaff(""); setBudget(""); setCustom({ systems: "", volume: "", cost: "", signoff: "", offer: "" }); setTalk(false); setTimes(""); setPhone(""); setStep(0); setSaid(""); setPick(null); setNow(""); setTools(""); setVolume(""); setRoute(""); setAnswers({}); setWhen(""); setApprover(""); setUnsure(false); setSent(false); setErr(""); };
+  const reset = () => { setConsent(false); setCallNow(false); setIndustry(""); setPain(""); setStaff(""); setBudget(""); setCustom({ systems: "", volume: "", cost: "", signoff: "", offer: "" }); setTalk(false); setTimes(""); setPhone(""); setStep(0); setSaid(""); setPick(null); setNow(""); setTools(""); setVolume(""); setRoute(""); setAnswers({}); setWhen(""); setApprover(""); setUnsure(false); setSent(false); setErr(""); };
   const choose = (b: Brief | null) => { setPick(b); setStep(2); };
   const demo = pick?.products[0] ? `/p/${pick.products[0]}/` : "/demos/";
   const send = () => {
@@ -113,14 +117,14 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
     const brief = pick ? { id: pick.id, outcome: pick.outcome, trigger: pick.trigger, inputs: pick.inputs, from: pick.from, steps: pick.steps, toConfirm: pick.ask, native: pick.native || "", products: pick.products, kit: pick.kit || null } : { id: "custom", outcome: said, toConfirm: ["What should happen, for whom, and when?", "Where does the information live today?", "Who approves it?"] };
     const pid = pick?.products[0];
     const match = pid ? { id: pid, name: byId(pid).name, price: byId(pid).price, confidence: pick && matches.includes(pick) && matches[0] === pick ? "high" : unsure || industry ? "suggested" : "picked" } : null;
-    void sendLead("automation-brief", { said, ...c, now, tools, volume, route, when, approver, answers, industry, pain, staff, budget, page: path, brief, match, complianceCheck: pid ? CHECK_FIRST.has(pid) : false, assumed: [industry ? "" : "industry not given", volume ? "" : "volume not given"].filter(Boolean) });
+    void sendLead("automation-brief", { said, ...c, now, tools, volume, route, when, approver, answers, industry, pain, staff, budget, page: path, brief, match, marketingConsent: consent, complianceCheck: pid ? CHECK_FIRST.has(pid) : false, assumed: [industry ? "" : "industry not given", volume ? "" : "volume not given"].filter(Boolean) });
     setSent(true); setErr("");
   };
 
   const sendCustom = () => {
     if (!c.name.trim()) return setErr("Add your name.");
     if (!/.+@.+\..+/.test(c.email)) return setErr("Add an email we can reply to.");
-    void sendLead("custom-brief", { said, ...c, staff, budget, ...custom, page: path });
+    void sendLead("custom-brief", { said, ...c, phone, staff, budget, ...custom, page: path, marketingConsent: consent });
     setSent(true); setErr("");
   };
   const productCard = (p: Product, onPick?: () => void) => (
@@ -158,19 +162,24 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
     <div className="flex flex-col gap-3" data-testid="assistant-talk">
       <b className="text-[16px]">Talk it through — free, 20 minutes</b>
       <p className="m-0 text-[13.5px] text-ink-2">No tech knowledge needed. Tell us how you do it today; we'll tell you honestly what's worth automating, how it would fit your software, and what it would cost. No obligation.</p>
-      {BOOKING_URL ? <a href={BOOKING_URL} target="_blank" rel="noopener" className="btn btn-primary self-start" data-testid="assistant-book-link">Pick a time →</a> : null}
-      <b className="text-[14px]">{BOOKING_URL ? "Or we'll send you times:" : "When suits you? We'll send you times to pick from."}</b>
-      <div className="flex flex-wrap gap-1.5">{TIMES.map((v) => <button key={v} type="button" aria-pressed={times === v} className={`${chip} ${times === v ? "!border-2 !border-clay bg-clay-soft" : ""}`} onClick={() => setTimes(v)}>{v}</button>)}</div>
+      <div role="radiogroup" aria-label="How should we talk?" className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+        <button type="button" role="radio" aria-checked={callNow} className={opt(callNow)} onClick={() => setCallNow(true)} data-testid="talk-now"><b>📞 Call me back now</b><span className="text-[12.5px] text-ink-2">Usually within the hour, in business hours</span></button>
+        <button type="button" role="radio" aria-checked={!callNow} className={opt(!callNow)} onClick={() => setCallNow(false)} data-testid="talk-later"><b>🗓 Pick a time</b><span className="text-[12.5px] text-ink-2">{BOOKING_URL ? "Choose a slot in our calendar" : "Tell us when suits you"}</span></button>
+      </div>
+      {!callNow && BOOKING_URL ? <a href={BOOKING_URL} target="_blank" rel="noopener" className="btn btn-primary self-start" data-testid="assistant-book-link">Open the calendar →</a> : null}
+      {!callNow && <b className="text-[14px]">{BOOKING_URL ? "Or tell us when suits you:" : "When suits you?"}</b>}
+      {!callNow && <div className="flex flex-wrap gap-1.5">{TIMES.map((v) => <button key={v} type="button" aria-pressed={times === v} className={`${chip} ${times === v ? "!border-2 !border-clay bg-clay-soft" : ""}`} onClick={() => setTimes(v)}>{v}</button>)}</div>}
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-[13.5px]">Your name<input type="text" autoComplete="name" value={c.name} onChange={(e) => setC({ ...c, name: e.target.value })} data-testid="talk-name" /></label>
         <label className="flex flex-col gap-1 text-[13.5px]">Email<input type="email" autoComplete="email" value={c.email} onChange={(e) => setC({ ...c, email: e.target.value })} data-testid="talk-email" /></label>
-        <label className="flex flex-col gap-1 text-[13.5px] sm:col-span-2">Phone <span className="text-muted">(optional, if you'd rather we ring)</span><input type="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></label>
+        <label className="flex flex-col gap-1 text-[13.5px] sm:col-span-2">Phone <span className="text-muted">{callNow ? "(so we can call you back)" : "(optional, if you'd rather we ring)"}</span><input type="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></label>
         <label className="flex flex-col gap-1 text-[13.5px] sm:col-span-2">What's on your mind? <span className="text-muted">(optional)</span><textarea rows={2} value={said} onChange={(e) => setSaid(e.target.value)} /></label>
       </div>
       {err && <div role="alert" className="text-[13px] font-semibold text-[#B12704]">{err}</div>}
-      <button type="button" className="btn btn-primary self-start" onClick={bookCall} data-testid="talk-send">Request my call</button>
+      <ConsentBox checked={consent} onChange={setConsent} id="consent-talk" />
+      <button type="button" className="btn btn-primary self-start" onClick={bookCall} data-testid="talk-send">{callNow ? "Call me back" : "Request my call"}</button>
       <button type="button" className="self-start border-0 bg-transparent p-0 text-[12.5px] text-muted underline" onClick={() => { setTalk(false); setErr(""); }}>← Back to the planner</button>
-      <p className="m-0 text-[12px] text-muted">We only use this to arrange the call. <Link href="/legal/privacy/">Privacy</Link></p>
+      <p className="m-0 text-[12px] text-muted">We use this to arrange the call and keep a note of it. <Link href="/legal/privacy/">Privacy</Link></p>
     </div>
   );
 
@@ -179,13 +188,14 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
       {!sent && step > 0 && step < 10 && <ol aria-label="Progress" className="m-0 flex list-none gap-1 p-0">{steps.map((s, i) => <li key={s} aria-current={i === step ? "step" : undefined} className={`h-1.5 flex-1 rounded-full ${i <= step ? "bg-clay" : "bg-line"}`}><span className="sr-only">{s}</span></li>)}</ol>}
       {sent ? (
         <div className="flex flex-col gap-2" data-testid="assistant-done">
-          <b className="text-[17px]">{FORMS_LIVE ? (talk ? "Got it — we'll be in touch to book your call." : "Got it — your brief is with us.") : "Thanks — almost there."}</b>
-          <p className="m-0 text-[14px] text-ink-2">{FORMS_LIVE ? talk ? "Within 1 working day you'll get times to pick from. Nothing to prepare — just tell us how you do it today." : "A person reads every brief. Within 1 working day you'll get how it would work for you, a short demo and a fixed price — or how to switch it on yourself if your software already does it." : FORM_NOT_SENT}</p>
+          <b className="text-[17px]">{FORMS_LIVE ? (talk ? (callNow ? "Got it — we'll call you back shortly." : "Got it — we'll be in touch to book your call.") : "Got it — your brief is with us.") : "Thanks — almost there."}</b>
+          <p className="m-0 text-[14px] text-ink-2">{FORMS_LIVE ? talk ? (callNow ? "A person will ring you as soon as one is free — usually within the hour in UK working hours. Nothing to prepare." : "Within 1 working day you'll get times to pick from. Nothing to prepare — just tell us how you do it today.") : "A person reads every brief. Within 1 working day you'll get how it would work for you, a short demo and a fixed price — or how to switch it on yourself if your software already does it." : FORM_NOT_SENT}</p>
+          {FORMS_LIVE && c.email && <PreCall email={c.email} name={c.name} />}
           <Link href={demo} className="btn btn-primary self-start" onClick={() => !inline && setOpen(false)}>See it working →</Link>
           <button type="button" className="self-start border-0 bg-transparent p-0 text-[13px] text-clay underline" onClick={reset}>Start another</button>
         </div>
       ) : talk ? talkView : ai && step === 0 ? (
-        <AIChat endpoint={ASSISTANT_ENDPOINT} page={path} onFallback={() => setAi(false)} onTalk={() => setTalk(true)} onDone={() => setSent(true)} />
+        <AIChat endpoint={ASSISTANT_ENDPOINT} page={path} onFallback={(t?: string) => { if (t) setSaid(t); setAi(false); }} onTalk={() => setTalk(true)} onDone={(email, name) => { if (email) setC({ ...c, email, name: name || c.name }); setSent(true); }} />
       ) : step === 0 ? (
         <>
           <label className="flex flex-col gap-1.5 text-[14px] font-semibold" htmlFor="as-said">What result do you want?
@@ -295,6 +305,7 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
             <label className="flex flex-col gap-1 text-[13.5px]">Email<input type="email" autoComplete="email" value={c.email} onChange={(e) => setC({ ...c, email: e.target.value })} /></label>
           </div>
           {err && <div role="alert" className="text-[13px] font-semibold text-[#B12704]">{err}</div>}
+          <ConsentBox checked={consent} onChange={setConsent} id="consent-custom" />
           <button type="button" className="btn btn-primary self-start" disabled={!custom.offer} onClick={sendCustom} data-testid="custom-send">Send</button>
           <button type="button" className="self-start border-0 bg-transparent p-0 text-[13px] text-clay underline" onClick={() => setStep(0)}>← Back</button>
         </>
@@ -313,6 +324,7 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
             <label className="flex flex-col gap-1 text-[13.5px] sm:col-span-2">Business <span className="text-muted">(optional)</span><input type="text" autoComplete="organization" value={c.company} onChange={(e) => setC({ ...c, company: e.target.value })} /></label>
           </div>
           {err && <div role="alert" className="text-[13px] font-semibold text-[#B12704]">{err}</div>}
+          <ConsentBox checked={consent} onChange={setConsent} id="consent-brief" />
           <button type="button" className="btn btn-primary self-start" onClick={send} data-testid="assistant-send">Send my brief</button>
           <p className="m-0 text-[12px] text-muted">We only use this to reply about your automation. No passwords needed — logins come later, in your own accounts. <Link href="/legal/privacy/">Privacy</Link></p>
         </>

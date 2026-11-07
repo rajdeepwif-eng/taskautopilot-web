@@ -9,6 +9,7 @@ import OwnAutomations from "@/components/OwnAutomations";
 import Link from "next/link";
 import { HERO_VIDEO_URL, PAYMENTS_LIVE } from "@/lib/launch";
 import { AskButton, ProblemButtons } from "@/components/FrontDoor";
+import WeekBack from "@/components/WeekBack";
 import AppChecker from "@/components/AppChecker";
 import { APP_GROUPS } from "@/lib/apps";
 import { PRODUCTS, byId, fmt } from "@/lib/catalogue";
@@ -60,13 +61,13 @@ export default function Home() {
           <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
             Tell us what you want to stop doing by hand. We show you how it would work, the fixed price, and build it around the way you already work — most live in 1–3 weeks.
           </p>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          {HERO_VIDEO_URL ? <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" /> : <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />}
-          {HERO_VIDEO_URL ? <div className="lg:hidden"><p className="m-0 mt-2 text-[12px] leading-snug text-muted" data-testid="hero-sources">Figures in the film are industry benchmarks, not promises. Sources: <a href="https://scholarsarchive.byu.edu/facpub/9711" rel="noopener">Harvard Business Review, 2011</a> · <a href="https://payablesplace.ardentpartners.com/?p=9521" rel="noopener">Ardent Partners, 2024</a> · <a href="https://www.mckinsey.com/capabilities/operations/our-insights/harnessing-automation-for-a-future-that-works" rel="noopener">McKinsey Global Institute, 2017</a></p></div> : <div className="-mt-3 lg:hidden"><PhotoStory slug="hero" /></div>}
           <div className="flex flex-wrap items-center gap-4">
             <AskButton />
             <Link href="#trades" className="btn btn-outline">Show me fixes for my business</Link>
           </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {HERO_VIDEO_URL ? <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" /> : <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />}
+          {HERO_VIDEO_URL ? <div className="lg:hidden"><p className="m-0 mt-2 text-[12px] leading-snug text-muted" data-testid="hero-sources">Figures in the film are industry benchmarks, not promises. Sources: <a href="https://scholarsarchive.byu.edu/facpub/9711" rel="noopener">Harvard Business Review, 2011</a> · <a href="https://payablesplace.ardentpartners.com/?p=9521" rel="noopener">Ardent Partners, 2024</a> · <a href="https://www.mckinsey.com/capabilities/operations/our-insights/harnessing-automation-for-a-future-that-works" rel="noopener">McKinsey Global Institute, 2017</a></p></div> : <div className="-mt-3 lg:hidden"><PhotoStory slug="hero" /></div>}
           <HeroSearch />
           <div className="flex flex-wrap gap-4 text-sm text-ink-2">
             <span>✓ Fixed price</span><span>✓ Pay up front, monthly or from results</span><span>✓ Approve the test run or full refund</span>{PAYMENTS_LIVE && <span>✓ Secure Stripe checkout</span>}<span>✓ You own everything</span>
@@ -89,6 +90,8 @@ export default function Home() {
       </section>
 
       <ProblemButtons />
+
+      <WeekBack />
 
       <TradeGrid />
 

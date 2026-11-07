@@ -328,7 +328,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             {p.cat !== "Courses" && <div className="md:hidden"><QuickRead p={p} /></div>}
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
             {isBuild && <div className="text-[13.5px] leading-snug text-ink-2" data-testid="all-in">{p.monthly ? "per month" : "once"} + about $22/mo to n8n{usageShort(p) ? <> + {usageShort(p)}</> : null} (paid by you, at cost){p.run && !p.monthly ? <> + optional support from {fmt(runLow(p))}/mo</> : null}</div>}
-            {!p.monthly && p.price >= 500 && p.cat !== "Courses" && p.cat !== "DIY kits" && <Link href={`/ways-to-pay/#monthly`} className="text-[14px]" data-testid="from-monthly">or pay in instalments from {fmt(fromMonthly(p.price))}/mo · other ways to pay</Link>}
+            {!p.monthly && p.price >= 500 && p.cat !== "Courses" && p.cat !== "DIY kits" && <Link href={`/ways-to-pay/#monthly`} className="text-[14px]" data-testid="from-monthly">or spread the build cost: from {fmt(fromMonthly(p.price))}/mo (24 months, 20% deposit) · other ways to pay</Link>}
             {p.cat !== "Courses" && p.cat !== "DIY kits" && <div className="text-[15px]"><LiveBy days={p.days} /></div>}
             <div className="text-[18px] text-ok">Ready to start</div>
             {p.id === 120 ? (

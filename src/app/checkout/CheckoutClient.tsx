@@ -11,8 +11,8 @@ import { useCurrency } from "@/components/Currency";
 import { partnerName } from "@/data/partners";
 import { readTouches, sendLead } from "@/lib/attribution";
 
-const HEARD = ["Google search", "Google ad", "My accountant or bookkeeper", "A friend or another business owner", "You called or visited us", "Trade show or event", "YouTube or Facebook", "Other"];
-const guessHeard = (src: string, med: string, ref: string) => ref ? "My accountant or bookkeeper" : med === "cpc" ? "Google ad" : /organic/.test(src) ? "Google search" : /flyer|visit|call|door/.test(src) ? "You called or visited us" : /event|show/.test(src) ? "Trade show or event" : /meta|youtube/.test(src) ? "YouTube or Facebook" : "";
+const HEARD = ["Google search", "Google ad", "YouTube", "LinkedIn", "An email from us", "A phone call from us", "My accountant or bookkeeper", "A friend or another business owner", "We visited you", "Trade show or event", "Facebook or Instagram", "Other"];
+const guessHeard = (src: string, med: string, ref: string) => ref ? "My accountant or bookkeeper" : med === "cpc" ? "Google ad" : /youtube/.test(src) ? "YouTube" : /linkedin/.test(src) ? "LinkedIn" : /email|mail/.test(src + med) ? "An email from us" : /call|phone/.test(src) ? "A phone call from us" : /organic/.test(src) ? "Google search" : /flyer|visit|door/.test(src) ? "We visited you" : /event|show/.test(src) ? "Trade show or event" : /meta|facebook|instagram/.test(src) ? "Facebook or Instagram" : "";
 
 const TAX: Record<string, string> = { USD: "Plus sales tax where it applies.", GBP: "Plus VAT at 20% where it applies.", AUD: "Plus GST where it applies.", CAD: "Plus GST/HST where it applies." };
 const APPS = ["Gmail", "Outlook", "Slack", "Teams", "WhatsApp", "Xero", "QuickBooks", "Sage", "Zoho Books", "HubSpot", "Shopify", "Other"];

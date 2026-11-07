@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Subscribe } from "@/components/LeadBits";
 import CurrencySwitch, { CurrencyApplier } from "@/components/Currency";
 import { HeaderSearch, PlanLink } from "@/components/StoreBar";
 import "./globals.css";
@@ -8,7 +9,7 @@ import Attribution from "@/components/Attribution";
 import Analytics from "@/components/Analytics";
 import Assistant from "@/components/Assistant";
 import { SITE } from "@/lib/geo";
-import { PAYMENTS_LIVE } from "@/lib/launch";
+import { COMPANY, PAYMENTS_LIVE } from "@/lib/launch";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE + "/"),
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/library/" className="font-bold">☰ All automations</Link>
               <Link href="/#trades">Shop by trade</Link>
               <Link href="/starter/">Starter offer</Link>
+              <Link href="/menu/">Free priced menu</Link>
               <Link href="/services/">How we work</Link>
               <Link href="/ways-to-pay/">Ways to pay</Link>
               <Link href="/consulting/">Custom work & audit</Link>
@@ -64,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <Assistant />
         <footer className="mt-auto bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD] [&_a:hover]:text-white">
+          <div className="wrap border-b border-[#3A4553] py-8"><div className="max-w-[560px]"><Subscribe /></div></div>
           <div className="wrap grid grid-cols-2 gap-6 py-10 text-sm md:grid-cols-5">
             <div className="flex flex-col gap-2"><b className="text-white">Shop</b><Link href="/library/">All automations</Link><Link href="/#trades">Shop by business type</Link><Link href="/starter/">Starter offer</Link><Link href="/kits/">Industry & DIY kits</Link><Link href="/academy/">Courses</Link></div>
             <FooterFixes />
@@ -71,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex flex-col gap-2"><b className="text-white">Industries</b><Link href="/insurance/">Insurance</Link><Link href="/legal-firms/">Law firms</Link><Link href="/results/">Results panel</Link><Link href="/partners/">Partners</Link><Link href="/integrations/xero/">Xero</Link><Link href="/integrations/quickbooks/">QuickBooks</Link><Link href="/integrations/jobber/">Jobber</Link><Link href="/integrations/servicem8/">ServiceM8</Link><span className="flex gap-3"><Link href="/uk/">UK</Link><Link href="/au/">Australia</Link><Link href="/ca/">Canada</Link></span></div>
             <div className="flex flex-col gap-2"><b className="text-white">Policies</b><Link href="/legal/terms/">Terms</Link><Link href="/legal/refunds/">Refunds</Link><Link href="/legal/privacy/">Privacy</Link><Link href="/legal/dpa/">Data processing</Link><Link href="/#security">Security</Link></div>
           </div>
-          <div className="wrap border-t border-[#3A4553] py-4 text-[13px]">© 2026 TaskAutoMode · UK, Australian and Canadian pages show fixed local prices; other pages convert from US$ for guidance</div>
+          <div className="wrap border-t border-[#3A4553] py-4 text-[13px]" data-testid="company-line">{COMPANY.legalName ? <>{COMPANY.legalName}{COMPANY.regNumber && <> · Company no. {COMPANY.regNumber}</>}{COMPANY.address && <> · {COMPANY.address}</>}{COMPANY.email && <> · <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></>}{COMPANY.phone && <> · <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}>{COMPANY.phone}</a></>}<br /></> : <>Registered company name, number and address are added at launch.<br /></>}© 2026 TaskAutoMode · UK, Australian and Canadian pages show fixed local prices; other pages convert from US$ for guidance</div>
         </footer>
       </body>
     </html>
