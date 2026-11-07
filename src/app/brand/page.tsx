@@ -28,7 +28,7 @@ export default function BrandPage() {
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {FILES.map(([n, f, use]) => (
           <div key={f} className="card flex flex-col gap-3 p-5">
-            <div className={`flex min-h-[120px] items-center justify-center rounded-lg p-4 ${f.includes("dark") ? "bg-[#131921]" : "bg-white border border-line"}`}>
+            <div className={`flex min-h-[120px] items-center justify-center rounded-lg p-4 ${f.includes("dark") ? "bg-ink" : "bg-white border border-line"}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`${B}/brand/${f}.svg`} alt={n} className="max-h-[90px] max-w-full" />
             </div>

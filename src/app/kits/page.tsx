@@ -30,7 +30,7 @@ export default function KitsPage() {
               </ul>
               <div className="mt-auto"><b className="font-display text-2xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save 10% vs buying separately</span></div>
               <Link href={`/checkout/?plan=${k.ids.join(",")}`} className="btn btn-primary">Buy the kit</Link>
-              <AddToCart ids={k.ids} label="Add kit to cart" />
+              <AddToCart ids={k.ids} label="Add kit to my plan" />
             </div>
           );
         })}

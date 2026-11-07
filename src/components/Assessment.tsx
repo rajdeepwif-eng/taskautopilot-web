@@ -1,4 +1,5 @@
 "use client";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -65,7 +66,7 @@ export default function Assessment() {
                 <div className="text-[13px] text-muted">We&apos;d start with</div>
                 <div className="font-display text-[22px] font-bold">{rec.name} — {rec.price}</div>
               </div>
-              <Link href={`/checkout?plan=${rec.id}`} className="btn btn-primary">Buy this now →</Link>
+              <Link href={`/checkout?plan=${rec.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy this now →" : "Reserve this →"}</Link>
             </div>
             <label className="flex flex-col gap-1.5 text-sm font-medium">
               Not ready? Email me the plan instead

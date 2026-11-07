@@ -1,4 +1,5 @@
 "use client";
+import { PAYMENTS_LIVE } from "@/lib/launch";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -333,7 +334,7 @@ export default function PlannerClient() {
                   ))}
                 </div>
                 {discount > 0 && <div className="text-[14px] text-[#7FD1A8]">Includes 10% off for 3+ items: −{fmt(discount)}</div>}
-                <Link href={`/checkout/?plan=${ids.join(",")}`} onClick={() => savePlan(ids)} className="btn btn-primary">Buy these automations — {fmt(oneOff - discount)}{monthly ? ` + ${fmt(monthly)}/mo` : ""}</Link>
+                <Link href={`/checkout/?plan=${ids.join(",")}`} onClick={() => savePlan(ids)} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy" : "Reserve"} these automations — {fmt(oneOff - discount)}{monthly ? ` + ${fmt(monthly)}/mo` : ""}</Link>
                 <button type="button" onClick={shareLink} className="btn border border-paper bg-transparent text-paper">
                   {copied ? "✓ Link copied — send it to your partner or accountant" : "Copy a link to this plan"}
                 </button>

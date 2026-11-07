@@ -20,13 +20,13 @@ const RUN_LOG = [
   ["06:10", "New leads found and checked", "ok"],
   ["06:30", "Today's jobs sent to the team", "ok"],
   ["07:30", "Renewals due → tasks created", "ok"],
-  ["09:12", "Inbound inquiry → reply drafted", "review"],
+  ["09:12", "Inbound enquiry → reply drafted", "review"],
 ];
 
 const PACKAGES = [
   { name: "Try one automation", price: "$99", href: "/starter/", cta: "Pick yours", points: ["Missed calls, reviews, invoices to Excel and more", "Set up for you, runs for 30 days", "$99 credited if you upgrade", "Live in 5 business days"] },
   { name: "Never miss a lead", price: fmt(byId(10).price), href: "/checkout/?plan=10", cta: PAYMENTS_LIVE ? "Buy now" : "Reserve now", popular: true, points: ["Web, WhatsApp & social leads in one place", "Instant reply + booking link", "Team alert in 60 seconds", "Live in about 2 weeks"] },
-  { name: "Paid automation audit", price: "$499", href: "/checkout/?plan=0", cta: "Buy the audit", points: ["Recorded walkthrough of your tools", "Ranked plan: hours saved per workflow", "Fixed quotes for each build", "Fee credited if you build with us"] },
+  { name: "Paid automation audit", price: "$499", href: "/checkout/?plan=0", cta: PAYMENTS_LIVE ? "Buy the audit" : "Reserve the audit", points: ["Recorded walkthrough of your tools", "Ranked plan: hours saved per workflow", "Fixed quotes for each build", "Fee credited if you build with us"] },
 ];
 
 const FAQ = [
@@ -100,7 +100,7 @@ export default function Home() {
       {/* Packages */}
       <section id="packages" className="wrap flex flex-col gap-5 pt-16">
         <div className="kicker">Skip the sales call</div>
-        <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Start small. Fixed price. Pay online.</h2>
+        <h2 className="font-display m-0 text-[clamp(28px,4vw,36px)] font-bold tracking-tight">Start small. Fixed price. {PAYMENTS_LIVE ? "Pay online." : "Reserve online."}</h2>
         <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
           {PACKAGES.map((p) => (
             <div key={p.name} className={`flex min-w-[82%] shrink-0 snap-center flex-[1_1_280px] flex-col sm:min-w-0 sm:shrink ${p.popular ? "order-first sm:order-none" : ""} gap-3 rounded-[14px] p-6 ${p.popular ? "bg-ink text-paper" : "card"}`}>
@@ -117,7 +117,7 @@ export default function Home() {
           ))}
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/library" className="btn btn-dark">Browse the full catalog ({PRODUCTS.length}) →</Link>
+          <Link href="/library" className="btn btn-dark">Browse the full catalog ({PRODUCTS.filter((p) => p.cat !== "Courses" && p.cat !== "DIY kits").length} automations) →</Link>
           <AskButton label="Not sure? Tell us what you need" className="btn btn-outline" />
         </div>
       </section>

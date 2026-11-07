@@ -1,3 +1,4 @@
+import { PAYMENTS_LIVE } from "@/lib/launch";
 import Link from "next/link";
 import { byId, howItWorks , runLow } from "@/lib/catalogue";
 import { COUNTRIES, Country, localPrices, loc, money, SITE } from "@/lib/geo";
@@ -56,7 +57,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
               <p className="m-0 max-w-[680px] border-l-4 border-clay pl-3 text-[15px]"><b>{s.stat.text}</b> <a href={s.stat.url} rel="noopener" target="_blank" className="text-[13px]">{s.stat.source}</a></p>
             )}
             <div className="flex flex-wrap items-center gap-3">
-              <Link href={`/checkout/?plan=${main.id}`} className="btn btn-primary">Buy {L(main.name).toLowerCase()} — {fmt(main.price)}</Link>
+              <Link href={`/checkout/?plan=${main.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy" : "Reserve"} {L(main.name).toLowerCase()} — {fmt(main.price)}</Link>
               <AddToCart ids={[main.id]} />
               <Link href="/starter/" className="font-semibold text-ink">Or try one for {fmt(99)} →</Link>
             </div>

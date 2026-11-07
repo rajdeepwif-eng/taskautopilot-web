@@ -138,7 +138,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
             <input type="text" autoComplete="name" value={form.name} onChange={(e) => { setForm({ ...form, name: e.target.value }); setErr(""); }} placeholder="Sam Patel" data-testid="co-name" />
           </label>
           <label className="flex flex-col gap-1.5 text-sm text-ink-2">Phone <span className="text-muted">(optional — for a quick call if anything is unclear)</span>
-            <input type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+44 7700 900000" data-testid="co-phone" />
+            <input type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder={cur === "GBP" ? "+44 7700 900000" : cur === "AUD" ? "+61 4 1234 5678" : "+1 555 014 2290"} data-testid="co-phone" />
           </label>
         </div>
         <label className="flex flex-col gap-1.5 text-sm text-ink-2">

@@ -20,7 +20,7 @@ export function HeaderSearch() {
         type="search"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search — e.g. missed calls, invoices"
+        placeholder="Search automations"
         aria-label="Search automations"
         className="min-w-0 flex-1 !rounded-none !border-0 !px-3 !py-0 text-[15px] text-ink"
       />

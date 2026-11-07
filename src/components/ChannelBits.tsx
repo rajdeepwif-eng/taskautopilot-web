@@ -37,7 +37,7 @@ export function PricedMenu() {
       {!open ? (
         <form className="card flex flex-col gap-3 p-5" onSubmit={(e) => { e.preventDefault(); if (!name.trim()) return setErr("Add your name."); if (!/.+@.+\..+/.test(email)) return setErr("Add a valid email."); void sendLead("guide", { name, email, trade, guide: "priced-menu", marketingConsent: consent }); setOpen(true); }}>
           <label className="flex flex-col gap-1.5 text-[15px] font-semibold">Your business type
-            <select value={trade} onChange={(e) => setTrade(e.target.value)} data-testid="menu-trade">{TRADES.map((x) => <option key={x.slug} value={x.slug}>{x.name}</option>)}</select>
+            <select value={trade} onChange={(e) => setTrade(e.target.value)} data-testid="menu-trade" className="w-full min-w-0">{TRADES.map((x) => <option key={x.slug} value={x.slug}>{x.name}</option>)}</select>
           </label>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <label className="flex flex-col gap-1.5 text-[15px] font-semibold">Your name<input type="text" autoComplete="name" value={name} onChange={(e) => { setName(e.target.value); setErr(""); }} data-testid="menu-name" /></label>

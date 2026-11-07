@@ -253,7 +253,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
   if (weekly) {
     if (p.monthly) {
       const m = (weekly * 52) / 12;
-      payback = m >= p.price ? `Saves ${fmt(m - p.price)} a month after the fee` : `Costs ${fmt(p.price - m)} a month more than the time saved`;
+      payback = m >= p.price ? `Saves ${fmt(m - p.price)} a month after the fee` : `At these numbers it costs ${fmt(p.price - m)}/mo more than the time saved — add the hours it really takes, or the customers it brings in`;
     } else {
       const net = weekly - (runLow(p) * 12) / 52;
       if (net <= 0) payback = "At these numbers the monthly run plan costs more than the time saved — lower-cost options may suit you better.";
