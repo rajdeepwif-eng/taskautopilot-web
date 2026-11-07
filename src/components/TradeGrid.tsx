@@ -12,7 +12,7 @@ const kitPrice = (name: string) => { const k = BUNDLES.find((b) => b.name === na
 
 // Lead with the owner groups that earn the most (IRS-based study: Smith, Yagan, Zidar & Zwick, QJE 2019)
 // and need the most admin automated; the rest follow.
-const ORDER = ["trades", "clinics", "professional", "busy-professionals", "property", "equipment-hire", "manufacturing", "food-production", "restaurants", "logistics", "retail", "farming", "office-teams"];
+const ORDER = ["trades", "restaurants", "clinics", "professional", "property", "equipment-hire", "retail", "manufacturing", "busy-professionals", "food-production", "logistics", "farming", "office-teams"];
 
 export default function TradeGrid({ country = "us" }: { country?: Country } = {}) {
   const fmt = (n: number) => money(n, country);
@@ -33,7 +33,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             <div className="flex flex-col gap-0.5 p-3.5">
               <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{loc(t.name, country)}</span>
               <span className="text-[12.5px] text-muted">{loc(t.short, country)}</span>
-              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top, t.kit))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
+              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top, t.kit))}</b></span>
             </div>
           </Link>
         ))}
@@ -52,7 +52,7 @@ export default function TradeGrid({ country = "us" }: { country?: Country } = {}
             <div className="flex flex-col gap-0.5 p-3.5">
               <span className="font-display text-[17px] font-bold leading-tight group-hover:text-clay">{loc(t.name, country)}</span>
               <span className="text-[12.5px] text-muted">{loc(t.short, country)}</span>
-              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top, t.kit))}</b>{kitPrice(t.kit) > 0 && <> · Starter kit <b>{fmt(kitPrice(t.kit))}</b></>}</span>
+              <span className="mt-1 text-[13px]">Fixes from <b>{fmt(fromPrice(t.top, t.kit))}</b></span>
             </div>
           </Link>
         ))}

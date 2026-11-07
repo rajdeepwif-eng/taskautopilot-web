@@ -239,7 +239,7 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
               <div><b>We’ll need:</b> {pick.inputs.join(" · ")}</div>
               <div className="text-ink-2">Usually from: {pick.from}</div>
               <ol className="m-0 flex list-decimal flex-col gap-0.5 pl-5">{pick.steps.map((s) => <li key={s}>{s}</li>)}</ol>
-              {pick.native && <div className="rounded bg-white px-2 py-1 text-[12.5px]"><b>Honest tip:</b> {pick.native}</div>}
+              {pick.native && <div className="rounded bg-white px-2 py-1 text-[12.5px]"><b>Before you buy:</b> {pick.native}</div>}
             </div>
           ) : null}
           {pick ? (
