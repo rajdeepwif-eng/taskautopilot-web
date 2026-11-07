@@ -8,8 +8,8 @@ export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   return (
     <div className="lg:hidden">
-      <button type="button" aria-expanded={open} aria-label={open ? "Close menu" : "Menu"} onClick={() => setOpen(!open)} className="flex h-[42px] w-[42px] items-center justify-center rounded-lg border border-line bg-white" data-testid="menu-toggle">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">{open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}</svg>
+      <button type="button" aria-expanded={open} aria-label={open ? "Close menu" : "Menu"} onClick={() => setOpen(!open)} className="flex h-[42px] w-[42px] items-center justify-center rounded-lg border border-white/60 bg-transparent" data-testid="menu-toggle">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">{open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}</svg>
       </button>
       {open && (
         <div className="absolute inset-x-0 top-full z-40 border-b border-line bg-white shadow-lg" data-testid="menu-sheet">

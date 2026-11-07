@@ -36,13 +36,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutoMode", slogan: "Everyday tasks, automated for you", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
           { "@type": "WebSite", name: "TaskAutoMode", url: `${SITE}/`, potentialAction: { "@type": "SearchAction", target: `${SITE}/library/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
         ] }) }} />
-        <header className="sticky top-0 z-30 border-b border-line bg-white/95 backdrop-blur">
+        <header className="sticky top-0 z-30 bg-ink text-white shadow-[0_2px_8px_rgba(0,0,0,.25)]">
           <div className="mx-auto flex max-w-[1240px] items-center gap-3 px-4 py-2.5 sm:gap-5">
             <Link href="/" className="flex shrink-0 items-center rounded no-underline">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`${process.env.PAGES_BASE_PATH || ""}/logo-header-light.svg`} alt="TaskAutoMode — everyday tasks, automated for you" width={190} height={30} className="h-[26px] w-auto sm:h-[32px]" />
+              <img src={`${process.env.PAGES_BASE_PATH || ""}/logo-header.svg`} alt="TaskAutoMode — everyday tasks, automated for you" width={190} height={30} className="h-[26px] w-auto sm:h-[32px]" />
             </Link>
-            <nav className="hidden shrink-0 items-center gap-0.5 whitespace-nowrap text-[14px] font-medium lg:flex [&>a]:rounded-lg [&>a]:px-2.5 [&>a]:py-1.5 [&>a]:text-ink [&>a]:no-underline [&>a:hover]:bg-paper-2" aria-label="Main">
+            <nav className="hidden shrink-0 items-center gap-0.5 whitespace-nowrap text-[14px] font-medium lg:flex [&>a]:rounded-lg [&>a]:px-2.5 [&>a]:py-1.5 [&>a]:text-white [&>a]:no-underline [&>a:hover]:bg-white/15" aria-label="Main">
               <Link href="/library/">All automations</Link>
               <Link href="/#trades">By business type</Link>
               <Link href="/starter/">$99 starter</Link>

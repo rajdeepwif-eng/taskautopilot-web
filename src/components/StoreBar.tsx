@@ -13,7 +13,7 @@ export function HeaderSearch() {
   return (
     <form
       role="search"
-      className="flex h-[42px] min-w-0 flex-1 overflow-hidden rounded-xl border border-line bg-white focus-within:border-ink"
+      className="flex h-[42px] min-w-0 flex-1 overflow-hidden rounded-xl bg-white focus-within:ring-2 focus-within:ring-amber"
       onSubmit={(e) => { e.preventDefault(); router.push(`/library/?q=${encodeURIComponent(q)}`); try { window.dispatchEvent(new CustomEvent("ta-search", { detail: q })); } catch { /* ignore */ } }}
     >
       <input
@@ -24,8 +24,8 @@ export function HeaderSearch() {
         aria-label="Search automations"
         className="min-w-0 flex-1 !rounded-none !border-0 !px-3 !py-0 text-[15px] text-ink"
       />
-      <button type="submit" aria-label="Search" className="flex w-11 cursor-pointer items-center justify-center border-0 bg-paper-2 hover:bg-line">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14213D" strokeWidth="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+      <button type="submit" aria-label="Search" className="flex w-11 cursor-pointer items-center justify-center border-0 bg-amber hover:bg-clay">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
       </button>
     </form>
   );
@@ -43,7 +43,7 @@ export function PlanLink() {
   }, []);
   if (!ids.length) return null;
   return (
-    <Link href={`/checkout/?plan=${ids.join(",")}`} className="flex h-[42px] shrink-0 items-center gap-1.5 rounded-lg border border-ink bg-white px-3 text-[14px] font-semibold text-ink no-underline" aria-label={`Your plan, ${ids.length} items — go to checkout`} data-testid="plan-link">
+    <Link href={`/checkout/?plan=${ids.join(",")}`} className="flex h-[42px] shrink-0 items-center gap-1.5 rounded-lg border border-white/60 px-3 text-[14px] font-semibold text-white no-underline hover:bg-white/15" aria-label={`Your plan, ${ids.length} items — go to checkout`} data-testid="plan-link">
       <span>Your plan</span><span className="rounded-full bg-clay px-2 py-0.5 text-[12px] text-white">{ids.length}</span>
     </Link>
   );
