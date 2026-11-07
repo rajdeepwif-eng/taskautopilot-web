@@ -308,7 +308,7 @@ export default function PlannerClient() {
         <aside id="plan-result" className="flex min-w-0 scroll-mt-20 flex-[1_1_380px] flex-col gap-4 lg:sticky lg:top-4">
           <div className="flex flex-col gap-4 rounded-2xl bg-ink p-6 text-paper">
             <div className="font-display text-2xl font-bold">Your plan</div>
-            {chosen.length > 0 && <div className="rounded-lg bg-[#232F3E] px-3 py-2 text-[15px] font-semibold text-amber" aria-live="polite">{chosen.length} automation{chosen.length === 1 ? "" : "s"} · pays back in {payback} wk{payback === 1 ? "" : "s"} · {fmt(oneOff - discount)} to build</div>}
+            {chosen.length > 0 && <div className="rounded-lg bg-ink px-3 py-2 text-[15px] font-semibold text-amber" aria-live="polite">{chosen.length} automation{chosen.length === 1 ? "" : "s"} · pays back in {payback} wk{payback === 1 ? "" : "s"} · {fmt(oneOff - discount)} to build</div>}
             {chosen.length === 0 ? (
               <div className="text-[#C9C7C0]">Tick at least one task, or raise the budget.</div>
             ) : (

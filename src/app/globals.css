@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* Retail-store type: one plain, fast system sans for everything (no web-font download). */
-  --font-inter: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  --font-space-grotesk: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  --font-jetbrains: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  /* Headings: Bricolage Grotesque (loaded at runtime from Google Fonts, swap); body: fast system sans. */
+  --font-inter: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-space-grotesk: "Bricolage Grotesque", "Avenir Next", "Segoe UI Variable Display", ui-sans-serif, system-ui, Arial, sans-serif;
+  --font-jetbrains: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
 @theme inline {
-  --color-paper: #EAEDED;
-  --color-paper-2: #E3E6E6;
-  --color-ink: #0F1111;
-  --color-ink-2: #333333;
-  --color-muted: #565959;
-  --color-line: #D5D9D9;
-  --color-clay: #B4461A;
-  --color-clay-soft: #FEF8F2;
-  --color-amber: #FEBD69;
-  --color-ok: #007600;
+  --color-paper: #FAF7F2;
+  --color-paper-2: #F1ECE4;
+  --color-ink: #14213D;
+  --color-ink-2: #3A4256;
+  --color-muted: #6B7280;
+  --color-line: #E3DED6;
+  --color-clay: #C9520F;
+  --color-clay-soft: #FDF1E8;
+  --color-amber: #E8641B;
+  --color-ok: #1E7F4F;
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-jetbrains);
@@ -27,14 +27,14 @@ html, body { overflow-x: hidden; }
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 @layer base {
-  a { color: #007185; }
-  a:hover { color: #C7511F; }
-  h1, h2, h3 { letter-spacing: -0.01em; }
+  a { color: #0F5C8C; }
+  a:hover { color: #C9520F; }
+  h1, h2, h3 { letter-spacing: -0.015em; font-family: var(--font-display); }
 }
 
 .wrap {
@@ -47,8 +47,10 @@ body {
 @layer components {
 main p a:not(.btn), main li a:not(.btn) { text-decoration: underline; text-underline-offset: 2px; }
 .kicker {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--color-clay);
 }
 
@@ -58,37 +60,39 @@ main p a:not(.btn), main li a:not(.btn) { text-decoration: underline; text-under
   justify-content: center;
   min-height: 48px;
   padding: 0 22px;
-  border-radius: 100px;
-  font-weight: 400;
-  font-size: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15.5px;
   text-decoration: none;
   cursor: pointer;
+  transition: background .15s, box-shadow .15s;
 }
-/* Shop-style buttons: orange "Buy now", yellow "Add to plan". */
-.btn-primary, a.btn-primary { background: #FFA41C; border: 1px solid #FF8F00; color: #0F1111; }
-.btn-primary:hover, a.btn-primary:hover { background: #FA8900; color: #0F1111; }
-.btn-cart, a.btn-cart { background: #FFD814; border: 1px solid #FCD200; color: #0F1111; }
-.btn-cart:hover, a.btn-cart:hover { background: #F7CA00; color: #0F1111; }
-.btn-dark, a.btn-dark { background: #232F3E; color: #fff; }
-.btn-dark:hover, a.btn-dark:hover { background: #37475A; color: #fff; }
-.btn-outline, a.btn-outline { border: 1px solid #D5D9D9; color: #0F1111; background: #fff; box-shadow: 0 2px 5px rgba(213,217,217,.5); }
-.btn-outline:hover, a.btn-outline:hover { background: #F7FAFA; color: #0F1111; }
+/* One orange we own. Primary = the action; outline = the quieter choice. */
+.btn-primary, a.btn-primary { background: #E8641B; border: 1px solid #E8641B; color: #fff; box-shadow: 0 2px 8px rgba(232,100,27,.28); }
+.btn-primary:hover, a.btn-primary:hover { background: #C9520F; border-color: #C9520F; color: #fff; }
+.btn-cart, a.btn-cart { background: #fff; border: 1.5px solid #14213D; color: #14213D; }
+.btn-cart:hover, a.btn-cart:hover { background: #F1ECE4; color: #14213D; }
+.btn-dark, a.btn-dark { background: #14213D; border: 1px solid #14213D; color: #fff; }
+.btn-dark:hover, a.btn-dark:hover { background: #0D162B; color: #fff; }
+.btn-outline, a.btn-outline { border: 1.5px solid #14213D; color: #14213D; background: #fff; }
+.btn-outline:hover, a.btn-outline:hover { background: #F1ECE4; color: #14213D; }
 
 .card {
   background: #fff;
   border: 1px solid var(--color-line);
-  border-radius: 8px;
+  border-radius: 14px;
 }
 
 }
 
 input, select, textarea {
-  border: 1px solid #C9C5B9;
-  border-radius: 8px;
+  border: 1px solid #CFC8BC;
+  border-radius: 10px;
   padding: 12px;
   font-size: 16px;
   background: #fff;
 }
+input:focus, select:focus, textarea:focus { outline: 2px solid #E8641B; outline-offset: 1px; }
 
 /* Printing the sales kit flyer: only the flyer prints. */
 @media print {

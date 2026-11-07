@@ -12,8 +12,8 @@ const FILES: [string, string, string][] = [
   ["Browser-tab icon", "taskautomode-favicon", "16–32 px only"],
 ];
 const COLOURS: [string, string, string][] = [
-  ["Navy", "#131921", "text, dark backgrounds"],
-  ["Orange", "#FF9900", "switch and 'AutoMode' on dark"],
+  ["Ink", "#14213D", "text, dark backgrounds"],
+  ["Orange", "#E8641B", "switch and 'AutoMode' on dark"],
   ["Deep orange", "#D9730D", "switch and 'AutoMode' on white (readable)"],
   ["White", "#FFFFFF", "knob, text on dark"],
   ["Slate", "#4A5360", "tagline on white"],

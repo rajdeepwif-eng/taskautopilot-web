@@ -54,7 +54,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const fmtDue = (n: number) => (planX ? cx.local(n) : fmt(n));
 
   const pay = () => {
-    if (!items.length) return setErr("Your cart is empty — add something from the shop first.");
+    if (!items.length) return setErr("Nothing selected yet — pick an automation first.");
     if (!form.name.trim()) return setErr("Please add your name.");
     if (!/.+@.+\..+/.test(form.email)) return setErr("Please add a valid work email.");
     if (!terms) return setErr("Please accept the terms to continue.");
@@ -67,8 +67,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   if (paid) {
     return (
       <main className="mx-auto flex max-w-[760px] flex-col gap-5 px-6 py-14">
-        <h1 className="font-display m-0 text-4xl font-bold">Reserved — card payments open soon.</h1>
-        <p className="m-0 text-lg text-ink-2">We&apos;re finishing our secure Stripe checkout. <b>Nothing has been charged.</b> Here&apos;s exactly what will happen once you pay — nobody needs to call you.</p>
+        <h1 className="font-display m-0 text-4xl font-bold">Reserved — your build slot is held.</h1>
+        <p className="m-0 text-lg text-ink-2"><b>Nothing has been charged.</b> We&apos;ll email you within 1 working day to confirm the slot and, if you like, a 15-minute call to check the details. Card payment opens within two weeks; here&apos;s what happens once you pay.</p>
         {[
           ["01", "Now — 10-minute setup form.", "Tell us your apps and who signs off. You connect apps later with their own secure logins — no passwords shared."],
           ["02", "Build starts.", "You get a progress update at each step, and one point of contact."],
@@ -90,13 +90,13 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
     <main className="wrap flex flex-wrap items-start gap-8 pt-10 pb-32 lg:pb-20">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-6">
         <h1 className="font-display m-0 text-[clamp(30px,4vw,40px)] font-bold tracking-tight">One minute, then we take it from here.</h1>
-        <div className="text-[15px] text-ink-2">{PAYMENTS_LIVE ? "Pay now; tell us about your apps and team on a 10-minute setup form afterwards." : "Card payments open at launch. Reserve your build now — nothing is charged today."}</div>
+        <div className="text-[15px] text-ink-2">{PAYMENTS_LIVE ? "Pay now; tell us about your apps and team on a 10-minute setup form afterwards." : "Card payments open within the next two weeks. Reserve your build slot now — nothing is charged until you confirm."}</div>
 
         <div className="card flex flex-col gap-3 p-5">
-          <div className="flex items-baseline justify-between"><div className="font-bold">Your order</div><Link href="/library/" className="text-sm">Edit cart</Link></div>
+          <div className="flex items-baseline justify-between"><div className="font-bold">Your order</div><Link href="/library/" className="text-sm">Change</Link></div>
           {items.length === 0 && <div className="text-ink-2">Nothing selected. <Link href="/library">Browse the shop →</Link></div>}
           {items.map((p) => (
-            <div key={p.id} className="flex justify-between gap-3 border-b border-line pb-2"><span>{p.name}{p.run && <span className="block text-[13px] text-muted">Optional Run Lite support: {fmt(runLow(p))}/mo</span>}</span><span className="whitespace-nowrap">{priceLabel(p)}</span></div>
+            <div key={p.id} className="flex justify-between gap-3 border-b border-line pb-2"><span>{p.name}{p.run && tier !== "none" && <span className="block text-[13px] text-muted">Support plan from {fmt(runLow(p))}/mo</span>}</span><span className="whitespace-nowrap">{priceLabel(p)}</span></div>
           ))}
           {items.some((p) => p.run) && (<>
             <div className="mt-1.5 font-bold">Keep it running <span className="font-normal text-muted">(optional · 6-month minimum, then month to month)</span></div>

@@ -87,7 +87,7 @@ const DEMOS: Record<string, { title: string; steps: Step[] }> = {
 const BUBBLE: Record<Step["from"], string> = {
   them: "self-end bg-[#DCF3D9] text-ink",
   auto: "self-start bg-white text-ink",
-  you: "self-stretch border border-amber bg-[#232F3E] text-amber",
+  you: "self-stretch border border-amber bg-ink text-amber",
   system: "self-center bg-transparent text-[#A9ADB4] text-[13px] text-center",
 };
 const WHO: Record<Step["from"], string> = { them: "Customer", auto: "Automation", you: "You", system: "" };
@@ -115,7 +115,7 @@ export default function FixDemo({ slug, country = "us", biz = "Northside Service
     <div className="flex flex-col gap-3 rounded-2xl bg-ink p-5 text-paper">
       <div className="flex items-baseline justify-between gap-3">
         <div className="font-display text-lg font-bold">See it run: {demo.title}</div>
-        <span className="whitespace-nowrap rounded bg-[#232F3E] px-2 py-0.5 text-[11px] text-[#A9ADB4]">Demo · sample data</span>
+        <span className="whitespace-nowrap rounded bg-ink px-2 py-0.5 text-[11px] text-[#A9ADB4]">Demo · sample data</span>
       </div>
       <div ref={box} className="flex max-h-[380px] min-h-[200px] flex-col gap-2 overflow-y-auto rounded-xl bg-[#1B232E] p-3" aria-live="polite">
         {demo.steps.slice(0, shown).map((s, i) => (

@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import PhotoStory from "@/components/PhotoStory";
 import ServicesView from "@/components/ServicesView";
 import { alternates, seoTitle } from "@/lib/geo";
-import HeroSearch from "@/components/HeroSearch";
 import TradeGrid from "@/components/TradeGrid";
 import heroImg from "@/assets/hero.jpg";
-import OwnAutomations from "@/components/OwnAutomations";
+import OwnAutomations, { LIVE_WORKFLOWS } from "@/components/OwnAutomations";
 import Link from "next/link";
 import { HERO_VIDEO_URL, PAYMENTS_LIVE } from "@/lib/launch";
 import { AskButton, ProblemButtons } from "@/components/FrontDoor";
@@ -54,26 +53,27 @@ export default function Home() {
       <section className="relative overflow-hidden bg-white">
       <div className="wrap relative flex flex-wrap items-center gap-10 pt-10 pb-12">
         <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-5">
-          <div className="kicker">Everyday tasks, automated for you · built by business owners</div>
-<h1 className="font-display m-0 text-[clamp(38px,6vw,56px)] font-bold leading-[1.04] tracking-tight">
-            <span className="inline-flex items-center gap-3"><SwitchOn size={44} />Switch on.</span><br />Get your time back.
+          <div className="kicker">Everyday tasks, automated for you</div>
+          <h1 className="m-0 text-[clamp(36px,5.6vw,58px)] font-bold leading-[1.02] tracking-tight">
+            <span className="inline-flex items-center gap-3"><SwitchOn size={36} />Switch on.</span><br />Get your week back.
           </h1>
-          <p className="m-0 max-w-[600px] text-xl leading-normal text-ink-2">
-            Tell us what you want to stop doing by hand. We show you how it would work, the fixed price, and build it around the way you already work — most live in 1–3 weeks.
+          <p className="m-0 max-w-[560px] text-[19px] leading-normal text-ink-2">
+            Tell us the job you want off your plate. We show you how it would run, give you a fixed price, and build it around how you already work — most live in 1–3 weeks.
           </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <AskButton />
-            <Link href="#trades" className="btn btn-outline">Show me fixes for my business</Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <AskButton label="Get a price" />
+            <Link href="/library/" className="btn btn-outline">Browse {PRODUCTS.filter((p) => p.cat !== "Courses" && p.cat !== "DIY kits").length} priced automations</Link>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          {HERO_VIDEO_URL ? <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" /> : <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-lg object-cover lg:hidden" />}
-          {HERO_VIDEO_URL ? <div className="lg:hidden"><p className="m-0 mt-2 text-[12px] leading-snug text-muted" data-testid="hero-sources">Figures in the film are industry benchmarks, not promises. Sources: <a href="https://scholarsarchive.byu.edu/facpub/9711" rel="noopener">Harvard Business Review, 2011</a> · <a href="https://payablesplace.ardentpartners.com/?p=9521" rel="noopener">Ardent Partners, 2024</a> · <a href="https://www.mckinsey.com/capabilities/operations/our-insights/harnessing-automation-for-a-future-that-works" rel="noopener">McKinsey Global Institute, 2017</a></p></div> : <div className="-mt-3 lg:hidden"><PhotoStory slug="hero" /></div>}
-          <HeroSearch />
-          <div className="flex flex-wrap gap-4 text-sm text-ink-2">
-            <span>✓ Fixed price</span><span>✓ Pay up front, monthly or from results</span><span>✓ Approve the test run or full refund</span>{PAYMENTS_LIVE && <span>✓ Secure Stripe checkout</span>}<span>✓ You own everything</span>
-          </div>
-          <Link href="/starter/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border-2 border-clay bg-white/90 px-4 py-3 text-ink no-underline">
-            <span><b>New here? Try one automation for $99.</b> <span className="text-ink-2">Set up for you, runs 30 days, $99 credited if you upgrade.</span></span>
+          {HERO_VIDEO_URL ? <video src={HERO_VIDEO_URL} poster={heroImg.src} autoPlay muted loop playsInline aria-hidden="true" className="aspect-[3/2] w-full rounded-xl object-cover lg:hidden" /> : <img src={heroImg.src} srcSet={SRCSET.hero} sizes="100vw" fetchPriority="high" alt="" aria-hidden="true" className="aspect-[3/2] w-full rounded-xl object-cover lg:hidden" />}
+          <ul className="m-0 grid list-none grid-cols-2 gap-x-6 gap-y-2 p-0 text-[14.5px] text-ink-2 sm:grid-cols-4" data-testid="proof-strip">
+            <li><b className="block text-ink">Fixed price</b>quoted before you commit</li>
+            <li><b className="block text-ink">Approve the test run</b>or a full refund</li>
+            <li><b className="block text-ink">{LIVE_WORKFLOWS} automations</b>running in our own two companies</li>
+            <li><b className="block text-ink">You own it</b>your accounts, your data, documented</li>
+          </ul>
+          <Link href="/starter/" className="flex max-w-[620px] items-center justify-between gap-3 rounded-xl border border-line bg-paper px-4 py-3 text-ink no-underline hover:border-ink">
+            <span><b>New here? Try one for $99.</b> <span className="text-ink-2">Set up for you, runs 30 days, credited if you upgrade.</span></span>
             <span className="whitespace-nowrap font-semibold text-clay">Pick yours →</span>
           </Link>
         </div>
