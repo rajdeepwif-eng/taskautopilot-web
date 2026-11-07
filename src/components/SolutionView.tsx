@@ -12,11 +12,11 @@ import { AUDIENCE } from "@/components/TradeFixView";
 
 const SHORT: Record<string, Partial<Record<Country, string>>> = {
   "get-paid-faster": { us: "Invoice reminder automation + free email templates", ca: "Automated invoice reminders for Canadian firms", uk: "Credit control automation for Xero & QuickBooks", au: "Automatic invoice reminders for tradies (Xero)" },
-  "missed-calls": { us: "Missed call text back service for contractors", ca: "Missed call text back & AI receptionist Canada", uk: "Missed call text back & AI receptionist UK", au: "Missed call text back & AI receptionist for tradies" },
+  "missed-calls": { us: "Missed call text back for trades, cafés & clinics", ca: "Missed call text back & AI receptionist Canada", uk: "Missed call text back & AI receptionist UK", au: "Missed call text back & AI receptionist for tradies" },
   "quote-follow-up": { us: "Quote follow up automation + email templates", ca: "Quote follow up automation + templates (Canada)", uk: "Quote follow up automation for UK trades", au: "Quote follow up for tradies + email templates" },
   "google-reviews": { us: "Automate Google review requests", ca: "Automate Google review requests in Canada", uk: "Automate Google review requests (UK)", au: "Automate Google reviews for tradies" },
   "admin-hours": { us: "QuickBooks & Xero bank reconciliation automation", ca: "Xero bank reconciliation automation (Canada)", uk: "Invoice processing & Xero bank reconciliation", au: "Xero bank reconciliation automation (Australia)" },
-  "ai-receptionist": { us: "AI receptionist for contractors & small businesses", ca: "AI receptionist for Canadian small businesses", uk: "AI receptionist for UK small businesses", au: "AI receptionist for tradies (Australia)" },
+  "ai-receptionist": { us: "AI receptionist for any small business", ca: "AI receptionist for Canadian small businesses", uk: "AI receptionist for UK small businesses", au: "AI receptionist for tradies (Australia)" },
   "profit-dashboard": { us: "Small business profit dashboard & monthly reports", ca: "Profit dashboard for Canadian small businesses", uk: "Management accounts pack & profit dashboard", au: "Monthly management reports & profit dashboard" },
 };
 /** Search-result title: ≤60 characters so Google doesn't cut it; brand added only when it fits. */

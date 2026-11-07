@@ -82,6 +82,12 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   const matches = useMemo(() => matchBriefs(said), [said]);
   useEffect(() => { if (open && !inline) panel.current?.focus(); }, [open, inline, step]);
   useEffect(() => { if (!open || inline) return; const k = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); }; window.addEventListener("keydown", k); return () => window.removeEventListener("keydown", k); }, [open, inline]);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const sc = () => setScrolled(window.scrollY > 420);
+    sc(); window.addEventListener("scroll", sc, { passive: true });
+    return () => window.removeEventListener("scroll", sc);
+  }, []);
   useEffect(() => {
     const on = () => { setTalk(true); setOpen(true); };
     window.addEventListener("ta:talk", on);
@@ -338,8 +344,8 @@ export default function Assistant({ inline = false }: { inline?: boolean }) {
   return (
     <>
       {!open && (
-        <button type="button" onClick={() => setOpen(true)} data-testid="assistant-open" aria-label="Chat with us — plan my automation" className="fixed bottom-[84px] right-4 z-40 flex min-h-[52px] cursor-pointer items-center gap-2 rounded-full border-2 border-white bg-clay px-5 text-[15px] font-bold text-white shadow-[0_6px_24px_rgba(0,0,0,0.35)] md:bottom-6">
-          <span aria-hidden className="text-[18px]">💬</span><span className="sm:hidden">Chat with us</span><span className="hidden sm:inline">Chat with us — get a price</span>
+        <button type="button" onClick={() => setOpen(true)} data-testid="assistant-open" aria-label="Chat with us — plan my automation" className={`fixed bottom-[84px] right-4 z-40 flex min-h-[52px] cursor-pointer items-center gap-2 rounded-full border-2 border-white bg-clay ${scrolled ? "px-5" : "px-4 sm:px-5"} text-[15px] font-bold text-white shadow-[0_6px_24px_rgba(0,0,0,0.35)] md:bottom-6`}>
+          <span aria-hidden className="text-[18px]">💬</span><span className={scrolled ? "sm:hidden" : "hidden"}>Chat with us</span><span className="hidden sm:inline">Chat with us — get a price</span>
         </button>
       )}
       {open && (

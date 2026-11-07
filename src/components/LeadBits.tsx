@@ -63,3 +63,27 @@ export function Subscribe() {
     </form>
   );
 }
+
+/**
+ * One-field capture for visitors who aren't ready: "email me this page/price/figure".
+ * Legitimate-interest reply to their own request; offers need the (unticked) consent box.
+ */
+export function EmailMe({ what, kind, data, label = "Email me this", cta = "Send", className = "" }: { what: string; kind: string; data: Record<string, unknown>; label?: string; cta?: string; className?: string }) {
+  const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [done, setDone] = useState(false);
+  const [err, setErr] = useState("");
+  if (done) return <p className={`m-0 rounded-lg bg-[#E9F5E9] px-3 py-2 text-[13.5px] ${className}`} data-testid="emailme-done">Sent to {email} — check your inbox in a few minutes.</p>;
+  return (
+    <form className={`flex flex-col gap-2 rounded-xl border border-line bg-white p-3 ${className}`} data-testid="emailme" onSubmit={(e) => { e.preventDefault(); if (!/.+@.+\..+/.test(email)) return setErr("Enter a valid email."); void sendLead(kind, { email, marketingConsent: consent, what, ...data }); setDone(true); }}>
+      <b className="text-[14px]">{label}</b>
+      <span className="text-[12.5px] text-muted">{what} — so you can come back to it or forward it to whoever decides.</span>
+      <div className="flex gap-2">
+        <input type="email" required autoComplete="email" value={email} onChange={(e) => { setEmail(e.target.value); setErr(""); }} placeholder="you@business.com" aria-label="Email address" className="min-w-0 flex-1" data-testid="emailme-email" />
+        <button type="submit" className="btn btn-primary !min-h-[38px] !px-4 !text-[13.5px]">{cta}</button>
+      </div>
+      <ConsentBox checked={consent} onChange={setConsent} id={`consent-${kind}`} />
+      {err && <span role="alert" className="text-[12.5px] font-semibold text-[#B12704]">{err}</span>}
+    </form>
+  );
+}

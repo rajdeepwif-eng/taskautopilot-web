@@ -11,6 +11,7 @@ import { CatArt } from "@/components/CatArt";
 import { PAYMENTS_LIVE } from "@/lib/launch";
 import { LiveBy } from "@/components/StoreBar";
 import { BuyingGuide, FlowPicture, KitGuide, QuickRead, StartFrom } from "@/components/BuyingGuide";
+import { EmailMe } from "@/components/LeadBits";
 import { BUG_DAYS, TWEAK_DAYS, usageShort } from "@/lib/buying";
 import { SITE } from "@/lib/geo";
 import {
@@ -338,6 +339,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
               <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link>
               {isBuild && <button type="button" className="btn border border-line bg-white text-ink" onClick={() => window.dispatchEvent(new CustomEvent("ta:talk"))} data-testid="buy-talk">Not sure? Book a free call</button>}
             </>)}
+            <EmailMe what={`${p.name} — ${priceLabel(p)}, how it works and what it needs`} kind="email-page" data={{ productId: p.id, product: p.name, price: p.price }} label="Not today? Email me this page" />
             <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-[13px]"><span className="text-muted">Built by</span><span>TaskAutoMode</span><span className="text-muted">Payment</span><span>{PAYMENTS_LIVE ? "Secure transaction · Stripe" : "Stripe checkout opens at launch"}</span>{!p.monthly && p.cat !== "Courses" && p.cat !== "DIY kits" && <><span className="text-muted">Guarantee</span><span>Approve the test run or full refund of the build fee</span></>}{p.monthly && <><span className="text-muted">Guarantee</span><span>Not right? We redo it free</span></>}</div>
             {p.cat !== "Courses" && p.cat !== "DIY kits" && p.id !== 120 && <ol className="m-0 flex flex-col gap-0.5 rounded-lg bg-paper px-4 py-3 text-[13px] text-ink-2" data-testid="what-next"><b className="text-ink">What happens after you reserve</b><li>10-minute setup form — no call needed (book one if you’d like)</li><li>We build it in your own accounts</li><li>You approve a test run before go-live</li><li>Live, with a handover and results panel</li></ol>}
             <div className="text-sm leading-relaxed text-ink-2">

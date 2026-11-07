@@ -10,6 +10,7 @@ import { trackConversion } from "@/components/Analytics";
 import { useCurrency } from "@/components/Currency";
 import { partnerName } from "@/data/partners";
 import { readTouches, sendLead } from "@/lib/attribution";
+import { ConsentBox } from "@/components/LeadBits";
 
 const HEARD = ["Google search", "Google ad", "YouTube", "LinkedIn", "An email from us", "A phone call from us", "My accountant or bookkeeper", "A friend or another business owner", "We visited you", "Trade show or event", "Facebook or Instagram", "Other"];
 const guessHeard = (src: string, med: string, ref: string) => ref ? "My accountant or bookkeeper" : med === "cpc" ? "Google ad" : /youtube/.test(src) ? "YouTube" : /linkedin/.test(src) ? "LinkedIn" : /email|mail/.test(src + med) ? "An email from us" : /call|phone/.test(src) ? "A phone call from us" : /organic/.test(src) ? "Google search" : /flyer|visit|door/.test(src) ? "We visited you" : /event|show/.test(src) ? "Trade show or event" : /meta|facebook|instagram/.test(src) ? "Facebook or Instagram" : "";
@@ -37,6 +38,8 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const t = items.some((p) => p.run) ? TIERS.find((x) => x.id === tier)! : TIERS[0];
   const [cur, setCur] = useState("USD");
   const [heard, setHeard] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [started, setStarted] = useState(false);
   const [payPlan, setPayPlan] = useState(0); // 0 = pay in full, else months
   const [refCode, setRefCode] = useState("");
   useEffect(() => { const { first, last } = readTouches(); const t = last || first; if (t) { setRefCode(t.ref || first?.ref || ""); setHeard(guessHeard(t.source, t.medium, t.ref || first?.ref || "")); } }, []);
@@ -52,10 +55,11 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
 
   const pay = () => {
     if (!items.length) return setErr("Your cart is empty — add something from the shop first.");
+    if (!form.name.trim()) return setErr("Please add your name.");
     if (!/.+@.+\..+/.test(form.email)) return setErr("Please add a valid work email.");
     if (!terms) return setErr("Please accept the terms to continue.");
     // TODO: create a Stripe Checkout Session (test mode) via an API route, then redirect.
-    void sendLead("reservation", { items: items.map((p) => p.id), tier, total, currency: cur, email: form.email, heard, refCode, payPlan });
+    void sendLead("reservation", { items: items.map((p) => p.id), tier, total, currency: cur, name: form.name, email: form.email, phone: form.phone, company: form.company, marketingConsent: consent, heard, refCode, payPlan });
     trackConversion(total, "USD");
     setPaid(true);
   };
@@ -129,10 +133,19 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         <div className="flex items-baseline justify-between border-t border-line pt-3"><span className="text-muted">{planX ? (PAYMENTS_LIVE ? "Deposit due today" : "Deposit — you pay when checkout opens") : PAYMENTS_LIVE ? "Due today" : "Total — you confirm and pay when checkout opens"}</span><span className="text-4xl font-bold text-[#B12704]" data-testid="due-now" data-nocurrency={planX ? true : undefined}>{fmtDue(dueNow)}</span></div>
         {planX && <div className="text-[13px] text-ink-2" data-testid="due-later" data-nocurrency>Then {payPlan} monthly payments of {cx.local(planX.monthly)} — {cx.local(planX.total + extrasLocal)} in total.</div>}
         <div className="text-[13px] text-muted">{TAX[cur] ?? TAX.USD} Running costs are paid by you directly, at cost: n8n from about €20/mo (roughly $22), plus call minutes, texts or AI use where a build uses them.</div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <label className="flex flex-col gap-1.5 text-sm text-ink-2">Your name
+            <input type="text" autoComplete="name" value={form.name} onChange={(e) => { setForm({ ...form, name: e.target.value }); setErr(""); }} placeholder="Sam Patel" data-testid="co-name" />
+          </label>
+          <label className="flex flex-col gap-1.5 text-sm text-ink-2">Phone <span className="text-muted">(optional — for a quick call if anything is unclear)</span>
+            <input type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+44 7700 900000" data-testid="co-phone" />
+          </label>
+        </div>
         <label className="flex flex-col gap-1.5 text-sm text-ink-2">
           {PAYMENTS_LIVE ? "Email for your receipt and setup form" : "Email to reserve your build"}
-          <input type="email" value={form.email} onChange={(e) => { setForm({ ...form, email: e.target.value }); setErr(""); }} placeholder="you@company.com" />
+          <input type="email" autoComplete="email" value={form.email} onChange={(e) => { setForm({ ...form, email: e.target.value }); setErr(""); }} onBlur={() => { if (!started && /.+@.+\..+/.test(form.email)) { setStarted(true); void sendLead("checkout-started", { items: items.map((p) => p.id), total, currency: cur, name: form.name, email: form.email, phone: form.phone, refCode }); } }} placeholder="you@company.com" data-testid="co-email" />
         </label>
+        <ConsentBox checked={consent} onChange={setConsent} id="consent-checkout" />
         <label className="flex flex-col gap-1.5 text-sm text-ink-2">
           How did you hear about us? <span className="text-muted">(optional)</span>
           <select value={heard} onChange={(e) => setHeard(e.target.value)}>
