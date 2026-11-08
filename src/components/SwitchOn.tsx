@@ -14,7 +14,7 @@ export default function SwitchOn({ size = 44 }: { size?: number }) {
   const w = Math.round(size * 1.82);
   return (
     <svg width={w} height={size} viewBox="0 0 200 110" aria-hidden="true" className="inline-block shrink-0 align-middle">
-      <rect width="200" height="110" rx="55" fill={on ? "#E8641B" : "#C9CDD3"} style={{ transition: "fill 400ms ease" }} />
+      <rect width="200" height="110" rx="55" fill={on ? "#FF9900" : "#C9CDD3"} style={{ transition: "fill 400ms ease" }} />
       <g style={{ opacity: on ? 1 : 0, transition: "opacity 400ms ease 200ms" }}>
         <rect x="30" y="26" width="48" height="10" rx="5" fill="#fff" opacity="0.95" />
         <rect x="30" y="50" width="40" height="10" rx="5" fill="#fff" opacity="0.7" />

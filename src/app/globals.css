@@ -8,16 +8,16 @@
 }
 
 @theme inline {
-  --color-paper: #FAF7F2;
-  --color-paper-2: #F1ECE4;
-  --color-ink: #14213D;
-  --color-ink-2: #3A4256;
+  --color-paper: #EAEDED;
+  --color-paper-2: #F3F3F3;
+  --color-ink: #0F1111;
+  --color-ink-2: #333333;
   --color-muted: #6B7280;
-  --color-line: #E3DED6;
-  --color-clay: #C9520F;
-  --color-clay-soft: #FDF1E8;
-  --color-amber: #E8641B;
-  --color-ok: #1E7F4F;
+  --color-line: #D5D9D9;
+  --color-clay: #C7511F;
+  --color-clay-soft: #FFF3E0;
+  --color-amber: #FFA41C;
+  --color-ok: #007600;
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-jetbrains);
@@ -32,8 +32,8 @@ body {
 }
 
 @layer base {
-  a { color: #0F5C8C; }
-  a:hover { color: #C9520F; }
+  a { color: #007185; }
+  a:hover { color: #C7511F; }
   h1, h2, h3 { letter-spacing: -0.015em; font-family: var(--font-display); }
 }
 
@@ -70,14 +70,14 @@ main p a:not(.btn), main li a:not(.btn) { text-decoration: underline; text-under
   transition: background .15s, box-shadow .15s;
 }
 /* One orange we own. Primary = the action; outline = the quieter choice. */
-.btn-primary, a.btn-primary { background: #E8641B; border: 1px solid #E8641B; color: #fff; box-shadow: 0 2px 8px rgba(232,100,27,.28); }
-.btn-primary:hover, a.btn-primary:hover { background: #C9520F; border-color: #C9520F; color: #fff; }
-.btn-cart, a.btn-cart { background: #fff; border: 1.5px solid #14213D; color: #14213D; }
-.btn-cart:hover, a.btn-cart:hover { background: #F1ECE4; color: #14213D; }
-.btn-dark, a.btn-dark { background: #14213D; border: 1px solid #14213D; color: #fff; }
-.btn-dark:hover, a.btn-dark:hover { background: #0D162B; color: #fff; }
-.btn-outline, a.btn-outline { border: 1.5px solid #14213D; color: #14213D; background: #fff; }
-.btn-outline:hover, a.btn-outline:hover { background: #F1ECE4; color: #14213D; }
+.btn-primary, a.btn-primary { background: #FFA41C; border: 1px solid #FF8F00; color: #0F1111; box-shadow: 0 2px 5px rgba(213,217,217,.5); }
+.btn-primary:hover, a.btn-primary:hover { background: #FA8900; border-color: #FA8900; color: #0F1111; }
+.btn-cart, a.btn-cart { background: #FFD814; border: 1px solid #FCD200; color: #0F1111; }
+.btn-cart:hover, a.btn-cart:hover { background: #F7CA00; color: #0F1111; }
+.btn-dark, a.btn-dark { background: #232F3E; border: 1px solid #232F3E; color: #fff; }
+.btn-dark:hover, a.btn-dark:hover { background: #131921; color: #fff; }
+.btn-outline, a.btn-outline { border: 1px solid #888C8C; color: #0F1111; background: #fff; box-shadow: 0 2px 5px rgba(213,217,217,.5); }
+.btn-outline:hover, a.btn-outline:hover { background: #F7FAFA; color: #0F1111; }
 
 .card {
   background: #fff;
@@ -94,7 +94,7 @@ input, select, textarea {
   font-size: 16px;
   background: #fff;
 }
-input:focus, select:focus, textarea:focus { outline: 2px solid #E8641B; outline-offset: 1px; }
+input:focus, select:focus, textarea:focus { outline: 2px solid #E77600; outline-offset: 1px; box-shadow: 0 0 0 3px #C8F3FA; }
 
 /* Printing the sales kit flyer: only the flyer prints. */
 @media print {

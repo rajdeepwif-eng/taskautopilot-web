@@ -13,7 +13,7 @@ export function HeaderSearch() {
   return (
     <form
       role="search"
-      className="flex h-[42px] min-w-0 flex-1 overflow-hidden rounded-xl bg-white focus-within:ring-2 focus-within:ring-amber"
+      className="flex h-[42px] min-w-0 flex-1 overflow-hidden rounded-xl bg-white focus-within:ring-2 focus-within:ring-[#FEBD69]"
       onSubmit={(e) => { e.preventDefault(); router.push(`/library/?q=${encodeURIComponent(q)}`); try { window.dispatchEvent(new CustomEvent("ta-search", { detail: q })); } catch { /* ignore */ } }}
     >
       <input
@@ -24,8 +24,8 @@ export function HeaderSearch() {
         aria-label="Search automations"
         className="min-w-0 flex-1 !rounded-none !border-0 !px-3 !py-0 text-[15px] text-ink"
       />
-      <button type="submit" aria-label="Search" className="flex w-11 cursor-pointer items-center justify-center border-0 bg-amber hover:bg-clay">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+      <button type="submit" aria-label="Search" className="flex w-11 cursor-pointer items-center justify-center border-0 bg-[#FEBD69] hover:bg-[#F3A847]">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F1111" strokeWidth="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
       </button>
     </form>
   );

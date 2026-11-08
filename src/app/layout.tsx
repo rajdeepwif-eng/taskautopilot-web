@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           { "@type": "Organization", "@id": `${SITE}/#org`, name: "TaskAutoMode", slogan: "Everyday tasks, automated for you", url: `${SITE}/`, logo: `${SITE}/icon.svg`, areaServed: ["US", "GB", "AU", "CA"], description: "Done-for-you, fixed-price business automation for owner-run businesses." },
           { "@type": "WebSite", name: "TaskAutoMode", url: `${SITE}/`, potentialAction: { "@type": "SearchAction", target: `${SITE}/library/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
         ] }) }} />
-        <header className="sticky top-0 z-30 bg-ink text-white shadow-[0_2px_8px_rgba(0,0,0,.25)]">
+        <header className="sticky top-0 z-30 bg-[#131921] text-white">
           <div className="mx-auto flex max-w-[1240px] items-center gap-3 px-4 py-2.5 sm:gap-5">
             <Link href="/" className="flex shrink-0 items-center rounded no-underline">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Attribution />
         <Analytics />
         <Assistant />
-        <footer className="mt-auto bg-ink text-[#D6DAE3] [&_a]:text-[#D6DAE3] [&_a:hover]:text-white">
+        <footer className="mt-auto bg-[#232F3E] text-[#DDD] [&_a]:text-[#DDD] [&_a:hover]:text-white">
           <div className="wrap border-b border-white/15 py-8"><div className="max-w-[560px]"><Subscribe /></div></div>
           <div className="wrap grid grid-cols-2 gap-6 py-10 text-sm md:grid-cols-5">
             <div className="flex flex-col gap-2"><b className="text-white">Shop</b><Link href="/library/">All automations</Link><Link href="/#trades">Shop by business type</Link><Link href="/starter/">Starter offer</Link><Link href="/kits/">Industry & DIY kits</Link><Link href="/academy/">Courses</Link></div>
