@@ -155,7 +155,7 @@ export default function LibraryClient() {
                     onClick={() => toggle(p.id)}
                     className={`min-h-[44px] cursor-pointer rounded-lg font-semibold ${inPlan(p.id) ? "border-0 bg-ink text-white" : "border border-clay bg-white text-clay"}`}
                   >
-                    {inPlan(p.id) ? "✓ In your cart — remove" : "+ Add to cart"}
+                    {inPlan(p.id) ? "✓ In your plan — remove" : "+ Add to my plan"}
                   </button>
                 </div>
               </article>
@@ -203,7 +203,7 @@ export default function LibraryClient() {
         </div>
 
         <aside className="flex min-w-0 flex-[1_1_320px] flex-col gap-3.5 rounded-2xl bg-ink p-6 text-paper lg:sticky lg:top-6">
-          <div className="font-display text-[22px] font-bold">Your cart</div>
+          <div className="font-display text-[22px] font-bold">Your plan</div>
           {planItems.length === 0 && <div className="text-[15px] text-[#A9ADB4]">Nothing yet. Add automations from the library.</div>}
           {planItems.map((p) => (
             <div key={p.id} className="flex justify-between gap-3 border-b border-[#2B2E33] pb-2.5 text-[15px]">
@@ -335,8 +335,8 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             {p.id === 120 ? (
               <Link href="/starter/" className="btn btn-primary">Choose your starter automation →</Link>
             ) : (<>
-              <button type="button" onClick={onAdd} className="btn btn-cart">{inPlan ? "✓ In your cart" : "Add to cart"}</button>
-              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve now"}</Link>
+              <Link href={`/checkout/?plan=${p.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy now" : "Reserve this build →"}</Link>
+              <button type="button" onClick={onAdd} className="border-0 bg-transparent p-0 text-[13.5px] text-ink-2 underline underline-offset-2" data-testid="add-plan">{inPlan ? "✓ In your plan — remove" : "Add to my plan with other automations"}</button>
               {isBuild && <button type="button" className="btn border border-line bg-white text-ink" onClick={() => window.dispatchEvent(new CustomEvent("ta:talk"))} data-testid="buy-talk">Not sure? Book a free call</button>}
             </>)}
             <EmailMe what={`${p.name} — ${priceLabel(p)}, how it works and what it needs`} kind="email-page" data={{ productId: p.id, product: p.name, price: p.price }} label="Not today? Email me this page" />

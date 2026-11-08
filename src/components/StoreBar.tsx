@@ -13,19 +13,19 @@ export function HeaderSearch() {
   return (
     <form
       role="search"
-      className="flex h-10 min-w-0 flex-1 overflow-hidden rounded-md bg-white focus-within:ring-2 focus-within:ring-[#FEBD69]"
+      className="flex h-[42px] min-w-0 flex-1 overflow-hidden rounded-xl bg-white focus-within:ring-2 focus-within:ring-amber"
       onSubmit={(e) => { e.preventDefault(); router.push(`/library/?q=${encodeURIComponent(q)}`); try { window.dispatchEvent(new CustomEvent("ta-search", { detail: q })); } catch { /* ignore */ } }}
     >
       <input
         type="search"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search automations — e.g. missed calls, invoices, bookings"
+        placeholder="Search automations"
         aria-label="Search automations"
-        className="min-w-0 flex-1 !rounded-none !border-0 !px-3 !py-0 text-[15px] text-[#0F1111]"
+        className="min-w-0 flex-1 !rounded-none !border-0 !px-3 !py-0 text-[15px] text-ink"
       />
-      <button type="submit" aria-label="Search" className="flex w-12 cursor-pointer items-center justify-center border-0 bg-[#FEBD69] hover:bg-[#F3A847]">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F1111" strokeWidth="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+      <button type="submit" aria-label="Search" className="flex w-11 cursor-pointer items-center justify-center border-0 bg-amber hover:bg-clay">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
       </button>
     </form>
   );
@@ -41,14 +41,10 @@ export function PlanLink() {
     window.addEventListener("storage", on);
     return () => { window.removeEventListener("ta-plan-change", on); window.removeEventListener("storage", on); };
   }, []);
-  const href = ids.length ? `/checkout/?plan=${ids.join(",")}` : "/library/";
+  if (!ids.length) return null;
   return (
-    <Link href={href} className="flex items-end gap-1 rounded px-1.5 py-1 text-white no-underline hover:outline hover:outline-1 hover:outline-white" aria-label={`Your cart, ${ids.length} items`}>
-      <span className="relative">
-        <svg width="34" height="28" viewBox="0 0 34 28" fill="none" stroke="#fff" strokeWidth="2" aria-hidden="true"><path d="M2 3h5l4 16h16l4-11H9" /><circle cx="13" cy="24" r="2" /><circle cx="25" cy="24" r="2" /></svg>
-        {ids.length > 0 && <span className="absolute -top-1.5 left-[15px] text-[15px] font-bold text-[#F08804]">{ids.length}</span>}
-      </span>
-      <span className="hidden text-[14px] font-bold sm:inline">Cart</span>
+    <Link href={`/checkout/?plan=${ids.join(",")}`} className="flex h-[42px] shrink-0 items-center gap-1.5 rounded-lg border border-white/60 px-3 text-[14px] font-semibold text-white no-underline hover:bg-white/15" aria-label={`Your plan, ${ids.length} items — go to checkout`} data-testid="plan-link">
+      <span>Your plan</span><span className="rounded-full bg-clay px-2 py-0.5 text-[12px] text-white">{ids.length}</span>
     </Link>
   );
 }

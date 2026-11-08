@@ -12,8 +12,8 @@ const FILES: [string, string, string][] = [
   ["Browser-tab icon", "taskautomode-favicon", "16–32 px only"],
 ];
 const COLOURS: [string, string, string][] = [
-  ["Navy", "#131921", "text, dark backgrounds"],
-  ["Orange", "#FF9900", "switch and 'AutoMode' on dark"],
+  ["Ink", "#14213D", "text, dark backgrounds"],
+  ["Orange", "#E8641B", "switch and 'AutoMode' on dark"],
   ["Deep orange", "#D9730D", "switch and 'AutoMode' on white (readable)"],
   ["White", "#FFFFFF", "knob, text on dark"],
   ["Slate", "#4A5360", "tagline on white"],
@@ -28,7 +28,7 @@ export default function BrandPage() {
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {FILES.map(([n, f, use]) => (
           <div key={f} className="card flex flex-col gap-3 p-5">
-            <div className={`flex min-h-[120px] items-center justify-center rounded-lg p-4 ${f.includes("dark") ? "bg-[#131921]" : "bg-white border border-line"}`}>
+            <div className={`flex min-h-[120px] items-center justify-center rounded-lg p-4 ${f.includes("dark") ? "bg-ink" : "bg-white border border-line"}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`${B}/brand/${f}.svg`} alt={n} className="max-h-[90px] max-w-full" />
             </div>
