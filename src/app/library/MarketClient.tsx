@@ -232,11 +232,17 @@ export default function MarketClient() {
                     <div className="mt-1 text-[14px] text-ink">{p.cat === "Courses" ? "Founding enrollment open" : p.cat === "DIY kits" ? <>Instant <b>download</b></> : <LiveBy days={p.days} />}</div>
                     {p.cat !== "Courses" && p.cat !== "DIY kits" && !p.monthly && <div className="text-[13px] text-ok">Approve the test run or full refund</div>}
                   </div>
-                  <div className="mt-2 flex flex-col gap-1.5">
-                    <Link href={`/p/${p.id}/`} className="btn btn-primary !min-h-[40px] !text-[14px]">See how it works →</Link>
-                    <button type="button" onClick={() => (inPlan(p.id) ? remove(p.id) : add(p))} className="min-h-[32px] cursor-pointer border-0 bg-transparent p-0 text-[13px] text-ink-2 underline underline-offset-2">
-                      {inPlan(p.id) ? "✓ In your plan — remove" : "Add to my plan"}
+                  <div className="mt-2 flex flex-col gap-2">
+                    <button
+                      type="button"
+                      onClick={() => (inPlan(p.id) ? remove(p.id) : add(p))}
+                      className={`min-h-[36px] cursor-pointer rounded-full text-[14px] ${inPlan(p.id) ? "border border-line bg-white text-ink" : "border border-[#FCD200] bg-[#FFD814] text-ink hover:bg-[#F7CA00]"}`}
+                    >
+                      {inPlan(p.id) ? "✓ In cart — remove" : "Add to cart"}
                     </button>
+                    <Link href={`/checkout/?plan=${p.id}`} className="flex min-h-[36px] items-center justify-center rounded-full border border-[#FF8F00] bg-[#FFA41C] text-[14px] text-ink no-underline hover:bg-[#FA8900] hover:text-ink">
+                      {PAYMENTS_LIVE ? "Buy now" : "Reserve now"}
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -264,7 +270,7 @@ export default function MarketClient() {
                       <b className="font-display text-xl">{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save 10% vs buying separately</span>
                     </div>
                     <button type="button" onClick={() => addMany(b.ids)} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber text-sm font-semibold text-ink">
-                      Add all {b.ids.length} to my plan
+                      Add all {b.ids.length} to cart
                     </button>
                   </div>
                 );
@@ -279,18 +285,18 @@ export default function MarketClient() {
         <div className="fixed inset-0 z-50 flex justify-end bg-[rgba(21,23,26,0.5)]" onClick={() => setCartOpen(false)}>
           <aside
             role="dialog"
-            aria-label="Your plan"
+            aria-label="Your cart"
             className="flex h-full w-full max-w-[400px] flex-col gap-3 overflow-y-auto bg-white p-5"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between">
-              <div className="font-display text-2xl font-bold">Your plan</div>
+              <div className="font-display text-2xl font-bold">Your cart</div>
               <button type="button" onClick={() => setCartOpen(false)} aria-label="Close" className="min-h-[44px] min-w-[44px] cursor-pointer border-0 bg-transparent text-2xl">×</button>
             </div>
             {justAdded && (
               <div className="rounded-lg bg-[#E5F4E4] px-3 py-2 text-[14px] font-semibold text-ok">✓ Added: {justAdded.name}</div>
             )}
-            {items.length === 0 && <div className="text-ink-2">Your plan is empty.</div>}
+            {items.length === 0 && <div className="text-ink-2">Your cart is empty.</div>}
             {items.map((p) => (
               <div key={p.id} className="flex items-start justify-between gap-3 border-b border-line pb-2.5">
                 <div className="flex flex-col">
@@ -343,7 +349,7 @@ export default function MarketClient() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span>Total: <b>{fmt(full * 0.9)}</b> <span className="text-sm text-ok">save 10% vs buying separately</span></span>
                   <button type="button" onClick={() => { addMany(b.ids); setOpen(null); }} className="min-h-[40px] cursor-pointer rounded-full border-0 bg-amber px-4 text-sm font-semibold text-ink">
-                    Add all {b.ids.length} to my plan
+                    Add all {b.ids.length} to cart
                   </button>
                 </div>
               </div>

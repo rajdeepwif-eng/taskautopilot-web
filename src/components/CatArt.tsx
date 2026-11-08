@@ -51,12 +51,12 @@ export function Logo({ size = 30 }: { size?: number }) {
   const w = Math.round(size * 1.82);
   return (
     <svg width={w} height={size} viewBox="0 0 200 110" aria-hidden="true">
-      <rect width="200" height="110" rx="55" fill="#E8641B" />
+      <rect width="200" height="110" rx="55" fill="#FF9900" />
       <rect x="30" y="26" width="48" height="10" rx="5" fill="#FFFFFF" opacity="0.95" />
       <rect x="30" y="50" width="40" height="10" rx="5" fill="#FFFFFF" opacity="0.7" />
       <rect x="30" y="74" width="32" height="10" rx="5" fill="#FFFFFF" opacity="0.45" />
       <circle cx="145" cy="55" r="43" fill="#FFFFFF" />
-      <path d="M121 57 L138 74 L171 39" fill="none" stroke="#14213D" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M121 57 L138 74 L171 39" fill="none" stroke="#131921" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

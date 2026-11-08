@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { loadPlan, savePlan } from "@/lib/plan";
 
 /** Yellow "Add to cart" button usable on any page; shares the cart with the header and shop. */
-export default function AddToCart({ ids, label = "Add to my plan", className = "" }: { ids: number[]; label?: string; className?: string }) {
+export default function AddToCart({ ids, label = "Add to cart", className = "" }: { ids: number[]; label?: string; className?: string }) {
   const [inCart, setInCart] = useState(false);
   useEffect(() => {
     const check = () => { const p = loadPlan(); setInCart(ids.every((id) => p.includes(id))); };
@@ -18,7 +18,7 @@ export default function AddToCart({ ids, label = "Add to my plan", className = "
       onClick={() => { const p = loadPlan(); savePlan(inCart ? p.filter((x) => !ids.includes(x)) : [...p, ...ids.filter((x) => !p.includes(x))]); }}
       className={`btn btn-cart ${className}`}
     >
-      {inCart ? "✓ In your plan" : label}
+      {inCart ? "✓ In your cart" : label}
     </button>
   );
 }

@@ -54,7 +54,7 @@ export default function SolutionView({ slug, country }: { slug: string; country:
             <h1 className="m-0 font-display text-[clamp(30px,4.5vw,46px)] font-bold leading-[1.08] tracking-tight">{solutionTitle(slug, country)}</h1>
             {s.problem.map((p) => <p key={p} className="m-0 max-w-[680px] text-[17px] leading-relaxed text-ink-2">{L(p)}</p>)}
             {s.stat && country === "us" && (
-              <p className="m-0 max-w-[680px] border-l-4 border-clay pl-3 text-[15px]"><b>{s.stat.text}</b> <a href={s.stat.url} rel="noopener" target="_blank" className="text-[13px]">{s.stat.source}</a></p>
+              <p className="m-0 max-w-[680px] border-l-4 border-[#FFA41C] pl-3 text-[15px]"><b>{s.stat.text}</b> <a href={s.stat.url} rel="noopener" target="_blank" className="text-[13px]">{s.stat.source}</a></p>
             )}
             <div className="flex flex-wrap items-center gap-3">
               <Link href={`/checkout/?plan=${main.id}`} className="btn btn-primary">{PAYMENTS_LIVE ? "Buy" : "Reserve"} {L(main.name).toLowerCase()} — {fmt(main.price)}</Link>

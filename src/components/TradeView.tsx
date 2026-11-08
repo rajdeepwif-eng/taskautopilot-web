@@ -75,7 +75,7 @@ export default function TradeView({ slug, country }: { slug: string; country: Co
               <div><b className="font-display text-4xl text-amber">{fmt(kitFull * 0.9)}</b> <span className="text-sm opacity-80">save 10% vs buying separately</span></div>
               {kitRun > 0 && <div className="text-[13px] opacity-80">+ ongoing support from {fmt(kitRun)}/mo (optional)</div>}
               <Link href={`/checkout/?plan=${kit.ids.join(",")}`} className="btn btn-primary">Buy the kit</Link>
-              <AddToCart ids={kit.ids} label="Add kit to my plan" />
+              <AddToCart ids={kit.ids} label="Add kit to cart" />
               <Link href="/ask/" className="text-center text-sm text-amber">Not sure? Get a free recommendation →</Link>
             </div>
           </div>

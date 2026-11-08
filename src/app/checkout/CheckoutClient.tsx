@@ -54,7 +54,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
   const fmtDue = (n: number) => (planX ? cx.local(n) : fmt(n));
 
   const pay = () => {
-    if (!items.length) return setErr("Nothing selected yet — pick an automation first.");
+    if (!items.length) return setErr("Your cart is empty — add something from the shop first.");
     if (!form.name.trim()) return setErr("Please add your name.");
     if (!/.+@.+\..+/.test(form.email)) return setErr("Please add a valid work email.");
     if (!terms) return setErr("Please accept the terms to continue.");
@@ -93,7 +93,7 @@ export default function CheckoutClient({ items }: { items: Product[] }) {
         <div className="text-[15px] text-ink-2">{PAYMENTS_LIVE ? "Pay now; tell us about your apps and team on a 10-minute setup form afterwards." : "Card payments open within the next two weeks. Reserve your build slot now — nothing is charged until you confirm."}</div>
 
         <div className="card flex flex-col gap-3 p-5">
-          <div className="flex items-baseline justify-between"><div className="font-bold">Your order</div><Link href="/library/" className="text-sm">Change</Link></div>
+          <div className="flex items-baseline justify-between"><div className="font-bold">Your order</div><Link href="/library/" className="text-sm">Edit cart</Link></div>
           {items.length === 0 && <div className="text-ink-2">Nothing selected. <Link href="/library">Browse the shop →</Link></div>}
           {items.map((p) => (
             <div key={p.id} className="flex justify-between gap-3 border-b border-line pb-2"><span>{p.name}{p.run && tier !== "none" && <span className="block text-[13px] text-muted">Support plan from {fmt(runLow(p))}/mo</span>}</span><span className="whitespace-nowrap">{priceLabel(p)}</span></div>
