@@ -285,17 +285,17 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             <div className="font-mono text-xs text-muted">{p.cat} · ● ready-made</div>
             {inline ? <h1 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h1> : <h2 className="font-display m-0 text-3xl font-bold leading-tight">{p.name}</h2>}
             <p className="m-0 text-[17px] leading-normal text-ink-2">{p.desc}</p>
-            {p.cat !== "Courses" && <div className="hidden md:block"><QuickRead p={p} /></div>}
+            {p.cat !== "Courses" && !p.download && <div className="hidden md:block"><QuickRead p={p} /></div>}
             {photo ? <div className="hidden md:block">{photo}</div> : <div className="relative aspect-[16/4] overflow-hidden rounded-lg"><CatArt cat={p.cat} /></div>}
             {isBuild && <StartFrom p={p} />}
             <div className="mt-1 text-[18px] font-bold">How it works</div>
-            {p.cat === "Courses" ? howItWorks(p).map((t, i) => (
+            {p.cat === "Courses" || p.download ? howItWorks(p).map((t, i) => (
               <div key={i} className="flex gap-3 text-[15px] leading-normal">
                 <span className="font-bold text-muted">0{i + 1}</span>
                 <span>{t}</span>
               </div>
             )) : <FlowPicture p={p} />}
-            <div className="mt-2 font-semibold">Automation vs doing it by hand</div>
+            {!p.download && <><div className="mt-2 font-semibold">Automation vs doing it by hand</div>
             <div className="flex flex-col gap-3 rounded-xl bg-paper p-4">
               <div className="flex flex-wrap gap-3">
                 <label className="flex flex-[1_1_160px] flex-col gap-1.5 text-sm">
@@ -316,17 +316,17 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
                 {p.cat === "Marketing" ? (p.replaces ? p.replaces + " " : "") : "Also: works nights and weekends, replies in seconds not hours, never forgets a step, and frees your people for work that needs a human. "}
                 <span className="text-muted">{p.wage ? `Starting rate is based on the US median for a ${p.role} (BLS, May 2025), converted — change it to your local rate.` : "Starting numbers are estimates — change them to yours."}</span>
               </div>
-            </div>
+            </div></>}
             {p.cat !== "Courses" && <div className="text-sm text-muted">Works with what you already use — for example {p.apps}. Not sure yours fits? We check for free before you pay.</div>}
             {isBuild && <BuyingGuide p={p} />}
-            {p.cat === "DIY kits" && <KitGuide p={p} />}
+            {p.cat === "DIY kits" && !p.download && <KitGuide p={p} />}
             {children}
           </div>
           <div className="order-first flex min-w-0 flex-[1_1_260px] flex-col gap-3 self-start rounded-lg border border-line bg-white p-5 md:order-none md:sticky md:top-4">
             {photo && <div className="-mx-5 -mt-5 mb-1 md:hidden" data-testid="product-photo-mobile">{photo}</div>}
             <div className="text-xl leading-tight md:hidden">{p.name}</div>
             <p className="m-0 text-[15px] leading-snug text-ink-2 md:hidden">{p.desc}</p>
-            {p.cat !== "Courses" && <div className="md:hidden"><QuickRead p={p} /></div>}
+            {p.cat !== "Courses" && !p.download && <div className="md:hidden"><QuickRead p={p} /></div>}
             <div className="text-[34px] font-medium leading-none">{priceLabel(p)}</div>
             {isBuild && <div className="text-[13.5px] leading-snug text-ink-2" data-testid="all-in">{p.monthly ? "per month" : "once"} + about $22/mo to n8n{usageShort(p) ? <> + {usageShort(p)}</> : null} (paid by you, at cost){p.run && !p.monthly ? <> + optional support from {fmt(runLow(p))}/mo</> : null}</div>}
             {!p.monthly && p.price >= 500 && p.cat !== "Courses" && p.cat !== "DIY kits" && <Link href={`/ways-to-pay/#monthly`} className="text-[14px]" data-testid="from-monthly">or spread the build cost: from {fmt(fromMonthly(p.price))}/mo (24 months, 20% deposit) · other ways to pay</Link>}
@@ -344,7 +344,7 @@ export function ProductDetail({ p, inPlan, onAdd, onClose, children, inline = fa
             {p.cat !== "Courses" && p.cat !== "DIY kits" && p.id !== 120 && <ol className="m-0 flex flex-col gap-0.5 rounded-lg bg-paper px-4 py-3 text-[13px] text-ink-2" data-testid="what-next"><b className="text-ink">What happens after you reserve</b><li>10-minute setup form — no call needed (book one if you’d like)</li><li>We build it in your own accounts</li><li>You approve a test run before go-live</li><li>Live, with a handover and results panel</li></ol>}
             <div className="text-sm leading-relaxed text-ink-2">
               {p.cat === "Courses" ? "✓ One-off fee, lifetime access to materials" : p.cat === "DIY kits" ? "✓ One-off fee, instant download" : p.monthly ? "✓ Monthly, 6-month minimum, then rolling" : "✓ Fixed price, one-off build"}
-              {!p.monthly && p.id !== 120 && <><br />✓ You own it — documented handover</>}
+              {!p.monthly && p.id !== 120 && <><br />{p.download ? "✓ Yours to keep — PDF + editable brief template, 30 days of email help" : "✓ You own it — documented handover"}</>}
               {isBuild && !p.monthly && (<><br />✓ Small changes free for {TWEAK_DAYS} days, fixes free for {BUG_DAYS} days{p.run ? <>, then optional support from {fmt(runLow(p))}/mo</> : null}</>)}
               {isBuild && (<><br />✓ Running costs paid by you, at cost — <a href="#costs" onClick={() => { const d = document.getElementById("costs") as HTMLDetailsElement | null; if (d) d.open = true; }}>see running costs</a></>)}
             </div>

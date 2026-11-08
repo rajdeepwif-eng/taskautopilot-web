@@ -2072,6 +2072,21 @@
       "ind": [
         "all"
       ]
+    },
+    {
+      "id": 147,
+      "cat": "DIY kits",
+      "name": "Roadside sign check — DIY kit",
+      "desc": "Make the sign outside your business readable at 30 mph. Drivers see it for about 4 seconds from 50 metres; most signs have too many words and letters too small. The kit: a 12-point scorecard with the measurements behind each test, a letter-height-vs-road-speed table, a wording checklist against UK advertising rules, a planning-rules pointer (not legal advice — check with your council), and a one-page brief template your sign maker can work from. Worked example: the before-and-after of our own equipment-hire yard's sign (43 words and a 174 mm headline → one message at about 210 mm, one web address, price including VAT). We don't print or fit signs. Outside the UK the legibility parts apply; we flag what to check locally.",
+      "apps": "A photo of your sign from the road, its size in mm, the road's speed limit, your sign maker",
+      "price": 49,
+      "days": 1,
+      "ind": [
+        "Trades & home services",
+        "Construction & equipment hire"
+      ],
+      "usage": "none",
+      "download": true
     }
   ],
   "how": {
@@ -2676,6 +2691,11 @@
       "A new lead arrives from your website, ads or email.",
       "It is scored on fit and intent — size, service, budget, urgency.",
       "Hot leads go straight to the right person; cold ones get a follow-up sequence."
+    ],
+    "147": [
+      "Download the kit: scorecard, letter-height table, wording checklist, planning pointer, sign-maker brief template.",
+      "Photograph your sign from where a driver first sees it, measure it, and score it against the 12 tests.",
+      "Fill in the one-page brief and hand it to your sign maker. 30 days of email help if you get stuck."
     ]
   },
   "defaultHours": {

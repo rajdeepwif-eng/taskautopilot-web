@@ -20,6 +20,8 @@ export type Product = {
   replaces?: string;
   /** Extra usage cost beyond n8n runs: voice / ai / sms / data / none. Overrides text detection. */
   usage?: string;
+  /** A pure download (no workflow, no n8n) — product page hides the automation flow and n8n notes. */
+  download?: boolean;
 };
 
 export type Bundle = { name: string; depts: string; desc: string; ids: number[]; kit?: boolean };
