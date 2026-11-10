@@ -74,7 +74,7 @@
       "id": 5,
       "cat": "Websites & portals",
       "name": "Booking platform Pro",
-      "desc": "Live availability, deposits, ID checks, e-signed agreements and an out-of-hours AI assistant that replies to customers who message you.",
+      "desc": "Live availability, deposits, ID checks, e-signed agreements and an out-of-hours AI assistant that replies to customers who message you. Customers can look up their own booking and reschedule, extend or end it online, with only free slots offered.",
       "apps": "Stripe, DocuSign, WhatsApp; an ID-check provider such as Stripe Identity",
       "price": 12250,
       "days": 30,
@@ -194,7 +194,7 @@
       "id": 12,
       "cat": "Sales",
       "name": "AI outbound prospecting",
-      "desc": "Finds ideal prospects, researches them and drafts personal emails you approve before sending. Business addresses only, with an opt-out in every email.",
+      "desc": "Finds ideal prospects, including companies newly registered near you, finds a business contact email, researches them and drafts personal emails you approve before sending. Business addresses only, with an opt-out in every email. Replies, bounces and opt-outs are logged automatically.",
       "apps": "Companies House or licensed B2B data (e.g. Apollo), your CRM, Gmail/Outlook, Salesforce; LinkedIn research done by hand",
       "price": 4800,
       "days": 15,
@@ -1856,7 +1856,7 @@
       "id": 130,
       "cat": "Industry",
       "name": "Equipment utilization & idle-asset alerts",
-      "desc": "See how often each machine is out on hire, get alerts when something has sat idle too long, and send targeted offers to past customers who hired similar kit. Offers go only to customers who can receive marketing, with an unsubscribe link on each.",
+      "desc": "See how often each machine is out on hire and what it earned each month in one scorecard, get alerts when something has sat idle too long, and send targeted offers to past customers who hired similar kit. Offers go only to customers who can receive marketing, with an unsubscribe link on each.",
       "apps": "Your existing apps — Gmail or Outlook, Xero or QuickBooks, your CRM, Slack or WhatsApp; your hire or booking system",
       "price": 2600,
       "days": 10,
@@ -2072,6 +2072,33 @@
       "ind": [
         "all"
       ]
+    },
+    {
+      "id": 147,
+      "cat": "Finance",
+      "name": "Accounts backup to your own storage",
+      "desc": "Every invoice, bill and receipt in your accounting app is copied as a PDF into storage you own — OneDrive, Google Drive or Dropbox — in tidy folders by year, month and customer. A nightly catch-up picks up anything new or edited, and a quarterly check confirms nothing is missing. If the app has an outage, you change provider, or the tax office asks for records from years ago, they're already in your hands.",
+      "apps": "Xero, QuickBooks, Zoho Books, Sage; OneDrive, Google Drive or Dropbox",
+      "price": 900,
+      "days": 7,
+      "ind": [
+        "all"
+      ],
+      "run": "$50–100/mo"
+    },
+    {
+      "id": 148,
+      "cat": "Industry",
+      "name": "Hire handover & damage evidence",
+      "desc": "Photo evidence at every step of a hire: the load secured before the truck leaves, a handover at delivery with the customer's name and site condition, and the machine's condition when it comes back. Anything new on return is compared with the delivery photos and turned into a damage pack — photos side by side, the checklist, times and who signed — ready to send to the customer or your insurer. Built on the checklist app you already use.",
+      "apps": "Mitti (formerly SafetyCulture), Jotform or Google Forms, your job system, email",
+      "price": 2400,
+      "days": 15,
+      "ind": [
+        "Construction & equipment hire",
+        "Logistics & transport"
+      ],
+      "run": "$100–200/mo"
     }
   ],
   "how": {
@@ -2676,6 +2703,16 @@
       "A new lead arrives from your website, ads or email.",
       "It is scored on fit and intent — size, service, budget, urgency.",
       "Hot leads go straight to the right person; cold ones get a follow-up sequence."
+    ],
+    "147": [
+      "Each night, new or edited invoices, bills and receipts are saved as PDFs to your own storage.",
+      "Folders are kept tidy by year, month and customer or supplier.",
+      "Each quarter, a check confirms every record is there and tells you if anything is missing."
+    ],
+    "148": [
+      "Drivers photograph the secured load before leaving and the handover on site.",
+      "On return, the yard team photographs the machine against the same checklist.",
+      "Anything new is matched to the delivery photos and a damage pack is ready for you to approve and send."
     ]
   },
   "defaultHours": {
